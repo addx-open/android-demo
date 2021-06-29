@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Ugrás a főoldalra"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Fel"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"További lehetőségek"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Kész"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Az összes megtekintése"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Válasszon alkalmazást"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"KI"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"BE"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Szóköz"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Keresés…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Lekérdezés törlése"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Keresési lekérdezés"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Keresés"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Lekérdezés küldése"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Hangalapú keresés"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Megosztás a következővel:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Megosztás a következő alkalmazással: <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Összecsukás"</string>
+    <string name="articles_list_fragment_error_message">Nem sikerült lekérni a bejegyzéseket</string>
+    <string name="articles_list_fragment_no_articles_found">Nem találhatóak bejegyzések</string>
+    <string name="ask_request_list_failed_request_message">Üzenet küldése sikertelen</string>
+    <string name="belvedere_dialog_camera">Kamera</string>
+    <string name="belvedere_dialog_gallery">Galéria</string>
+    <string name="belvedere_fam_desc_collapse_fam">A lebegő műveleti menü összecsukása</string>
+    <string name="belvedere_fam_desc_expand_fam">A lebegő műveleti menü kibontása</string>
+    <string name="belvedere_fam_desc_open_gallery">Fájl importálása a galériából</string>
+    <string name="belvedere_fam_desc_open_google_photos">Kép importálása a Google Fotókból</string>
+    <string name="belvedere_image_stream_file_too_large">Túl nagy a fájl</string>
+    <string name="belvedere_image_stream_title">Fotóalbum</string>
+    <string name="belvedere_image_stream_unknown_app">Ismeretlen</string>
+    <string name="belvedere_permissions_denied">Engedélyek megtagadva</string>
+    <string name="belvedere_stream_item_camera_tile_desc">Kép importálása a kamerából</string>
+    <string name="belvedere_stream_item_select_file_desc">%s nevű fájl kiválasztása</string>
+    <string name="belvedere_stream_item_select_image_desc">%s nevű kép kiválasztása</string>
+    <string name="belvedere_stream_item_unselect_file_desc">%s nevű fájl kiválasztásának megszüntetése</string>
+    <string name="belvedere_stream_item_unselect_image_desc">%s nevű kép kiválasztásának megszüntetése</string>
+    <string name="belvedere_toolbar_desc_collapse">A képválasztó bezárása</string>
+    <string name="categories_list_fragment_error_message">Nem sikerült lekérni a kategóriákat</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Engedélyezés"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"A(z) <ns1:g id="APP_NAME">%1$s</ns1:g> alkalmazás csak akkor működik, ha  engedélyezi a Google Play-szolgáltatásokat."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play-szolgáltatások engedélyezése"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"Telepítés"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"A(z) <ns1:g id="APP_NAME">%1$s</ns1:g> alkalmazás nem fut a Google Play-szolgáltatások nélkül, amelyek hiányoznak az eszközről."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"A Google Play-szolgáltatások beszerzése"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"Google Play-szolgáltatások elérhetősége"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Google Play-szolgáltatások – hiba"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"A(z) <ns1:g id="APP_NAME">%1$s</ns1:g> alkalmazás problémába ütközött a Google Play-szolgáltatások használata során. Próbálkozzon újra."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"A(z) <ns1:g id="APP_NAME">%1$s</ns1:g> alkalmazás nem fut a Google Play-szolgáltatások nélkül, amelyeket eszköze nem támogat."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"Frissítés"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"A(z) <ns1:g id="APP_NAME">%1$s</ns1:g> alkalmazás csak akkor fog működni, ha frissíti a Google Play-szolgáltatásokat."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"A Google Play-szolgáltatások frissítése"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"A(z) <ns1:g id="APP_NAME">%1$s</ns1:g> alkalmazás nem fut a Google Play-szolgáltatások nélkül, amelyek frissítése folyamatban van."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"A Google Play-szolgáltatások új verziójára van szükség. A szolgáltatás hamarosan frissíti önmagát."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"Megnyitás a telefonon"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"Bejelentkezés"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Bejelentkezés Google-fiókkal"</string>
+    <string name="contact_fragment_title">Kapcsolat</string>
+    <string name="error_msg_invalid_email">Érvényes e-mail-címet adjon meg</string>
+    <string name="error_msg_invalid_message">Írja be az üzenetét</string>
+    <string name="error_msg_invalid_name">Adja meg a teljes nevét</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Egyéb"</string>
+    <string name="help_search_no_results_label">Nincs eredmény a következőre: </string>
+    <string name="help_see_all_articles_label">Összes cikk megtekintése</string>
+    <string name="help_see_all_n_articles_label">Összes (%d) cikk megtekintése</string>
+    <string name="hms_abort" priority="translator">"Leállítás"</string>
+    <string name="hms_abort_message" priority="translator">"Leállítja a letöltést?"</string>
+    <string name="hms_bindfaildlg_message" priority="translator">"%1$s nem tudja használni a Huawei Mobile Services-t. Indítsa el az Optimalizálót (Telefonkezelő), vagy lépjen a Beállításokba és engedélyezze a(z) %2$s összes jogosultságát (beleértve az automatikus indítást és másodlagos indítást), majd próbálja újra."</string>
+    <string name="hms_cancel" priority="translator">"Mégse"</string>
+    <string name="hms_check_failure" priority="translator">"Frissítések keresése sikertelen."</string>
+    <string name="hms_check_no_update" priority="translator">"A verziója naprakész."</string>
+    <string name="hms_checking" priority="translator">"Frissítések keresése..."</string>
+    <string name="hms_confirm" priority="translator">"OK"</string>
+    <string name="hms_download_failure" priority="translator">"A Huawei Mobile Services csomag letöltése sikertelen."</string>
+    <string name="hms_download_no_space" priority="translator">"Nincs elég tárhely. A letöltés nem fejezhető be."</string>
+    <string name="hms_download_retry" priority="translator">"Letöltés sikertelen. Újrapróbálja?"</string>
+    <string name="hms_downloading" priority="translator">"Huawei Mobile Services letöltése | állapot: %d%%"</string>
+    <string name="hms_downloading_loading" priority="LT">"Letöltés"</string>
+    <string name="hms_downloading_new" priority="LT">"HMS letöltése"</string>
+    <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+    <string name="hms_install" priority="translator">"Telepítés"</string>
+    <string name="hms_install_message" priority="translator">"A Huawei Mobile Services telepítve kell legyen a funkció használatához. Telepíti?"</string>
+    <string name="hms_push_channel" priority="translator">"Alapértelmezett"</string>
+    <string name="hms_retry" priority="translator">"Újra"</string>
+    <string name="hms_update" priority="translator">"Frissítés"</string>
+    <string name="hms_update_continue" priority="LT">"Letöltés"</string>
+    <string name="hms_update_message" priority="translator">"A funkció használatához frissítsen a Huawei Mobile Services legfrissebb verzióra. Frissíti most?"</string>
+    <string name="hms_update_message_new" priority="LT">"A szolgáltatásnak szüksége van az alábbi alkalmazás legfrissebb verziójára:\n\n%1$s"</string>
+    <string name="hms_update_nettype" priority="LT">"Nincs Wi-Fi kapcsolat. Letöltés mobil adatforgalommal?"</string>
+    <string name="hms_update_title" priority="translator">"Huawei Mobile Services"</string>
+    <string name="network_activity_no_connectivity">Nincs kapcsolat</string>
+    <string name="request_attachment_generic_unknown_app">Ismeretlen</string>
+    <string name="request_dialog_body_unsaved_changes">A visszalépés törölni fogja az üzenetét. Biztos benne, hogy törölni szeretné?</string>
+    <string name="request_dialog_button_label_cancel">Mégse</string>
+    <string name="request_dialog_button_label_delete">Törlés</string>
+    <string name="request_dialog_title_unsaved_changes">Üzenet nincs elküldve</string>
+    <string name="request_email_entry_hint">E-mail</string>
+    <string name="request_error_create_request">Nem sikerült a kérelem létrehozása</string>
+    <string name="request_error_load_comments">Nem sikerült a hozzászólások betöltése</string>
+    <string name="request_file_attachment_download_in_progress">A fájl letöltése folyamatban</string>
+    <string name="request_list_activity_title">Saját jegyek</string>
+    <string name="request_list_empty_start_conversation">BESZÉLGETÉS INDÍTÁSA</string>
+    <string name="request_list_empty_text">Az alkalmazásból indított beszélgetések itt lesznek láthatók.</string>
+    <string name="request_list_fragment_error_message">Nem sikerült lekérni a jegyeket</string>
+    <string name="request_list_me">Én</string>
+    <string name="request_list_re">Re: %s</string>
+    <string name="request_list_ticket_closed">Lezárt jegy</string>
+    <string name="request_menu_button_label_add_attachments">Csatolmányok hozzáadása</string>
+    <string name="request_menu_button_label_send">Küldés</string>
+    <string name="request_message_date_today">MA</string>
+    <string name="request_message_date_yesterday">TEGNAP</string>
+    <string name="request_message_entry_hint">Üzenet</string>
+    <string name="request_message_status_delivered">Elküldött</string>
+    <string name="request_messages_status_error">Üzenet küldése sikertelen. Koppintson az újraküldéshez</string>
+    <string name="request_name_entry_hint">Név</string>
+    <string name="request_retry_dialog_delete_message">Üzenet törlése</string>
+    <string name="request_retry_dialog_retry">Újraküldés</string>
+    <string name="request_system_message_closed_ticket">Ezt a beszélgetést lezárták.</string>
+    <string name="request_toolbar_last_reply">Utolsó válasz: %s</string>
+    <string name="request_write_a_message">Üzenet írása</string>
+    <string name="retry_view_button_label">Újra</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Keresés"</string>
+    <string name="sections_list_fragment_error_message">Nem sikerült lekérni a szekciót</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="support_activity_title">Támogatás</string>
+    <string name="support_conversations_menu">Párbeszédek</string>
+    <string name="upsdk_app_dl_installing" priority="LT">"AppGallery letöltése"</string>
+    <string name="upsdk_app_download_info_new" priority="translator">"Telepítés"</string>
+    <string name="upsdk_app_size" priority="translator">"Méret"</string>
+    <string name="upsdk_app_version" priority="translator">"Verzió"</string>
+    <string name="upsdk_cancel" priority="translator">"Mégse"</string>
+    <string name="upsdk_checking_update_prompt" priority="translator">"Frissítések keresése..."</string>
+    <string name="upsdk_choice_update" priority="LT">"Frissítés érhető el. Töltse le, és telepítse a legfrissebb verziót."</string>
+    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Nem lehet csatlakozni a szerverhez. Próbálja újra később."</string>
+    <string name="upsdk_detail" priority="translator">"Részletek"</string>
+    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Információ lekérése sikertelen. Próbálja újra később."</string>
+    <string name="upsdk_install" priority="LT">"Telepítse az AppGallery-t a frissítéshez. Telepíti most?"</string>
+    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Nincs internetkapcsolat. Ellenőrizze a hálózati beállításait."</string>
+    <string name="upsdk_ota_app_name" priority="LT">"Alkalmazás"</string>
+    <string name="upsdk_ota_cancel" priority="translator">"Később"</string>
+    <string name="upsdk_ota_force_cancel_new" priority="LT">"Kilépés"</string>
+    <string name="upsdk_ota_notify_updatebtn" priority="translator">"Frissítés"</string>
+    <string name="upsdk_ota_title" priority="translator">"Új verzió"</string>
+    <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Megszakítja a telepítést?"</string>
+    <string name="upsdk_third_app_dl_install_failed" priority="translator">"Telepítés sikertelen."</string>
+    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Igen"</string>
+    <string name="upsdk_update_check_no_new_version" priority="Reviewed">"A verziója naprakész."</string>
+    <string name="upsdk_updating" priority="translator">"Frissítés"</string>
+    <string name="view_article_attachments_error">Nem sikerült betölteni a csatolmányokat</string>
+    <string name="view_article_vote_prompt">Hasznos volt ez a cikk?</string>
+    <string name="zab_cell_text_acknowledgement_did_help">Örülünk, hogy segítettünk. A tudás hatalom.</string>
+    <string name="zab_cell_text_acknowledgement_did_not_help">Értem. Még nem kapott választ a kérdésére.</string>
+    <string name="zab_cell_text_answerbot_disabled_header">Fel is veheti velünk a kapcsolatot.</string>
+    <string name="zab_cell_text_answerbot_disabled_response">Ajjaj! Valami probléma történt. Jelenleg nem tudok kérdésekre válaszolni.</string>
+    <string name="zab_cell_text_contact_options_header">Szeretné felvenni velünk a kapcsolatot?</string>
+    <string name="zab_cell_text_did_help_ask_again">Ha van másik kérdése, csak írja be, én pedig megkeresem rá a választ.</string>
+    <string name="zab_cell_text_help_followup_question">Adjon meg további információkat. Kapcsolódott ez a cikk a kérdéséhez?</string>
+    <string name="zab_cell_text_inactivity_contact_option_header">Vagy fel is veheti velünk a kapcsolatot.</string>
+    <string name="zab_cell_text_no_articles">Nem találtam egyetlen kapcsolódó cikket sem.</string>
+    <string name="zab_cell_text_prompt">Tegye fel a kérdését, én pedig megkeresem rá a választ.</string>
+    <string name="zab_cell_text_prompt_another_question">Feltehet egy másik kérdést is.</string>
+    <string name="zab_cell_text_prompt_another_question_no_transfer_options">Vagy megpróbálhat feltenni egy másik kérdést.</string>
+    <string name="zab_cell_text_question_did_article_help_with_question">A megtekintett cikk segített választ találni a kérdésére?</string>
+    <string name="zab_cell_text_welcome">Üdv!</string>
+    <string name="zab_error_load_article">Nem sikerült betölteni a cikket</string>
+    <string name="zab_hint_type_your_question">Írja be a kérdését…</string>
+    <string name="zab_view_article_help_followup_question">Kapcsolódott ez a cikk a kérdéséhez?</string>
+    <string name="zab_view_article_help_no">Nem, további segítségre van szükségem</string>
+    <string name="zab_view_article_help_question">Ez a cikk választ ad a kérdésre?</string>
+    <string name="zab_view_article_help_reason_didnt_answer">A kérdésemmel kapcsolatos, de nem ad rá választ</string>
+    <string name="zab_view_article_help_reason_not_related">Nem a kérdésemmel kapcsolatos</string>
+    <string name="zab_view_article_help_yes">Igen</string>
+    <string name="zab_view_article_loaded_accessibility">%s cikk betöltve</string>
+    <string name="zch_chat_comment_acknowledgement">Köszönjük a visszajelzését. Most visszatérhet a csevegéshez.</string>
+    <string name="zch_chat_comment_composer_hint">Írja be megjegyzését…</string>
+    <string name="zch_chat_ended">Csevegés befejezve</string>
+    <string name="zch_chat_handover_message_selection">Csevegés egy munkatárssal</string>
+    <string name="zch_chat_rating_comment_action_label">Megjegyzés hozzáadása</string>
+    <string name="zch_chat_rating_comment_prompt_message">Nagyra értékeljük visszajelzését. Ha szeretne, egy részletesebb megjegyzést is hozzáfűzhet.</string>
+    <string name="zch_chat_rating_label_bad">Rossz 👎</string>
+    <string name="zch_chat_rating_label_good">Jó 👍</string>
+    <string name="zch_chat_rating_request_prompt">Üdv! Szeretném megkérdezni, hogyan zajlott a csevegés a következővel: %s?</string>
+    <string name="zch_chat_transcript_email_prompt">Milyen e-mail-címre küldjük az átiratot?</string>
+    <string name="zch_chat_transcript_prompt">Szeretné megkapni e-mailben ennek a csevegésnek az átiratát?</string>
+    <string name="zch_chat_transcript_request_confirmation">A csevegés végén a rendszer elküldi az átiratot a(z) %1$s címre.</string>
+    <string name="zch_chat_welcome_message_handover">OK. Keresek valakit, aki segítséget tud nyújtani a kérdésével kapcsolatban.</string>
+    <string name="zch_end_chat">Csevegés befejezése</string>
+    <string name="zch_member_join">%1$s csatlakozott a csevegéshez</string>
+    <string name="zch_member_leave">%1$s elhagyta a csevegést</string>
+    <string name="zch_offline_form_completion_acknowledgement">Megkaptuk az üzenetét, és amint lehet, válaszolunk Önnek.</string>
+    <string name="zch_offline_form_introduction_message">Szükségem van néhány további információra ahhoz, hogy online állapotú munkatársunk felvehesse Önnel a kapcsolatot.</string>
+    <string name="zch_offline_form_message_field_prompt">Miben segíthetünk Önnek, ha munkatársaink ismét online állapotban lesznek?</string>
+    <string name="zch_offline_form_welcome_message">Üdv! Sajnos jelenleg senki sincs online.</string>
+    <string name="zch_offline_message">Sajnos jelenleg senki sincs online. Nézzen vissza később.</string>
+    <string name="zch_pre_chat_department_field_message">Melyik részleg lenne a legilletékesebb kérdése megválaszolásában?</string>
+    <string name="zch_pre_chat_email_field_hint">Mi az e-mail-címe?</string>
+    <string name="zch_pre_chat_email_field_invalid_message">A megadott e-mail-cím helytelen. Adjon meg egy érvényes e-mail-címet.</string>
+    <string name="zch_pre_chat_email_field_message">Mi az e-mail-címe?</string>
+    <string name="zch_pre_chat_introduction_greeting">Üdv!</string>
+    <string name="zch_pre_chat_introduction_message">Máris keresek valakit, aki segít Önnek. Először néhány információra van szükségem.</string>
+    <string name="zch_pre_chat_message_acknowledgement">Máris keresek valakit, aki segít Önnek. Először is szükségem van néhány további információra.</string>
+    <string name="zch_pre_chat_name_field_hint">Hogy hívják?</string>
+    <string name="zch_pre_chat_name_field_message">Hogy hívják?</string>
+    <string name="zch_pre_chat_phone_field_hint">Mi a telefonszáma?</string>
+    <string name="zch_pre_chat_phone_field_message">Mi a telefonszáma?</string>
+    <string name="zch_pre_chat_response_accepted_message">Köszönöm!</string>
+    <string name="zch_pre_chat_skip_button">Kihagyás</string>
+    <string name="zch_pre_chat_welcome_message">Üdv! Miben segíthetünk?</string>
+    <string name="zch_queue_position">A sorban elfoglalt hely: %1$d</string>
+    <string name="zch_request_transcript">Átirat kérése</string>
+    <string name="zg_general_contact_us_button_label_accessibility">Kapcsolat</string>
+    <string name="zg_general_no_connection_message">Nincs kapcsolat</string>
+    <string name="zs_engine_greeting_message">Írjon be egy üzenetet, én pedig találok valakit, aki segíthet.</string>
+    <string name="zs_engine_message_retry_button">Újra</string>
+    <string name="zs_engine_message_send_error_message">Valami hiba történt, és nem tudtam elküldeni az üzenetét. Próbálkozzon újra később.</string>
+    <string name="zs_engine_request_created_conversations_enabled_message">Köszönjük! Az üzenet elküldve a csapatnak. Itt megtekintheti az üzenetet, és további információkat adhat meg:</string>
+    <string name="zs_engine_request_created_conversations_off_message">Köszönjük! Az üzenetet elküldtük a csapatnak. Ha az üzenet választ igényel, akkor e-mailben felveszik Önnel a kapcsolatot.</string>
+    <string name="zs_engine_request_created_request_list_button">Üzenetek megtekintése</string>
+    <string name="zs_engine_request_creation_email_prompt_hint">Adja meg e-mail-címét…</string>
+    <string name="zs_engine_request_creation_email_prompt_message">Ha az üzenet választ igényel, akkor egy munkatárs e-mailt küld Önnek. Mi az Ön e-mail-címe?</string>
+    <string name="zs_engine_request_creation_email_validation_failed_message">A megadott e-mail-cím helytelen. Kérjük, érvényes e-mail-címet adjon meg.</string>
+    <string name="zs_general_contact_us_button_label_accessibility">Kapcsolatfelvétel</string>
+    <string name="zs_general_referrer_logo_label_accessibility">Zendesk</string>
+    <string name="zs_help_center_content_loaded_accessibility">Súgóközpont betöltve</string>
+    <string name="zs_help_center_search_loaded_accessibility">Keresési eredmények betöltve</string>
+    <string name="zs_request_announce_comment_created_accessibility">%s szövegű megjegyzés elküldve.</string>
+    <string name="zs_request_announce_comment_failed_accessibility">Nem hozható létre a megjegyzés a következő szöveggel: %s</string>
+    <string name="zs_request_announce_comments_loaded_accessibility">Megjegyzések betöltve.</string>
+    <string name="zs_request_attachment_carousel_attachment_accessibility">%s nevű csatolt fájl.</string>
+    <string name="zs_request_attachment_carousel_remove_attachment_accessibility">%s nevű csatolmány eltávolítása.</string>
+    <string name="zs_request_attachment_indicator_accessibility">Csatolmány kiválasztása.</string>
+    <string name="zs_request_attachment_indicator_n_attachments_selected_accessibility">%d csatolmány van kiválasztva.</string>
+    <string name="zs_request_attachment_indicator_no_attachments_selected_accessibility">Nincsenek kiválasztva csatolmányok.</string>
+    <string name="zs_request_attachment_indicator_one_attachments_selected_accessibility">Egy csatolmány van kiválasztva.</string>
+    <string name="zs_request_contact_option_leave_a_message">Üzenet írása</string>
+    <string name="zs_request_list_content_load_failed_accessibility">Nem sikerült betölteni a támogatási jegyeket</string>
+    <string name="zs_request_list_content_loaded_accessibility">Támogatási jegyek betöltve</string>
+    <string name="zs_request_list_content_loaded_empty_accessibility">Nincsenek támogatási jegyek</string>
+    <string name="zs_request_list_content_loading_accessibility">Támogatási jegyek betöltése</string>
+    <string name="zs_request_message_agent_file_accessibility">A munkatárs %s nevű csatolt fájlja.</string>
+    <string name="zs_request_message_agent_image_accessibility">A munkatárs %s nevű csatolt képe.</string>
+    <string name="zs_request_message_agent_sent_accessibility">%1$s küldte ekkor: %2$s.</string>
+    <string name="zs_request_message_agent_text_accessibility">Munkatárs üzenete: %s.</string>
+    <string name="zs_request_message_user_error_accessibility">A küldés sikertelen. Érintse meg a lehetőségekért.</string>
+    <string name="zs_request_message_user_file_accessibility">%s nevű fájl.</string>
+    <string name="zs_request_message_user_image_accessibility">%s nevű kép.</string>
+    <string name="zs_request_message_user_sent_accessibility">Ön küldte ekkor: %s</string>
+    <string name="zs_request_message_user_text_accessibility">Üzenet: %s.</string>
+    <string name="zs_request_toolbar_accessibility">%1$s utolsó válasza ekkor: %2$s.</string>
+    <string name="zs_view_article_error">A cikk beolvasása sikertelen</string>
+    <string name="zs_view_article_loaded_accessibility">%s cikk betöltve</string>
+    <string name="zs_view_article_vote_no_accessibility">Nincs szavazat</string>
+    <string name="zs_view_article_vote_no_remove_accessibility">Az igen szavazat eltávolítása</string>
+    <string name="zs_view_article_vote_yes_accessibility">Igen szavazat</string>
+    <string name="zs_view_article_vote_yes_remove_accessibility">A nem szavazat eltávolítása</string>
+    <string name="zs_view_article_voted_failed_accessibility_announce">Sikertelen szavazás</string>
+    <string name="zs_view_article_voted_no_accessibility_announce">Nemmel szavazott</string>
+    <string name="zs_view_article_voted_yes_accessibility_announce">Igennel szavazott</string>
+    <string name="zui_attachment_indicator_accessibility">Csatolmány kiválasztása</string>
+    <string name="zui_attachment_indicator_n_attachments_selected_accessibility">%d csatolmány van kiválasztva</string>
+    <string name="zui_attachment_indicator_no_attachments_selected_accessibility">Nincsenek csatolmányok kiválasztva</string>
+    <string name="zui_attachment_indicator_one_attachments_selected_accessibility">Egy csatolmány van kiválasztva</string>
+    <string name="zui_bot_label">ROBOT</string>
+    <string name="zui_button_label_no">Nem</string>
+    <string name="zui_button_label_yes">Igen</string>
+    <string name="zui_cell_text_suggested_article_header">Ez a cikk segíthet:</string>
+    <string name="zui_cell_text_suggested_articles_header">Ezek a cikkek segíthetnek:</string>
+    <string name="zui_default_bot_name">Answer Bot</string>
+    <string name="zui_dialog_email_error">Érvénytelen e-mail-cím</string>
+    <string name="zui_dialog_email_hint">E-mail-cím</string>
+    <string name="zui_failed_message_copy">Másolás</string>
+    <string name="zui_failed_message_delete">Törlés</string>
+    <string name="zui_failed_message_retry">Újra</string>
+    <string name="zui_hint_type_message">Írja be üzenetét…</string>
+    <string name="zui_label_connecting">Kapcsolódás…</string>
+    <string name="zui_label_dialog_delete_btn">Üzenet törlése</string>
+    <string name="zui_label_dialog_retry_btn">Újraküldés</string>
+    <string name="zui_label_failed">Sikertelen</string>
+    <string name="zui_label_reconnecting">Újracsatlakozás…</string>
+    <string name="zui_label_reconnecting_failed">A csatlakozás nem sikerült.</string>
+    <string name="zui_label_send">Küldés</string>
+    <string name="zui_label_sent">Elküldve</string>
+    <string name="zui_label_tap_retry">Koppintson a küldés megismétléséhez</string>
+    <string name="zui_message_log_article_opened_formatter">%1$s megnyitotta a következő cikket: \„%2$s\”</string>
+    <string name="zui_message_log_article_suggestion_message">Ezeket a cikkeket találtam:</string>
+    <string name="zui_message_log_attachment_sending_failed">A mellékletet nem lehet elküldeni</string>
+    <string name="zui_message_log_default_visitor_name">Látogató</string>
+    <string name="zui_message_log_message_attachment_type_not_supported">A melléklettípus nem támogatott</string>
+    <string name="zui_message_log_message_attachments_not_supported">A mellékletek nem támogatottak</string>
+    <string name="zui_message_log_message_failed_to_send">[A küldés sikertelen]</string>
+    <string name="zui_message_log_message_file_exceeds_max_size">A fájl mérete meghaladja a megengedett méretet (%1$s)</string>
+    <string name="zui_message_log_transfer_option_selection_formatter">A(z) %1$s kijelölte ezt: %2$s</string>
+    <string name="zui_retry_button_label">Újra</string>
+    <string name="zui_toolbar_title">Kapcsolat</string>
+    <string name="zui_unable_open_file">A fájl nem nyitható meg.</string>
+</resources>

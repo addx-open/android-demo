@@ -1,0 +1,55 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/yuanshiyue/addx/addx_video_open_sdk/demo/app/build/intermediates/incremental/mergeDemoDebugResources/merged.dir/values-land/values-land.xml",
+            "map": [
+                {
+                    "source": "/home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/635383cb25ed7efbba9e78db14481a53/belvedere-3.0.0-RC/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "61",
+                        "endOffsets": "112"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "264",
+                        "endColumns": "61",
+                        "endOffsets": "321"
+                    }
+                },
+                {
+                    "source": "/home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/c1210059822c0f4a6a60a6d67e3f9ee5/appcompat-1.2.0/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "/home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d34a49854543868353d60c64729ebef5/material-1.2.1/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,24,30",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,128,198,270,340,405,472,542,614,683,752,834,924,1000,1068,1135,1213,1278,1345,1517,1912",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,23,29,34",
+                        "endColumns": "72,69,71,69,64,66,69,71,68,68,81,89,75,67,66,77,64,66,10,10,10",
+                        "endOffsets": "123,193,265,335,400,467,537,609,678,747,829,919,995,1063,1130,1208,1273,1340,1512,1907,2176"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,28,34",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "326,399,469,541,611,676,743,813,885,954,1023,1105,1195,1271,1339,1406,1484,1549,1616,1788,2183",
+                        "endLines": "6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,27,33,38",
+                        "endColumns": "72,69,71,69,64,66,69,71,68,68,81,89,75,67,66,77,64,66,10,10,10",
+                        "endOffsets": "394,464,536,606,671,738,808,880,949,1018,1100,1190,1266,1334,1401,1479,1544,1611,1783,2178,2447"
+                    }
+                }
+            ]
+        }
+    ]
+}

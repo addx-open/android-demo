@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Chỉ đường về nhà"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Di chuyển lên"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Tùy chọn khác"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Xong"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Xem tất cả"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Chọn một ứng dụng"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"TẮT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"BẬT"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Tìm kiếm…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Xóa truy vấn"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Truy vấn tìm kiếm"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Tìm kiếm"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Gửi truy vấn"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Tìm kiếm bằng giọng nói"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Chia sẻ với"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Chia sẻ với <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Thu gọn"</string>
+    <string name="articles_list_fragment_error_message">Không tải được bài viết</string>
+    <string name="articles_list_fragment_no_articles_found">Không tìm thấy bài viết nào</string>
+    <string name="ask_request_list_failed_request_message">Không nhắn tin được</string>
+    <string name="belvedere_dialog_camera">Camera</string>
+    <string name="belvedere_dialog_gallery">Thư viện</string>
+    <string name="belvedere_fam_desc_collapse_fam">Thu gọn menu thao tác động</string>
+    <string name="belvedere_fam_desc_expand_fam">Mở rộng menu thao tác động</string>
+    <string name="belvedere_fam_desc_open_gallery">Nhập tập tin từ thư viện ảnh</string>
+    <string name="belvedere_fam_desc_open_google_photos">Nhập ảnh từ Google Photos</string>
+    <string name="belvedere_image_stream_file_too_large">Tập tin quá lớn</string>
+    <string name="belvedere_image_stream_title">Thư viện ảnh</string>
+    <string name="belvedere_image_stream_unknown_app">Không xác định</string>
+    <string name="belvedere_permissions_denied">Đã từ chối các quyền</string>
+    <string name="belvedere_stream_item_camera_tile_desc">Nhập ảnh từ camera</string>
+    <string name="belvedere_stream_item_select_file_desc">Chọn tập tin %s</string>
+    <string name="belvedere_stream_item_select_image_desc">Chọn ảnh %s</string>
+    <string name="belvedere_stream_item_unselect_file_desc">Bỏ chọn tập tin %s</string>
+    <string name="belvedere_stream_item_unselect_image_desc">Bỏ chọn ảnh %s</string>
+    <string name="belvedere_toolbar_desc_collapse">Đóng trình chọn ảnh</string>
+    <string name="categories_list_fragment_error_message">Không tải được nhóm</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Bật"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không hoạt động nếu bạn không bật dịch vụ của Google Play."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Bật dịch vụ của Google Play"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"Cài đặt"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy nếu không có dịch vụ của Google Play. Thiết bị của bạn bị thiếu dịch vụ này."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Cài đặt dịch vụ của Google Play"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"Phạm vi cung cấp các dịch vụ của Google Play"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Lỗi dịch vụ của Google Play"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> đang gặp sự cố với các dịch vụ của Google Play. Hãy thử lại."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy nếu không có các dịch vụ của Google Play. Thiết bị của bạn không hỗ trợ các dịch vụ này."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"Cập nhật"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy trừ khi bạn cập nhật Dịch vụ của Google Play."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Cập nhật dịch vụ của Google Play"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy nếu không có dịch vụ của Google Play. Dịch vụ này hiện đang cập nhật."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Cần phiên bản mới của dịch vụ Google Play. Dịch vụ sẽ sớm tự động cập nhật."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"Mở trên điện thoại"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"Đăng nhập"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Đăng nhập bằng Google"</string>
+    <string name="contact_fragment_title">Liên hệ với chúng tôi</string>
+    <string name="error_msg_invalid_email">Nhập địa chỉ email hợp lệ</string>
+    <string name="error_msg_invalid_message">Nhập tin nhắn của bạn</string>
+    <string name="error_msg_invalid_name">Nhập họ và tên của bạn</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Khác"</string>
+    <string name="help_search_no_results_label">Không có kết quả cho</string>
+    <string name="help_see_all_articles_label">Xem tất cả bài viết</string>
+    <string name="help_see_all_n_articles_label">Xem tất cả %d bài viết</string>
+    <string name="hms_abort" priority="translator">"Dừng"</string>
+    <string name="hms_abort_message" priority="translator">"Bạn muốn dừng tải về?"</string>
+    <string name="hms_bindfaildlg_message" priority="translator">"%1$s không thể sử dụng Huawei Mobile Services. Vui lòng khởi chạy Trình tối ưu hóa (Quản lý ĐT) hoặc chuyển tới mục Cài đặt để bật tất cả quyền cho %2$s (bao gồm tự động khởi chạy và khởi chạy thứ cấp), sau đó thử lại."</string>
+    <string name="hms_cancel" priority="translator">"Hủy"</string>
+    <string name="hms_check_failure" priority="translator">"Kiểm tra cập nhật thất bại."</string>
+    <string name="hms_check_no_update" priority="translator">"Bạn đang sử dụng phiên bản mới nhất."</string>
+    <string name="hms_checking" priority="translator">"Đang kiểm tra cập nhật..."</string>
+    <string name="hms_confirm" priority="translator">"OK"</string>
+    <string name="hms_download_failure" priority="translator">"Thất bại tải về gói Dịch vụ Di động Huawei."</string>
+    <string name="hms_download_no_space" priority="translator">"Không đủ không gian trống. Không thể hoàn tất tải về máy."</string>
+    <string name="hms_download_retry" priority="translator">"Tải về thất bại. Thử lại?"</string>
+    <string name="hms_downloading" priority="translator">"Đang tải về Dịch vụ Di động Huawei | tiến độ: %d%%"</string>
+    <string name="hms_downloading_loading" priority="LT">"Đang tải xuống"</string>
+    <string name="hms_downloading_new" priority="LT">"Đang tải về HMS"</string>
+    <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+    <string name="hms_install" priority="translator">"Cài đặt"</string>
+    <string name="hms_install_message" priority="translator">"Bạn cần cài đặt Dịch vụ Di động Huawei mới có thể sử dụng tính năng này. Cài đặt?"</string>
+    <string name="hms_push_channel" priority="translator">"Mặc định"</string>
+    <string name="hms_retry" priority="translator">"Thử lại"</string>
+    <string name="hms_update" priority="translator">"Cập nhật"</string>
+    <string name="hms_update_continue" priority="LT">"Tải xuống"</string>
+    <string name="hms_update_message" priority="translator">"Để sử dụng tính năng này bạn cần cập nhật phiên bản mới nhất của Dịch vụ Di động Huawei. Cập nhật ngay?"</string>
+    <string name="hms_update_message_new" priority="LT">"Dịch vụ này cần các ứng dụng sau sử dụng phiên bản mới nhất:\n\n%1$s"</string>
+    <string name="hms_update_nettype" priority="LT">"Không có kết nối Wi-Fi. Tải xuống bằng dữ liệu di động?"</string>
+    <string name="hms_update_title" priority="translator">"Dịch vụ Di động Huawei"</string>
+    <string name="network_activity_no_connectivity">Không có kết nối</string>
+    <string name="request_attachment_generic_unknown_app">Không xác định</string>
+    <string name="request_dialog_body_unsaved_changes">Nếu bạn quay lại, tin nhắn của bạn sẽ bị xóa. Bạn có chắc bạn muốn xóa tin nhắn này không?</string>
+    <string name="request_dialog_button_label_cancel">Hủy bỏ</string>
+    <string name="request_dialog_button_label_delete">Xóa</string>
+    <string name="request_dialog_title_unsaved_changes">Tin nhắn chưa được gửi</string>
+    <string name="request_email_entry_hint">Email</string>
+    <string name="request_error_create_request">Tạo yêu cầu không thành công</string>
+    <string name="request_error_load_comments">Không tải được bình luận</string>
+    <string name="request_file_attachment_download_in_progress">Đang tải tập tin xuống</string>
+    <string name="request_list_activity_title">Phiếu của tôi</string>
+    <string name="request_list_empty_start_conversation">BẮT ĐẦU HỘI THOẠI</string>
+    <string name="request_list_empty_text">Các cuộc hội thoại bắt đầu từ ứng dụng này sẽ được hiển thị ở đây.</string>
+    <string name="request_list_fragment_error_message">Không tải được phiếu</string>
+    <string name="request_list_me">Tôi</string>
+    <string name="request_list_re">Trả lời: %s</string>
+    <string name="request_list_ticket_closed">Phiếu đã đóng</string>
+    <string name="request_menu_button_label_add_attachments">Thêm các tập tin đính kèm</string>
+    <string name="request_menu_button_label_send">Gửi</string>
+    <string name="request_message_date_today">HÔM NAY</string>
+    <string name="request_message_date_yesterday">HÔM QUA</string>
+    <string name="request_message_entry_hint">Tin nhắn</string>
+    <string name="request_message_status_delivered">Đã chuyển</string>
+    <string name="request_messages_status_error">Không nhắn tin được. Gõ để thử lại</string>
+    <string name="request_name_entry_hint">Tên</string>
+    <string name="request_retry_dialog_delete_message">Xóa tin nhắn</string>
+    <string name="request_retry_dialog_retry">Thử gửi lại</string>
+    <string name="request_system_message_closed_ticket">Hội thoại này đã được đóng.</string>
+    <string name="request_toolbar_last_reply">Thư trả lời gần đây nhất %s</string>
+    <string name="request_write_a_message">Viết tin nhắn</string>
+    <string name="retry_view_button_label">Thử lại</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Tìm kiếm"</string>
+    <string name="sections_list_fragment_error_message">Không tải được mục</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="support_activity_title">Hỗ trợ</string>
+    <string name="support_conversations_menu">Hội thoại</string>
+    <string name="upsdk_app_dl_installing" priority="LT">"Đang tải xuống AppGallery"</string>
+    <string name="upsdk_app_download_info_new" priority="translator">"Cài đặt"</string>
+    <string name="upsdk_app_size" priority="translator">"Kích cỡ"</string>
+    <string name="upsdk_app_version" priority="translator">"Phiên bản"</string>
+    <string name="upsdk_cancel" priority="translator">"Hủy"</string>
+    <string name="upsdk_checking_update_prompt" priority="translator">"Đang kiểm tra bản cập nhật…"</string>
+    <string name="upsdk_choice_update" priority="LT">"Có sẵn bản cập nhật. Hãy tải xuống và cài đặt phiên bản mới nhất."</string>
+    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Không thể kết nối với máy chủ. Vui lòng thử lại sau."</string>
+    <string name="upsdk_detail" priority="translator">"Chi tiết"</string>
+    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Không thể truy xuất thông tin. Vui lòng thử lại sau."</string>
+    <string name="upsdk_install" priority="LT">"Cài đặt AppGallery để cập nhật. Cài đặt ngay bây giờ?"</string>
+    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Không có kết nối Internet. Vui lòng kiểm tra cài đặt mạng của bạn."</string>
+    <string name="upsdk_ota_app_name" priority="LT">"Ứng dụng"</string>
+    <string name="upsdk_ota_cancel" priority="translator">"Để sau"</string>
+    <string name="upsdk_ota_force_cancel_new" priority="LT">"Thoát"</string>
+    <string name="upsdk_ota_notify_updatebtn" priority="translator">"Cập nhật"</string>
+    <string name="upsdk_ota_title" priority="translator">"Phiên bản mới"</string>
+    <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Hủy cài đặt?"</string>
+    <string name="upsdk_third_app_dl_install_failed" priority="translator">"Cài đặt không thành công."</string>
+    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Đúng"</string>
+    <string name="upsdk_update_check_no_new_version" priority="Reviewed">"Bạn đang sử dụng phiên bản mới nhất."</string>
+    <string name="upsdk_updating" priority="translator">"Đang cập nhật"</string>
+    <string name="view_article_attachments_error">Không tìm nạp được tập tin đính kèm</string>
+    <string name="view_article_vote_prompt">Bài viết này có hữu ích không?</string>
+    <string name="zab_cell_text_acknowledgement_did_help">Tuyệt. Tri thức là sức mạnh.</string>
+    <string name="zab_cell_text_acknowledgement_did_not_help">Tôi hiểu rồi. Câu hỏi của bạn vẫn chưa được giải đáp.</string>
+    <string name="zab_cell_text_answerbot_disabled_header">Bạn cũng có thể giữ liên lạc.</string>
+    <string name="zab_cell_text_answerbot_disabled_response">Rất tiếc. Hệ thống đang gặp chút vấn đề. Tôi không thể trả lời câu hỏi vào lúc này.</string>
+    <string name="zab_cell_text_contact_options_header">Bạn có muốn giữ liên lạc không?</string>
+    <string name="zab_cell_text_did_help_ask_again">Nếu bạn muốn tôi tìm thêm thông tin cho bạn, bạn chỉ cần nhập câu hỏi.</string>
+    <string name="zab_cell_text_help_followup_question">Vui lòng chia sẻ cụ thể. Bài viết này có liên quan đến câu hỏi của bạn không?</string>
+    <string name="zab_cell_text_inactivity_contact_option_header">Hoặc bạn có thể giữ liên lạc.</string>
+    <string name="zab_cell_text_no_articles">Tôi không tìm thấy bài viết nào liên quan.</string>
+    <string name="zab_cell_text_prompt">Hãy đặt câu hỏi, tôi sẽ giúp bạn tìm câu trả lời.</string>
+    <string name="zab_cell_text_prompt_another_question">Hoặc bạn có thể đặt một câu hỏi khác.</string>
+    <string name="zab_cell_text_prompt_another_question_no_transfer_options">Bạn có thể thử đặt câu hỏi khác cho tôi.</string>
+    <string name="zab_cell_text_question_did_article_help_with_question">Bài viết bạn vừa xem có giúp trả lời câu hỏi của bạn không?</string>
+    <string name="zab_cell_text_welcome">Xin chào!</string>
+    <string name="zab_error_load_article">Không tải được bài viết</string>
+    <string name="zab_hint_type_your_question">Nhập câu hỏi của bạn…</string>
+    <string name="zab_view_article_help_followup_question">Bài viết này có liên quan đến câu hỏi của bạn không?</string>
+    <string name="zab_view_article_help_no">Không, tôi cần trợ giúp</string>
+    <string name="zab_view_article_help_question">Bài viết này có giải đáp được câu hỏi của bạn không?</string>
+    <string name="zab_view_article_help_reason_didnt_answer">Bài viết có liên quan nhưng không giải đáp được câu hỏi của tôi</string>
+    <string name="zab_view_article_help_reason_not_related">Bài viết không liên quan đến câu hỏi của tôi</string>
+    <string name="zab_view_article_help_yes">Có</string>
+    <string name="zab_view_article_loaded_accessibility">Đã tải bài viết %s</string>
+    <string name="zch_chat_comment_acknowledgement">Cảm ơn bạn đã gửi phản hồi. Bây giờ, bạn có thể quay lại cuộc trò chuyện của mình.</string>
+    <string name="zch_chat_comment_composer_hint">Nhập bình luận của bạn…</string>
+    <string name="zch_chat_ended">Cuộc trò chuyện đã kết thúc</string>
+    <string name="zch_chat_handover_message_selection">Trò chuyện với nhân viên hỗ trợ</string>
+    <string name="zch_chat_rating_comment_action_label">Thêm bình luận</string>
+    <string name="zch_chat_rating_comment_prompt_message">Chúng tôi rất coi trọng phản hồi của bạn. Nếu thích, bạn cũng có thể thêm bình luận để cung cấp thêm chi tiết.</string>
+    <string name="zch_chat_rating_label_bad">Không tốt 👎</string>
+    <string name="zch_chat_rating_label_good">Tốt 👍</string>
+    <string name="zch_chat_rating_request_prompt">Xin chào, chúng tôi muốn biết cuộc trò chuyện của bạn với %s đã diễn ra như thế nào?</string>
+    <string name="zch_chat_transcript_email_prompt">Bản sao sẽ được gửi đến địa chỉ email nào?</string>
+    <string name="zch_chat_transcript_prompt">Bạn có muốn gửi bản sao cuộc trò chuyện này đến địa chỉ email của bạn không?</string>
+    <string name="zch_chat_transcript_request_confirmation">Bản sao sẽ được gửi đến %1$s khi cuộc trò chuyện kết thúc</string>
+    <string name="zch_chat_welcome_message_handover">OK. Tôi sẽ tìm người giúp bạn xử lý truy vấn.</string>
+    <string name="zch_end_chat">Kết thúc cuộc trò chuyện</string>
+    <string name="zch_member_join">%1$s đã tham gia cuộc trò chuyện</string>
+    <string name="zch_member_leave">%1$s đã rời khỏi cuộc trò chuyện</string>
+    <string name="zch_offline_form_completion_acknowledgement">Chúng tôi đã nhận được tin nhắn của bạn và sẽ liên hệ lại với bạn sớm nhất có thể.</string>
+    <string name="zch_offline_form_introduction_message">Để liên hệ với bạn khi có nhân viên hỗ trợ, mong bạn cung cấp thêm vài thông tin.</string>
+    <string name="zch_offline_form_message_field_prompt">Chúng tôi có thể giúp gì cho bạn khi chúng tôi sang trực tuyến trở lại?</string>
+    <string name="zch_offline_form_welcome_message">Xin chào bạn. Rất tiếc, hiện không có ai trực tuyến.</string>
+    <string name="zch_offline_message">Rất tiếc, hiện không có ai trực tuyến. Hãy kiểm tra lại sau.</string>
+    <string name="zch_pre_chat_department_field_message">Phòng nào phù hợp nhất để trả lời câu hỏi của bạn?</string>
+    <string name="zch_pre_chat_email_field_hint">Địa chỉ email của bạn là gì?</string>
+    <string name="zch_pre_chat_email_field_invalid_message">Địa chỉ email bạn nhập không chính xác. Nhập địa chỉ email hợp lệ.</string>
+    <string name="zch_pre_chat_email_field_message">Địa chỉ email của bạn là gì?</string>
+    <string name="zch_pre_chat_introduction_greeting">Xin chào!</string>
+    <string name="zch_pre_chat_introduction_message">Tôi sẽ tìm người trợ giúp cho bạn. Trước tiên, tôi cần một vài thông tin.</string>
+    <string name="zch_pre_chat_message_acknowledgement">Tôi sẽ tìm người trợ giúp cho bạn. Trước tiên, tôi cần thêm vài thông tin.</string>
+    <string name="zch_pre_chat_name_field_hint">Tên bạn là gì?</string>
+    <string name="zch_pre_chat_name_field_message">Tên bạn là gì?</string>
+    <string name="zch_pre_chat_phone_field_hint">Số điện thoại của bạn là gì?</string>
+    <string name="zch_pre_chat_phone_field_message">Số điện thoại của bạn là gì?</string>
+    <string name="zch_pre_chat_response_accepted_message">Cảm ơn bạn.</string>
+    <string name="zch_pre_chat_skip_button">Bỏ qua</string>
+    <string name="zch_pre_chat_welcome_message">Xin chào bạn. Hôm nay bạn cần chúng tôi giúp gì?</string>
+    <string name="zch_queue_position">Vị trí hàng: %1$d</string>
+    <string name="zch_request_transcript">Yêu cầu bản sao</string>
+    <string name="zg_general_contact_us_button_label_accessibility">Liên hệ với chúng tôi</string>
+    <string name="zg_general_no_connection_message">Không có kết nối</string>
+    <string name="zs_engine_greeting_message">Hãy nhập tin nhắn, tôi sẽ tìm người có thể giúp được bạn.</string>
+    <string name="zs_engine_message_retry_button">Thử lại</string>
+    <string name="zs_engine_message_send_error_message">Đã xảy ra lỗi và tôi không thể gửi tin nhắn của bạn. Vui lòng thử lại sau.</string>
+    <string name="zs_engine_request_created_conversations_enabled_message">Cảm ơn bạn. Tin nhắn đã được gửi tới nhóm. Bạn có thể xem tin nhắn này và thêm chi tiết bổ sung tại đây:</string>
+    <string name="zs_engine_request_created_conversations_off_message">Cảm ơn bạn. Tin nhắn đã được gửi tới đội. Nếu cần trả lời, đội sẽ liên hệ với bạn qua email.</string>
+    <string name="zs_engine_request_created_request_list_button">Xem tin nhắn</string>
+    <string name="zs_engine_request_creation_email_prompt_hint">Nhập email của bạn…</string>
+    <string name="zs_engine_request_creation_email_prompt_message">Nếu cần trả lời, sẽ có người liên hệ với bạn qua email. Địa chỉ email của bạn là gì?</string>
+    <string name="zs_engine_request_creation_email_validation_failed_message">Địa chỉ email bạn nhập không đúng. Vui lòng nhập một địa chỉ email hợp lệ.</string>
+    <string name="zs_general_contact_us_button_label_accessibility">Liên hệ với chúng tôi</string>
+    <string name="zs_general_referrer_logo_label_accessibility">Zendesk</string>
+    <string name="zs_help_center_content_loaded_accessibility">Đã tải Trung tâm Trợ giúp</string>
+    <string name="zs_help_center_search_loaded_accessibility">Đã tải các kết quả tìm kiếm</string>
+    <string name="zs_request_announce_comment_created_accessibility">Đã gửi bình luận có chữ %s.</string>
+    <string name="zs_request_announce_comment_failed_accessibility">Không thể tạo bình luận có chữ %s.</string>
+    <string name="zs_request_announce_comments_loaded_accessibility">Đã tải bình luận.</string>
+    <string name="zs_request_attachment_carousel_attachment_accessibility">Đã đính kèm tập tin có tên %s.</string>
+    <string name="zs_request_attachment_carousel_remove_attachment_accessibility">Xóa tập tin đính kèm có tên %s.</string>
+    <string name="zs_request_attachment_indicator_accessibility">Chọn một tập tin đính kèm</string>
+    <string name="zs_request_attachment_indicator_n_attachments_selected_accessibility">Có %d tập tin đính kèm được chọn.</string>
+    <string name="zs_request_attachment_indicator_no_attachments_selected_accessibility">Không có tập tin đính kèm nào được chọn.</string>
+    <string name="zs_request_attachment_indicator_one_attachments_selected_accessibility">Có một tập tin đính kèm được chọn.</string>
+    <string name="zs_request_contact_option_leave_a_message">Để lại tin nhắn</string>
+    <string name="zs_request_list_content_load_failed_accessibility">Không thể tải được các phiếu hỗ trợ</string>
+    <string name="zs_request_list_content_loaded_accessibility">Đã tải các phiếu hỗ trợ</string>
+    <string name="zs_request_list_content_loaded_empty_accessibility">Không có phiếu hỗ trợ nào</string>
+    <string name="zs_request_list_content_loading_accessibility">Tải phiếu hỗ trợ</string>
+    <string name="zs_request_message_agent_file_accessibility">Đính kèm tập tin của nhân viên hỗ trợ có tên %s.</string>
+    <string name="zs_request_message_agent_image_accessibility">Đính kèm ảnh của nhân viên hỗ trợ có tên %s.</string>
+    <string name="zs_request_message_agent_sent_accessibility">Được gửi bởi %1$s lúc %2$s.</string>
+    <string name="zs_request_message_agent_text_accessibility">Tin nhắn của nhân viên hỗ trợ %s.</string>
+    <string name="zs_request_message_user_error_accessibility">Không gửi được. Gõ để xem các tùy chọn.</string>
+    <string name="zs_request_message_user_file_accessibility">Tập tin có tên %s.</string>
+    <string name="zs_request_message_user_image_accessibility">Ảnh có tên %s.</string>
+    <string name="zs_request_message_user_sent_accessibility">Được gửi bởi bạn lúc %s</string>
+    <string name="zs_request_message_user_text_accessibility">Tin nhắn %s.</string>
+    <string name="zs_request_toolbar_accessibility">Thư trả lời gần đây nhất của %1$s lúc %2$s.</string>
+    <string name="zs_view_article_error">Không thể tìm nạp bài viết</string>
+    <string name="zs_view_article_loaded_accessibility">Đã tải %s bài viết</string>
+    <string name="zs_view_article_vote_no_accessibility">Không có bình chọn</string>
+    <string name="zs_view_article_vote_no_remove_accessibility">Xóa bình chọn có</string>
+    <string name="zs_view_article_vote_yes_accessibility">Bình chọn có</string>
+    <string name="zs_view_article_vote_yes_remove_accessibility">Xóa bình chọn không</string>
+    <string name="zs_view_article_voted_failed_accessibility_announce">Không bình chọn được</string>
+    <string name="zs_view_article_voted_no_accessibility_announce">Đã bình chọn không</string>
+    <string name="zs_view_article_voted_yes_accessibility_announce">Đã bình chọn có</string>
+    <string name="zui_attachment_indicator_accessibility">Chọn một tập tin đính kèm</string>
+    <string name="zui_attachment_indicator_n_attachments_selected_accessibility">Có %d tập tin đính kèm được chọn</string>
+    <string name="zui_attachment_indicator_no_attachments_selected_accessibility">Không có tập tin đính kèm nào được chọn</string>
+    <string name="zui_attachment_indicator_one_attachments_selected_accessibility">Có một tập tin đính kèm được chọn</string>
+    <string name="zui_bot_label">BOT</string>
+    <string name="zui_button_label_no">Không</string>
+    <string name="zui_button_label_yes">Có</string>
+    <string name="zui_cell_text_suggested_article_header">Bài viết dưới đây có thể hữu ích:</string>
+    <string name="zui_cell_text_suggested_articles_header">Dưới đây là một số bài viết có thể hữu ích:</string>
+    <string name="zui_default_bot_name">Answer Bot</string>
+    <string name="zui_dialog_email_error">Email không hợp lệ</string>
+    <string name="zui_dialog_email_hint">Địa chỉ email</string>
+    <string name="zui_failed_message_copy">Sao chép</string>
+    <string name="zui_failed_message_delete">Xóa</string>
+    <string name="zui_failed_message_retry">Thử lại</string>
+    <string name="zui_hint_type_message">Nhập tin nhắn…</string>
+    <string name="zui_label_connecting">Đang kết nối…</string>
+    <string name="zui_label_dialog_delete_btn">Xóa tin nhắn</string>
+    <string name="zui_label_dialog_retry_btn">Thử gửi lại</string>
+    <string name="zui_label_failed">Không thành công</string>
+    <string name="zui_label_reconnecting">Đang kết nối lại…</string>
+    <string name="zui_label_reconnecting_failed">Kết nối không thành công.</string>
+    <string name="zui_label_send">Gửi</string>
+    <string name="zui_label_sent">Đã gửi</string>
+    <string name="zui_label_tap_retry">Gõ để thử lại</string>
+    <string name="zui_message_log_article_opened_formatter">%1$s đã mở bài viết \'%2$s\'</string>
+    <string name="zui_message_log_article_suggestion_message">Tôi tìm thấy các bài viết sau:</string>
+    <string name="zui_message_log_attachment_sending_failed">Không thể gửi tập tin đính kèm</string>
+    <string name="zui_message_log_default_visitor_name">Khách truy cập</string>
+    <string name="zui_message_log_message_attachment_type_not_supported">Loại tập tin đính kèm không được hỗ trợ</string>
+    <string name="zui_message_log_message_attachments_not_supported">Tập tin đính kèm không được hỗ trợ</string>
+    <string name="zui_message_log_message_failed_to_send">[Không gửi được]</string>
+    <string name="zui_message_log_message_file_exceeds_max_size">Đã vượt quá kích thước tập tin tối đa (%1$s)</string>
+    <string name="zui_message_log_transfer_option_selection_formatter">%1$s đã chọn %2$s</string>
+    <string name="zui_retry_button_label">Thử lại</string>
+    <string name="zui_toolbar_title">Liên hệ với chúng tôi</string>
+    <string name="zui_unable_open_file">Không thể mở tập tin.</string>
+</resources>

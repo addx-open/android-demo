@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/yuanshiyue/addx/addx_video_open_sdk/demo/app/build/intermediates/incremental/mergeDemoDebugResources/merged.dir/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "map": [
+                {
+                    "source": "/home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/bfc0fddb44736d6f8bc585e1ac1090fa/support-5.0.1/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "63",
+                        "endOffsets": "114"
+                    }
+                },
+                {
+                    "source": "/home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d5d1e37b30208d767c3b236206d8f2d2/common-ui-4.0.1/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "56",
+                        "endOffsets": "107"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "119",
+                        "endColumns": "56",
+                        "endOffsets": "171"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navigasi laman utama"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navigasi ke atas"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Lagi pilihan"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Selesai"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Lihat semua"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Pilih apl"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"MATI"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"HIDUP"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fungsi+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"ruang"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Cari…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Kosongkan pertanyaan"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Pertanyaan carian"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Cari"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Serah pertanyaan"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Carian suara"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Kongsi dengan"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Kongsi dengan <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Runtuhkan"</string>
+    <string name="articles_list_fragment_error_message">Gagal untuk mendapatkan artikel</string>
+    <string name="articles_list_fragment_no_articles_found">Artikel tidak ditemui</string>
+    <string name="ask_request_list_failed_request_message">Mesej gagal</string>
+    <string name="belvedere_dialog_camera">Kamera</string>
+    <string name="belvedere_dialog_gallery">Galeri</string>
+    <string name="belvedere_fam_desc_collapse_fam">Kuncupkan Menu Tindakan Terapung</string>
+    <string name="belvedere_fam_desc_expand_fam">Kembangkan Menu Tindakan Terapung</string>
+    <string name="belvedere_fam_desc_open_gallery">Import fail daripada galeri</string>
+    <string name="belvedere_fam_desc_open_google_photos">Import imej daripada Google Photos</string>
+    <string name="belvedere_image_stream_file_too_large">Fail terlalu besar</string>
+    <string name="belvedere_image_stream_title">Perpustakaan foto</string>
+    <string name="belvedere_image_stream_unknown_app">Tak Diketahui</string>
+    <string name="belvedere_permissions_denied">Keizinan dinafikan</string>
+    <string name="belvedere_stream_item_camera_tile_desc">Import imej daripada kamera</string>
+    <string name="belvedere_stream_item_select_file_desc">Pilih fail %s</string>
+    <string name="belvedere_stream_item_select_image_desc">Pilih imej %s</string>
+    <string name="belvedere_stream_item_unselect_file_desc">Nyahpilih fail %s</string>
+    <string name="belvedere_stream_item_unselect_image_desc">Nyahpilih imej %s</string>
+    <string name="belvedere_toolbar_desc_collapse">Tutup pemungut imej</string>
+    <string name="categories_list_fragment_error_message">Gagal untuk mendapatkan kategori</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Dayakan"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berfungsi melainkan anda mendayakan perkhidmatan Google Play."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Dayakan perkhidmatan Google Play"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"Pasang"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berfungsi tanpa perkhidmatan Google Play dan perkhidmatan ini tiada pada peranti anda."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Dapatkan perkhidmatan Google Play"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"Ketersediaan perkhidmatan Google Play"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Ralat perkhidmatan Google Play"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> menghadapi masalah berhubung perkhidmatan Google Play. Sila cuba lagi."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berfungsi tanpa perkhidmatan Google Play dan perkhidmatan ini tidak disokong oleh peranti anda."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"Kemas kini"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berfungsi kecuali anda mengemas kini perkhidmatan Google Play."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Kemaskinikan perkhidmatan Google Play"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berfungsi tanpa perkhidmatan Google Play dan perkhidmatan ini sedang dikemaskinikan."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Versi baharu perkhidmatan Google Play diperlukan. Kemas kini automatik akan dijalankan sebentar lagi."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"Buka pada telefon"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"Log masuk"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Log masuk dengan Google"</string>
+    <string name="contact_fragment_title">Hubungi kami</string>
+    <string name="error_msg_invalid_email">Masukkan alamat e-mel yang sah</string>
+    <string name="error_msg_invalid_message">Masukkan mesej anda</string>
+    <string name="error_msg_invalid_name">Masukkan nama penuh anda</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Pelbagai"</string>
+    <string name="help_search_no_results_label">Tiada hasil untuk</string>
+    <string name="help_see_all_articles_label">Lihat semua artikel</string>
+    <string name="help_see_all_n_articles_label">Lihat semua %d artikel</string>
+    <string name="hms_abort" priority="translator">"Hentikan"</string>
+    <string name="hms_abort_message" priority="translator">"Hentikan muat turun?"</string>
+    <string name="hms_bindfaildlg_message" priority="translator">"%1$s tidak dapat menggunakan Khidmat Mudah Alih Huawei. Sila lancarkan Pengoptimum (Pengurus Telefon) atau pergi ke Tetapan, dayakan semua kebenaran untuk %2$s (termasuk auto-lancar dan pelancaran sekunder), dan cuba lagi."</string>
+    <string name="hms_cancel" priority="translator">"Batalkan"</string>
+    <string name="hms_check_failure" priority="translator">"Gagal menyemak kemas kini."</string>
+    <string name="hms_check_no_update" priority="translator">"Versi anda adalah yang terkini."</string>
+    <string name="hms_checking" priority="translator">"Menyemak kemas kini..."</string>
+    <string name="hms_confirm" priority="translator">"OK"</string>
+    <string name="hms_download_failure" priority="translator">"Gagal memuat turun pakej Perkhidmatan Mudah Alih Huawei."</string>
+    <string name="hms_download_no_space" priority="translator">"Tiada ruang kosong yang cukup. Muat turun tidak dapat diselesaikan."</string>
+    <string name="hms_download_retry" priority="translator">"Muat turun gagal. Cuba lagi?"</string>
+    <string name="hms_downloading" priority="translator">"Memuat turun Perkhidmatan Mudah Alih Huawei | perkembangan: %d%%"</string>
+    <string name="hms_downloading_loading" priority="LT">"Memuat turun"</string>
+    <string name="hms_downloading_new" priority="LT">"Memuat turun HMS"</string>
+    <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+    <string name="hms_install" priority="translator">"Pasang"</string>
+    <string name="hms_install_message" priority="translator">"Perkhidmatan Mudah Alih Huawei mesti dipasang untuk menggunakan fungsi ini. Pasang?"</string>
+    <string name="hms_push_channel" priority="translator">"Lalai"</string>
+    <string name="hms_retry" priority="translator">"Cuba lagi"</string>
+    <string name="hms_update" priority="translator">"Kemas kini"</string>
+    <string name="hms_update_continue" priority="LT">"Muat turun"</string>
+    <string name="hms_update_message" priority="translator">"Kemas kini kepada versi terkini Perkhidmatan Mudah Alih Huawei untuk menggunakan fungsi ini. Kemas kini sekarang?"</string>
+    <string name="hms_update_message_new" priority="LT">"Perkhidmatan ini memerlukan versi terkini aplikasi yang berikut:\n\n%1$s"</string>
+    <string name="hms_update_nettype" priority="LT">"Tiada sambungan Wi-Fi. Muat turun dengan data mudah alih?"</string>
+    <string name="hms_update_title" priority="translator">"Perkhidmatan Mudah Alih Huawei"</string>
+    <string name="network_activity_no_connectivity">Tiada sambungan</string>
+    <string name="request_attachment_generic_unknown_app">Tak Diketahui</string>
+    <string name="request_dialog_body_unsaved_changes">Kembali akan memadamkan mesej anda. Adakah anda pasti anda mahu memadamkannya?</string>
+    <string name="request_dialog_button_label_cancel">Batal</string>
+    <string name="request_dialog_button_label_delete">Padam</string>
+    <string name="request_dialog_title_unsaved_changes">Mesej tidak dihantar</string>
+    <string name="request_email_entry_hint">E-mel</string>
+    <string name="request_error_create_request">Gagal untuk mencipta permintaan</string>
+    <string name="request_error_load_comments">Gagal untuk memuatkan komen</string>
+    <string name="request_file_attachment_download_in_progress">Fail sedang dimuat turun</string>
+    <string name="request_list_activity_title">Tiket saya</string>
+    <string name="request_list_empty_start_conversation">MULAKAN PERBUALAN</string>
+    <string name="request_list_empty_text">Perbualan yang dimulakan daripada aplikasi ini akan dapat dilihat di sini.</string>
+    <string name="request_list_fragment_error_message">Gagal untuk mendapatkan tiket</string>
+    <string name="request_list_me">Saya</string>
+    <string name="request_list_re">Per: %s</string>
+    <string name="request_list_ticket_closed">Tiket Ditutup</string>
+    <string name="request_menu_button_label_add_attachments">Tambah lampiran</string>
+    <string name="request_menu_button_label_send">Hantar</string>
+    <string name="request_message_date_today">HARI INI</string>
+    <string name="request_message_date_yesterday">SEMALAM</string>
+    <string name="request_message_entry_hint">Mesej</string>
+    <string name="request_message_status_delivered">Telah Diserahkan</string>
+    <string name="request_messages_status_error">Mesej gagal. Ketuk untuk cuba semula</string>
+    <string name="request_name_entry_hint">Nama</string>
+    <string name="request_retry_dialog_delete_message">Padam mesej</string>
+    <string name="request_retry_dialog_retry">cuba hantar lagi</string>
+    <string name="request_system_message_closed_ticket">Perbualan ini telah ditutup.</string>
+    <string name="request_toolbar_last_reply">Balasan terakhir %s</string>
+    <string name="request_write_a_message">Tulis mesej</string>
+    <string name="retry_view_button_label">Cuba Semula</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Cari"</string>
+    <string name="sections_list_fragment_error_message">Gagal untuk mendapatkan seksyen</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="support_activity_title">Sokongan</string>
+    <string name="support_conversations_menu">Perbualan</string>
+    <string name="upsdk_app_dl_installing" priority="LT">"Memuat turun AppGallery"</string>
+    <string name="upsdk_app_download_info_new" priority="translator">"Pasang"</string>
+    <string name="upsdk_app_size" priority="translator">"Saiz"</string>
+    <string name="upsdk_app_version" priority="translator">"Versi"</string>
+    <string name="upsdk_cancel" priority="translator">"Batalkan"</string>
+    <string name="upsdk_checking_update_prompt" priority="translator">"Menyemak kemas kini..."</string>
+    <string name="upsdk_choice_update" priority="LT">"Kemas kini tersedia. Sila muat turun dan pasang versi terkini."</string>
+    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Tidak dapat bersambung ke pelayan. Sila cuba sebentar lagi."</string>
+    <string name="upsdk_detail" priority="translator">"Butiran"</string>
+    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Tidak dapat mendapatkan balik maklumat. Sila cuba sebentar lagi."</string>
+    <string name="upsdk_install" priority="LT">"Pasang AppGallery untuk mengemas kini. Pasang sekarang?"</string>
+    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Tiada sambungan Internet. Sila semak tetapan rangkaian anda."</string>
+    <string name="upsdk_ota_app_name" priority="LT">"Aplikasi"</string>
+    <string name="upsdk_ota_cancel" priority="translator">"Kemudian"</string>
+    <string name="upsdk_ota_force_cancel_new" priority="LT">"Keluar"</string>
+    <string name="upsdk_ota_notify_updatebtn" priority="translator">"Kemas kini"</string>
+    <string name="upsdk_ota_title" priority="translator">"Versi baru"</string>
+    <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Batalkan pemasangan?"</string>
+    <string name="upsdk_third_app_dl_install_failed" priority="translator">"Pemasangan gagal."</string>
+    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Ya"</string>
+    <string name="upsdk_update_check_no_new_version" priority="LT">"Versi anda adalah yang terkini."</string>
+    <string name="upsdk_updating" priority="translator">"Mengemas kini"</string>
+    <string name="view_article_attachments_error">Gagal mendapatkan lampiran</string>
+    <string name="view_article_vote_prompt">Adakah artikel ini membantu?</string>
+    <string name="zab_cell_text_acknowledgement_did_help">Bagus. Pengetahuan adalah kuasa.</string>
+    <string name="zab_cell_text_acknowledgement_did_not_help">Baiklah. Soalan anda masih belum diselesaikan.</string>
+    <string name="zab_cell_text_answerbot_disabled_header">Anda juga boleh berhubung.</string>
+    <string name="zab_cell_text_answerbot_disabled_response">Alamak. Maaf, sesuatu berlaku. Saya tidak dapat menjawab soalan sekarang.</string>
+    <string name="zab_cell_text_contact_options_header">Adakah anda ingin berhubung?</string>
+    <string name="zab_cell_text_did_help_ask_again">Jika ada apa-apa lagi yang boleh saya cari untuk anda, cuma taip sahaja soalan lain.</string>
+    <string name="zab_cell_text_help_followup_question">Sila beritahu kami lebih lanjut. Adakah artikel ini berkaitan dengan soalan anda?</string>
+    <string name="zab_cell_text_inactivity_contact_option_header">Atau anda boleh berhubung.</string>
+    <string name="zab_cell_text_no_articles">Saya tidak dapat mencari apa-apa artikel yang berkaitan.</string>
+    <string name="zab_cell_text_prompt">Tanya saya soalan dan saya akan mencari jawapan untuk anda.</string>
+    <string name="zab_cell_text_prompt_another_question">Atau anda boleh bertanya soalan lain</string>
+    <string name="zab_cell_text_prompt_another_question_no_transfer_options">Anda boleh cuba bertanya soalan lain kepada saya.</string>
+    <string name="zab_cell_text_question_did_article_help_with_question">Adakah artikel yang anda telah lihat membantu menjawab soalan anda?</string>
+    <string name="zab_cell_text_welcome">Hai!</string>
+    <string name="zab_error_load_article">Gagal untuk memuatkan artikel</string>
+    <string name="zab_hint_type_your_question">Taip soalan anda…</string>
+    <string name="zab_view_article_help_followup_question">Adakah artikel ini berkaitan dengan soalan anda?</string>
+    <string name="zab_view_article_help_no">Tidak, saya memerlukan bantuan</string>
+    <string name="zab_view_article_help_question">Adakah artikel ini menjawab soalan anda?</string>
+    <string name="zab_view_article_help_reason_didnt_answer">Ia berkaitan, tetapi tidak menjawab soalan saya</string>
+    <string name="zab_view_article_help_reason_not_related">Ia tidak berkaitan dengan soalan saya</string>
+    <string name="zab_view_article_help_yes">Ya</string>
+    <string name="zab_view_article_loaded_accessibility">%s artikel dimuatkan</string>
+    <string name="zch_chat_comment_acknowledgement">Terima kasih atas maklum balas anda. Anda kini boleh kembali ke sembang anda.</string>
+    <string name="zch_chat_comment_composer_hint">Taipkan komen anda…</string>
+    <string name="zch_chat_ended">Sembang tamat</string>
+    <string name="zch_chat_handover_message_selection">Sembang dengan ejen</string>
+    <string name="zch_chat_rating_comment_action_label">Tambah komen</string>
+    <string name="zch_chat_rating_comment_prompt_message">Kami menghargai maklum balas anda. Jika anda mahu, anda juga boleh menambah komen dengan lebih terperinci.</string>
+    <string name="zch_chat_rating_label_bad">Buruk 👎</string>
+    <string name="zch_chat_rating_label_good">Baik 👍</string>
+    <string name="zch_chat_rating_request_prompt">Hei, hanya ingin melihat bagaimanakah perkembangan sembang anda dengan %s?</string>
+    <string name="zch_chat_transcript_email_prompt">Apakah alamat e-mel yang perlu dihantar transkrip?</string>
+    <string name="zch_chat_transcript_prompt">Adakah anda mahu transkrip sembang ini dihantar ke e-mel anda?</string>
+    <string name="zch_chat_transcript_request_confirmation">Transkrip akan dihantar kepada %1$s apabila sembang tamat</string>
+    <string name="zch_chat_welcome_message_handover">OK. Saya akan mencari seseorang yang boleh membantu menjawab pertanyaan anda.</string>
+    <string name="zch_end_chat">Tamatkan sembang</string>
+    <string name="zch_member_join">%1$s telah menyertai sembang</string>
+    <string name="zch_member_leave">%1$s telah meninggalkan sembang</string>
+    <string name="zch_offline_form_completion_acknowledgement">Kami telah menerima mesej anda dan akan menghubungi anda semula secepat mungkin.</string>
+    <string name="zch_offline_form_introduction_message">Untuk menghubungi anda apabila ejen bersedia, saya memerlukan beberapa maklumat lebih lanjut.</string>
+    <string name="zch_offline_form_message_field_prompt">Apakah yang kami boleh bantu anda apabila kami kembali dalam talian?</string>
+    <string name="zch_offline_form_welcome_message">Hai. Malangnya, tiada sesiapa dalam talian sekarang.</string>
+    <string name="zch_offline_message">Malangnya, tiada sesiapa dalam talian sekarang. Semak semula kemudian.</string>
+    <string name="zch_pre_chat_department_field_message">Jabatan manakah yang boleh menjawab soalan anda sebaiknya?</string>
+    <string name="zch_pre_chat_email_field_hint">Apakah alamat e-mel anda?</string>
+    <string name="zch_pre_chat_email_field_invalid_message">Alamat e-mel yang anda masukkan tidak betul. Masukkan alamat e-mel yang sah.</string>
+    <string name="zch_pre_chat_email_field_message">Apakah alamat e-mel anda?</string>
+    <string name="zch_pre_chat_introduction_greeting">Hai!</string>
+    <string name="zch_pre_chat_introduction_message">Saya akan mencari seseorang untuk membantu anda. Pertama sekali, saya memerlukan sedikit maklumat.</string>
+    <string name="zch_pre_chat_message_acknowledgement">Saya akan mencari seseorang untuk membantu anda. Pertama sekali, saya perlukan sedikit lagi maklumat.</string>
+    <string name="zch_pre_chat_name_field_hint">Siapakah nama anda?</string>
+    <string name="zch_pre_chat_name_field_message">Siapakah nama anda?</string>
+    <string name="zch_pre_chat_phone_field_hint">Apakah nombor telefon anda?</string>
+    <string name="zch_pre_chat_phone_field_message">Apakah nombor telefon anda?</string>
+    <string name="zch_pre_chat_response_accepted_message">Terima kasih.</string>
+    <string name="zch_pre_chat_skip_button">Langkau</string>
+    <string name="zch_pre_chat_welcome_message">Hai. Bagaimanakah kami boleh membantu anda hari ini?</string>
+    <string name="zch_queue_position">Kedudukan baris gilir: %1$d</string>
+    <string name="zch_request_transcript">Minta transkrip</string>
+    <string name="zg_general_contact_us_button_label_accessibility">Hubungi kami</string>
+    <string name="zg_general_no_connection_message">Tiada sambungan</string>
+    <string name="zs_engine_greeting_message">Taipkan mesej dan saya akan cari seseorang yang boleh membantu anda.</string>
+    <string name="zs_engine_message_retry_button">Cuba semula</string>
+    <string name="zs_engine_message_send_error_message">Ada masalah berlaku dan saya tidak dapat menghantar mesej kepada anda. Sila cuba lagi kemudian.</string>
+    <string name="zs_engine_request_created_conversations_enabled_message">Terima kasih. Mesej telah dihantar kepada pasukan. Anda boleh melihat mesej ini dan menambah butiran tambahan di sini:</string>
+    <string name="zs_engine_request_created_conversations_off_message">Terima kasih. Mesej telah dihantar kepada pasukan. Jika balasan diperlukan, mereka akan menghubungi anda melalui e-mel.</string>
+    <string name="zs_engine_request_created_request_list_button">Lihat mesej</string>
+    <string name="zs_engine_request_creation_email_prompt_hint">Masukkan e-mel anda…</string>
+    <string name="zs_engine_request_creation_email_prompt_message">Jika balasan diperlukan, seseorang akan menghubungi anda melalui e-mel. Apakah alamat e‑mel anda?</string>
+    <string name="zs_engine_request_creation_email_validation_failed_message">Alamat e-mel yang anda masukkan tidak tepat. Masukkan alamat e-mel yang sah.</string>
+    <string name="zs_general_contact_us_button_label_accessibility">Hubungi kami</string>
+    <string name="zs_general_referrer_logo_label_accessibility">Zendesk</string>
+    <string name="zs_help_center_content_loaded_accessibility">Pusat Bantuan dimuatkan</string>
+    <string name="zs_help_center_search_loaded_accessibility">Hasil gelintar dimuatkan</string>
+    <string name="zs_request_announce_comment_created_accessibility">Komen dengan teks %s dihantar.</string>
+    <string name="zs_request_announce_comment_failed_accessibility">Tidak dapat mencipta komen dengan teks %s.</string>
+    <string name="zs_request_announce_comments_loaded_accessibility">Komen dimuatkan.</string>
+    <string name="zs_request_attachment_carousel_attachment_accessibility">Fail yang dilampirkan dengan nama %s.</string>
+    <string name="zs_request_attachment_carousel_remove_attachment_accessibility">Alih keluar lampiran dengan nama %s.</string>
+    <string name="zs_request_attachment_indicator_accessibility">Pilih lampiran.</string>
+    <string name="zs_request_attachment_indicator_n_attachments_selected_accessibility">Terdapat %d lampiran yang dipilih.</string>
+    <string name="zs_request_attachment_indicator_no_attachments_selected_accessibility">Tiada lampiran dipilih.</string>
+    <string name="zs_request_attachment_indicator_one_attachments_selected_accessibility">Terdapat satu lampiran yang dipilih.</string>
+    <string name="zs_request_contact_option_leave_a_message">Tinggalkan mesej</string>
+    <string name="zs_request_list_content_load_failed_accessibility">Tiket sokongan gagal dimuatkan</string>
+    <string name="zs_request_list_content_loaded_accessibility">Tiket sokongan telah dimuatkan</string>
+    <string name="zs_request_list_content_loaded_empty_accessibility">Tiada tiket sokongan</string>
+    <string name="zs_request_list_content_loading_accessibility">Memuatkan tiket sokongan</string>
+    <string name="zs_request_message_agent_file_accessibility">Lampiran fail ejen dengan nama %s.</string>
+    <string name="zs_request_message_agent_image_accessibility">Lampiran imej ejen dengan nama %s.</string>
+    <string name="zs_request_message_agent_sent_accessibility">Dihantar oleh %1$s di %2$s.</string>
+    <string name="zs_request_message_agent_text_accessibility">Mesej ejen %s.</string>
+    <string name="zs_request_message_user_error_accessibility">Gagal untuk menghantar. Ketuk untuk pilihan.</string>
+    <string name="zs_request_message_user_file_accessibility">Fail dengan nama %s.</string>
+    <string name="zs_request_message_user_image_accessibility">Imej dengan nama %s.</string>
+    <string name="zs_request_message_user_sent_accessibility">Dihantar oleh anda di %s.</string>
+    <string name="zs_request_message_user_text_accessibility">Mesej %s.</string>
+    <string name="zs_request_toolbar_accessibility">Balasan terakhir oleh %1$s di %2$s.</string>
+    <string name="zs_view_article_error">Gagal mendapatkan artikel</string>
+    <string name="zs_view_article_loaded_accessibility">%s artikel dimuatkan</string>
+    <string name="zs_view_article_vote_no_accessibility">Tiada undian</string>
+    <string name="zs_view_article_vote_no_remove_accessibility">Alih keluar undian ya</string>
+    <string name="zs_view_article_vote_yes_accessibility">Undian ya</string>
+    <string name="zs_view_article_vote_yes_remove_accessibility">Alih keluar undian tidak</string>
+    <string name="zs_view_article_voted_failed_accessibility_announce">Undian gagal</string>
+    <string name="zs_view_article_voted_no_accessibility_announce">Mengundi tidak</string>
+    <string name="zs_view_article_voted_yes_accessibility_announce">Mengundi ya</string>
+    <string name="zui_attachment_indicator_accessibility">Pilih lampiran</string>
+    <string name="zui_attachment_indicator_n_attachments_selected_accessibility">Terdapat %d lampiran yang dipilih</string>
+    <string name="zui_attachment_indicator_no_attachments_selected_accessibility">Tiada lampiran dipilih</string>
+    <string name="zui_attachment_indicator_one_attachments_selected_accessibility">Terdapat satu lampiran yang dipilih</string>
+    <string name="zui_bot_label">BOT</string>
+    <string name="zui_button_label_no">Tidak</string>
+    <string name="zui_button_label_yes">Ya</string>
+    <string name="zui_cell_text_suggested_article_header">Di sini ada satu artikel yang mungkin membantu:</string>
+    <string name="zui_cell_text_suggested_articles_header">Di sini ada beberapa artikel yang mungkin membantu:</string>
+    <string name="zui_default_bot_name">Answer Bot</string>
+    <string name="zui_dialog_email_error">E-mel tidak sah</string>
+    <string name="zui_dialog_email_hint">Alamat e-mel</string>
+    <string name="zui_failed_message_copy">Salin</string>
+    <string name="zui_failed_message_delete">Padam</string>
+    <string name="zui_failed_message_retry">Cuba Semula</string>
+    <string name="zui_hint_type_message">Taip mesej…</string>
+    <string name="zui_label_connecting">Menyambung…</string>
+    <string name="zui_label_dialog_delete_btn">Padam mesej</string>
+    <string name="zui_label_dialog_retry_btn">Cuba semula menghantar</string>
+    <string name="zui_label_failed">Gagal</string>
+    <string name="zui_label_reconnecting">Menyambung semula…</string>
+    <string name="zui_label_reconnecting_failed">Sambungan gagal.</string>
+    <string name="zui_label_send">Hantar</string>
+    <string name="zui_label_sent">Dihantar</string>
+    <string name="zui_label_tap_retry">Ketik untuk cuba semula</string>
+    <string name="zui_message_log_article_opened_formatter">%1$s artikel terbuka \'%2$s\'</string>
+    <string name="zui_message_log_article_suggestion_message">Saya menemui artikel ini:</string>
+    <string name="zui_message_log_attachment_sending_failed">Lampiran tidak dapat dihantar</string>
+    <string name="zui_message_log_default_visitor_name">Pengunjung</string>
+    <string name="zui_message_log_message_attachment_type_not_supported">Jenis lampiran tidak disokong</string>
+    <string name="zui_message_log_message_attachments_not_supported">Lampiran tidak disokong</string>
+    <string name="zui_message_log_message_failed_to_send">[Gagal untuk menghantar]</string>
+    <string name="zui_message_log_message_file_exceeds_max_size">Melebihi saiz fail maksimum (%1$s)</string>
+    <string name="zui_message_log_transfer_option_selection_formatter">%1$s dipilih %2$s</string>
+    <string name="zui_retry_button_label">Cuba Semula</string>
+    <string name="zui_toolbar_title">Hubungi kami</string>
+    <string name="zui_unable_open_file">Tidak boleh membuka fail.</string>
+</resources>
