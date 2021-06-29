@@ -1,307 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"التوجه إلى المنزل"</string>
-    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"التنقل إلى أعلى"</string>
-    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"خيارات أكثر"</string>
-    <string msgid="4692188335987374352" name="abc_action_mode_done">"تم"</string>
-    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"عرض الكل"</string>
-    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"اختيار تطبيق"</string>
-    <string msgid="4215997306490295099" name="abc_capital_off">"إيقاف"</string>
-    <string msgid="884982626291842264" name="abc_capital_on">"تفعيل"</string>
-    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"حذف"</string>
-    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"فضاء"</string>
-    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"القائمة+"</string>
-    <string msgid="7208076849092622260" name="abc_search_hint">"بحث…"</string>
-    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"محو طلب البحث"</string>
-    <string msgid="693312494995508443" name="abc_searchview_description_query">"طلب بحث"</string>
-    <string msgid="3417662926640357176" name="abc_searchview_description_search">"البحث"</string>
-    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"إرسال طلب البحث"</string>
-    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"بحث صوتي"</string>
-    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"مشاركة مع"</string>
-    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"مشاركة مع <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
-    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"تصغير"</string>
-    <string name="articles_list_fragment_error_message">فشل في الحصول على المقالات</string>
-    <string name="articles_list_fragment_no_articles_found">لم يتم العثور على مقالات</string>
-    <string name="ask_request_list_failed_request_message">تعذر إرسال الرسالة</string>
-    <string name="belvedere_dialog_camera">الكاميرا</string>
-    <string name="belvedere_dialog_gallery">المعرض</string>
-    <string name="belvedere_fam_desc_collapse_fam">طيّ قائمة إجراءات عائمة</string>
-    <string name="belvedere_fam_desc_expand_fam">توسيع قائمة إجراءات عائمة</string>
-    <string name="belvedere_fam_desc_open_gallery">استيراد ملف من المعرض</string>
-    <string name="belvedere_fam_desc_open_google_photos">استيراد صورة من صور Google</string>
-    <string name="belvedere_image_stream_file_too_large">الملف أكبر مما ينبغي</string>
-    <string name="belvedere_image_stream_title">مكتبة الصور</string>
-    <string name="belvedere_image_stream_unknown_app">غير معروف</string>
-    <string name="belvedere_permissions_denied">رُفِضت الأذونات</string>
-    <string name="belvedere_stream_item_camera_tile_desc">استيراد صورة من الكاميرا</string>
-    <string name="belvedere_stream_item_select_file_desc">تحديد الملف %s</string>
-    <string name="belvedere_stream_item_select_image_desc">تحديد الصورة %s</string>
-    <string name="belvedere_stream_item_unselect_file_desc">إلغاء تحديد الملف %s</string>
-    <string name="belvedere_stream_item_unselect_image_desc">إلغاء تحديد الصورة %s</string>
-    <string name="belvedere_toolbar_desc_collapse">إغلاق منتقي الصورة</string>
-    <string name="categories_list_fragment_error_message">فشل في الحصول على الفئات</string>
-    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"تفعيل"</string>
-    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"‏لن يعمل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تفعيل خدمات Google Play."</string>
-    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"‏تفعيل خدمات Google Play"</string>
-    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"تثبيت"</string>
-    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي لا تتوفر على جهازك."</string>
-    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"‏الحصول على خدمات Google Play"</string>
-    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"‏مدى توفّر خدمات Google Play"</string>
-    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"‏خطأ في خدمات Google Play"</string>
-    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"‏لدى <ns1:g id="APP_NAME">%1$s</ns1:g> مشكلة في خدمات Google Play. يُرجى إعادة المحاولة."</string>
-    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play التي لا يوفرها جهازك."</string>
-    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"تحديث"</string>
-    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تحديث خدمات Google Play."</string>
-    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"‏تحديث خدمات Google Play"</string>
-    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي يتم تحديثها حاليًا."</string>
-    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"‏يجب توفر إصدار جديد من خدمات Google Play. سيتم تحديثها تلقائيًا قريبًا."</string>
-    <string msgid="5201977337835724196" name="common_open_on_phone">"فتح على الهاتف"</string>
-    <string msgid="3441753203274453993" name="common_signin_button_text">"تسجل الدخول"</string>
-    <string msgid="669893613918351210" name="common_signin_button_text_long">"‏تسجيل الدخول عبر Google"</string>
-    <string name="contact_fragment_title">اتصل بنا</string>
-    <string name="error_msg_invalid_email">أدخل عنوان بريد إلكتروني صالح</string>
-    <string name="error_msg_invalid_message">إدخال رسالتك</string>
-    <string name="error_msg_invalid_name">أدخِل اسمك بالكامل</string>
-    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"متنوعة"</string>
-    <string name="help_search_no_results_label">لا توجد نتائج حول</string>
-    <string name="help_see_all_articles_label">عرض كل المقالات</string>
-    <string name="help_see_all_n_articles_label">عرض كل الـ %d مقالات</string>
-    <string name="hms_abort" priority="translator">"إيقاف"</string>
-    <string name="hms_abort_message" priority="translator">"هل تريد إيقاف التنزيل؟"</string>
-    <string name="hms_bindfaildlg_message" priority="translator">"\"%1$s\" غير قادر على استخدام خدمات هواوي للجوال. يُرجى تشغيل مدير الهاتف أو الذهاب إلى الإعدادات، وتمكين جميع أذونات %2$s (بما في ذلك التشغيل التلقائي، والتشغيل الثانوي)، وإعادة المحاولة."</string>
-    <string name="hms_cancel" priority="translator">"إلغاء"</string>
-    <string name="hms_check_failure" priority="translator">"تعذر التحقق من وجود تحديثات."</string>
-    <string name="hms_check_no_update" priority="translator">"أنت الآن تستخدم أحدث إصدار"</string>
-    <string name="hms_checking" priority="translator">"جارِ التحقق من وجود تحديثات..."</string>
-    <string name="hms_confirm" priority="translator">"حسنًا"</string>
-    <string name="hms_download_failure" priority="translator">"تعذر تنزيل حزمة خدمات هواوي للجوال."</string>
-    <string name="hms_download_no_space" priority="translator">"لا يمكن استكمال التنزيل لعدم وجود مساحة تخزينية كافية."</string>
-    <string name="hms_download_retry" priority="translator">"تعذر التنزيل. هل تريد المحاولة مجددًا؟"</string>
-    <string name="hms_downloading" priority="translator">"جاري تنزيل خدمات هواوي للجوال | مستوى التقدم: %d%%"</string>
-    <string name="hms_downloading_loading" priority="LT">"قيد التنزيل..."</string>
-    <string name="hms_downloading_new" priority="LT">"جاري تنزيل خدمات هواوي للجوال"</string>
-    <string name="hms_gamebox_name" priority="LT">"مركز الألعاب"</string>
-    <string name="hms_install" priority="translator">"تثبيت"</string>
-    <string name="hms_install_message" priority="translator">"يجب تثبيت خدمات هواوي للجوال لاستخدام هذه الخاصية. هل تريد تثبيتها؟"</string>
-    <string name="hms_push_channel" priority="translator">"الافتراضي"</string>
-    <string name="hms_retry" priority="translator">"إعادة المحاولة"</string>
-    <string name="hms_update" priority="translator">"تحديث"</string>
-    <string name="hms_update_continue" priority="LT">"تنزيل"</string>
-    <string name="hms_update_message" priority="translator">"قم بتحديث خدمات هواوي للجوال إلى أحدث إصدار متوفر لكي تتمكن من استخدام هذه الخاصية. هل تريد التحديث الآن؟"</string>
-    <string name="hms_update_message_new" priority="LT">"هذه الخدمة تحتاج إلى وجود أحدث إصدار للتطبيق التالي:\n\n%1$s"</string>
-    <string name="hms_update_nettype" priority="LT">"جهازك غير متصل بشبكة لاسلكية. هل تريد التنزيل باستخدام بيانات الجوال؟"</string>
-    <string name="hms_update_title" priority="translator">"خدمات هواوي للجوال"</string>
-    <string name="network_activity_no_connectivity">لا يوجد اتصال</string>
-    <string name="request_attachment_generic_unknown_app">غير معروف</string>
-    <string name="request_dialog_body_unsaved_changes">سيؤدي الرجوع إلى حذف رسالتك. هل تريد بالتأكيد حذفها؟</string>
-    <string name="request_dialog_button_label_cancel">إلغاء</string>
-    <string name="request_dialog_button_label_delete">حذف</string>
-    <string name="request_dialog_title_unsaved_changes">لم يتم إرسال الرسالة</string>
-    <string name="request_email_entry_hint">البريد الإلكتروني</string>
-    <string name="request_error_create_request">فشل إنشاء الطلب</string>
-    <string name="request_error_load_comments">فشل تحميل التعليقات</string>
-    <string name="request_file_attachment_download_in_progress">جارٍ تنزيل الملف</string>
-    <string name="request_list_activity_title">التذاكر الخاصة بي</string>
-    <string name="request_list_empty_start_conversation">بدء محادثة</string>
-    <string name="request_list_empty_text">تظهر هنا المحادثات التي تبدأ من هذا التطبيق</string>
-    <string name="request_list_fragment_error_message">فشل في الحصول على التذاكر</string>
-    <string name="request_list_me">أنا</string>
-    <string name="request_list_re">بخصوص: %s</string>
-    <string name="request_list_ticket_closed">التذكرة مغلقة</string>
-    <string name="request_menu_button_label_add_attachments">إضافة مرفقات</string>
-    <string name="request_menu_button_label_send">إرسال</string>
-    <string name="request_message_date_today">اليوم</string>
-    <string name="request_message_date_yesterday">الأمس</string>
-    <string name="request_message_entry_hint">رسالة</string>
-    <string name="request_message_status_delivered">تم الإرسال</string>
-    <string name="request_messages_status_error">تعذر إرسال الرسالة. اضغط لإعادة المحاولة</string>
-    <string name="request_name_entry_hint">الاسم</string>
-    <string name="request_retry_dialog_delete_message">حذف الرسالة</string>
-    <string name="request_retry_dialog_retry">إعادة محاولة الإرسال</string>
-    <string name="request_system_message_closed_ticket">تم إغلاق هذه المحادثة.</string>
-    <string name="request_toolbar_last_reply">آخر رد ‎%s</string>
-    <string name="request_write_a_message">اكتب رسالة</string>
-    <string name="retry_view_button_label">إعادة المحاولة</string>
-    <string msgid="6264217191555673260" name="search_menu_title">"البحث"</string>
-    <string name="sections_list_fragment_error_message">فشل في الحصول على الأقسام</string>
-    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
-    <string name="support_activity_title">الدعم</string>
-    <string name="support_conversations_menu">المحادثات</string>
-    <string name="upsdk_app_dl_installing" priority="translator">"جاري تنزيل متجر التطبيقات"</string>
-    <string name="upsdk_app_download_info_new" priority="translator">"تثبيت"</string>
-    <string name="upsdk_app_size" priority="translator">"الحجم:"</string>
-    <string name="upsdk_app_version" priority="LT">"الإصدار"</string>
-    <string name="upsdk_cancel" priority="translator">"إلغاء"</string>
-    <string name="upsdk_checking_update_prompt" priority="translator">"جارِ التحقق من وجود تحديثات..."</string>
-    <string name="upsdk_choice_update" priority="LT">"هناك تحديث متوفر، يُرجى تنزيل وتثبيت أحدث إصدار."</string>
-    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"غير قادر على الاتصال بالخادم، يُرجى إعادة المحاولة لاحقًا"</string>
-    <string name="upsdk_detail" priority="translator">"التفاصيل"</string>
-    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"غير قادر على الحصول على المعلومات، يُرجى إعادة المحاولة لاحقًا"</string>
-    <string name="upsdk_install" priority="LT">"يُرجى تثبيت متجر التطبيقات لتتمكن من تحديثه، هل تريد تثبيته الآن؟"</string>
-    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"لا يوجد اتصال إنترنت لديك، يُرجى التحقق من إعدادات الشبكة"</string>
-    <string name="upsdk_ota_app_name" priority="LT">"اسم التطبيق:"</string>
-    <string name="upsdk_ota_cancel" priority="translator">"لاحقًا"</string>
-    <string name="upsdk_ota_force_cancel_new" priority="LT">"خروج"</string>
-    <string name="upsdk_ota_notify_updatebtn" priority="translator">"تحديث"</string>
-    <string name="upsdk_ota_title" priority="translator">"إصدار جديد"</string>
-    <string name="upsdk_storage_utils" priority="translator">"%1$s م.ب"</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"هل تريد إلغاء التثبيت؟"</string>
-    <string name="upsdk_third_app_dl_install_failed" priority="translator">"تعذر التثبيت"</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"نعم"</string>
-    <string name="upsdk_update_check_no_new_version" priority="Reviewed">"أنت الآن تستخدم أحدث إصدار"</string>
-    <string name="upsdk_updating" priority="translator">"جارِ التحديث"</string>
-    <string name="view_article_attachments_error">تعذر إحضار المرفقات</string>
-    <string name="view_article_vote_prompt">هل كان هذا المقال مفيداً؟</string>
-    <string name="zab_cell_text_acknowledgement_did_help">رائع. المعرفة قوة.</string>
-    <string name="zab_cell_text_acknowledgement_did_not_help">فهمت. لم يُحلّ سؤالك بعد.</string>
-    <string name="zab_cell_text_answerbot_disabled_header">كما يمكنك التواصل معنا.</string>
-    <string name="zab_cell_text_answerbot_disabled_response">عفواً. عذراً، حدث أمر ما. لا يمكنني الإجابة عن أسئلتك في الوقت الحالي.</string>
-    <string name="zab_cell_text_contact_options_header">هل ترغب في التواصل؟</string>
-    <string name="zab_cell_text_did_help_ask_again">إذا كان ثمة شيء آخر يمكنني أن أبحث عنه من أجلك، فما عليك إلا أن تطرح سؤالاً آخر.</string>
-    <string name="zab_cell_text_help_followup_question">يُرجى إخبارنا بالمزيد. هل كان للمقال علاقة بسؤالك؟</string>
-    <string name="zab_cell_text_inactivity_contact_option_header">أو يمكنك التواصل معنا.</string>
-    <string name="zab_cell_text_no_articles">لم نعثر على أي مقالات ذات صلة.</string>
-    <string name="zab_cell_text_prompt">اسألني سؤالاً وسأبحث عن إجابته من أجلك.</string>
-    <string name="zab_cell_text_prompt_another_question">أو يمكنك طرح سؤال آخر.</string>
-    <string name="zab_cell_text_prompt_another_question_no_transfer_options">يمكنك أن تسألني سؤالاً آخر.</string>
-    <string name="zab_cell_text_question_did_article_help_with_question">هل ساعدك المقال الذي طالعته في الإجابة عن سؤالك؟</string>
-    <string name="zab_cell_text_welcome">أهلاً!</string>
-    <string name="zab_error_load_article">تعذر تحميل المقال</string>
-    <string name="zab_hint_type_your_question">اكتب سؤالك…</string>
-    <string name="zab_view_article_help_followup_question">هل كان للمقال علاقة بسؤالك؟</string>
-    <string name="zab_view_article_help_no">لا، أحتاج إلى مساعدة</string>
-    <string name="zab_view_article_help_question">هل يجيب هذا المقال عن سؤالك؟</string>
-    <string name="zab_view_article_help_reason_didnt_answer">المقال يتعلق بالسؤال، لكنه لم يجب عنه</string>
-    <string name="zab_view_article_help_reason_not_related">لا علاقة له بسؤالي</string>
-    <string name="zab_view_article_help_yes">نعم</string>
-    <string name="zab_view_article_loaded_accessibility">تم تحميل المقال %s</string>
-    <string name="zch_chat_comment_acknowledgement">شكرًا لك على رأيك. يمكنك الآن العودة إلى الدردشة.</string>
-    <string name="zch_chat_comment_composer_hint">اكتب تعليقك...</string>
-    <string name="zch_chat_ended">انتهت الدردشة</string>
-    <string name="zch_chat_handover_message_selection">دردش مع وكيل</string>
-    <string name="zch_chat_rating_comment_action_label">إضافة تعليق</string>
-    <string name="zch_chat_rating_comment_prompt_message">رأيك يهمنا. إذا رغبت في ذلك، يمكنك أيضًا إضافة تعليق أكثر تفصيلًا.</string>
-    <string name="zch_chat_rating_label_bad">سيئ 👎</string>
-    <string name="zch_chat_rating_label_good">جيد 👍</string>
-    <string name="zch_chat_rating_request_prompt">مرحبًا، هذه مجرد متابعة لنعرف كيف تسير دردشتك مع %s؟</string>
-    <string name="zch_chat_transcript_email_prompt">ما هو عنوان البريد الإلكتروني الذي سيُرسَل إليه النص؟</string>
-    <string name="zch_chat_transcript_prompt">هل تريد أن يُرسَل نص هذه الدردشة إلى بريدك الإلكتروني؟</string>
-    <string name="zch_chat_transcript_request_confirmation">سيُرسَل النص إلى %1$s بعد انتهاء الدردشة</string>
-    <string name="zch_chat_welcome_message_handover">موافق سأجد شخصًا يمكنه أن يساعدك بشأن استفسارك.</string>
-    <string name="zch_end_chat">إنهاء الدردشة</string>
-    <string name="zch_member_join">انضمَّ %1$s إلى الدردشة</string>
-    <string name="zch_member_leave">غادَر %1$s الدردشة</string>
-    <string name="zch_offline_form_completion_acknowledgement">وصلتنا رسالتك وسنرد عليك في أقرب وقت ممكن.</string>
-    <string name="zch_offline_form_introduction_message">ليتسنى لنا الاتصال بك عند توافر شخص يمكنه مساعدتك، أحتاج إلى بعض المعلومات.</string>
-    <string name="zch_offline_form_message_field_prompt">كيف يمكننا مساعدتك حين نعاود الاتصال؟</string>
-    <string name="zch_offline_form_welcome_message">مرحباً. للأسف لا يوجد أحد متصل حاليًا.</string>
-    <string name="zch_offline_message">للأسف، لا يوجد أحد متصل حاليًا. الرجاء العودة لاحقًا.</string>
-    <string name="zch_pre_chat_department_field_message">أي قسم سيكون الأنسب للإجابة عن سؤالك؟</string>
-    <string name="zch_pre_chat_email_field_hint">ما هو عنوان بريدك الإلكتروني؟</string>
-    <string name="zch_pre_chat_email_field_invalid_message">عنوان البريد الإلكتروني الذي أدخلته غير صحيح. أدخِل عنوان بريد إلكتروني صالحاً.</string>
-    <string name="zch_pre_chat_email_field_message">ما هو عنوان بريدك الإلكتروني؟</string>
-    <string name="zch_pre_chat_introduction_greeting">أهلاً!</string>
-    <string name="zch_pre_chat_introduction_message">دعني أجد من يساعدك. أحتاج أولًا لبضعة معلومات.</string>
-    <string name="zch_pre_chat_message_acknowledgement">دعني أجد من يساعدك. أحتاج أولًا لمعلومات إضافية.</string>
-    <string name="zch_pre_chat_name_field_hint">ما اسمك؟</string>
-    <string name="zch_pre_chat_name_field_message">ما اسمك؟</string>
-    <string name="zch_pre_chat_phone_field_hint">ما رقم هاتفك؟</string>
-    <string name="zch_pre_chat_phone_field_message">ما رقم هاتفك؟</string>
-    <string name="zch_pre_chat_response_accepted_message">شكرًا لك.</string>
-    <string name="zch_pre_chat_skip_button">تخطي</string>
-    <string name="zch_pre_chat_welcome_message">مرحباً. كيف يمكننا مساعدتك اليوم؟</string>
-    <string name="zch_queue_position">الترتيب في قائمة الانتظار: %1$d</string>
-    <string name="zch_request_transcript">اطلب نصًا</string>
-    <string name="zg_general_contact_us_button_label_accessibility">اتصل بنا</string>
-    <string name="zg_general_no_connection_message">لا يوجد اتصال</string>
-    <string name="zs_engine_greeting_message">اكتب رسالة وسأجد شخصًا يمكنه مساعدتك.</string>
-    <string name="zs_engine_message_retry_button">إعادة المحاولة</string>
-    <string name="zs_engine_message_send_error_message">حدث خطأ ما ولم أتمكن من إرسال رسالتك. الرجاء إعادة المحاولة لاحقًا.</string>
-    <string name="zs_engine_request_created_conversations_enabled_message">شكراً لك. تم إرسال رسالة إلى الفريق. يمكنك عرض هذه الرسالة وإضافة المزيد من المعلومات من هنا:</string>
-    <string name="zs_engine_request_created_conversations_off_message">شكرًا لك. لقد أُرسِلت رسالة إلى الفريق. إذا كان الرد مطلوبًا، فسيتصل بك عضو من الفريق بالبريد الإلكتروني.</string>
-    <string name="zs_engine_request_created_request_list_button">عرض الرسائل</string>
-    <string name="zs_engine_request_creation_email_prompt_hint">أدخل عنوان بريدك الإلكتروني...</string>
-    <string name="zs_engine_request_creation_email_prompt_message">إذا كان الرد مطلوبًا، فسيتصل بك عضو من الفريق بالبريد الإلكتروني. ما هو عنوان بريدك الإلكتروني؟</string>
-    <string name="zs_engine_request_creation_email_validation_failed_message">عنوان البريد الإلكتروني الذي أدخلته غير صحيح. يُرجى إدخال عنوان بريد إلكتروني صالح.</string>
-    <string name="zs_general_contact_us_button_label_accessibility">اتصل بنا</string>
-    <string name="zs_general_referrer_logo_label_accessibility">Zendesk</string>
-    <string name="zs_help_center_content_loaded_accessibility">تم تحميل مركز المساعدة</string>
-    <string name="zs_help_center_search_loaded_accessibility">تم تحميل نتائج البحث</string>
-    <string name="zs_request_announce_comment_created_accessibility">تم إرسال تعليق يتضمن النص %s.</string>
-    <string name="zs_request_announce_comment_failed_accessibility">تعذر إنشاء تعليق يتضمن النص %s.</string>
-    <string name="zs_request_announce_comments_loaded_accessibility">تم تحميل التعليقات.</string>
-    <string name="zs_request_attachment_carousel_attachment_accessibility">تم إرفاق ملف باسم %s.</string>
-    <string name="zs_request_attachment_carousel_remove_attachment_accessibility">إزالة مرفق باسم %s.</string>
-    <string name="zs_request_attachment_indicator_accessibility">تحديد مرفق.</string>
-    <string name="zs_request_attachment_indicator_n_attachments_selected_accessibility">توجد ‎%d مرفقات محددة.</string>
-    <string name="zs_request_attachment_indicator_no_attachments_selected_accessibility">لا توجد مرفقات محددة.</string>
-    <string name="zs_request_attachment_indicator_one_attachments_selected_accessibility">يوجد مرفق واحد محدد.</string>
-    <string name="zs_request_contact_option_leave_a_message">اترك رسالة</string>
-    <string name="zs_request_list_content_load_failed_accessibility">تعذر تحميل تذاكر الدعم</string>
-    <string name="zs_request_list_content_loaded_accessibility">تم تحميل تذاكر الدعم</string>
-    <string name="zs_request_list_content_loaded_empty_accessibility">لا توجد تذاكر دعم</string>
-    <string name="zs_request_list_content_loading_accessibility">جارٍ تحميل تذاكر الدعم</string>
-    <string name="zs_request_message_agent_file_accessibility">ملف وكيل مرفق باسم %s.</string>
-    <string name="zs_request_message_agent_image_accessibility">صورة وكيل مرفقة باسم %s.</string>
-    <string name="zs_request_message_agent_sent_accessibility">أرسِلت بواسطة %1$s الساعة %2$s.</string>
-    <string name="zs_request_message_agent_text_accessibility">رسالة الوكيل تتضمن النص %s.</string>
-    <string name="zs_request_message_user_error_accessibility">فشل الإرسال. اضغط للحصول على خيارات.</string>
-    <string name="zs_request_message_user_file_accessibility">ملف باسم %s.</string>
-    <string name="zs_request_message_user_image_accessibility">صورة باسم %s.</string>
-    <string name="zs_request_message_user_sent_accessibility">أرسِلت بواسطتك الساعة %s</string>
-    <string name="zs_request_message_user_text_accessibility">رسالة تتضمن النص %s.</string>
-    <string name="zs_request_toolbar_accessibility">آخر رد بواسطة %1$s الساعة %2$s.</string>
-    <string name="zs_view_article_error">تعذر إحضار المقال</string>
-    <string name="zs_view_article_loaded_accessibility">تم تحميل المقال %s</string>
-    <string name="zs_view_article_vote_no_accessibility">عدم إعجاب</string>
-    <string name="zs_view_article_vote_no_remove_accessibility">إزالة إعجاب</string>
-    <string name="zs_view_article_vote_yes_accessibility">إعجاب</string>
-    <string name="zs_view_article_vote_yes_remove_accessibility">إزالة عدم إعجاب</string>
-    <string name="zs_view_article_voted_failed_accessibility_announce">فشل التصويت</string>
-    <string name="zs_view_article_voted_no_accessibility_announce">تم التصويت بـ \"لا\"</string>
-    <string name="zs_view_article_voted_yes_accessibility_announce">تم التصويت بـ \"نعم\"</string>
-    <string name="zui_attachment_indicator_accessibility">تحديد مرفق</string>
-    <string name="zui_attachment_indicator_n_attachments_selected_accessibility">المرفقات المحددة: ‎%d</string>
-    <string name="zui_attachment_indicator_no_attachments_selected_accessibility">لا توجد مرفقات محددة</string>
-    <string name="zui_attachment_indicator_one_attachments_selected_accessibility">يوجد مرفق واحد محدد</string>
-    <string name="zui_bot_label">روبوت</string>
-    <string name="zui_button_label_no">لا</string>
-    <string name="zui_button_label_yes">نعم</string>
-    <string name="zui_cell_text_suggested_article_header">قد يكون المقال التالي مفيداً:</string>
-    <string name="zui_cell_text_suggested_articles_header">فيما يلي بعض المقالات التي قد تفيد:</string>
-    <string name="zui_default_bot_name">Answer Bot</string>
-    <string name="zui_dialog_email_error">بريد إلكتروني غير صالح</string>
-    <string name="zui_dialog_email_hint">عنوان البريد الإلكتروني</string>
-    <string name="zui_failed_message_copy">نسخ</string>
-    <string name="zui_failed_message_delete">حذف</string>
-    <string name="zui_failed_message_retry">إعادة المحاولة</string>
-    <string name="zui_hint_type_message">اكتب رسالة...</string>
-    <string name="zui_label_connecting">جارٍ الاتصال...</string>
-    <string name="zui_label_dialog_delete_btn">حذف الرسالة</string>
-    <string name="zui_label_dialog_retry_btn">إعادة محاولة الإرسال</string>
-    <string name="zui_label_failed">فشل</string>
-    <string name="zui_label_reconnecting">جارٍ إعادة الاتصال...</string>
-    <string name="zui_label_reconnecting_failed">فشل الاتصال.</string>
-    <string name="zui_label_send">إرسال</string>
-    <string name="zui_label_sent">تم الإرسال</string>
-    <string name="zui_label_tap_retry">اضغط لإعادة المحاولة</string>
-    <string name="zui_message_log_article_opened_formatter">%1$s فتح المقال \'%2$s\'</string>
-    <string name="zui_message_log_article_suggestion_message">وجدت المقالات التالية:</string>
-    <string name="zui_message_log_attachment_sending_failed">يتعذر إرسال المرفق</string>
-    <string name="zui_message_log_default_visitor_name">الزائر</string>
-    <string name="zui_message_log_message_attachment_type_not_supported">نوع المرفق غير مدعوم</string>
-    <string name="zui_message_log_message_attachments_not_supported">المرفقات غير مدعومة</string>
-    <string name="zui_message_log_message_failed_to_send">[فشل الإرسال]</string>
-    <string name="zui_message_log_message_file_exceeds_max_size">يتجاوز أقصى حجم للملف (%1$s)</string>
-    <string name="zui_message_log_transfer_option_selection_formatter">%1$s حدَّد %2$s</string>
-    <string name="zui_retry_button_label">إعادة المحاولة</string>
-    <string name="zui_toolbar_title">اتصل بنا</string>
-    <string name="zui_unable_open_file">تعذر فتح الملف.</string>
-</resources>
