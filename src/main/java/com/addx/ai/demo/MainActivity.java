@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.addx.common.Const;
+import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.permission.PermissionPageStep;
 import com.addx.common.steps.PageStep;
 import com.addx.common.utils.LogUtils;
@@ -74,26 +75,6 @@ public class MainActivity extends BaseActivity  implements View.OnClickListener 
         });
     }
 
-    private void checkPermissions() {
-        new PermissionPageStep(this)
-                .setRequestedPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE})
-                .setRationaleMessage(R.string.if_storage_not_access)
-                .setSettingsMessage(R.string.if_storage_not_access)
-                .setTitleMessage(R.string.storage_space_access)
-                .setGuideDescVisible(false)
-                .setShowGuideImageBg(false)
-                .execute((step, result) -> {
-                    LogUtils.df(TAG, "permission state %s", result.name());
-//                    if (result != PageStep.PageStepResult.Failed) {
-//                        PushHandlerUtils.getAllShareRequest();
-//                        checkNewVersion();
-//                    } else {
-//                        exitApp();
-//                    }
-                });
-
-    }
     @Override
     protected int getResid(){
         return R.layout.activity_demo_main;
@@ -201,7 +182,7 @@ public class MainActivity extends BaseActivity  implements View.OnClickListener 
         if (!TextUtils.isEmpty(ADDXBind.Companion.getMSN())) {
             ((Button) findViewById(R.id.unbind)).setText("解绑:" + ADDXBind.Companion.getMSN());
         }
-        checkPermissions();
+        PermissionHelp.checkStoragePermissions(this, null);
     }
 
     void listDevice() {
