@@ -1,5 +1,6 @@
 package com.addx.ai.demo;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -10,7 +11,6 @@ import com.ai.addxbase.util.ToastUtils;
 import com.ai.addx.model.DeviceBean;
 import com.ai.addx.model.request.BaseEntry;
 import com.ai.addx.model.response.AllDeviceResponse;
-import com.ai.addxbase.mvvm.BaseActivity;
 import com.ai.addxnet.ApiClient;
 import com.ai.addxnet.HttpSubscriber;
 import com.ai.addxsettings.ADDXSettings;
@@ -21,16 +21,17 @@ import rx.schedulers.Schedulers;
 
 public class DeviceList extends BaseActivity {
 
+
     @Override
-    protected int getLayoutId() {
+    protected int getResid() {
         return R.layout.activity_device_list;
     }
 
     LinearLayoutCompat container;
 
     @Override
-    protected void initView() {
-        super.initView();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         container = findViewById(R.id.list_device);
         listDeviceInfo();
     }

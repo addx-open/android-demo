@@ -1,27 +1,19 @@
 package com.addx.ai.demo;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.addx.common.Const;
 import com.ai.addxbase.permission.PermissionHelp;
-import com.ai.addxbase.permission.PermissionPageStep;
-import com.addx.common.steps.PageStep;
 import com.addx.common.utils.LogUtils;
 import com.ai.addxbase.util.ToastUtils;
-import com.addx.common.utils.ViewModelHelper;
 import com.ai.addx.model.request.BaseEntry;
 import com.ai.addx.model.response.AllDeviceResponse;
-import com.ai.addxbase.DeviceManager;
-import com.ai.addxbase.mvvm.DeviceViewModel;
 import com.ai.addxbind.devicebind.ADDXBind;
-import com.ai.addxbind.devicebind.ui.AddDevice1Activity;
 import com.ai.addxnet.ApiClient;
 import com.ai.addxnet.HttpSubscriber;
 //import com.ai.guard.vicohome.SplashActivity;
@@ -133,22 +125,7 @@ public class MainActivity extends BaseActivity  implements View.OnClickListener 
 //                startActivity(addxtestintent);
                 break;
             case R.id.bind:
-                ADDXBind.lanchBind(this, "===", new ADDXBind.BindInterface() {
-                    @Override
-                    public void onBindCancel() {
-
-                    }
-
-                    @Override
-                    public void onBindSccess(String sn) {
-
-                    }
-
-                    @Override
-                    public void onBindStart(String callBackUrl) {
-
-                    }
-                });
+                ADDXBind.lanchBind(this, new ADDXBind.Builder()  );
                 break;
             case R.id.unbind:
                 String msn = ADDXBind.Companion.getMSN();
