@@ -10,4 +10,5 @@
       <string name="devicebind">设备绑定</string>
       <string name="all">完整app</string>
       <string name="back">返回</string>
+      <string name="scan_friend_qr">添加好友设备</string>
 </resources>

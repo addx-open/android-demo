@@ -35,7 +35,6 @@ public class Logintest extends AppCompatActivity {
                     LogUtils.d("dd", "startLogin=======doOnNext");
                     findViewById(R.id.back).setEnabled(true);
                     if(ret){
-                        RxBus.getDefault().post(new MainActivity.Event(1),MainActivity.LOGIN_OK);
                         if (Logintest.this.getLifecycle().getCurrentState() == Lifecycle.State.RESUMED) {
                             ((TextView)findViewById(R.id.name)).setText("name:"+((UserBean)msg).getName());
                             ((TextView)findViewById(R.id.id)).setText("id:"+((UserBean)msg).getId());

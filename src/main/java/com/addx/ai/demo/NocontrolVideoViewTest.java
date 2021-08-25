@@ -29,7 +29,7 @@ import rx.subscriptions.CompositeSubscription;
 public class NocontrolVideoViewTest extends BaseActivity{
     private static final String TAG = "NocontrolVideoViewTest";
     private AddxBaseVideoView mNoControlAddxVideoView;
-    public List<DeviceBean> allDevice;
+    private List<DeviceBean> allDevice;
     private ProgressBar loadding;
     private CompositeSubscription mSubscription = new CompositeSubscription();
     @Override

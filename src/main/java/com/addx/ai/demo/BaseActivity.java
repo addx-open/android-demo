@@ -6,9 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+
+import com.ai.addxbase.LanguageUtils;
+
+import java.util.Locale;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -20,7 +28,19 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
     protected abstract int getResid();
 
-
+    @Override
+    protected void attachBaseContext(Context base) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            super.attachBaseContext(base);
+            Resources res = super.getResources();
+            Configuration config = new Configuration();
+            config.setToDefaults();
+            config.setLocale(Locale.US);
+            res.updateConfiguration(config, res.getDisplayMetrics());
+        } else {
+            super.attachBaseContext(base);
+        }
+    }
     protected void addFragment(@IdRes int containerViewId, Fragment fragment, String tag) {
         if (fragment == null) {
             return;

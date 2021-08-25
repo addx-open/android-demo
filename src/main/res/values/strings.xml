@@ -7,8 +7,9 @@
     <string name="library">library</string>
     <string name="devicesetting">device setting</string>
     <string name="usersetting">user setting</string>
-    <string name="devicebind">device bind</string>
+    <string name="devicebind">add device</string>
     <string name="all">all</string>
     <string name="back">back</string>
+    <string name="scan_friend_qr">Add Friend\'s Camera</string>
 
 </resources>
