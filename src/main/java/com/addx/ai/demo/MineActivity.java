@@ -24,3 +24,5 @@ public class MineActivity extends BaseActivity {
         return R.layout.activity_mine;
     }
 }
+
+

@@ -72,9 +72,6 @@
         <activity android:name=".NocontrolVideoViewTest"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize" />
-        <activity android:name=".NocontrolVideoViewTest"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
     </application>
 
 </manifest>

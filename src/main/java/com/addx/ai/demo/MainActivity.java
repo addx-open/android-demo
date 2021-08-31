@@ -1,12 +1,16 @@
 package com.addx.ai.demo;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 
+import com.ai.addxbase.DeviceClicent;
 import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.util.ToastUtils;
 import com.ai.addxbind.devicebind.ADDXBind;
 import com.ai.addxsettings.ADDXSettings;
+import com.ai.addxsettings.ui.BaseDeviceConfigActivity;
+import com.ai.addxvideo.addxvideoplay.addxplayer.webrtcplayer.AddxVideoWebRtcPlayer;
 
 public class MainActivity extends BaseActivity {
     public static final String TAG = "MainActivity";
@@ -25,6 +29,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected int getResid() {
         return R.layout.activity_demo_main;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     /**

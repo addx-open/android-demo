@@ -10,6 +10,7 @@
         android:id="@+id/rl_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/dp_16">
 
         <com.ai.addxvideo.addxvideoplay.LiveAddxVideoView
