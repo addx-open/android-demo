@@ -11,5 +11,6 @@
     <string name="all">all</string>
     <string name="back">back</string>
     <string name="scan_friend_qr">Add Friend\'s Camera</string>
+    <string name="demo_video_list">Video List</string>
 
 </resources>

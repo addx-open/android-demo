@@ -64,14 +64,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".BaseActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".VideoViewTest"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".Logintest"
             android:screenOrientation="portrait" />
-        <activity android:name=".NocontrolVideoViewTest"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name=".PirListActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

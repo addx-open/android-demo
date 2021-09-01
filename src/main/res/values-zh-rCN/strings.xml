@@ -11,4 +11,5 @@
       <string name="all">完整app</string>
       <string name="back">返回</string>
       <string name="scan_friend_qr">添加好友设备</string>
+    <string name="demo_video_list">Video List</string>
 </resources>

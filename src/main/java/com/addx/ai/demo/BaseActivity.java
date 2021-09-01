@@ -15,12 +15,15 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.ai.addxbase.LanguageUtils;
+import com.base.resmodule.view.LoadingDialog;
 
 import java.util.Locale;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected Handler mBaseMainHandler = new Handler(Looper.getMainLooper());
+    private LoadingDialog loadingDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,20 @@ public abstract class BaseActivity extends AppCompatActivity {
             super.attachBaseContext(base);
         }
     }
+
+    protected void showLoadingDialog() {
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(this);
+        }
+        loadingDialog.show();
+    }
+
+    protected void dismissLoadingDialog() {
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+    }
+
     protected void addFragment(@IdRes int containerViewId, Fragment fragment, String tag) {
         if (fragment == null) {
             return;

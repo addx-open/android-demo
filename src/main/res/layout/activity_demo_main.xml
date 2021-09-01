@@ -51,6 +51,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/scan_friend_qr" />
 
+            <Button
+                android:id="@+id/video_list"
+                android:layout_width="match_parent"
+                android:onClick="clickShowVideoList"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_video_list" />
+
         </LinearLayout>
 
         <ProgressBar
