@@ -68,6 +68,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".PirListActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".CustomerDeviceList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

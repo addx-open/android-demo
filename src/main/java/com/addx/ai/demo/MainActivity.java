@@ -58,6 +58,17 @@ public class MainActivity extends BaseActivity {
 
     /**
      * click event
+     * Enter custom device list page
+     * 1.Show All devices you binded
+     * 2.Include settings , Device Shares functions
+     */
+    public void clickShowCustomDeviceList(View v) {
+        Intent devicelistintent = new Intent(this, CustomerDeviceList.class);
+        startActivity(devicelistintent);
+    }
+
+    /**
+     * click event
      * Enter the device bind page
      * It provides a way to add devices to the device list
      */

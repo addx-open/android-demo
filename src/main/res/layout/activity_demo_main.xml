@@ -38,6 +38,12 @@
                 android:text="@string/devicelist" />
 
             <Button
+                android:id="@+id/customdevicelist"
+                android:layout_width="match_parent"
+                android:onClick="clickShowCustomDeviceList"
+                android:layout_height="wrap_content"
+                android:text="@string/customdevicelist" />
+            <Button
                 android:id="@+id/bind"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

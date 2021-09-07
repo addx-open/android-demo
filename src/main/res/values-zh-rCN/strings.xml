@@ -4,6 +4,7 @@
       <string name="nocontrollive">无控制直播</string>
       <string name="controllive">直播</string>
       <string name="devicelist">设备列表</string>
+      <string name="customdevicelist">自定义设备列表</string>
       <string name="library">相册</string>
       <string name="devicesetting">设备设置</string>
       <string name="usersetting">用户设置</string>
