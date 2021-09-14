@@ -44,6 +44,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/customdevicelist" />
             <Button
+                android:id="@+id/sdcardvideo"
+                android:layout_width="match_parent"
+                android:onClick="clickSdcardPlayActivity"
+                android:layout_height="wrap_content"
+                android:text="@string/sdcardvideo" />
+
+            <Button
                 android:id="@+id/bind"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

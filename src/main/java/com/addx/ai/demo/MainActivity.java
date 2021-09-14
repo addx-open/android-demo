@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
      * 2.Include settings , Device Shares functions
      */
     public void clickShowDeviceList(View v) {
-        Intent devicelistintent = new Intent(this, DeviceList.class);
+        Intent devicelistintent = new Intent(this, DeviceListActivity.class);
         startActivity(devicelistintent);
     }
 
@@ -63,7 +63,11 @@ public class MainActivity extends BaseActivity {
      * 2.Include settings , Device Shares functions
      */
     public void clickShowCustomDeviceList(View v) {
-        Intent devicelistintent = new Intent(this, CustomerDeviceList.class);
+        Intent devicelistintent = new Intent(this, CustomerDeviceListActivity.class);
+        startActivity(devicelistintent);
+    }
+    public void clickSdcardPlayActivity(View v) {
+        Intent devicelistintent = new Intent(this, SdcardPlayActivity.class);
         startActivity(devicelistintent);
     }
 

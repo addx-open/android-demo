@@ -1,9 +1,6 @@
 package com.addx.ai.demo;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
 
@@ -12,13 +9,8 @@ import com.ai.addxbase.DeviceClicent;
 import com.ai.addxbase.IDeviceClient;
 import com.ai.addxbase.util.ToastUtils;
 import com.ai.addx.model.DeviceBean;
-import com.ai.addx.model.request.BaseEntry;
-import com.ai.addx.model.response.AllDeviceResponse;
 import com.ai.addxbase.mvvm.BaseActivity;
 import com.ai.addxbind.devicebind.ADDXBind;
-import com.ai.addxnet.ApiClient;
-import com.ai.addxnet.HttpSubscriber;
-import com.ai.addxsettings.ADDXSettings;
 import com.ai.addxvideo.addxvideoplay.LiveAddxVideoView;
 import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 
@@ -27,11 +19,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
-
-public class DeviceList extends BaseActivity {
+public class DeviceListActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
@@ -73,8 +62,8 @@ public class DeviceList extends BaseActivity {
 //                            });
 
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
-                    LiveAddxVideoView liveAddxVideoView = new LiveAddxVideoView(DeviceList.this);
-                    liveAddxVideoView.init(DeviceList.this, bean, new SimpleAddxViewCallBack(){
+                    LiveAddxVideoView liveAddxVideoView = new LiveAddxVideoView(DeviceListActivity.this);
+                    liveAddxVideoView.init(DeviceListActivity.this, bean, new SimpleAddxViewCallBack(){
                         @Override
                         public void onStartPlay() {
                             super.onStartPlay();

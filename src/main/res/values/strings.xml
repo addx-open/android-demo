@@ -5,6 +5,7 @@
     <string name="controllive">live</string>
     <string name="devicelist">device list</string>
     <string name="customdevicelist">custom device list</string>
+    <string name="sdcardvideo">sdcard playback</string>
     <string name="library">library</string>
     <string name="devicesetting">device setting</string>
     <string name="usersetting">user setting</string>

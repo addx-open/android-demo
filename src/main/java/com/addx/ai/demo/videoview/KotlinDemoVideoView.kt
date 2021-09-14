@@ -1,15 +1,11 @@
-package com.addx.ai.demo
+package com.addx.ai.demo.videoview
 
 import android.Manifest
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.BitmapDrawable
@@ -17,7 +13,6 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.TransitionDrawable
 import android.net.Uri
 import android.net.wifi.WifiManager
-import android.os.Looper
 import android.os.SystemClock
 import android.text.TextUtils
 import android.transition.ChangeBounds
@@ -36,14 +31,14 @@ import com.addx.common.utils.*
 import com.ai.addx.model.*
 import com.ai.addx.model.request.SerialNoEntry
 import com.ai.addx.model.response.BaseResponse
-import com.ai.addx.model.response.GetSingleDeviceResponse
 import com.ai.addx.model.response.PreLocationResponse
 import com.ai.addx.model.response.UserConfigResponse
 import com.ai.addxbase.*
+import com.ai.addxbase.addxmonitor.AddxMonitor
+import com.ai.addxbase.addxmonitor.FileLogUpload
 import com.ai.addxbase.helper.SharePreManager
 import com.ai.addxbase.permission.PermissionPageStep
 import com.ai.addxbase.theme.IVLiveVideoView
-import com.ai.addxbase.util.LocalDrawableUtills
 import com.ai.addxbase.util.ToastUtils
 import com.ai.addxbase.view.BatteryView
 import com.ai.addxbase.view.GridSpacingItemDecoration
@@ -53,24 +48,27 @@ import com.ai.addxnet.HttpSubscriber
 import com.ai.addxvideo.PreLocationConst
 import com.ai.addxvideo.addxvideoplay.*
 import com.ai.addxvideo.addxvideoplay.addxplayer.*
-import com.ai.addxvideo.addxvideoplay.addxplayer.addxijkplayer.AddxGLSurfaceView
-import com.ai.addxvideo.addxvideoplay.addxplayer.addxijkplayer.AddxVideoIjkPlayer
 import com.ai.addxvideo.addxvideoplay.addxplayer.webrtcplayer.*
 import com.ai.addxvideo.addxvideoplay.view.LiveRatioDialog
 import com.ai.addxvideo.addxvideoplay.view.RockerView
 import com.ai.addxvideo.addxvideoplay.view.VisualizedView
-import com.ai.addxvideo.track.other.TrackManager
 import com.airbnb.lottie.LottieAnimationView
 import com.alibaba.fastjson.JSON
-import com.base.resmodule.view.LoadingDialog
+import com.blankj.rxbus.RxBus
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.facebook.common.util.UriUtil
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.interfaces.DraweeController
 import com.facebook.drawee.view.SimpleDraweeView
+//import kotlinx.android.synthetic.main.item_device_default.view.*
 import kotlinx.android.synthetic.main.layout_player_full.view.*
+import kotlinx.android.synthetic.main.layout_player_full.view.back
 import kotlinx.android.synthetic.main.layout_player_full.view.iv_mic
+import kotlinx.android.synthetic.main.layout_player_full.view.iv_record
+import kotlinx.android.synthetic.main.layout_player_full.view.iv_screen_shot
+import kotlinx.android.synthetic.main.layout_player_full.view.rocker
+import kotlinx.android.synthetic.main.layout_player_full.view.zoom_view
 import kotlinx.android.synthetic.main.layout_player_normal.view.*
 import kotlinx.android.synthetic.main.layout_player_normal.view.camera_type_icon
 import kotlinx.android.synthetic.main.layout_player_normal.view.close_root
@@ -89,105 +87,23 @@ import kotlinx.android.synthetic.main.layout_player_normal.view.rv_pre_position
 import kotlinx.android.synthetic.main.layout_player_normal.view.tv_complete_delete
 import kotlinx.android.synthetic.main.layout_player_normal.view.view_rocker
 import kotlinx.android.synthetic.main.layout_player_normal.view.voice_icon
-import rx.Observable
+import kotlinx.android.synthetic.main.layout_player_full.view.*
+import kotlinx.android.synthetic.main.layout_player_normal.view.*
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import rx.subscriptions.CompositeSubscription
-import java.io.File
-import java.io.FileNotFoundException
-import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.TimeUnit
+import com.addx.ai.demo.R
 
-open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListener, AddxLiveOptListener, View.OnTouchListener,
-    View.OnClickListener {
+open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeListener, AddxLiveOptListener{
 
-    private var mOldOpt: Int = 0
-    private var mOldState: Int = 0
-    public var currentOpt: Int = 0
-    var mNetWorkDialog: CommonCornerDialog? = null
-    val activityContext: Activity by lazy { CommonUtil.getActivityContext(context) }
-    var mute: Boolean = true
-    var mSystemUiVisibility = 0
-    open var disableCropFrame = true
-    open var mShowing: Boolean = false
-    var mVideoCallBack: IAddxViewCallback? = null
-    open val DEFAULT_SHOW_TIME = 3500L
-    open var mVideoRatio: Ratio = Ratio.P720
-    val mFadeOut = Runnable {
-        hide()
-    }
-    var liveStartTime = 0L
-    open var eventPlayerName = TrackManager.PlayerName.HOME_PLAYER
-    protected var videoSavePath: String? = null
-
-    @Volatile
-    protected var isRecording = false
-    protected var recordCounterTask: Subscription? = null
-    var mSavePlayState: Int = AddxBaseVideoView.CURRENT_STATE_NORMAL
-
-    @Volatile
-    var isChanggingRatio: Boolean = false
-
-    //most common views
-    var defaultThumbRid: Int? = R.mipmap.live_default_cover
-    var soundBtn: ImageView? = null
-    var fullScreenBtn: View? = null
-    open var startBtn: ImageView? = null
-    var thumbImage: ImageView? = null
-    private var renderContainer: ViewGroup? = null
-    open lateinit var contentView: View
-    var ivErrorFlag: ImageView? = null
-    private var ivErrorExit: ImageView? = null
-    private var ivErrorSetting: ImageView? = null
-    protected var tvErrorTips: TextView? = null
-    open var tvErrorButton: TextView? = null
-    var tvUnderLineErrorBtn: TextView? = null
-    private var ivErrorHelp: ImageView? = null
-    var errorLayout: ViewGroup? = null
-    private var oldLayoutParams: ViewGroup.LayoutParams? = null
-    private lateinit var playerOldParent: ViewGroup
-    var normalLayout: ViewGroup? = null
-    var loadingLayout: LinearLayout? = null
-    var tvDownloadSpeed: TextView? = null
-    var ivErrorThumb: ImageView? = null
-    var animShotView: LinearLayout? = null
-    var recordIcon: ImageView? = null
-    var recordTimeText: TextView? = null
-
-    @Volatile
-    var isSavingRecording: Boolean = false
-    var playBeginTimeRecord: Long = 0
-    var playTimeRecordSpan: Long = 0
-    var savingRecordLoading: LinearLayout? = null
-    var availableSdcardSize: Float? = null
-    open var thumbSaveKeySuffix: String? = null
-    var mShowStartTimeSpan: Long = 0
-    var startBtnAction = {
-        if(isPlaying() && System.currentTimeMillis() - mShowStartTimeSpan >= START_SHOW_SPAN){
-            startBtn?.visibility = View.INVISIBLE
-        }
-    }
-    var downloadStringBuilder:StringBuilder=StringBuilder()
-    var START_SHOW_SPAN: Long = 3000
-    var mBitmap: Bitmap? = null
-    var mStopType: String = "endButton"
-    var mShowRecordShotToast: Boolean = false
-    var mUploadlog: ImageView? = null
-    var mIsNeedUploadFailLog: Boolean = false
-    val fullLayoutViewGroup by lazy { View.inflate(context, fullLayoutId(), null) }
-    val normalLayoutViewGroup by lazy { View.inflate(context, normalLayoutId(), null) }
-
-
-
-    //==============================================================
     private val  mIVLiveVideoView by lazy{
         IVLiveVideoView.create()
     }
+    //    private var ivRockerAuto: ImageView? = null
     open var showPirToast: Boolean = false
-    private var mIsSplit: Boolean = false
     private var whiteLightSetting = false
     internal open var whiteLightOn: Boolean = false
     private val liveRationDialog by lazy {
@@ -209,6 +125,7 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     private var mVoiceTip: LinearLayout? = null
     private var frameVisualizedView: FrameLayout? = null
     private val RING_SPAN: Long = 5000
+    var liveFullScreenMenuWindow: LiveFullScreenMenuPopupWindow? = null
     private var liveFullScreenRatioPopupWindow: LiveFullScreenRatioPopupWindow? = null
     private var mMicFramelayout: FrameLayout? = null
     private var mMicText: TextView? = null
@@ -218,7 +135,6 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     private var mMicTouchListener: OnTouchListener? = null
     private var mRockerListener: RockerView.OnPositionChangeListener? = null
 
-    var mIsFullScreen = false
     private var isSportTrackLoading = false
     private var isSportMoveMode = false
     private var isSportTrackOpen = false
@@ -248,18 +164,12 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         resetSportTrackForView()
     }
     private val mHDRatio by lazy {
-        LogUtils.d(
-            TAG,
-            "mHDRatio canRotate =${dataSourceBean!!.deviceModel.canRotate}  mShouldUseDeviceUploadRatio= $mShouldUseDeviceUploadRatio"
-        )
+        LogUtils.d(TAG, "mHDRatio canRotate =${dataSourceBean!!.deviceModel.canRotate}  mShouldUseDeviceUploadRatio= $mShouldUseDeviceUploadRatio")
         if (dataSourceBean!!.deviceModel.canRotate) {
             if (mShouldUseDeviceUploadRatio) {
                 val deviceSupportResolution = dataSourceBean!!.deviceSupport.deviceSupportResolution
                 val ratio1 = parseRatio(deviceSupportResolution[0], Ratio.P360)
-                val ratio2 = parseRatio(
-                    deviceSupportResolution[deviceSupportResolution.size - 1],
-                    Ratio.P1080
-                )
+                val ratio2 = parseRatio(deviceSupportResolution[deviceSupportResolution.size - 1], Ratio.P1080)
                 if (ratio1.wight > ratio2.wight) ratio1 else ratio2
             } else {
                 Ratio.P1080
@@ -270,18 +180,12 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     }
 
     private val mSDRatio by lazy {
-        LogUtils.d(
-            TAG,
-            "mSDRatio canRotate =${dataSourceBean!!.deviceModel.canRotate}  mShouldUseDeviceUploadRatio= $mShouldUseDeviceUploadRatio"
-        )
+        LogUtils.d(TAG, "mSDRatio canRotate =${dataSourceBean!!.deviceModel.canRotate}  mShouldUseDeviceUploadRatio= $mShouldUseDeviceUploadRatio")
         if (dataSourceBean!!.deviceModel.canRotate) {
             if (mShouldUseDeviceUploadRatio) {
                 val deviceSupportResolution = dataSourceBean!!.deviceSupport.deviceSupportResolution
                 val ratio1 = parseRatio(deviceSupportResolution[0], Ratio.P360)
-                val ratio2 = parseRatio(
-                    deviceSupportResolution[deviceSupportResolution.size - 1],
-                    Ratio.P1080
-                )
+                val ratio2 = parseRatio(deviceSupportResolution[deviceSupportResolution.size - 1], Ratio.P1080)
                 if (ratio1.wight < ratio2.wight) ratio1 else ratio2
             } else {
                 Ratio.P360
@@ -300,20 +204,15 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    )
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     override fun getDeclaredAttrs(context: Context, attrs: AttributeSet?) {
         super.getDeclaredAttrs(context, attrs)
         if (attrs != null) {
-            val tya: TypedArray = context.obtainStyledAttributes(
-                attrs,
-                R.styleable.LiveWebRTCPlayer
-            )
+            val tya: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.LiveWebRTCPlayer)
             mIsSplit = tya.getBoolean(R.styleable.LiveWebRTCPlayer_isSplit, false)
+            //todo
+//            eventPlayerName = if (mIsSplit) TrackManager.PlayerName.HOME_SPLIT_PLAYER else TrackManager.PlayerName.HOME_PLAYER
             LogUtils.d(TAG, "mIsSplit $mIsSplit")
             tya.recycle()
         } else {
@@ -321,17 +220,20 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
     }
 
-    fun init(context: Context?, bean: DeviceBean, iAddxViewCallback: IAddxViewCallback) {
-        mIsSplit = false
+    override fun init(context: Context?, bean: DeviceBean, iAddxViewCallback: IAddxViewCallback) {
         mMicTouchListener = OnTouchListener { v: View?, event: MotionEvent ->
             micTouch(v, event)
+//            if (event.action == MotionEvent.ACTION_DOWN) {
+//                tv_voice_tip.setText(R.string.release_stop)
+//            } else {
+//                tv_voice_tip.setText(R.string.hold_speak)
+//            }
             true
         }
         mRockerListener = object: RockerView.OnPositionChangeListener {
             override fun onStartTouch(canRotate: Boolean) {
                 if (!canRotate) ToastUtils.showShort(R.string.motion_sport_auto_is_open)
-                //todo demo
-//                RockerControlManager.getInstance().onRockerStartTouch(this@KotlinDemoVideoView)
+                RockerControlManager.getInstance().onRockerStartTouch(this@KotlinDemoVideoView)
             }
 
             override fun onEndTouch() {
@@ -339,31 +241,26 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
             }
 
             override fun onPositionChange(x: Float, y: Float) {
-                //todo demo
-//                RockerControlManager.getInstance().onPositionChange(
-//                    x,
-//                    y,
-//                    bean.serialNumber,
-//                    this@KotlinDemoVideoView
-//                )
+                RockerControlManager.getInstance().onPositionChange(
+                    x,
+                    y,
+                    bean.serialNumber,
+                    this@KotlinDemoVideoView
+                )
             }
         }
-        super.init(bean)
-        setOnClickListener(this)
-        mute = AddxAudioSet.getMuteState(dataSourceBean?.serialNumber)
-        reloadLayout(context)
-        setDeviceState(false, false)
-        mVideoCallBack = iAddxViewCallback
+        super.init(context, bean, iAddxViewCallback)
         setRockerState(dataSourceBean, false, false)
 //        setOptListener()
         initVideoBottomExpend()
+        preApplyConnectWhenB(0)
     }
 
-    fun fullLayoutId(): Int = R.layout.layout_player_full
+    override fun fullLayoutId(): Int = R.layout.layout_player_full
 
-    fun normalLayoutId(): Int = R.layout.layout_player_normal
+    override fun normalLayoutId(): Int = if (!mIsSplit) R.layout.layout_player_normal else R.layout.layout_webrtc_player_split
 
-    fun errorLayoutId(): Int {
+    override fun errorLayoutId(): Int {
         return when {
             mIsFullScreen -> R.layout.live_plager_full_error_page
             mIsSplit -> R.layout.live_plager_no_full_error_multi_page1
@@ -376,64 +273,39 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         if(ret != 0){
             return ret == 1
         }
-        hideNavKey()
-        when (v?.id) {
-            renderView?.id -> {
-                if (currentState != AddxBaseVideoView.CURRENT_STATE_PLAYING) {
-                    return false
-                }
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        return true
-                    }
-                    MotionEvent.ACTION_UP -> {
-                        if (mShowing) {
-                            hide()
-                        } else {
-                            mShowStartTimeSpan = System.currentTimeMillis()
-                            show(DEFAULT_SHOW_TIME) // start timeout
-                        }
-                        return true
-                    }
-                }
-            }
-        }
-        return false
+        return super.onTouch(v, event)
     }
-    fun micTouch(v: View?, event: MotionEvent?): Int{
+    override fun micTouch(v: View?, event: MotionEvent?): Int{
         LogUtils.d(TAG, "micTouch---------------------is mic:${v?.id == R.id.iv_mic}")
         when (v?.id) {
             R.id.iv_mic -> {
                 when (event?.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        LogUtils.d(
-                            TAG,
-                            "mVoiceTip=11====" + (SystemClock.elapsedRealtime() - mVoiceDownTime)
-                        )
+                        LogUtils.d(TAG, "mVoiceTip=11===="+(SystemClock.elapsedRealtime() - mVoiceDownTime))
                         mTouchUp = false
                         mVoiceDownTime = System.currentTimeMillis()
-                        return if (ActivityCompat.checkSelfPermission(
-                                context,
-                                Manifest.permission.RECORD_AUDIO
-                            ) != PackageManager.PERMISSION_GRANTED
-                        ) {
+                        return if (ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
                             requestPermission()
                             -1
                         } else {
                             SystemUtil.Vibrate(activityContext, 100)
                             removeCallbacks(mFadeOut)
-                            iAddxPlayer?.muteVoice(false)
+                            iAddxPlayer?.muteVoice(false, true)
                             iAddxPlayer?.setMicEnable(true)
                             if (iAddxPlayer is AddxVideoWebRtcPlayer) {
-                                if (dataSourceBean?.deviceModel?.isB0!!) {
+                                if(dataSourceBean?.deviceModel?.isB0!!){
                                     iAddxPlayer?.setVolume(4f)
-                                } else {
-                                    iAddxPlayer?.setVolume(0.5f)
+                                    LogUtils.d(TAG,"micTouch setvolume=4")
+                                }else{
+                                    iAddxPlayer?.setVolume(1.0f)
+                                    LogUtils.d(TAG,"micTouch setvolume=0.5")
                                 }
                             }
                             LogUtils.d(TAG, "hide  mShowing  startBtn?.visibility = View.INVISIBLE")
                             startBtn?.visibility = View.INVISIBLE
                             updateSoundIcon(false)
+                            //todo
+//                            reportVoiceTalkEvent()
                             mVoiceTip?.visibility = View.INVISIBLE
                             postDelayed(mMicVisualizedViewShowRunnable, MIC_SHOW_SHAPE_SPAN)
                             mMicFramelayout?.setBackgroundResource(R.drawable.bg_circle_fill_gray_mic_focus)
@@ -442,37 +314,32 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                         }
                     }
                     MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                        LogUtils.d(
-                            TAG,
-                            "mVoiceTip=====${mVoiceDownTime}==" + (System.currentTimeMillis() - mVoiceDownTime)
-                        )
+                        LogUtils.d(TAG, "mVoiceTip=====${mVoiceDownTime}=="+(System.currentTimeMillis() - mVoiceDownTime))
                         mTouchUp = true
-                        if (System.currentTimeMillis() - mVoiceDownTime < MIC_SHOW_SHAPE_SPAN) {
+                        if(System.currentTimeMillis() - mVoiceDownTime < MIC_SHOW_SHAPE_SPAN){
                             mVoiceDownTime = System.currentTimeMillis()
                             removeCallbacks(mMicTipFadeOutRunnable)
                             postDelayed(mMicTipFadeOutRunnable, MIC_TIP_FADEOUT_SPAN)
                             mVoiceTip?.visibility = View.VISIBLE
                         }
                         removeCallbacks(mMicVisualizedViewShowRunnable)
-                        if (ActivityCompat.checkSelfPermission(
-                                context,
-                                Manifest.permission.RECORD_AUDIO
-                            ) == PackageManager.PERMISSION_GRANTED
-                        ) {
+                        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
 //                            post(mFadeOut)
 //                            if((mIsFullScreen && currentState == CURRENT_STATE_NORMAL) || !mIsFullScreen){
 //                                startBtn?.visibility = View.VISIBLE
 //                            }
                             iAddxPlayer?.setMicEnable(false)
                             if (iAddxPlayer is AddxVideoWebRtcPlayer) {
-                                if (dataSourceBean?.deviceModel?.isB0!!) {
-                                    iAddxPlayer?.setVolume(8f)
-                                } else {
+                                if(dataSourceBean?.deviceModel?.isB0!!){
+                                    LogUtils.d(TAG,"micTouch setvolume=8")
+                                    iAddxPlayer?.setVolume(4f)
+                                }else{
+                                    LogUtils.d(TAG,"micTouch setvolume=1.0")
                                     iAddxPlayer?.setVolume(1.0f)
                                 }
                             }
                             mute = false
-                            iAddxPlayer?.muteVoice(mute)
+                            iAddxPlayer?.muteVoice(mute, true)
                             updateSoundIcon(mute)
                             frameVisualizedView?.visibility = View.INVISIBLE
                             mMicFramelayout?.setBackgroundResource(R.drawable.bg_circle_fill_gray)
@@ -492,7 +359,7 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
             .setTitleMessage(R.string.microphone_permission)
             .setSettingsMessage(R.string.microphone_permission_tips)
             .setRationaleMessage(R.string.microphone_permission_tips)
-            .setGuideDesc(R.string.permission_name_microphone)
+            .setGuideDesc(R.string.microphone)
             .setGuideIcon(R.mipmap.permission_mic)
             .execute { _: PageStep?, result: PageStep.PageStepResult ->
                 LogUtils.df(TAG, "permission state %s", result.name)
@@ -502,114 +369,53 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
 
 
     override fun onClick(v: View?) {
-        LogUtils.d(TAG, "onClick-------" + dataSourceBean!!.serialNumber)
-        if (mVideoCallBack != null) {
-            if (onViewClick(v)) return
-        }
-
-        LogUtils.w(TAG, "onClick----mVideoCallBack == null---")
-
+        super.onClick(v)
         when (v?.id) {
-            R.id.start -> {
-                if (isPlaying()) {
-                    mStopType = "endButton"
-                    stopPlay()
-                } else {
-                    showNetWorkToast()
-                    startPlay()
-                }
-            }
-            R.id.back -> {
-                backToNormal()
-            }
-            R.id.fullscreen -> {
-                if(currentState != AddxBaseVideoView.CURRENT_STATE_ERROR){
-                    startFullScreen()
-                }
-            }
-            R.id.iv_sound -> {
-                setMuteState(!mute)
-            }
-            R.id.iv_record -> {
-                LogUtils.e(TAG, "currentState $currentState isRecording $isRecording")
-                if (currentState == AddxBaseVideoView.CURRENT_STATE_PLAYING) {
-                    if (!isRecording) {
-                        availableSdcardSize = SDCardUtils.getAvailableSdcardSize(SizeUnit.MB)
-                        val sdfVideo = SimpleDateFormat("yyyyMMddhhmmss", Locale.getDefault())
-                        videoSavePath = DirManager.getInstance().getRecordVideoPath() + sdfVideo.format(Date()) + ".mp4"
-                        //startRecord(videoSavePath)
-                        iAddxPlayer!!.startRecording(videoSavePath!!, object : MP4VideoFileRenderer.VideoRecordCallback {
-                            override fun completed() {
-                                LogUtils.e(TAG, "startRecording-------------- completed")
-                            }
-
-                            override fun error() {
-                                LogUtils.e(TAG, "startRecording-------------- error")
-                            }
-                        })
-                        startRecordCountTask()
-                        recordIcon?.setImageResource(R.mipmap.video_recording)
-                        recordTimeText?.visibility = View.VISIBLE
-                        isRecording = true
-                        hide()
-                    } else {
-                        stopRecordVideo("stop by user")
-                        savingRecordLoading?.visibility = View.VISIBLE
-
-                        iAddxPlayer?.saveShot { frame ->
-                            if (frame != null) {
-                                renderView?.post {
-                                    startBitmapAnim(frame, resources.getDimension(R.dimen.dp_180).toInt())
-                                }
-                            }
-                        }
-                    }
-
-                } else {
-                    ToastUtils.showShort(R.string.live_not_start)
-                }
-            }
-            R.id.iv_screen_shot -> {
-                if (!isRecording && recordIcon?.isEnabled!!) {
-                    iAddxPlayer?.saveShot { frame ->
-                        if (frame != null) {
-                            try {
-                                renderView?.post {
-                                    startBitmapAnim(frame, resources.getDimension(R.dimen.dp_100).toInt())
-                                }
-                                val sdf = SimpleDateFormat("yyyyMMddhhmmss", Locale.getDefault())
-                                val savePath = PathUtils.getExternalDcimPath() + File.separator + A4xContext.getInstance().getmTenantId() + sdf.format(Date()) + ".png"
-                                BitmapUtils.saveBitmap(frame, savePath)
-                                FileUtils.syncImageToAlbum(context, savePath, Date().time)
-                                if(mShowRecordShotToast){
-                                    ToastUtils.showShort(R.string.image_save_to_ablum)
-                                }
-                            } catch (e: FileNotFoundException) {
-                                e.printStackTrace();
-                                ToastUtils.showShort(R.string.shot_fail)
-                            }
-                        } else {
-                            ToastUtils.showShort(R.string.shot_fail)
-                        }
-                    }
-                } else {
-                    ToastUtils.showShort(R.string.cannot_take_screenshot)
-                }
-            }
+//            R.id.iv_ring -> {
+//                showAlarmDialog()
+//            }
+//            R.id.iv_light -> {
+//                setWhiteLight()
+//            }
+//            R.id.iv_setting -> {
+//                JumpUtils.toDeviceSettingForResult(activityContext, dataSourceBean)
+//                reportToSettingEvent()
+//            }
             R.id.tv_ratio -> {
-                if (!isRecording && contentView.iv_record.isEnabled) {
+                if (!isRecording && mAddxVideoContentView.iv_record.isEnabled) {
                     showRationChoosePopupWindow()
                 } else {
                     ToastUtils.showShort(R.string.cannot_switch)
                 }
             }
+//            R.id.iv_position -> {
+//                showPositionWindow()
+//            }
+
+            R.id.fullscreen_more -> {
+                showMoreWindow()
+            }
         }
     }
+
+    fun showMoreWindow() {
+        liveFullScreenMenuWindow = LiveFullScreenMenuPopupWindow(this, dataSourceBean!!, context, this)
+        liveFullScreenMenuWindow?.showAtLocation(activityContext.getWindow().getDecorView(), Gravity.RIGHT, 0, 0)
+        hide()
+    }
+
+//    fun showPositionWindow() {
+//        RockerPositionPopupWindow(this, dataSourceBean!!, context).showAtLocation(this, Gravity.RIGHT, 0, 0)
+//        RockerControlManager.getInstance().onPreLocationShow(this)
+//        hide()
+//    }
 
     private fun setWhiteLight(listener: AddxLiveOptListener.Listener) {
         if (whiteLightSetting) {
             return
         }
+//        ivLight?.visibility = View.INVISIBLE
+//        ivLightLoading?.visibility = View.VISIBLE
         whiteLightSetting = true
         iAddxPlayer?.sendWightLight(!whiteLightOn, object : PlayerCallBack {
             override fun error(errorCode: Int?, errorMsg: String?, throwable: Throwable?) {
@@ -666,25 +472,27 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                 }, 5000)
                 iAddxPlayer?.triggerAlarm(object : PlayerCallBack {
                     override fun completed(data: Any?) {
+                        //todo
+//                        reportAlarmEvent(mIsFullScreen, true, null)
                         ringListener?.callback(true, true)
                         LogUtils.d(TAG, "showAlarmDialog======11")
                         if (mIsFullScreen) {
+                            liveFullScreenMenuWindow?.dismiss()
                             var layoutTip = findViewById<FrameLayout>(R.id.layout_tip_ring)
-                            LogUtils.d(
-                                TAG,
-                                "showAlarmDialog======11mIsFullScreen===${layoutTip == null}"
-                            )
+                            LogUtils.d(TAG, "showAlarmDialog======11mIsFullScreen===${layoutTip == null}")
                             layoutTip.visibility = View.VISIBLE
                             postDelayed({
                                 layoutTip.visibility = View.INVISIBLE
                             }, RING_SPAN)
                         }
-                        LogUtils.d(TAG, "mRinging  $mRinging")
+                        LogUtils.d(TAG,"mRinging  $mRinging")
                     }
 
                     override fun error(errorCode: Int?, errorMsg: String?, throwable: Throwable?) {
+                        //todo
+//                        reportAlarmEvent(mIsFullScreen, false, errorMsg)
                         ringListener?.callback(false, false)
-                        LogUtils.d(TAG, "mRinging  $mRinging")
+                        LogUtils.d(TAG,"mRinging  $mRinging")
 //                        ToastUtils.showShort(R.string.network_error)
                     }
 
@@ -703,56 +511,54 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
     }
 
-    fun changeUIToError(opt: Int?) {
-        //todo demo
-//        super.changeUIToError(opt)
+    override fun changeUIToError(opt: Int?) {
+        super.changeUIToError(opt)
         val shortTips = mIsSplit && !mIsFullScreen
         when (opt) {
-            PlayerErrorState.ERROR_DEVICE_UNACTIVATED -> setErrorInfo(
-                if (!shortTips) R.string.camera_not_activated else R.string.camera_not_activated_short,
-                R.mipmap.live_error_unactivated
-            )
+            PlayerErrorState.ERROR_DEVICE_UNACTIVATED -> setErrorInfo(if (!shortTips) R.string.camera_not_activated else R.string.camera_not_activated_short, R.mipmap.live_error_unactivated)
             PlayerErrorState.ERROR_DEVICE_SLEEP -> {
                 setErrorInfo(
-                    R.string.camera_sleep,
-                    R.mipmap.ic_sleep_main_live,
-                    true,
-                    R.string.camera_wake_up,
-                    dataSourceBean?.isAdmin
-                        ?: false,
-                    null,
-                    false
-                )
+                    R.string.camera_sleep, R.mipmap.ic_sleep_main_live, true, R.string.camera_wake_up, dataSourceBean?.isAdmin
+                    ?: false, null, false)
                 dataSourceBean?.sleepMsg?.let {
                     if (it.isNotEmpty() && dataSourceBean?.isAdmin!!) {
                         tvErrorTips?.text = it
                     } else {
-                        if (mIsSplit) {
+                        if(mIsSplit){
                             tvErrorTips?.text = it
-                        } else {
-                            tvErrorTips?.text =
-                                it.plus("\n\n" + context.resources.getString(R.string.admin_wakeup_camera))
+                        }else{
+                            tvErrorTips?.text = it.plus("\n\n" + context.resources.getString(R.string.admin_wakeup_camera))
                         }
                     }
                 }
             }
             PlayerErrorState.ERROR_DEVICE_AUTH_LIMITATION,
             PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> {
-                setErrorInfo(
-                    if (!shortTips) R.string.error_2002 else R.string.error_2002_short,
-                    R.mipmap.live_error__no_access,
-                    underlineErrorBtnText = R.string.refresh
-                )
+                setErrorInfo(if (!shortTips) R.string.error_2002 else R.string.error_2002_short, R.mipmap.live_error__no_access, underlineErrorBtnText = R.string.refresh)
+            }
+            PlayerErrorState.ERROR_DEVICE_SHUTDOWN_LOW_POWER -> {
+                if(mIsSplit){
+                    setErrorInfo(R.string.low_power, R.mipmap.shutdown)
+                }else{
+                    setErrorInfo(R.string.low_power, R.mipmap.shutdown)
+                }
+            }
+            PlayerErrorState.ERROR_DEVICE_SHUTDOWN_PRESS_KEY -> {
+                if(mIsSplit){
+                    setErrorInfo(R.string.turned_off, R.mipmap.shutdown)
+                }else{
+                    setErrorInfo(R.string.turned_off, R.mipmap.shutdown)
+                }
             }
             PlayerErrorState.ERROR_DEVICE_OFFLINE -> {
-                if (mIsSplit) {
+                if(mIsSplit){
                     setErrorInfo(R.string.camera_poor_network_short, R.mipmap.live_offline)
-                } else {
+                }else{
                     setErrorInfo(R.string.camera_poor_network, R.mipmap.live_offline)
                 }
             }
             PlayerErrorState.ERROR_PHONE_NO_INTERNET -> {
-                setErrorInfo(if (shortTips) R.string.phone_weak_network_short else R.string.phone_weak_network)
+                setErrorInfo(if (shortTips) R.string.phone_weak_network_short else R.string.failed_to_get_information_and_try)
             }
         }
 
@@ -767,44 +573,9 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         liveFlagLayout?.visibility = View.INVISIBLE
     }
 
-    fun setErrorInfo(errorMsg: Int,
-                     flagRes: Int? = R.mipmap.ic_video_network_device_disconnect,
-                     flagVisible: Boolean? = true,
-                     errorBtnText: Int? = R.string.reconnect,
-                     errorBtnVisible: Boolean? = false,
-                     underlineErrorBtnText: Int? = R.string.reconnect,
-                     underlineErrorBtnVisible: Boolean? = true,
-                     underLineErrorBtnColor: Int? = R.color.theme_color) {
-        flagRes?.let { ivErrorFlag?.setImageResource(it) }
-        flagVisible?.let { ivErrorFlag?.visibility = if (it) View.VISIBLE else View.GONE }
-        if(errorMsg == R.string.forck_update){
-            tvErrorTips?.text = activityContext.getString(errorMsg, dataSourceBean?.newestFirmwareId)
-        }else if(errorMsg == R.string.forck_update_share){
-            if(dataSourceBean?.needForceOta()!!){
-                tvErrorTips?.text = activityContext.getString(errorMsg, dataSourceBean?.newestFirmwareId).plus(activityContext.getString(
-                    R.string.unavailable_before_upgrade))
-            }else{
-                tvErrorTips?.text = activityContext.getString(errorMsg, dataSourceBean?.newestFirmwareId)
-            }
-        }else{
-            tvErrorTips?.setText(errorMsg)
-        }
-        errorBtnVisible?.let { tvErrorButton?.visibility = if (errorBtnVisible) View.VISIBLE else View.GONE }
-        errorBtnText?.let { tvErrorButton?.setText(it) }
-
-        underlineErrorBtnText?.let { tvUnderLineErrorBtn?.setText(it) }
-        underlineErrorBtnVisible?.let { tvUnderLineErrorBtn?.visibility = if (it) View.VISIBLE else View.GONE }
-        underLineErrorBtnColor?.let { tvUnderLineErrorBtn?.setTextColor(activityContext.resources.getColor(underLineErrorBtnColor)) }
-    }
     // current tate pause /inited / uninited / for living
-    fun changeUIToIdle() {
-        thumbImage?.visibility = View.VISIBLE
-        errorLayout?.visibility = View.INVISIBLE
-        loadingLayout?.visibility = View.INVISIBLE
-        if((mIsFullScreen && currentState == AddxBaseVideoView.CURRENT_STATE_NORMAL) || !mIsFullScreen) {
-            startBtn?.visibility = View.VISIBLE
-            removeCallbacks(startBtnAction)
-        }
+    override fun changeUIToIdle() {
+        super.changeUIToIdle()
         if (mIsFullScreen) {
             blackBg?.visibility = View.INVISIBLE
             fullScreenLayout?.visibility = View.INVISIBLE
@@ -816,12 +587,9 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         updatePausePlayIcon()
     }
 
-    fun changeUIToConnecting() {
+    override fun changeUIToConnecting() {
+        super.changeUIToConnecting()
         LogUtils.d(TAG, "changeUIToConnecting, mIsFullScreen= $mIsFullScreen")
-        startBtn?.visibility = View.INVISIBLE
-        errorLayout?.visibility = View.INVISIBLE
-        loadingLayout?.visibility = View.VISIBLE
-        thumbImage?.visibility = View.VISIBLE
         if (mIsFullScreen) {
             fullScreenLayout?.visibility = View.INVISIBLE
             blackBg?.visibility = View.INVISIBLE
@@ -835,17 +603,8 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         liveFlagLayout?.visibility = View.INVISIBLE
     }
 
-    fun changeUIToPlaying() {
-        thumbImage?.visibility = View.INVISIBLE
-        loadingLayout?.visibility = View.INVISIBLE
-        errorLayout?.visibility = View.INVISIBLE
-        if((mIsFullScreen && currentState == AddxBaseVideoView.CURRENT_STATE_NORMAL) || !mIsFullScreen) {
-            startBtn?.visibility = View.VISIBLE
-        }else{
-            startBtn?.visibility = View.INVISIBLE
-        }
-        removeCallbacks(startBtnAction)
-        postDelayed(startBtnAction,START_SHOW_SPAN)
+    override fun changeUIToPlaying() {
+        super.changeUIToPlaying()
         if (mIsFullScreen) {
             fullScreenLayout?.visibility = View.INVISIBLE
             blackBg?.visibility = View.INVISIBLE
@@ -853,8 +612,7 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                 showPirToast = false
                 tvPirToast?.visibility = View.VISIBLE
                 postDelayed({
-                    fullLayoutViewGroup?.findViewById<View>(R.id.pir_toast)?.visibility =
-                        View.INVISIBLE
+                    fullLayoutViewGroup?.findViewById<View>(R.id.pir_toast)?.visibility = View.INVISIBLE
                 }, 2000)
             }
         } else {
@@ -866,19 +624,19 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     }
 
     private fun updatePausePlayIcon() {
-        if (currentState != AddxBaseVideoView.CURRENT_STATE_PLAYING) {
+        if (currentState != CURRENT_STATE_PLAYING) {
             startBtn?.setImageResource(R.mipmap.live_no_full_play_default)
         } else {
             startBtn?.setImageResource(R.mipmap.live_no_full_pause_default)
         }
     }
 
-    fun show(timeout: Long) {
-        hideNavKey()
+    override fun show(timeout: Long) {
+        super.show(timeout)
         LogUtils.d(TAG, "show  mShowing  $mShowing")
         if (!mShowing) {
             mShowing = true
-            if((mIsFullScreen && currentState == AddxBaseVideoView.CURRENT_STATE_NORMAL) || !mIsFullScreen){
+            if((mIsFullScreen && currentState == CURRENT_STATE_NORMAL) || !mIsFullScreen){
                 startBtn?.visibility = View.VISIBLE
                 removeCallbacks(startBtnAction)
                 postDelayed(startBtnAction, START_SHOW_SPAN)
@@ -898,7 +656,7 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
     }
 
-    fun hide() {
+    override fun hide() {
         LogUtils.d(TAG, "hide  mShowing  $mShowing")
         if (mShowing) {
             mShowing = false
@@ -915,10 +673,8 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         removeCallbacks(mFadeOut)
     }
 
-    fun reloadErrorLayout() {
-        errorLayout = contentView.findViewById(R.id.layout_error)
-        errorLayout?.removeAllViews()
-        errorLayout?.addView(getErrorView())
+    override fun reloadErrorLayout() {
+        super.reloadErrorLayout()
         if (mIsSplit && !mIsFullScreen) {
             tvErrorButton?.visibility = View.INVISIBLE
             ivErrorFlag?.visibility = View.INVISIBLE
@@ -973,23 +729,23 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         setVisible(R.id.iv_update_point, /*ignore == 0 && */newVersion == 1 && isAdmin)
     }
 
-    fun onInitOrReloadUi(context: Context?) {
+    override fun onInitOrReloadUi(context: Context?) {
         if (mIsFullScreen) {
-            contentView.back.setOnClickListener(this)
-            contentView.iv_record.setOnClickListener(this)
-            contentView.iv_screen_shot.setOnClickListener(this)
-            contentView.setOnClickListener(this)
-            contentView.zoom_view.setZoomEnable(true)
-            contentView.iv_mic.setOnTouchListener(this)
-            fullScreenLayout = contentView.findViewById(R.id.full_screen_icons)
-            tvRatio = contentView.findViewById(R.id.tv_ratio)
+            mAddxVideoContentView.back.setOnClickListener(this)
+            mAddxVideoContentView.iv_record.setOnClickListener(this)
+            mAddxVideoContentView.iv_screen_shot.setOnClickListener(this)
+            mAddxVideoContentView.setOnClickListener(this)
+            mAddxVideoContentView.zoom_view.setZoomEnable(true)
+            mAddxVideoContentView.iv_mic.setOnTouchListener(this)
+            fullScreenLayout = mAddxVideoContentView.findViewById(R.id.full_screen_icons)
+            tvRatio = mAddxVideoContentView.findViewById(R.id.tv_ratio)
             tvRatio?.setOnClickListener(this)
             blackBg = findViewById(R.id.bg_black)
-            contentView.rocker.visibility = if (dataSourceBean?.isSupportRocker!!) View.VISIBLE else View.GONE
-            contentView.rocker.setOnPositionChangeListener(this)
-            mIvFullScreenMore = contentView.findViewById(R.id.fullscreen_more)
+            mAddxVideoContentView.rocker.visibility = if (dataSourceBean?.isSupportRocker!!) View.VISIBLE else View.GONE
+            mAddxVideoContentView.rocker.setOnPositionChangeListener(this)
+            mIvFullScreenMore = mAddxVideoContentView.findViewById(R.id.fullscreen_more)
             mIvFullScreenMore?.setOnClickListener(this)
-            soundBtn = contentView.findViewById(R.id.iv_sound)
+            soundBtn = mAddxVideoContentView.findViewById(R.id.iv_sound)
             soundBtn?.setOnClickListener(this)
         } else {
             soundBtn = normalSoundBtn
@@ -1006,14 +762,14 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         frameVisualizedView = findViewById(R.id.frame_visualized_voice)
         visualizedView = findViewById(R.id.visualized_voice)
         mVoiceTip = findViewById(R.id.voice_tip)
-        liveFlagLayout = contentView.findViewById(R.id.ll_living_flag)
-        tvPirToast = contentView.findViewById(R.id.pir_toast)
-        mLivingIcon = contentView.findViewById(R.id.living_icon)
-        contentView.findViewById<View>(R.id.rocker)?.visibility = if (dataSourceBean!!.isSupportRocker) View.VISIBLE else View.INVISIBLE
+        liveFlagLayout = mAddxVideoContentView.findViewById(R.id.ll_living_flag)
+        tvPirToast = mAddxVideoContentView.findViewById(R.id.pir_toast)
+        mLivingIcon = mAddxVideoContentView.findViewById(R.id.living_icon)
+        mAddxVideoContentView.findViewById<View>(R.id.rocker)?.visibility = if (dataSourceBean!!.isSupportRocker) View.VISIBLE else View.INVISIBLE
 
         val wifiLevel = WifiManager.calculateSignalLevel(dataSourceBean!!.signalStrength, 4)
-        contentView.findViewById<ImageView>(R.id.iv_wifi)?.setImageLevel(wifiLevel)
-        mVideoRatio = VideoSharePreManager.getInstance(context).getLiveRatio(dataSourceBean!!)
+        mAddxVideoContentView.findViewById<ImageView>(R.id.iv_wifi)?.setImageLevel(wifiLevel)
+        mVideoRatio = SharePreManager.getInstance(context).getLiveRatio(dataSourceBean!!)
         updateRatioTextView(mVideoRatio)
         if(mIVLiveVideoView.isNeedFRocker() || mIVLiveVideoView.isNeedFSpeaker()){
 //            layout_pre_location.layoutParams.height = 0
@@ -1023,21 +779,23 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     }
 
     private fun updateRatioTextView(ratio: Ratio) {
-        tvRatio?.setText(
-            when (ratio) {
-                mSDRatio -> R.string.video_resolution_720p
-                mHDRatio -> R.string.video_resolution_1080p
-                else -> R.string.ratio_auto
-            }
-        )
+        tvRatio?.setText(when (ratio) {
+            mSDRatio -> R.string.ratio_720p
+            mHDRatio -> R.string.video_hb
+            else -> R.string.auto
+        })
+//        tvRatio?.setCompoundDrawablesWithIntrinsicBounds(when (ratio) {
+//            mSDRatio -> R.mipmap.ratio_sd
+//            mHDRatio -> R.mipmap.ratio_high
+//            else -> R.mipmap.ratio_auto
+//        },0,0,0)
     }
 
     //=====================RockerView.OnPositionChangeListener============
     override fun onStartTouch(mCanRotate: Boolean) {
         if (!mCanRotate) {
             ToastUtils.showShort(R.string.motion_sport_auto_is_open)
-            //todo demo
-//            RockerControlManager.getInstance().onRockerStartTouch(this)
+            RockerControlManager.getInstance().onRockerStartTouch(this)
             return
         }
         LogUtils.d(TAG, "hide  mShowing  startBtn?.visibility = View.INVISIBLE")
@@ -1045,8 +803,18 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         removeCallbacks(mFadeOut)
     }
 
+//    override fun onWebRTCCommandSend(command: DataChannelCommand?) {
+//        if (Looper.myLooper() != Looper.getMainLooper()) {
+//            post {
+//                mVideoCallBack?.onWebRTCCommandSend(command)
+//            }
+//        } else {
+//            mVideoCallBack?.onWebRTCCommandSend(command)
+//        }
+//    }
+
     override fun onEndTouch() {
-        if((mIsFullScreen && currentState == AddxBaseVideoView.CURRENT_STATE_NORMAL) || !mIsFullScreen) {
+        if((mIsFullScreen && currentState == CURRENT_STATE_NORMAL) || !mIsFullScreen) {
             startBtn?.visibility = View.VISIBLE
             removeCallbacks(startBtnAction)
         }
@@ -1054,41 +822,34 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     }
 
     override fun onPositionChange(x: Float, y: Float) {
-        //todo demo
-//        RockerControlManager.getInstance().onPositionChange(
-//            x,
-//            y,
-//            dataSourceBean!!.serialNumber,
-//            this
-//        )
+        RockerControlManager.getInstance().onPositionChange(x, y, dataSourceBean!!.serialNumber, this)
     }
     //=====================RockerView.OnPositionChangeListener==end==========
 
-    private fun showRationChoosePopupWindow() {
-        liveFullScreenRatioPopupWindow = LiveFullScreenRatioPopupWindow(
-            mVideoRatio,
-            context,
-            object : RadioGroup.OnCheckedChangeListener {
-                override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
-                    when (checkedId) {
-                        R.id.rb_ratio_auto -> changeRatio(Ratio.AUTO)
-                        R.id.rb_ratio_720 -> changeRatio(mSDRatio)
-                        R.id.rb_ratio_1080 -> changeRatio(mHDRatio)
-                    }
-
-                    var toRatio = when (checkedId) {
-                        R.id.rb_ratio_auto -> Ratio.AUTO
-                        R.id.rb_ratio_720 -> Ratio.P720
-                        R.id.rb_ratio_1080 -> Ratio.P1080
-                        else -> Ratio.AUTO
-                    }
-                    liveFullScreenRatioPopupWindow?.dismiss()
-                    liveRationDialog.dismiss()
-                    hideNavKey()
+    fun showRationChoosePopupWindow() {
+        liveFullScreenRatioPopupWindow = LiveFullScreenRatioPopupWindow(mVideoRatio, context, object: RadioGroup.OnCheckedChangeListener{
+            override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+                when (checkedId) {
+                    R.id.rb_ratio_auto -> changeRatio(Ratio.AUTO)
+                    R.id.rb_ratio_720 -> changeRatio(mSDRatio)
+                    R.id.rb_ratio_1080 -> changeRatio(mHDRatio)
                 }
 
+                var toRatio = when (checkedId) {
+                    R.id.rb_ratio_auto -> Ratio.AUTO
+                    R.id.rb_ratio_720 -> Ratio.P720
+                    R.id.rb_ratio_1080 -> Ratio.P1080
+                    else -> Ratio.AUTO
+                }
+                liveFullScreenRatioPopupWindow?.dismiss()
+                liveRationDialog.dismiss()
+                hideNavKey()
+                //todo
+//                reportChangeRationEvent(mVideoRatio, toRatio)
+            }
 
-            })
+
+        })
         liveFullScreenRatioPopupWindow?.showAtLocation(this, Gravity.RIGHT, 0, 0)
         when (mVideoRatio) {
             Ratio.AUTO -> liveFullScreenRatioPopupWindow?.setCheck(0)
@@ -1098,90 +859,8 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         hide()
     }
 
-    private fun checkPassState(state: Int, opt: Int): Boolean {
-        if (state == AddxBaseVideoView.CURRENT_STATE_ERROR && opt != PlayerErrorState.ERROR_PHONE_NO_INTERNET && !NetworkUtils.isConnected(activityContext)) {//check
-            updateStateAndUI(state, PlayerErrorState.ERROR_PHONE_NO_INTERNET)
-            return false
-        }
-        return true
-    }
-
-    private fun updateStateAndUI(tempState: Int, tempOpt: Int,state: Int, opt: Int){
-        callBackViewState(state, tempState)
-        hideNavKey()
-        updateUiState(tempState, state, tempOpt, opt)
-        onStateAndUiUpdated(tempState, state)
-    }
-
-    open fun onStateAndUiUpdated(oldState: Int, state: Int) {
-        LogUtils.d(TAG, "onStateAndUiUpdated oldState $oldState  newState : $state")
-        if (currentState != AddxBaseVideoView.CURRENT_STATE_PLAYING && oldState != currentState) {
-            setThumbImageByPlayState()
-        }
-    }
-    private fun updateUiState(oldUiState: Int, newUiState: Int, oldOption: Int, newOption: Int) {
-        when (newUiState) {
-            AddxBaseVideoView.CURRENT_STATE_NORMAL -> {
-                changeUIToIdle()
-            }
-            AddxBaseVideoView.CURRENT_STATE_PREPAREING -> {
-                changeUIToConnecting()
-            }
-            AddxBaseVideoView.CURRENT_STATE_PLAYING -> {
-                changeUIToPlaying()
-            }
-            AddxBaseVideoView.CURRENT_STATE_PAUSE, AddxBaseVideoView.CURRENT_STATE_AUTO_COMPLETE -> {
-                if (currentOpt == 0) {
-                    changeUIToIdle()
-                } else {
-                    changeUIToError(currentOpt)
-                }
-            }
-            AddxBaseVideoView.CURRENT_STATE_ERROR -> {
-                changeUIToError(newOption)
-            }
-        }
-    }
-    open fun updateStateAndUI(state: Int, opt: Int) {
-        if (!checkPassState(state, opt)) {
-            LogUtils.d(TAG, "checkPassState false , state = $state  opt = $opt")
-            return
-        }
-        mOldState = currentState
-        mOldOpt = currentOpt
-        currentOpt = opt
-        currentState = state
-        LogUtils.d(TAG, "oldState=$mOldState  currentState=$state oldOpt===$mOldOpt currentOpt===$opt")
-        if (Looper.myLooper() != Looper.getMainLooper()) {
-            post {
-                updateStateAndUI(mOldState, mOldOpt, state, opt)
-            }
-        } else {
-            updateStateAndUI(mOldState, mOldOpt, state, opt)
-        }
-    }
-
-    override fun onPreparing(player: IVideoPlayer) {
-        super.onPreparing(player)
-        LogUtils.w(TAG, dataSourceBean?.serialNumber + "---------AddxBaseVideoView-------onPreparing----")
-        post {
-            updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_PREPAREING, currentOpt)
-        }
-    }
-
     override fun onPrepared(player: IVideoPlayer) {
         super.onPrepared(player)
-        playTimeRecordSpan=SystemClock.elapsedRealtime()-liveStartTime
-        mShowStartTimeSpan = System.currentTimeMillis()
-        //暂时通过延时1s，解决串屏问题
-        postDelayed({
-            if(iAddxPlayer != null && iAddxPlayer?.isPlaying()!!){
-                updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_PLAYING, if (currentOpt == PlayerErrorState.ERROR_DEVICE_NEED_OTA) PlayerErrorState.ERROR_DEVICE_NEED_OTA else 0)
-                if (mVideoCallBack != null) {
-                    mVideoCallBack!!.onStartPlay()
-                }
-            }
-        }, 1000)
         if (isChanggingRatio) {
             tvRatio?.isClickable = true
             if (iAddxPlayer is AddxVideoWebRtcPlayer) {
@@ -1197,26 +876,16 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
 
     override fun onError(player: IVideoPlayer, what: Int, extra: Int) {
         super.onError(player, what, extra)
-        playTimeRecordSpan = 0
-        post {
-            stopRecordVideo("error")
-            updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, what)
+//        post{
+//            mUploadlog?.visibility = if (mIsNeedUploadFailLog) View.VISIBLE else View.GONE
+        if (mIsNeedUploadFailLog){
+            AddxMonitor.getInstance(A4xContext.getInstance().getmContext()).uploadLastDayLog(object: FileLogUpload.Callback{
+                override fun invoke(fileName: String?, ret: Boolean) {
+                }
+            })
         }
-        post{
-            mUploadlog?.visibility = if (mIsNeedUploadFailLog) View.VISIBLE else View.GONE
-            mIsNeedUploadFailLog = false
-        }
-    }
-
-    override fun onVideoPause(player: IVideoPlayer) {
-        activityContext.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        LogUtils.w(TAG, dataSourceBean?.serialNumber + "---------AddxBaseVideoView-------onVideoPause----")
-        post {
-            updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_PAUSE, currentOpt)
-        }
-        if (mVideoCallBack != null) {
-            mVideoCallBack!!.onStopPlay()
-        }
+        mIsNeedUploadFailLog = false
+//        }
     }
 
     override fun onMicFrame(data: ByteArray?) {
@@ -1235,6 +904,10 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
         post {
             whiteLightSetting = false
+//            ivLight.setImageResource(if (whiteLightOn) R.mipmap.ic_light_open else R.mipmap.light_black)
+//            ivLight?.setImageResource(R.mipmap.light_black)
+//            ivLight?.setImageTintList(ColorStateList.valueOf(if (whiteLightOn) getResources().getColor(R.color.theme_color) else getResources().getColor(R.color.black_333)))
+//            ivLight?.visibility = View.VISIBLE
             ivLightLoading?.visibility = View.GONE
         }
     }
@@ -1261,13 +934,42 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     private fun changeRatio(ratio: Ratio) {
         mVideoRatio = ratio
         isChanggingRatio = true
-        VideoSharePreManager.getInstance(context).setLiveRatio(dataSourceBean!!, mVideoRatio)
+        SharePreManager.getInstance(context).setLiveRatio(dataSourceBean!!, mVideoRatio)
         updateRatioTextView(ratio)
         iAddxPlayer?.changeVideoRatio(mVideoRatio)
     }
 
-    fun onClickErrorTips(tip: TextView?) {
+    override fun resetRatioInfoForG0() {
+        dataSourceBean?.let {
+            if (it.deviceModel.isG0) {
+                mVideoRatio = Ratio.P720
+                SharePreManager.getInstance(context).setLiveRatio(it, Ratio.P720)
+                updateRatioTextView(Ratio.P720)
+            }
+        }
+    }
+
+    fun setUiSplit(mIsSplit: Boolean) {
+        this.mIsSplit = mIsSplit
+    }
+
+    override fun stopPlay() {
+        if (whiteLightOn) {
+            iAddxPlayer?.sendWightLight(false, object: PlayerCallBack{
+                override fun completed(data: Any?) {
+                }
+
+                override fun error(errorCode: Int?, errorMsg: String?, throwable: Throwable?) {
+                }
+            })
+        }
+        super.stopPlay()
+        liveFullScreenMenuWindow?.dismiss()
+    }
+
+    override fun onClickErrorTips(tip: TextView?) {
         LogUtils.d(TAG, "onClickErrorTips-------" + dataSourceBean!!.serialNumber)
+        super.onClickErrorTips(tip)
         if (mIsSplit && !mIsFullScreen) {
             onClickUnderlineErrorButton(tip)
         }
@@ -1285,128 +987,41 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         tvRatio?.isClickable = true
     }
 
-    override fun stopPlay() {
-        if (whiteLightOn) {
-            iAddxPlayer?.sendWightLight(false, object : PlayerCallBack {
-                override fun completed(data: Any?) {
-                }
-
-                override fun error(errorCode: Int?, errorMsg: String?, throwable: Throwable?) {
-                }
-            })
-        }
-        super.stopPlay()
-    }
-    //===============================IAddxView==end========================
-
-    @SuppressLint("ClickableViewAccessibility")
-    fun reloadLayout(context: Context?) {
-//        RuntimeException("reloadLayout").printStackTrace()
-        removeAllViews()
-        LogUtils.w(TAG, "reloadLayout----mIsFullScreen:$mIsFullScreen")
-        contentView = if (mIsFullScreen) fullLayoutViewGroup else normalLayoutViewGroup
-        addView(contentView)
-        reloadErrorLayout()
-        thumbImage = findViewById(R.id.thumbImage)
-        normalLayout = findViewById(R.id.normal_layout)
-        loadingLayout = contentView.findViewById(R.id.loading)
-        fullScreenBtn = contentView.findViewById(R.id.fullscreen)
-        fullScreenBtn?.setOnClickListener(this)
-        soundBtn = contentView.findViewById(R.id.iv_sound)
-        soundBtn?.setOnClickListener(this)
-        startBtn = contentView.findViewById(R.id.start)
-        startBtn?.setOnClickListener(this)
-        tvDownloadSpeed = findViewById(R.id.tv_download_speed)
-        renderContainer = contentView.findViewById(R.id.surface_container)
-        animShotView = contentView.findViewById(R.id.screen_shot_anim)
-        recordIcon = contentView.findViewById(R.id.iv_record)
-        recordTimeText = contentView.findViewById(R.id.tv_record_time)
-//        savingRecordLoading = contentView.findViewById(R.id.is_saving_record)
-        if (mIsFullScreen) {
-            renderView?.setZOrderOnTop(true)
-            renderView?.setZOrderMediaOverlay(true)
-        }else{
-            renderView?.setZOrderOnTop(false)
-            renderView?.setZOrderMediaOverlay(false)
-        }
-        if (renderView == null) {
-            renderView = if (iAddxPlayer is AddxVideoIjkPlayer) {
-                AddxGLSurfaceView(context)
-            } else {
-                CustomSurfaceViewRenderer(A4xContext.getInstance().getmContext())
-            }
-            renderView?.id = View.generateViewId()
-            LogUtils.w(TAG, "onAddRenderView,${Integer.toHexString(renderView.hashCode())}")
-            renderContainer?.addView(renderView, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
-            renderView?.setOnTouchListener(this)
-        } else {
-            LogUtils.w(TAG, "onAddRenderView,${Integer.toHexString(renderView.hashCode())}")
-            renderContainer?.addView(renderView, 0, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
-            setFullScreenRatio(renderView?.layoutParams!!)
-        }
-
-        onInitOrReloadUi(context)
-        updateStateAndUI(currentState, currentOpt)
-        updateSoundIcon(mute)
-        setThumbImageByPlayState(true)
-    }
-    open fun setFullScreenRatio(layoutParams: ViewGroup.LayoutParams) {
-        if (!mIsFullScreen) {
-            return
-        }
-        val screenHeight = CommonUtil.getScreenHeight(context) + CommonUtil.getStatusBarHeight(context)
-        val screenWidth = CommonUtil.getScreenWidth(context)
-        val height = screenWidth.coerceAtMost(screenHeight)
-        val width = screenWidth.coerceAtLeast(screenHeight)
-        if (renderView != null) {
-            if (disableCropFrame) {
-                renderView?.layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
-                renderView?.layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
-            } else {
-                layoutParams.width = width * Const.Screen.RATIO.toInt()
-                layoutParams.height = height
-            }
-        }
-        LogUtils.w(TAG, "setFullscreenRatio ,${renderView?.layoutParams?.width} : ${renderView?.layoutParams?.height} ")
-    }
-
-    fun backToNormal() {
-        isChanggingRatio = false
-        CommonUtil.showNavKey(activityContext, mSystemUiVisibility)
-        CommonUtil.showSupportActionBar(activityContext, true, true)
-        CommonUtil.scanForActivity(activityContext).requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
-        //remove self (player) from root
-        val contentView = activityContext.findViewById(android.R.id.content) as ViewGroup
-        contentView.removeView(this)
-        //remove renderView from full layout container
-        renderContainer?.removeView(renderView)
-
-        for (index in 0 until contentView.childCount) {
-            contentView.getChildAt(index).visibility = View.VISIBLE
-        }
-        mIsFullScreen = false
-        //init normal layout  and add renderView to container
-        reloadLayout(context)
-
-        //add self to old parent
-        if(parent != playerOldParent){
-            playerOldParent.addView(this, oldLayoutParams)
-        }
-
-        if (mShowing) {
-            removeCallbacks(mFadeOut)
-            mShowing = false
-            show(DEFAULT_SHOW_TIME)
-        }
-        stopRecordVideo("back to normal ")
-        if(renderView is CustomSurfaceViewRenderer){
-            (renderView as CustomSurfaceViewRenderer).setDisableCropFrame(mIsFullScreen)
-        }
-        onFullScreenStateChange(false)
+    override fun backToNormal() {
+        super.backToNormal()
         tvRatio?.isClickable = true
         mLivingIcon?.loop(true)
         mLivingIcon?.playAnimation()
+    }
+
+    override fun refreshThumbImg() {
+        if (TextUtils.isEmpty(dataSourceBean?.getThumbImgUrl())) {
+            return
+        }
+        mLocalThumbTime = VideoSharePreManager.getInstance(A4xContext.getInstance().getmContext()).getThumbImgLastLocalFreshTime(dataSourceBean!!.serialNumber) / 1000
+        mServerThumbTime = VideoSharePreManager.getInstance(A4xContext.getInstance().getmContext()).getThumbImgLastServerFreshTime(dataSourceBean!!.serialNumber)
+//        LogUtils.d(TAG,"toRequestAndRefreshThumbImg=====localThumbTime:${localThumbTime}===serverThumbTime:${serverThumbTime}")
+        if (dataSourceBean?.thumbImgTime != null && dataSourceBean?.thumbImgTime!! > mServerThumbTime && dataSourceBean?.thumbImgTime!! > mLocalThumbTime) {
+            if (mRefreshThumbImg.get(dataSourceBean?.serialNumber) == dataSourceBean?.thumbImgTime!!) {
+                return
+            }
+            mRefreshThumbImg.put(dataSourceBean?.serialNumber!!, dataSourceBean?.thumbImgTime!!)
+
+            var imgPath = DownloadUtil.getThumbImgDir(activityContext) + MD5Util.md5(dataSourceBean?.serialNumber) + ".jpg"
+            FileUtils.createOrExistsDir(DownloadUtil.getThumbImgDir(activityContext))
+            DownloadUtil.downloadImg(dataSourceBean?.getThumbImgUrl(), imgPath, object : DownloadUtil.DownloadListener {
+                override fun success(url: String?, path: String?) {
+                    LogUtils.d(TAG, "toRequestAndRefreshThumbImg===success==code:${this@KotlinDemoVideoView.hashCode()}==sn:${dataSourceBean?.serialNumber}==path:$path==url:${dataSourceBean?.getThumbImgUrl()}")
+                    VideoSharePreManager.getInstance(A4xContext.getInstance().getmContext()).setThumbImgServerLastFresh(dataSourceBean?.serialNumber, dataSourceBean?.thumbImgTime, dataSourceBean?.thumbImgUrl)
+                    mServerThumbTime = dataSourceBean?.thumbImgTime!!
+                    setThumbPath(imgPath)
+                }
+
+                override fun fail(url: String?) {
+                    LogUtils.d(TAG, "toRequestAndRefreshThumbImg=====fail==code:${this@KotlinDemoVideoView.hashCode()}==:sn:${dataSourceBean?.serialNumber}===url:$url")
+                }
+            })
+        }
     }
 
     private fun setThumbPath(path: String){
@@ -1423,19 +1038,13 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
     //=============================全屏操作的回调AddxLiveOptListener====================================
     override fun ring(ringListener: AddxLiveOptListener.Listener) {
         showAlarmDialog(ringListener)
-//        mIvRing
     }
 
     override fun light(listener: AddxLiveOptListener.Listener) {
         setWhiteLight(listener)
-//            ivLight
     }
 
-    override fun sportAuto(
-        isInit: Boolean,
-        isSelected: Boolean,
-        sportAutoTrackListener: AddxLiveOptListener.SportAutoTrackListener
-    ) {
+    override fun sportAuto(isInit: Boolean, isSelected: Boolean, sportAutoTrackListener: AddxLiveOptListener.SportAutoTrackListener) {
         if(mIsFullScreen){
 //            mAddxLiveOptListener?.sportAuto(isInit, isSelected, sportAutoTrackListener)
             //全屏
@@ -1459,62 +1068,80 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
     }
 
+//    override fun voice() {
+//        if(!mIsFullScreen){
+//            setMuteState(!mute)
+//        }
+//        normalSoundBtn?.setImageResource(if (mute) R.mipmap.voice_black_notalk else R.mipmap.voice_black_talk)
+//    }
+
     override fun setting() {
+        if(mIsFullScreen){
+            //todo
+//            reportToSettingEvent()
+        }
         AddxFunJump.deviceSettings(activityContext, dataSourceBean!!)
         mVideoCallBack?.onToSetting(dataSourceBean!!)
     }
     //=================================================================
-    fun startFullScreen() {
-        mIsFullScreen = true
-        mSystemUiVisibility = activityContext.window.decorView.systemUiVisibility
-        oldLayoutParams = layoutParams
-        playerOldParent = parent as ViewGroup
-        CommonUtil.hideSupportActionBar(activityContext, true, true)
-        hideNavKey()
-        CommonUtil.scanForActivity(activityContext).requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        //remove self(Player) from parent
-        playerOldParent.removeView(this)
-        // remove renderView from it's current parent  and  prepare add it to full screen layout 's surface container
-        renderContainer?.removeView(renderView)
-        // init full layout and add it to surfaceContainer
-        reloadLayout(context)
-        //设置reload 后的UI状态
-        val params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        val contentViewT = activityContext.findViewById(android.R.id.content) as ViewGroup
-        for (index in 0 until contentViewT.childCount) {
-            contentViewT.getChildAt(index).visibility = View.INVISIBLE
-        }
-        // now add player to root
-        contentViewT.addView(this, params)
-        if (mShowing) {
-            removeCallbacks(mFadeOut)
-            mShowing = false
-            show(DEFAULT_SHOW_TIME)
-        }
-        autoPlayIfNeed()
-        if (isSavingRecording) {
-            savingRecordLoading?.visibility = View.VISIBLE
-        }
-        onFullScreenStateChange(true)
-        if(renderView is CustomSurfaceViewRenderer){
-            (renderView as CustomSurfaceViewRenderer).setDisableCropFrame(mIsFullScreen)
-        }
-        onResetRecordUi()
-
+    override fun startFullScreen() {
+        super.startFullScreen()
         mLivingIcon?.loop(true)
         mLivingIcon?.playAnimation()
         if(!dataSourceBean?.isSupportRocker!! && !mIVLiveVideoView.isNeedFRocker()){
-            var constraintLayout = contentView.iv_mic.parent as ConstraintLayout
+            var constraintLayout = mAddxVideoContentView.iv_mic.parent as ConstraintLayout
             var constraintSet = ConstraintSet()
             constraintSet.clone(constraintLayout)
-            constraintSet.connect(
-                contentView.iv_mic.getId(),
-                ConstraintSet.TOP,
-                constraintLayout.getId(),
-                ConstraintSet.TOP,
-                0
-            )
+            constraintSet.connect(mAddxVideoContentView.iv_mic.getId(),ConstraintSet.TOP,constraintLayout.getId(),ConstraintSet.TOP,0)
             constraintSet.applyTo(constraintLayout);
+        }
+    }
+
+    override fun startBitmapAnim(bitmap: Bitmap, toBottom: Int) {
+        animShotView?.let { it ->
+            if (mIsShotScreenAnim) return
+            mIsShotScreenAnim = true
+
+            it.visibility = View.VISIBLE
+            findViewById<ImageView>(R.id.screen_shot_anim_img).setImageBitmap(bitmap)
+
+            var screen_shot_anim_text = findViewById<TextView>(R.id.screen_shot_anim_text)
+            var textParams = screen_shot_anim_text.layoutParams as LinearLayout.LayoutParams
+            textParams.weight = -1.0f
+            screen_shot_anim_text.layoutParams = textParams
+            screen_shot_anim_text.visibility = View.INVISIBLE
+
+            var layoutParams1 = it.layoutParams as RelativeLayout.LayoutParams
+            layoutParams1.width = RelativeLayout.LayoutParams.MATCH_PARENT
+            layoutParams1.height = RelativeLayout.LayoutParams.MATCH_PARENT
+            layoutParams1.bottomMargin = resources.getDimension(R.dimen.dp_20).toInt()
+            layoutParams1.leftMargin = resources.getDimension(R.dimen.dp_20).toInt()
+            it.setLayoutParams(layoutParams1)
+
+            it.postDelayed({
+                var changeBounds = ChangeBounds()
+                changeBounds.duration = 500
+                TransitionManager.beginDelayedTransition(it.parent as ViewGroup?, changeBounds)
+
+                layoutParams1.width = resources.getDimension(R.dimen.dp_160).toInt()
+                layoutParams1.height = resources.getDimension(R.dimen.dp_120).toInt()
+                layoutParams1.bottomMargin = toBottom
+                layoutParams1.leftMargin = resources.getDimension(R.dimen.dp_80).toInt()
+                it.setLayoutParams(layoutParams1)
+
+                it.postDelayed({
+                    textParams.weight = 3.0f
+                    screen_shot_anim_text.layoutParams = textParams
+                    screen_shot_anim_text.visibility = View.VISIBLE
+                    it.postDelayed({
+                        mIsShotScreenAnim = false
+//                    it.visibility = View.INVISIBLE
+                        TransitionManager.beginDelayedTransition(it.parent as ViewGroup?, changeBounds)
+                        layoutParams1.leftMargin = -resources.getDimension(R.dimen.dp_160).toInt()
+                        it.setLayoutParams(layoutParams1)
+                    }, 2000)
+                }, 500)
+            }, 500)
         }
     }
 
@@ -1617,14 +1244,13 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                                 cacheConfig
                             ), true
                         )
-                        //todo demo
-//                        RockerControlManager.getInstance().setSportTrackState(
-//                            this@KotlinDemoVideoView,
-//                            isSportTrackOpen,
-//                            true,
-//                            "",
-//                            isSportMoveMode
-//                        )
+                        RockerControlManager.getInstance().setSportTrackState(
+                            this@KotlinDemoVideoView,
+                            isSportTrackOpen,
+                            true,
+                            "",
+                            isSportMoveMode
+                        )
                         isSportTrackLoading = false
                         checkShouldShowGuide(activityContext, device, isSelected)
                     } else {
@@ -1635,14 +1261,13 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                             false
                         )
                         ToastUtils.showShort(R.string.open_fail_retry)
-                        //todo demo
-//                        RockerControlManager.getInstance().setSportTrackState(
-//                            this@KotlinDemoVideoView,
-//                            isSportTrackOpen,
-//                            false,
-//                            "",
-//                            isSportMoveMode
-//                        )
+                        RockerControlManager.getInstance().setSportTrackState(
+                            this@KotlinDemoVideoView,
+                            isSportTrackOpen,
+                            false,
+                            "",
+                            isSportMoveMode
+                        )
                         isSportTrackLoading = false
                     }
                     resetSportTrackForView()
@@ -1659,14 +1284,13 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                     ToastUtils.showShort(R.string.open_fail_retry)
                     isSportTrackLoading = false
                     resetSportTrackForView()
-                    //todo demo
-//                    RockerControlManager.getInstance().setSportTrackState(
-//                        this@KotlinDemoVideoView,
-//                        isSportTrackOpen,
-//                        false,
-//                        "",
-//                        isSportMoveMode
-//                    )
+                    RockerControlManager.getInstance().setSportTrackState(
+                        this@KotlinDemoVideoView,
+                        isSportTrackOpen,
+                        false,
+                        "",
+                        isSportMoveMode
+                    )
                 }
             })
         mSubscription.add(subscribe)
@@ -1949,42 +1573,41 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                 icon.setImageResource(R.mipmap.light_black)
                 textView.setText(R.string.white_light)
             }
-            //todo demo
-//            LiveOptMenuConstants.PRE_LOCATION_TYPE -> {
-//                icon.setOnClickListener { v: View? ->
-//                    LogUtils.d(TAG, "PRE_LOCATION_TYPE-------")
-//                    contentView.findViewById<RelativeLayout>(R.id.rl_rocker_controller).layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
-//                    LiveHelper.checkShowPreLocationGuideDialog(activityContext)
-//                    RockerControlManager.getInstance().onPreLocationShow(this@KotlinDemoVideoView)
-//                    deletePrePositionMode = false
-//                    setVisible(R.id.voice_icon, false)
-////                    setVisible(R.id.item_top, false)
-//                    setVisible(R.id.view_rocker, false)
-//                    if (bean.isAdmin) {
-//                        setVisible(R.id.complete_delete_root, true)
-//                    } else {
-//                        setVisible(R.id.complete_delete_root, false)
-//                    }
-//                    tv_complete_delete.text = activityContext.getString(R.string.delete)
-////                    helper.setText(R.id.tv_complete_delete, R.string.delete)
-//                    iv_complete_delete.setImageResource(R.mipmap.compelete_delete)
-//                    setVisible(R.id.close_root, true)
-//                    setVisible(R.id.rv_pre_position, true)
-//                    setVisible(R.id.layout_pre_location, true)
-//                }
-//                icon.setImageResource(R.mipmap.prelocation_black)
-//                textView.setText(R.string.preset_location)
-//            }
+            LiveOptMenuConstants.PRE_LOCATION_TYPE -> {
+                icon.setOnClickListener { v: View? ->
+                    LogUtils.d(TAG, "PRE_LOCATION_TYPE-------")
+                    mAddxVideoContentView.findViewById<RelativeLayout>(R.id.rl_rocker_controller).layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                    LiveHelper.checkShowPreLocationGuideDialog(activityContext)
+                    RockerControlManager.getInstance().onPreLocationShow(this@KotlinDemoVideoView)
+                    deletePrePositionMode = false
+                    setVisible(R.id.voice_icon, false)
+//                    setVisible(R.id.item_top, false)
+                    setVisible(R.id.view_rocker, false)
+                    if (bean.isAdmin) {
+                        setVisible(R.id.complete_delete_root, true)
+                    } else {
+                        setVisible(R.id.complete_delete_root, false)
+                    }
+                    tv_complete_delete.text = activityContext.getString(R.string.delete)
+//                    helper.setText(R.id.tv_complete_delete, R.string.delete)
+                    iv_complete_delete.setImageResource(R.mipmap.compelete_delete)
+                    setVisible(R.id.close_root, true)
+                    setVisible(R.id.rv_pre_position, true)
+                    setVisible(R.id.layout_pre_location, true)
+                }
+                icon.setImageResource(R.mipmap.prelocation_black)
+                textView.setText(R.string.preset_location)
+            }
             LiveOptMenuConstants.MORE_TYPE -> {
                 icon.setOnClickListener { v: View? -> }
                 icon.setImageResource(R.mipmap.more)
                 textView.setText(R.string.more)
             }
             LiveOptMenuConstants.F_SPEAKER_TYPE -> {
-                mIVLiveVideoView.setSpeakerOptBtn(activityContext, contentView, icon, textView, mMicTouchListener)
+                mIVLiveVideoView.setSpeakerOptBtn(activityContext, mAddxVideoContentView, icon, textView, mMicTouchListener)
             }
             LiveOptMenuConstants.F_ROCKER_TYPE -> {
-                mIVLiveVideoView.setRockerOptBtn(activityContext, contentView, icon, textView, object: IVLiveVideoView.OnPositionChangeListener{
+                mIVLiveVideoView.setRockerOptBtn(activityContext, mAddxVideoContentView, icon, textView, object: IVLiveVideoView.OnPositionChangeListener{
                     override fun onStartTouch(mCanRotate: Boolean) {
                         mRockerListener?.onStartTouch(mCanRotate)
                     }
@@ -2044,8 +1667,7 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
                 }
             }
         }
-        //todo demo
-//        preLocationAdapter.setPlayer(this@KotlinDemoVideoView)
+        preLocationAdapter.setPlayer(this@KotlinDemoVideoView)
         preLocationAdapter.setBean(bean)
         initPreLocationData(preLocationAdapter, bean.serialNumber)
         if (bean.isAdmin) {
@@ -2077,7 +1699,26 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
         rvPrePosition.adapter = preLocationAdapter
 
+//        helper.setOnClickListener(R.id.pre_location_root, v -> {
+//            RockerControlManager.getInstance().onPreLocationShow(helper.getPlayer());
+//            deletePrePositionMode = false;
+//            setVisible(R.id.voice_icon, false);
+//            setVisible(R.id.pre_location_root, false);
+//            setVisible(R.id.view_rocker, false);
+//            if (bean.isAdmin()) {
+//                setVisible(R.id.rocker_root, false);
+//                setVisible(R.id.complete_delete_root, true);
+//            }
+//            helper.setText(R.id.tv_complete_delete, R.string.delete);
+//            helper.setImageResource(R.id.iv_complete_delete, R.mipmap.compelete_delete);
+//            setVisible(R.id.close_root, true);
+//            setVisible(R.id.rv_pre_position, true);
+//        });
         close_root.setOnClickListener(OnClickListener { v: View? ->
+//            if (bean.isAdmin()) {
+//                setVisible(R.id.rocker_root, true);
+//            }
+//            layout_pre_location.layoutParams.height = 0
             layout_pre_location.visibility = View.GONE
             onCloseChangeUi(bean)
             if (deletePrePositionMode) {
@@ -2147,11 +1788,11 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
     }
 
-    fun onPlayStateChanged(currentState: Int, oldState: Int) {
+    override fun onPlayStateChanged(currentState: Int, oldState: Int) {
         if(!mIsFullScreen){
             if (currentState == oldState) return
             mVideoCallBack?.onPlayStateChanged(currentState, oldState)
-            if (currentState == AddxBaseVideoView.CURRENT_STATE_PLAYING) {
+            if (currentState == CURRENT_STATE_PLAYING) {
                 resetSportMoveMode(dataSourceBean!!)
                 setRockerState(dataSourceBean!!, true, true)
                 loadSportTrack(dataSourceBean!!, null)
@@ -2164,373 +1805,68 @@ open class  KotlinDemoVideoView: BaseVideoView, RockerView.OnPositionChangeListe
         }
     }
 
-    fun isSupportGuide() {
+    override fun isSupportGuide() {
         mVideoCallBack?.isSupportGuide()
     }
-    fun onFullScreenStateChange(fullScreen: Boolean) {
+    override fun onFullScreenStateChange(fullScreen: Boolean) {
         if (fullScreen && dataSourceBean!!.isSupportRocker()) {
             //第一次点击全屏的时候，全屏的状态未刷新，要刷新一下。
             resetSportTrackForView()
         }
     }
 
-    protected fun stopRecordVideo(stopWay: String) {
-        if (!isRecording || (recordIcon != null && !recordIcon?.isEnabled!!) || isSavingRecording) {
-            LogUtils.d("stopRecordVideo------------没有正在录制或者保存还没有完成")
-            return
+    override fun onViewClick(v: View?): Boolean {
+        if (v == null) {
+            return false
         }
-        recordIcon?.isEnabled = false
-        isSavingRecording = true
-        savingRecordLoading?.visibility = View.INVISIBLE
-        iAddxPlayer!!.stopRecording(object : MP4VideoFileRenderer.VideoRecordCallback {
-            override fun error() {
-                LogUtils.d("stopRecordVideo------------error")
-                ToastUtils.showShort(R.string.record_failed)
+        if (v.id == R.id.fullscreen) {
+            RxBus.getDefault().post(Any(), Const.Rxbus.EVENT_DISMISS_ACTIVITY_DIALOG)
+            AddxPlayerManager.getInstance().stopOther(dataSourceBean?.getSerialNumber())
+        } else if (v.id == R.id.start || v.id == R.id.tv_underline_error_btn) {
+            if (v.id == R.id.tv_underline_error_btn && (v as TextView).text.toString() == activityContext.getString(
+                    R.string.refresh
+                )) {
+                mVideoCallBack?.refresh()
+//                adapter.refreshDeviceList()
+                return true
             }
-
-            override fun completed() {
-                LogUtils.d("stopRecordVideo------------completed")
-                try {
-                    isRecording = false
-                    isSavingRecording = false
-                    if(mShowRecordShotToast){
-                    }
-                    ToastUtils.showShort(R.string.video_saved_to_ablum)
-                    FileUtils.syncVideoToAlbum(activityContext, videoSavePath, Date().time)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-                post {
-                    recordIcon?.isEnabled = true
-                    savingRecordLoading?.visibility = View.INVISIBLE
-                    onResetRecordUi()
+            if (!isPlaying()) {
+                if (mIsSplit) {
+                    mVideoCallBack?.toLimitMaxPlayerCount(mIsSplit, this)
+//                    adapter.toLimitMaxPlayerCount(isSplit, liveAddxVideoView)
+                } else {
+                    AddxPlayerManager.getInstance().stopOther(dataSourceBean?.getSerialNumber())
                 }
             }
-        })
-        recordTimeText?.visibility = View.INVISIBLE
-    }
-
-    private fun autoPlayIfNeed() {
-        if (!isPlaying()) {
-            startBtn?.callOnClick()
-            LogUtils.e(TAG, "auto play ,before state=$currentState")
-        }
-    }
-
-    private fun callBackViewState(currentState: Int, oldState: Int) {
-        onPlayStateChanged(currentState, oldState)
-        when (currentState) {
-            AddxBaseVideoView.CURRENT_STATE_PREPAREING -> {
+        } else if (v.id == R.id.back) {
+            var llRockerController: ViewGroup = normalLayoutViewGroup.findViewById(R.id.rl_rocker_controller)
+            if(isPlaying()){
+                LogUtils.d(
+                    TAG,
+                    "llRockerController?.visibility = VISIBLE--llRockerController is null:${llRockerController == null}"
+                )
+                llRockerController?.visibility = VISIBLE
+            }else{
+                llRockerController?.visibility = GONE
             }
-            AddxBaseVideoView.CURRENT_STATE_PLAYING -> {
-            }
-            AddxBaseVideoView.CURRENT_STATE_ERROR, AddxBaseVideoView.CURRENT_STATE_AUTO_COMPLETE, AddxBaseVideoView.CURRENT_STATE_PAUSE, AddxBaseVideoView.CURRENT_STATE_NORMAL -> {
-                mVideoCallBack?.onStopPlay()
-            }
+            toggleRootViewForDeviceB(llRockerController, false)
+            mVideoCallBack?.onBackPressed()
+//            if (mPlayListener != null) {
+//                //去掉return true，解决收到推送后点击进入全屏直播，返回键无效问题
+////                        return true;
+//            }
         }
+        return false
     }
-    @SuppressLint("SetTextI18n")
-    protected fun onResetRecordUi() {
-        recordIcon?.setImageResource(R.mipmap.live_last_record)
-        recordTimeText?.visibility = View.INVISIBLE
-        if (recordCounterTask != null) {
-            recordCounterTask!!.unsubscribe()
-        }
-        recordTimeText?.text = "00:00"
+    override fun isRinging(): Boolean{
+        return mRinging
     }
-
-
-    fun saveMuteState(mute: Boolean) {
-        val localDevice = DeviceManager.getInstance().get(dataSourceBean!!.serialNumber)
-        if (localDevice != null) {
-            localDevice.isNeedMute = mute
-            DeviceManager.getInstance().update(localDevice)
-        }
+    override fun getWhiteLightOn():Boolean{
+        return whiteLightOn
     }
 
-    fun setMuteState(mute: Boolean) {
-        this.mute = mute
-        iAddxPlayer?.muteVoice(mute)
-        saveMuteState(mute)
-        updateSoundIcon(mute)
-    }
-
-    open fun updateSoundIcon(mute: Boolean) {
-        LogUtils.w(TAG, "updateSoundIcon----" + (soundBtn == null).toString() + "--" + mute.toString())
-        if(mIsFullScreen) {
-            soundBtn?.setImageResource(if (mute) R.mipmap.live_last_sound_disable else R.mipmap.live_last_sound_enable)
-        }else{
-            soundBtn?.setImageResource(if (mute) R.mipmap.voice_black_notalk else R.mipmap.voice_black_talk)
-        }
-    }
-
-    fun hideNavKey() {
-        if (mIsFullScreen) {
-            CommonUtil.hideNavKey(activityContext)
-        }
-    }
-    fun setThumbImageByPlayState(shouldSkipVisible: Boolean = false) {
-        LogUtils.d(TAG, "setThumbImageByPlayState ")
-        if (dataSourceBean == null) {
-            LogUtils.e(TAG, "sn is null , do not set bg")
-            return
-        }
-
-        val needBlur = when (currentState) {
-            AddxBaseVideoView.CURRENT_STATE_NORMAL,
-            AddxBaseVideoView.CURRENT_STATE_PAUSE,
-            AddxBaseVideoView.CURRENT_STATE_AUTO_COMPLETE -> false
-            else -> true
-        }
-        thumbImage?.let {
-            if (it.visibility == View.VISIBLE || shouldSkipVisible) {
-                LogUtils.e(TAG, "thumbImage visible = ${it.visibility == View.VISIBLE}")
-                setThumbImageInternal(it, needBlur)
-            }
-        }
-
-        ivErrorThumb?.let {
-            if ((it.visibility == View.VISIBLE || shouldSkipVisible)) {
-                if (currentState == AddxBaseVideoView.CURRENT_STATE_ERROR) setThumbImageInternal(it, needBlur)
-                else if (currentOpt < 0) setThumbImageInternal(it, true)
-            }
-        }
-    }
-
-    private fun setThumbImageInternal(view: ImageView,needBlur: Boolean) {
-        dataSourceBean?.let {
-            if (it.isDeviceSleep){
-                view.setImageResource(R.drawable.live_sleep_bg)
-                return
-            }
-        }
-        LogUtils.d(TAG, "setThumbImageInternal")
-        var localThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastLocalFreshTime(dataSourceBean!!.serialNumber)/1000
-        var serverThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastServerFreshTime(dataSourceBean!!.serialNumber)
-        var localCoverBitmap:Bitmap? = null
-        if(serverThumbTime > localThumbTime){
-            val imgPath = DownloadUtil.getThumbImgDir(activityContext) + MD5Util.md5(dataSourceBean?.serialNumber)+".jpg"
-            localCoverBitmap = BitmapUtils.getBitmap(imgPath)
-            LogUtils.d(TAG, "toRequestAndRefreshThumbImg=======setThumbImageInternal======code:${hashCode()}======:${(localCoverBitmap == null)}==$imgPath")
-        }
-        if (localCoverBitmap == null) {
-            localCoverBitmap = LocalDrawableUtills.instance.getLocalCoverBitmap(dataSourceBean!!.serialNumber.plus(thumbSaveKeySuffix))
-            if (localCoverBitmap == null) {
-                localCoverBitmap = BitmapFactory.decodeResource(resources, defaultThumbRid!!)
-            }
-        }
-        mBitmap = if (needBlur) {
-            BitmapUtils.rsBlur(context, localCoverBitmap, 15, 3)
-        } else {
-            localCoverBitmap
-        }
-        view.setImageBitmap(mBitmap)
-        refreshThumbImg()
-    }
-
-    open fun getErrorView(): View {
-        val inflate = View.inflate(context, errorLayoutId(), null)
-        mUploadlog = inflate.findViewById(R.id.uploadlog)
-        mUploadlog?.visibility = if (mIsNeedUploadFailLog) View.VISIBLE else View.GONE
-        tvErrorTips = inflate.findViewById(R.id.tv_error_tips)
-        ivErrorExit = inflate.findViewById(R.id.iv_error_exit)
-        ivErrorSetting = inflate.findViewById(R.id.iv_error_setting)
-        ivErrorFlag = inflate.findViewById(R.id.iv_error_flag)
-        tvErrorButton = inflate.findViewById(R.id.tv_error_btn)
-        tvUnderLineErrorBtn = inflate.findViewById(R.id.tv_underline_error_btn)
-        ivErrorHelp = inflate.findViewById(R.id.iv_error_help)
-        ivErrorThumb = inflate.findViewById(R.id.iv_error_thumb)
-        ivErrorExit?.setOnClickListener { backToNormal() }
-        tvErrorButton?.setOnClickListener { onClickErrorRetry() }
-        tvErrorTips?.setOnClickListener { onClickErrorTips(tvErrorTips) }
-        tvUnderLineErrorBtn?.setOnClickListener {  onClickUnderlineErrorButton(tvUnderLineErrorBtn) }
-//        mUploadlog?.setOnClickListener({uploadErrorLog()})
-        return inflate
-    }
-
-    fun onClickErrorRetry() {
-        LogUtils.d(TAG, "errorLayout?.setOnClickListener-------" + dataSourceBean!!.serialNumber)
-        if (!com.ai.addxbase.AccountManager.getInstance().isLogin) return
-        when (currentOpt) {
-            PlayerErrorState.ERROR_DEVICE_NEED_OTA -> {
-                AddxFunJump.toUpdate(activityContext, dataSourceBean!!)
-            }
-            PlayerErrorState.ERROR_DEVICE_SLEEP -> {
-                if (dataSourceBean != null && dataSourceBean!!.isAdmin) {
-//                    RxBus.getDefault().post(dataSourceBean?.serialNumber, Const.Rxbus.EVENT_WAKE_UP_SLEEP_DEVICE)
-                    wakeDevice(dataSourceBean!!.serialNumber)
-                }
-            }
-
-            PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> {
-                onViewClick(tvUnderLineErrorBtn)
-            }
-            else -> {
-                showNetWorkToast()
-                startPlay()
-            }
-        }
-    }
-
-    fun setDeviceState(isAutoPlay: Boolean, isTimeout: Boolean) {
-        LogUtils.d(TAG, "setDeviceState init server device state---:${dataSourceBean!!.needForceOta()}---needOta:${dataSourceBean!!.needOta()}")
-        //检查设备
-        when {
-            dataSourceBean!!.isDeviceOffline -> updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_OFFLINE)
-            dataSourceBean!!.isDeviceSleep -> updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_SLEEP)
-            dataSourceBean!!.isFirmwareUpdateing -> updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_IS_OTA_ING)
-            dataSourceBean!!.needOta() -> {//需要OTA
-                if(isTimeout){
-                    updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, PlayerErrorState.ERROR_PLAYER_TIMEOUT)
-                }else{
-                    updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_NEED_OTA)
-                }
-            }
-            dataSourceBean!!.needForceOta() -> {//需要强制OTA
-                updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_NEED_OTA)
-            }
-            isTimeout -> updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_ERROR, PlayerErrorState.ERROR_PLAYER_TIMEOUT)
-            else -> {
-                updateStateAndUI(AddxBaseVideoView.CURRENT_STATE_NORMAL, currentOpt)
-                if(isAutoPlay){
-                    startPlay()
-                }
-            }
-        }
-    }
-    fun wakeDevice(sn: String) {
-        val loadingDialog = LoadingDialog(context)
-        loadingDialog.show()
-        ApiClient.getInstance().sleepSwitchSetting(SleepPlanData(sn, 0)).flatMap {
-            if (it.result == Const.ResponseCode.CODE_OK) {
-                return@flatMap ApiClient.getInstance().getSingleDevice(SerialNoEntry(sn))
-            } else {
-                return@flatMap Observable.error<GetSingleDeviceResponse>(Throwable("sleepSwitchSetting wakeup device failed code=" + it.result))
-            }
-        }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : HttpSubscriber<GetSingleDeviceResponse>() {
-                override fun doOnNext(baseResponse: GetSingleDeviceResponse) {
-                    loadingDialog.dismiss()
-                    if (baseResponse.result < Const.ResponseCode.CODE_OK) {
-                        ToastUtils.showShort(R.string.open_fail_retry)
-                    } else {
-                        ToastUtils.showShort(R.string.setup_success)
-                        dataSourceBean?.copy(baseResponse.data)
-                        setDeviceState(false, false)
-                    }
-                }
-
-                override fun onError(e: Throwable) {
-                    e.printStackTrace()
-                    ToastUtils.showShort(R.string.open_fail_retry)
-                    loadingDialog.dismiss()
-                }
-            })
-    }
-
-    open fun onClickUnderlineErrorButton(tip: TextView?) {
-        LogUtils.d(TAG, "onClickUnderlineErrorButton-------" + dataSourceBean!!.serialNumber)
-        when (currentOpt) {
-            PlayerErrorState.ERROR_DEVICE_AUTH_LIMITATION,
-            PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> {}//checkDeviceExit(1)
-            PlayerErrorState.ERROR_DEVICE_SLEEP -> {return
-            }//sleep click do noting
-            else -> {
-                onViewClick(tip)
-                showNetWorkToast()
-                startPlay()
-            }
-        }
-        if(resources.getString(R.string.refresh) == tvUnderLineErrorBtn?.text){
-            onViewClick(tip)
-        }
-    }
-
-    fun showNetWorkToast(){
-        if (NetworkUtil.isMobileData(A4xContext.getInstance().getmContext()) && !NetworkUtils.isWifiConnected(A4xContext.getInstance().getmContext()) && VideoSharePreManager.getInstance(context).showNetworkDialog()) {
-            //showNetWorkDialog()
-            ToastUtils.showShort(R.string.pay_attention_data)
-            VideoSharePreManager.getInstance(context).setShowNetworkDialog(false)
-        }
-    }
-    fun onViewClick(v: View?): Boolean{
-        return if(mVideoCallBack == null) false else mVideoCallBack!!.onViewClick(v)
-    }
-
-    fun startBitmapAnim(bitmap: Bitmap, toBottom: Int) {
-        animShotView?.let { it ->
-            if (mIsShotScreenAnim) return
-            mIsShotScreenAnim = true
-
-            it.visibility = View.VISIBLE
-            findViewById<ImageView>(R.id.screen_shot_anim_img).setImageBitmap(bitmap)
-
-            var screen_shot_anim_text = findViewById<TextView>(R.id.screen_shot_anim_text)
-            var textParams = screen_shot_anim_text.layoutParams as LinearLayout.LayoutParams
-            textParams.weight = -1.0f
-            screen_shot_anim_text.layoutParams = textParams
-            screen_shot_anim_text.visibility = View.INVISIBLE
-
-            var layoutParams1 = it.layoutParams as RelativeLayout.LayoutParams
-            layoutParams1.width = RelativeLayout.LayoutParams.MATCH_PARENT
-            layoutParams1.height = RelativeLayout.LayoutParams.MATCH_PARENT
-            layoutParams1.bottomMargin = resources.getDimension(R.dimen.dp_20).toInt()
-            layoutParams1.leftMargin = resources.getDimension(R.dimen.dp_20).toInt()
-            it.setLayoutParams(layoutParams1)
-
-            it.postDelayed({
-                var changeBounds = ChangeBounds()
-                changeBounds.duration = 500
-                TransitionManager.beginDelayedTransition(it.parent as ViewGroup?, changeBounds)
-
-                layoutParams1.width = resources.getDimension(R.dimen.dp_160).toInt()
-                layoutParams1.height = resources.getDimension(R.dimen.dp_120).toInt()
-                layoutParams1.bottomMargin = toBottom
-                layoutParams1.leftMargin = resources.getDimension(R.dimen.dp_80).toInt()
-                it.setLayoutParams(layoutParams1)
-
-                it.postDelayed({
-                    textParams.weight = 3.0f
-                    screen_shot_anim_text.layoutParams = textParams
-                    screen_shot_anim_text.visibility = View.VISIBLE
-                    it.postDelayed({
-                        mIsShotScreenAnim = false
-//                    it.visibility = View.INVISIBLE
-                        TransitionManager.beginDelayedTransition(
-                            it.parent as ViewGroup?,
-                            changeBounds
-                        )
-                        layoutParams1.leftMargin = -resources.getDimension(R.dimen.dp_160).toInt()
-                        it.setLayoutParams(layoutParams1)
-                    }, 2000)
-                }, 500)
-            }, 500)
-        }
-    }
-
-    fun startRecordCountTask() {
-        if (recordCounterTask != null) {
-            recordCounterTask!!.unsubscribe()
-        }
-        recordCounterTask = rx.Observable.interval(0, 1, TimeUnit.SECONDS)
-            .onBackpressureBuffer()
-            .take(Int.MAX_VALUE)
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : HttpSubscriber<Long?>() {
-                override fun doOnNext(t: Long?) {
-                    if (t != null) {
-                        val minute = t / 60
-                        val sec = t % 60
-                        recordTimeText?.text = String.format("%02d:%02d", minute, sec)
-                    }
-                }
-            })
-    }
-    override fun onRetryConnect() {
-        post {
-            iAddxPlayer?.playerStatInfo?.misretryconnect = true
-            stopRecordVideo("onRetryConnect")
-            startPlay()
-        }
+    override  fun hideNav(){
+        CommonUtil.hideNavKey(activityContext)
+        CommonUtil.hideNavKey(liveFullScreenMenuWindow!!.contentView)
     }
 }

@@ -4,6 +4,7 @@ import android.view.View;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
 
+import com.addx.ai.demo.videoview.KotlinDemoVideoView;
 import com.addx.common.utils.LogUtils;
 import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.DeviceClicent;
@@ -19,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 
-public class CustomerDeviceList extends BaseActivity {
+public class CustomerDeviceListActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
@@ -61,8 +62,8 @@ public class CustomerDeviceList extends BaseActivity {
 //                            });
 
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
-                    KotlinDemoVideoView demoVideoView = new KotlinDemoVideoView(CustomerDeviceList.this);
-                    demoVideoView.init(CustomerDeviceList.this, bean, new SimpleAddxViewCallBack(){
+                    KotlinDemoVideoView demoVideoView = new KotlinDemoVideoView(CustomerDeviceListActivity.this);
+                    demoVideoView.init(CustomerDeviceListActivity.this, bean, new SimpleAddxViewCallBack(){
                         @Override
                         public void onStartPlay() {
                             super.onStartPlay();

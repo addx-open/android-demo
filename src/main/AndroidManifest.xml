@@ -41,7 +41,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label,android:allowBackup,android:name,android:icon">
-        <activity android:name=".DeviceList"
+        <activity android:name=".DeviceListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"/>
         <activity android:name=".MineActivity"
@@ -68,7 +68,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".PirListActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CustomerDeviceList"
+        <activity android:name=".CustomerDeviceListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SdcardPlayActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"/>
 
