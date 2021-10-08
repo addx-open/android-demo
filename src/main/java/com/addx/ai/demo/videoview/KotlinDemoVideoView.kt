@@ -538,9 +538,9 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
             }
             PlayerErrorState.ERROR_DEVICE_SHUTDOWN_LOW_POWER -> {
                 if(mIsSplit){
-                    setErrorInfo(R.string.low_power, R.mipmap.shutdown)
+                    setErrorInfo(R.string.low_power, R.mipmap.lowpowershutdown)
                 }else{
-                    setErrorInfo(R.string.low_power, R.mipmap.shutdown)
+                    setErrorInfo(R.string.low_power, R.mipmap.lowpowershutdown)
                 }
             }
             PlayerErrorState.ERROR_DEVICE_SHUTDOWN_PRESS_KEY -> {

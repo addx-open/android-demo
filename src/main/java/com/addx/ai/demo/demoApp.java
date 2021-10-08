@@ -16,7 +16,7 @@ public class demoApp  extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        String token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJ0aGlyZFVzZXJJZCI6Inp5al90ZXN0XzE2MjkyNTc0MjMiLCJhY2NvdW50SWQiOiJ0ZXN0QWNjb3VudF8xODYxMyIsInNlZWQiOiJkN2ZkZWE5YzU0ZmU0ZTFiYTk1Yzc5ZTAwMDAzZWRhOCIsImV4cCI6MjYyOTI1NzQyNSwidXNlcklkIjo5NDN9.kXHFhr9urD58nYHlPuCBmD1y9uNnZdJKa8KN8YeCtEma32ReOURyMPl4_y_EL7o5sbTUkSsZe0jl9Y15m9QxPA";//netvue  cn
+        String token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJ0aGlyZFVzZXJJZCI6Inp5al90ZXN0XzE2MzE3MDE0MTQiLCJhY2NvdW50SWQiOiJ0ZXN0QWNjb3VudF8xODYxMyIsInNlZWQiOiIzMzczZjJiNjNjM2E0MmQyYjliNTAxYjY5ZDIxZTMyMSIsImV4cCI6MjYzMTcwMTQxMywidXNlcklkIjo5NzB9.XJYoZIInPLDg1ym02o-8zneyjQIyCGA6itTDRTzi2mbMT6qpcVko-oh7VFGj3cLzKXGP6NK-2I8dw2ON3HhafQ";//netvue  cn
         A4xContext.getInstance().initA4xSdk(getApplicationContext(), "guard", "zh", "CN", A4xContext.BuildEnv.STAGING, AddxNode.STRAGE_NODE_CN, token, new AddxVideoContextInitCallBack() {
             @Override
             public void success() {

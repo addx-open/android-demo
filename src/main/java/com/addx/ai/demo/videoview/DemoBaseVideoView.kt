@@ -1196,7 +1196,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                 underlineErrorBtnText = R.string.refresh
             )
             PlayerErrorState.ERROR_DEVICE_SHUTDOWN_LOW_POWER -> {
-                setErrorInfo(R.string.low_power, R.mipmap.shutdown)
+                setErrorInfo(R.string.low_power, R.mipmap.lowpowershutdown)
             }
             PlayerErrorState.ERROR_DEVICE_SHUTDOWN_PRESS_KEY -> {
                 setErrorInfo(R.string.turned_off, R.mipmap.shutdown)
