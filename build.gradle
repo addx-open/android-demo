@@ -64,7 +64,7 @@ dependencies {
 
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.multidex:multidex:2.0.1'
-
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
     if(needDepsLocalModule){
 //        implementation project(path: ':gsyVideoPlayer-java')
 //        implementation project(path: ':lib_calendarview')
