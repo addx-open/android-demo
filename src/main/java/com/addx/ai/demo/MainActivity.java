@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ai.addxbase.ADDXBind;
 import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.util.ToastUtils;
 //import com.ai.addxbind.devicebind.ADDXBind;
@@ -77,21 +78,21 @@ public class MainActivity extends BaseActivity {
      * It provides a way to add devices to the device list
      */
     public void clickToAddDevice(View v) {
-//        ADDXBind.lanchBind(this, new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
-//            @Override
-//            public void onBindCancel() {
-//            }
-//
-//            @Override
-//            public void onBindSccess(String sn) {
-//                ToastUtils.showShort("bind success sn :" + sn);
-//            }
-//
-//            @Override
-//            public void onBindStart(String callBackUrl) {
-//                ToastUtils.showShort("bind success callBackUrl :" + callBackUrl);
-//            }
-//        }));
+        ADDXBind.lanchBind(this, new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
+            @Override
+            public void onBindCancel() {
+            }
+
+            @Override
+            public void onBindSccess(String sn) {
+                ToastUtils.showShort("bind success sn :" + sn);
+            }
+
+            @Override
+            public void onBindStart(String callBackUrl) {
+                ToastUtils.showShort("bind success callBackUrl :" + callBackUrl);
+            }
+        }));
     }
 
     /**
