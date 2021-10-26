@@ -10,7 +10,7 @@ import com.ai.addxbase.IDeviceClient;
 import com.ai.addxbase.util.ToastUtils;
 import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.mvvm.BaseActivity;
-import com.ai.addxbind.devicebind.ADDXBind;
+//import com.ai.addxbind.devicebind.ADDXBind;
 import com.ai.addxvideo.addxvideoplay.LiveAddxVideoView;
 import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 
@@ -81,21 +81,21 @@ public class DeviceListActivity extends BaseActivity {
     }
     
     public void clickAddDevice(View v){
-        ADDXBind.lanchBind(this,new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
-            @Override
-            public void onBindCancel() {
-
-            }
-
-            @Override
-            public void onBindSccess(@NotNull String sn) {
-                listDeviceInfo();
-            }
-
-            @Override
-            public void onBindStart(@NotNull String callBackUrl) {
-
-            }
-        }));
+//        ADDXBind.lanchBind(this,new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
+//            @Override
+//            public void onBindCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onBindSccess(@NotNull String sn) {
+//                listDeviceInfo();
+//            }
+//
+//            @Override
+//            public void onBindStart(@NotNull String callBackUrl) {
+//
+//            }
+//        }));
     }
 }
