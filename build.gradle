@@ -1,6 +1,8 @@
+import groovy.json.JsonSlurper
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
 //apply plugin: 'com.addx.ai.opensdk_plugin'
 //addxconfig {
 //    message = "addxconfig_message"
@@ -74,6 +76,7 @@ dependencies {
         implementation project(path: ':addxsettings')
         implementation project(path: ':addxbind')
         implementation project(path: ':theme2')
+        implementation project(path: ':app')
 //        implementation project(path: ':addxbase')
 //        implementation project(path: ':addxbase')
 //        implementation project(path: ':addxmodel')
