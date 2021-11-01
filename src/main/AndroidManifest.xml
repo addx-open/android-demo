@@ -33,14 +33,13 @@
     <!--    <uses-permission android:name="android.permission.WRITE_SETTINGS"-->
     <!--        tools:ignore="ProtectedPermissions" />-->
     <application
-        android:name="com.ai.guard.vicohome.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="addxdemo"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:label,android:allowBackup,android:name,android:icon"
+        tools:replace="android:label,android:allowBackup,android:icon"
         >
         <activity android:name=".DeviceListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
