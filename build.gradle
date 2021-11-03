@@ -88,6 +88,6 @@ dependencies {
         implementation "com.addx.ai:addxbind:$addxbind_lib_version"
         implementation "com.addx.ai:addxsettings:$addxsettings_lib_version"
         implementation "com.addx.ai:theme2:$theme2_lib_version"
-        implementation "com.addx.ai:addxapp:$addxapp_lib_version"
+        implementation "com.addx.ai:addxapp:1.0.62"
     }
 }
