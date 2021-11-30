@@ -39,8 +39,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:label,android:allowBackup,android:icon"
-        >
+        tools:replace="android:label,android:allowBackup,android:icon">
+        <meta-data android:name="XG_V2_ACCESS_ID" android:value="${XG_ACCESS_ID}" tools:replace="android:value"></meta-data>
+        <meta-data android:name="XG_V2_ACCESS_KEY" android:value="${XG_ACCESS_KEY}" tools:replace="android:value"></meta-data>
         <activity android:name=".DeviceListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"/>

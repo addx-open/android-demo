@@ -87,8 +87,6 @@ import kotlinx.android.synthetic.main.layout_player_normal.view.rv_pre_position
 import kotlinx.android.synthetic.main.layout_player_normal.view.tv_complete_delete
 import kotlinx.android.synthetic.main.layout_player_normal.view.view_rocker
 import kotlinx.android.synthetic.main.layout_player_normal.view.voice_icon
-import kotlinx.android.synthetic.main.layout_player_full.view.*
-import kotlinx.android.synthetic.main.layout_player_normal.view.*
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -1833,7 +1831,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
             if (v.id == R.id.tv_underline_error_btn && (v as TextView).text.toString() == activityContext.getString(
                     R.string.refresh
                 )) {
-                mVideoCallBack?.refresh()
+                mVideoCallBack?.onClickRefresh()
 //                adapter.refreshDeviceList()
                 return true
             }
