@@ -9,7 +9,7 @@ import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.util.ToastUtils;
 //import com.ai.addxbind.devicebind.ADDXBind;
 import com.ai.addxsettings.ADDXSettings;
-import com.ai.guard.vicohome.SplashActivity;
+//import com.ai.guard.vicohome.SplashActivity;
 
 public class MainActivity extends BaseActivity {
     public static final String TAG = "MainActivity";
@@ -41,13 +41,13 @@ public class MainActivity extends BaseActivity {
     }
 
     public void clickHome(View v){
-        Intent devicelistintent = new Intent(this, SplashActivity.class);
-        startActivity(devicelistintent);
+//        Intent devicelistintent = new Intent(this, SplashActivity.class);
+//        startActivity(devicelistintent);
     }
 
     public void clickLibrary(View v){
-        Intent devicelistintent = new Intent(this, SplashActivity.class).putExtra("module","library");
-        startActivity(devicelistintent);
+//        Intent devicelistintent = new Intent(this, SplashActivity.class).putExtra("module","library");
+//        startActivity(devicelistintent);
     }
     /**
      * click event

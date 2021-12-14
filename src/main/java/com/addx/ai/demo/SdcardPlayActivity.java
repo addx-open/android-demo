@@ -104,19 +104,19 @@ public class SdcardPlayActivity extends BaseActivity {
                 //        LogUtils.d("onstartPlay","onstartPlay");
             }
 
-            @Override
-            public boolean onViewClick(@androidx.annotation.Nullable View v) {
-                if (v == null) {
-                    return false;
-                }
-                if(v.getId() == R.id.start){
-//                    if (!mIAddxSdcardView.isPlaying()) {
-//                        mIAddxSdcardView.setPlayingStartTime(fragment.getPointTime());
-//                        mIAddxSdcardView.setPlayingEndTime(getSelectedFragment().getPlayEndTime());
-//                    }
-                }
-                return false;
-            }
+//            @Override
+//            public boolean onViewClick(@androidx.annotation.Nullable View v) {
+//                if (v == null) {
+//                    return false;
+//                }
+//                if(v.getId() == R.id.start){
+////                    if (!mIAddxSdcardView.isPlaying()) {
+////                        mIAddxSdcardView.setPlayingStartTime(fragment.getPointTime());
+////                        mIAddxSdcardView.setPlayingEndTime(getSelectedFragment().getPlayEndTime());
+////                    }
+//                }
+//                return false;
+//            }
 
             @Override
             public void onStopPlay() {

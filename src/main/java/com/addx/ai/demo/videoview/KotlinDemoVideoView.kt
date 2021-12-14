@@ -1831,7 +1831,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
             if (v.id == R.id.tv_underline_error_btn && (v as TextView).text.toString() == activityContext.getString(
                     R.string.refresh
                 )) {
-                mVideoCallBack?.onClickRefresh()
+//                mVideoCallBack?.onClickRefresh()
 //                adapter.refreshDeviceList()
                 return true
             }

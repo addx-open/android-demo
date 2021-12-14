@@ -1418,7 +1418,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             else -> {
                 onViewClick(tip)
                 createRecordClick("underline_retry_btn_clickid_")
-                mVideoCallBack?.onViewClick(tip)
+//                mVideoCallBack?.onViewClick(tip)
                 showNetWorkToast()
                 startPlay()
             }
@@ -1488,7 +1488,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         entry?.live_player_type = if(mIsFullScreen) "full" else{ if(mIsSplit) "quad" else "half"}
         entry?.wait_time = playTimeRecordSpan
         entry?.download_speeds = downloadStringBuilder.toString()
-        entry?.error_code = errorCodeWhenUserClickForCountly
+//        entry?.error_code = errorCodeWhenUserClickForCountly
         entry?.current_is_fullscreen = mIsFullScreen.toString()
         return entry
     }
@@ -1737,7 +1737,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         mVideoCallBack?.onFullScreenStateChange(fullScreen)
     }
     internal open fun onViewClick(v: View?): Boolean{
-        return if(mVideoCallBack == null) false else mVideoCallBack!!.onViewClick(v)
+        return false
     }
 
     override fun isFullScreen(): Boolean{

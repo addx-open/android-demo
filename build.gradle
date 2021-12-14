@@ -75,8 +75,8 @@ dependencies {
         implementation project(path: ':addxvideo')
         implementation project(path: ':addxsettings')
         implementation project(path: ':addxbind')
-        implementation project(path: ':theme2')
-        implementation project(path: ':app')
+        implementation project(path: ':themeMain')
+//        implementation project(path: ':app')
 //        implementation project(path: ':addxbase')
 //        implementation project(path: ':addxbase')
 //        implementation project(path: ':addxmodel')
@@ -87,7 +87,7 @@ dependencies {
         implementation "com.addx.ai:addxvideo:$addxvideo_lib_version"
         implementation "com.addx.ai:addxbind:$addxbind_lib_version"
         implementation "com.addx.ai:addxsettings:$addxsettings_lib_version"
-        implementation "com.addx.ai:theme2:$theme2_lib_version"
-        implementation "com.addx.ai:addxapp:1.0.62"
+        implementation "com.addx.ai:thememain:$thememain_lib_version"
+//        implementation "com.addx.ai:addxapp:1.0.62"
     }
 }
