@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.addx.common.utils.LogUtils;
 import com.ai.addxbase.ADDXBind;
 import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.util.ToastUtils;
 //import com.ai.addxbind.devicebind.ADDXBind;
 import com.ai.addxsettings.ADDXSettings;
+
+import org.jetbrains.annotations.Nullable;
 //import com.ai.guard.vicohome.SplashActivity;
 
 public class MainActivity extends BaseActivity {
@@ -33,6 +36,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        ADDXBind.setLongClickQrListener(new ADDXBind.QrListener() {
+//            @Override
+//            public void getQrData(@Nullable String s) {
+//                LogUtils.d("ddd","getQrData----"+s);
+//            }
+//        });
     }
 
     public void clickLogin(View v){
