@@ -12,6 +12,7 @@ import com.ai.addxbase.IDeviceClient;
 import com.ai.addxbase.mvvm.BaseActivity;
 import com.ai.addxbase.util.ToastUtils;
 //import com.ai.addxbind.devicebind.ADDXBind;
+import com.ai.addxsettings.ADDXSettings;
 import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 
 import org.jetbrains.annotations.NotNull;
@@ -60,7 +61,7 @@ public class CustomerDeviceListActivity extends BaseActivity {
 //                                    ADDXSettings.Companion.startSetting(DeviceList.this, bean);
 //                                }
 //                            });
-
+                    LogUtils.d("bean","bean---deviceupdatestatu:"+ ADDXSettings.getDeviceUpdateStatus(bean));
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
                     KotlinDemoVideoView demoVideoView = new KotlinDemoVideoView(CustomerDeviceListActivity.this);
                     demoVideoView.init(CustomerDeviceListActivity.this, bean, new SimpleAddxViewCallBack(){

@@ -11,6 +11,7 @@ import com.ai.addxbase.util.ToastUtils;
 import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.mvvm.BaseActivity;
 //import com.ai.addxbind.devicebind.ADDXBind;
+import com.ai.addxsettings.ADDXSettings;
 import com.ai.addxvideo.addxvideoplay.LiveAddxVideoView;
 import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 
@@ -61,6 +62,7 @@ public class DeviceListActivity extends BaseActivity {
 //                                }
 //                            });
 
+                    LogUtils.d("bean","bean---deviceupdatestatu:"+ ADDXSettings.getDeviceUpdateStatus(bean));
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
                     LiveAddxVideoView liveAddxVideoView = new LiveAddxVideoView(DeviceListActivity.this);
                     liveAddxVideoView.init(DeviceListActivity.this, bean, new SimpleAddxViewCallBack(){

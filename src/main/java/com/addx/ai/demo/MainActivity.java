@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.addx.common.utils.LogUtils;
+import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.ADDXBind;
 import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.util.ToastUtils;
 //import com.ai.addxbind.devicebind.ADDXBind;
 import com.ai.addxsettings.ADDXSettings;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 //import com.ai.guard.vicohome.SplashActivity;
 
@@ -42,6 +44,12 @@ public class MainActivity extends BaseActivity {
                 LogUtils.d("ddd","ADDXBind----getQrData"+s);
             }
         });
+        ADDXSettings.setFunctionBuilder(new ADDXSettings.Builder().setSDCardClickCallback(new ADDXSettings.ViewClickListener() {
+            @Override
+            public void onViewClick(@NotNull View v, @NotNull DeviceBean deviceBean) {
+                LogUtils.d("onViewClick","setSDCardClickCallback----onViewClick");
+            }
+        }));
 //        ADDXBind.setLongClickQrListener(null);
     }
 
