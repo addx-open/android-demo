@@ -86,7 +86,18 @@ public class MainActivity extends BaseActivity {
      * 2.Include settings , Device Shares functions
      */
     public void clickShowDeviceList(View v) {
-        Intent devicelistintent = new Intent(this, DeviceListActivity.class);
+        ADDXSettings.Companion.setFunctionBuilder(new ADDXSettings.Builder().setActivityZoneClickCallback(new ADDXSettings.ViewClickListener() {
+            @Override
+            public void onViewClick(@NotNull View v, @NotNull DeviceBean deviceBean) {
+                LogUtils.d(TAG, "setActivityZoneClickCallback");
+            }
+        }).setSDCardClickCallback(new ADDXSettings.ViewClickListener() {
+            @Override
+            public void onViewClick(@NotNull View v, @NotNull DeviceBean deviceBean) {
+                LogUtils.d(TAG, "setSDCardClickCallback");
+            }
+        }));
+        Intent devicelistintent = new Intent(this, DeviceList.class);
         startActivity(devicelistintent);
     }
 

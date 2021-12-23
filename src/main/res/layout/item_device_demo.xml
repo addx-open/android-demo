@@ -33,10 +33,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/camera_type_icon"
+                android:layout_toEndOf="@+id/camera_type_icon"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
-                android:paddingRight="24dp"
+                android:paddingEnd="24dp"
                 android:singleLine="true"
                 android:textColor="#202124"
                 android:textSize="15sp"
@@ -59,8 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:src="@mipmap/setting_black" />
 
         <ImageView
@@ -70,8 +70,8 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="6dp"
             android:layout_toStartOf="@id/item_replay"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:src="@mipmap/home_item_admin"
             android:visibility="visible" />
 
@@ -82,8 +82,8 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="6dp"
             android:layout_toStartOf="@id/item_setting"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:src="@mipmap/library_black" />
 
         <ImageView
@@ -91,8 +91,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/item_setting"
-            android:layout_alignRight="@+id/item_setting"
-            android:layout_marginRight="4dp"
+            android:layout_alignEnd="@+id/item_setting"
+            android:layout_marginEnd="4dp"
             android:src="@drawable/circle_fill_red"
             android:visibility="visible" />
     </RelativeLayout>

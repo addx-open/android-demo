@@ -5,13 +5,12 @@ import android.view.View;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.addx.common.utils.LogUtils;
+import com.ai.addx.model.DeviceBean;
+import com.ai.addxbase.ADDXBind;
 import com.ai.addxbase.DeviceClicent;
 import com.ai.addxbase.IDeviceClient;
-import com.ai.addxbase.util.ToastUtils;
-import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.mvvm.BaseActivity;
-//import com.ai.addxbind.devicebind.ADDXBind;
-import com.ai.addxsettings.ADDXSettings;
+import com.ai.addxbase.util.ToastUtils;
 import com.ai.addxvideo.addxvideoplay.LiveAddxVideoView;
 import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 
@@ -21,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 
-public class DeviceListActivity extends BaseActivity {
+public class DeviceList extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
@@ -62,10 +61,9 @@ public class DeviceListActivity extends BaseActivity {
 //                                }
 //                            });
 
-//                    LogUtils.d("bean","bean---deviceupdatestatu:"+ ADDXSettings.getDeviceUpdateStatus(bean));
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
-                    LiveAddxVideoView liveAddxVideoView = new LiveAddxVideoView(DeviceListActivity.this);
-                    liveAddxVideoView.init(DeviceListActivity.this, bean, new SimpleAddxViewCallBack(){
+                    LiveAddxVideoView liveAddxVideoView = new LiveAddxVideoView(DeviceList.this);
+                    liveAddxVideoView.init(DeviceList.this, bean, new SimpleAddxViewCallBack(){
                         @Override
                         public void onStartPlay() {
                             super.onStartPlay();
@@ -83,21 +81,21 @@ public class DeviceListActivity extends BaseActivity {
     }
     
     public void clickAddDevice(View v){
-//        ADDXBind.lanchBind(this,new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
-//            @Override
-//            public void onBindCancel() {
-//
-//            }
-//
-//            @Override
-//            public void onBindSccess(@NotNull String sn) {
-//                listDeviceInfo();
-//            }
-//
-//            @Override
-//            public void onBindStart(@NotNull String callBackUrl) {
-//
-//            }
-//        }));
+        ADDXBind.lanchBind(this,new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
+            @Override
+            public void onBindCancel() {
+
+            }
+
+            @Override
+            public void onBindSccess(@NotNull String sn) {
+                listDeviceInfo();
+            }
+
+            @Override
+            public void onBindStart(@NotNull String callBackUrl) {
+
+            }
+        }));
     }
 }

@@ -61,7 +61,7 @@ public class CustomerDeviceListActivity extends BaseActivity {
 //                                    ADDXSettings.Companion.startSetting(DeviceList.this, bean);
 //                                }
 //                            });
-                    LogUtils.d("bean","bean---deviceupdatestatu:"+ ADDXSettings.getDeviceUpdateStatus(bean));
+//                    LogUtils.d("bean","bean---deviceupdatestatu:"+ ADDXSettings.getDeviceUpdateStatus(bean));
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
                     KotlinDemoVideoView demoVideoView = new KotlinDemoVideoView(CustomerDeviceListActivity.this);
                     demoVideoView.init(CustomerDeviceListActivity.this, bean, new SimpleAddxViewCallBack(){
