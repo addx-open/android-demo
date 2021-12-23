@@ -75,7 +75,7 @@ dependencies {
         implementation project(path: ':addxvideo')
         implementation project(path: ':addxsettings')
         implementation project(path: ':theme2')
-        implementation project(path: ':themeMain')
+//        implementation project(path: ':themeMain')
 //        implementation project(path: ':themeMain')
 //        implementation project(path: ':app')
 //        implementation project(path: ':addxbase')

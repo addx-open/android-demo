@@ -310,9 +310,9 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         }
     }
 
-    override fun onRotateAction(p0: IVideoPlayer?, p1: Int) {
-
-    }
+//    override fun onRotateAction(p0: IVideoPlayer?, p1: Int) {
+//
+//    }
 
     private fun printTime(tag: String, playingTimeMs: Long) {
         val simpleDateFormat = SimpleDateFormat("yyyy:MM:dd,HH:mm:ss", Locale.getDefault())

@@ -460,7 +460,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
         })
     }
 
-    fun showAlarmDialog(ringListener: AddxLiveOptListener.RingListener?) {
+    fun showAlarmDialog() {
         if (activityContext != null) {
             val alarmDialog = CommonCornerDialog(activityContext)
             alarmDialog.dismissAfterRightClick=false
@@ -473,7 +473,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
                     override fun completed(data: Any?) {
                         //todo
 //                        reportAlarmEvent(mIsFullScreen, true, null)
-                        ringListener?.callback(true, true)
+//                        ringListener?.callback(true, true)
                         LogUtils.d(TAG, "showAlarmDialog======11")
                         if (mIsFullScreen) {
                             liveFullScreenMenuWindow?.dismiss()
@@ -490,7 +490,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
                     override fun error(errorCode: Int?, errorMsg: String?, throwable: Throwable?) {
                         //todo
 //                        reportAlarmEvent(mIsFullScreen, false, errorMsg)
-                        ringListener?.callback(false, false)
+//                        ringListener?.callback(false, false)
                         LogUtils.d(TAG,"mRinging  $mRinging")
 //                        ToastUtils.showShort(R.string.network_error)
                     }
@@ -826,29 +826,29 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
     //=====================RockerView.OnPositionChangeListener==end==========
 
     fun showRationChoosePopupWindow() {
-        liveFullScreenRatioPopupWindow = LiveFullScreenRatioPopupWindow(mVideoRatio, ArrayList(), context, object: RadioGroup.OnCheckedChangeListener{
-            override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
-                when (checkedId) {
-                    R.id.rb_ratio_auto -> changeRatio(Ratio.AUTO)
-                    R.id.rb_ratio_720 -> changeRatio(mSDRatio)
-                    R.id.rb_ratio_1080 -> changeRatio(mHDRatio)
-                }
-
-                var toRatio = when (checkedId) {
-                    R.id.rb_ratio_auto -> Ratio.AUTO
-                    R.id.rb_ratio_720 -> Ratio.P720
-                    R.id.rb_ratio_1080 -> Ratio.P1080
-                    else -> Ratio.AUTO
-                }
-                liveFullScreenRatioPopupWindow?.dismiss()
-                liveRationDialog.dismiss()
-                hideNavKey()
-                //todo
-//                reportChangeRationEvent(mVideoRatio, toRatio)
-            }
-
-
-        })
+//        liveFullScreenRatioPopupWindow = LiveFullScreenRatioPopupWindow(mVideoRatio, ArrayList(), context, object: RadioGroup.OnCheckedChangeListener{
+//            override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+//                when (checkedId) {
+//                    R.id.rb_ratio_auto -> changeRatio(Ratio.AUTO)
+//                    R.id.rb_ratio_720 -> changeRatio(mSDRatio)
+//                    R.id.rb_ratio_1080 -> changeRatio(mHDRatio)
+//                }
+//
+//                var toRatio = when (checkedId) {
+//                    R.id.rb_ratio_auto -> Ratio.AUTO
+//                    R.id.rb_ratio_720 -> Ratio.P720
+//                    R.id.rb_ratio_1080 -> Ratio.P1080
+//                    else -> Ratio.AUTO
+//                }
+//                liveFullScreenRatioPopupWindow?.dismiss()
+//                liveRationDialog.dismiss()
+//                hideNavKey()
+//                //todo
+////                reportChangeRationEvent(mVideoRatio, toRatio)
+//            }
+//
+//
+//        })
         liveFullScreenRatioPopupWindow?.showAtLocation(this, Gravity.RIGHT, 0, 0)
         when (mVideoRatio) {
             Ratio.AUTO -> liveFullScreenRatioPopupWindow?.setCheck(0)
@@ -1034,10 +1034,14 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
             transitionDrawable.startTransition(500)
         }
     }
-    //=============================全屏操作的回调AddxLiveOptListener====================================
-    override fun ring(ringListener: AddxLiveOptListener.RingListener) {
-        showAlarmDialog(ringListener)
+
+    override fun ring(p0: AddxLiveOptListener.Listener?) {
+
     }
+    //=============================全屏操作的回调AddxLiveOptListener====================================
+//    override fun ring() {
+//        showAlarmDialog()
+//    }
 
     override fun light(listener: AddxLiveOptListener.Listener) {
         setWhiteLight(listener)
@@ -1507,43 +1511,43 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
                         ToastUtils.showShort(R.string.alarm_playing)
                         return@setOnClickListener
                     }
-                    ring(object: AddxLiveOptListener.RingListener {
-                        override fun callback(ret: Boolean, isOpen: Boolean) {
-                            view.post {
-                                if (ret && isOpen) {
-                                    if (mRingRunnable == null) {
-                                        mRingRunnable = Runnable {
-                                            icon.setBackgroundResource(R.drawable.bg_circle_fill_gray)
-                                            icon.setImageResource(R.mipmap.ring_black)
-                                        }
-                                    }
-                                    //                                    icon.setImageBitmap(null);
-                                    this@KotlinDemoVideoView.postDelayed(
-                                        mRingRunnable,
-                                        RING_SPAN.toLong()
-                                    )
-                                    icon.setBackgroundResource(R.drawable.bg_corners_60_red)
-                                    val uri = Uri.Builder()
-                                        .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
-                                        .path(java.lang.String.valueOf(R.mipmap.ring_focus_ani))
-                                        .build()
-                                    val controller: DraweeController =
-                                        Fresco.newDraweeControllerBuilder()
-                                            .setUri(uri)
-                                            .setAutoPlayAnimations(true)
-                                            .build()
-                                    icon.controller = controller
-                                } else {
-                                    mRinging = false
-                                    icon.setImageResource(R.mipmap.ring_black)
-                                }
-                            }
-                        }
-
-                        override fun ringEnd() {
-                        }
-
-                    })
+//                    ring(object: AddxLiveOptListener.RingListener {
+//                        override fun callback(ret: Boolean, isOpen: Boolean) {
+//                            view.post {
+//                                if (ret && isOpen) {
+//                                    if (mRingRunnable == null) {
+//                                        mRingRunnable = Runnable {
+//                                            icon.setBackgroundResource(R.drawable.bg_circle_fill_gray)
+//                                            icon.setImageResource(R.mipmap.ring_black)
+//                                        }
+//                                    }
+//                                    //                                    icon.setImageBitmap(null);
+//                                    this@KotlinDemoVideoView.postDelayed(
+//                                        mRingRunnable,
+//                                        RING_SPAN.toLong()
+//                                    )
+//                                    icon.setBackgroundResource(R.drawable.bg_corners_60_red)
+//                                    val uri = Uri.Builder()
+//                                        .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
+//                                        .path(java.lang.String.valueOf(R.mipmap.ring_focus_ani))
+//                                        .build()
+//                                    val controller: DraweeController =
+//                                        Fresco.newDraweeControllerBuilder()
+//                                            .setUri(uri)
+//                                            .setAutoPlayAnimations(true)
+//                                            .build()
+//                                    icon.controller = controller
+//                                } else {
+//                                    mRinging = false
+//                                    icon.setImageResource(R.mipmap.ring_black)
+//                                }
+//                            }
+//                        }
+//
+//                        override fun ringEnd() {
+//                        }
+//
+//                    })
                 }
                 icon.setImageResource(R.mipmap.ring_black)
                 textView.setText(R.string.alert_buttom)
@@ -1875,7 +1879,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
         CommonUtil.hideNavKey(liveFullScreenMenuWindow!!.contentView)
     }
 
-    override fun onRotateAction(player: IVideoPlayer?, limit: Int) {
-
-    }
+//    override fun onRotateAction(player: IVideoPlayer?, limit: Int) {
+//
+//    }
 }

@@ -1486,7 +1486,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         entry?.isClick = mIsUserClick
         entry?.clickid = mClickId
         entry?.live_player_type = if(mIsFullScreen) "full" else{ if(mIsSplit) "quad" else "half"}
-        entry?.wait_time = playTimeRecordSpan
+//        entry?.wait_time = playTimeRecordSpan
         entry?.download_speeds = downloadStringBuilder.toString()
 //        entry?.error_code = errorCodeWhenUserClickForCountly
         entry?.current_is_fullscreen = mIsFullScreen.toString()
