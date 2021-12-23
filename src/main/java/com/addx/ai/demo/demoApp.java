@@ -2,6 +2,7 @@ package com.addx.ai.demo;
 
 import android.util.Log;
 
+import com.ai.addxbase.ADDXBind;
 import com.ai.addxbase.AddxVideoContextInitCallBack;
 import com.ai.addxbase.AddxNode;
 import com.ai.addxbase.A4xContext;
@@ -10,6 +11,7 @@ import com.ai.addxsettings.ADDXSettings;
 import androidx.multidex.MultiDexApplication;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class demoApp  extends MultiDexApplication {
 
@@ -26,12 +28,6 @@ public class demoApp  extends MultiDexApplication {
             @Override
             public void fail(String message) {
 
-            }
-        });
-        ADDXSettings.setCallBack(new ADDXSettings.CallBack() {
-            @Override
-            public void onDeviceBeDeleteed(@NotNull String deviceSn, boolean isAdmin) {
-                Log.d("ddd","onDeviceBeDeleteed-----");
             }
         });
     }

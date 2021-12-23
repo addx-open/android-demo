@@ -2,6 +2,7 @@ package com.addx.ai.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.addx.common.utils.LogUtils;
@@ -38,19 +39,30 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ADDXBind.setLongClickQrListener(new ADDXBind.QrListener() {
+        ADDXSettings.setCallBack(new ADDXSettings.CallBack() {
             @Override
-            public void getQrData(@Nullable String s) {
-                LogUtils.d("ddd","ADDXBind----getQrData"+s);
+            public void onClickShared(@NotNull String deviceSn) {
+                Log.d("ddd","onClickShared-----");
+            }
+
+            @Override
+            public void onDeviceBeDeleteed(@NotNull String deviceSn, boolean isAdmin) {
+                Log.d("ddd","onDeviceBeDeleteed-----");
             }
         });
+        ADDXBind.setLongClickQrListener(new ADDXBind.QrListener() {
+            @Override
+            public void getQrData(@Nullable String bitmapBase64Array) {
+                Log.d("ddd","setLongClickQrListener----getQrData---bitmapBase64Array:"+bitmapBase64Array);
+            }
+        });
+//        ADDXBind.setLongClickQrListener(null);
         ADDXSettings.setFunctionBuilder(new ADDXSettings.Builder().setSDCardClickCallback(new ADDXSettings.ViewClickListener() {
             @Override
             public void onViewClick(@NotNull View v, @NotNull DeviceBean deviceBean) {
                 LogUtils.d("onViewClick","setSDCardClickCallback----onViewClick");
             }
         }));
-//        ADDXBind.setLongClickQrListener(null);
     }
 
     public void clickLogin(View v){
