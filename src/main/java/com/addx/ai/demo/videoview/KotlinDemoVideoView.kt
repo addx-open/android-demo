@@ -1035,7 +1035,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
         }
     }
 
-    override fun ring(p0: AddxLiveOptListener.Listener?) {
+    override fun ring(listener: AddxLiveOptListener.RingListener?) {
 
     }
     //=============================全屏操作的回调AddxLiveOptListener====================================
@@ -1877,6 +1877,10 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
     override  fun hideNav(){
         CommonUtil.hideNavKey(activityContext)
         CommonUtil.hideNavKey(liveFullScreenMenuWindow!!.contentView)
+    }
+
+    override fun onRotateAction(player: IVideoPlayer?, limit: Int) {
+
     }
 
 //    override fun onRotateAction(player: IVideoPlayer?, limit: Int) {

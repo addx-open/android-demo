@@ -40,10 +40,10 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ADDXSettings.setCallBack(new ADDXSettings.CallBack() {
-            @Override
-            public void onClickShared(@NotNull String deviceSn) {
-                Log.d("ddd","onClickShared-----");
-            }
+//            @Override
+//            public void onClickShared(@NotNull String deviceSn) {
+//                Log.d("ddd","onClickShared-----");
+//            }
 
             @Override
             public void onDeviceBeDeleteed(@NotNull String deviceSn, boolean isAdmin) {

@@ -310,6 +310,10 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         }
     }
 
+    override fun onRotateAction(player: IVideoPlayer?, limit: Int) {
+
+    }
+
 //    override fun onRotateAction(p0: IVideoPlayer?, p1: Int) {
 //
 //    }
