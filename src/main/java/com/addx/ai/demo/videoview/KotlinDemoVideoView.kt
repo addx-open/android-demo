@@ -1360,7 +1360,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
                     LogUtils.d(TAG, "isPlaying======= = ")
                     val position = IntArray(2)
                     getLocationOnScreen(position)
-                    mVideoCallBack?.liveViewExpend(position[1])
+//                    mVideoCallBack?.liveViewExpend(position[1])
                 }
             }, 600)
             startAnimation(llRockerController, !isPlaying)

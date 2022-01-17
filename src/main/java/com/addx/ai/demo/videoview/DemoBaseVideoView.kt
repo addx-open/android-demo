@@ -1698,16 +1698,16 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         }
     }
 
-    fun releasePlayer() {
-        if (renderView is CustomSurfaceViewRenderer) {
-            LogUtils.e(
-                TAG,
-                "AddxBaseVideoView------releasePlayer----------iAddxPlayer is null: true---sn:${dataSourceBean!!.serialNumber}"
-            )
-            AddxPlayerManager.getInstance().releasePlayer(dataSourceBean)
-            iAddxPlayer = null
-        }
-    }
+//    fun releasePlayer() {
+//        if (renderView is CustomSurfaceViewRenderer) {
+//            LogUtils.e(
+//                TAG,
+//                "AddxBaseVideoView------releasePlayer----------iAddxPlayer is null: true---sn:${dataSourceBean!!.serialNumber}"
+//            )
+//            AddxPlayerManager.getInstance().releasePlayer(dataSourceBean)
+//            iAddxPlayer = null
+//        }
+//    }
     internal open fun refreshThumbImg(){
     }
 

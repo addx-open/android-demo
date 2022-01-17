@@ -94,10 +94,6 @@ public class SdcardPlayActivity extends BaseActivity {
         LogUtils.w("initPlayer", "initPlayer-------deviceBean---" + (deviceBean == null));
         mIAddxSdcardView.setListener();
         mIAddxSdcardView.init(this, deviceBean, new SimpleAddxViewCallBack() {
-            @Override
-            public void onPlayerNeedRemove(@NotNull IAddxView iAddxView) {
-
-            }
 
             @Override
             public void onStartPlay() {
