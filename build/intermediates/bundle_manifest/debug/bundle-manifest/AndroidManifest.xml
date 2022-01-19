@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.addx.ai.demo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE " />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="com.android.vending.BILLING" /> <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+    <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+    <!-- <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> -->
+    <!-- <uses-permission android:name="android.permission.RECORD_AUDIO" /> -->
+    <!-- <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> -->
+    <!-- <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" /> -->
+    <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+    <!-- <uses-permission android:name="android.permission.WAKE_LOCK" /> -->
+    <!-- <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" /> -->
+    <!-- <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" /> -->
+    <!-- <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" /> -->
+    <!-- <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" /> -->
+    <!-- <uses-permission android:name="android.permission.GET_TASKS" /> -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+    <!-- <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" /> -->
+    <!-- <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" /> -->
+    <!-- <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" -->
+    <!-- tools:ignore="ProtectedPermissions" /> -->
+    <application
+        android:name="com.addx.ai.demo.demoApp"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="addxdemo"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.addx.ai.demo.DeviceList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.PlayerDeviceList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.MineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.LibActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.addx.ai.demo.OtherActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.BaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.Logintest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.PirListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.addx.ai.demo.AlexaActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ai.addxsettings.ui.DeviceSettingActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.DeviceSeniorSettingActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.DeviceBaseMoreInfoActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.DeviceBaseInfoActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.RenameDeviceActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.MotionDetectionActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.SelectTimeZoneActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.RebindLocationActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.share.DeviceSharedAdminActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.share.InviteActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.share.ShareResultActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.share.DeviceSharedGuestActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.share.AlbumActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.ChooseFirmwareActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/TranslucentAppCompat" />
+        <activity
+            android:name="com.ai.addxsettings.ui.ZoneActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.NotificationSettingActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.DeviceLanguageSettingActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.playback.PlaybackActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.AntiFlickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.SetupActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.SetupNextActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.SetupLastActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.DeviceVoiceSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.DeviceVersionInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.SdcardManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.LightManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxsettings.ui.RebindLocationForMultiDeviceActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.ai.addxsettings.service.SDFormatService" />
+
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.AddDevice1Activity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.OtherErrorActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.ScanQrCodeOtherActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.SetDeviceNameActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.ConnResultActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.ChooseWifiActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="action.CHOOSE_WIFI_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.BindNetworkActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.BindCameraNextActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.BindCameraActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbase.mvvm.LocationActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.AddDeviceQRCodeActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.BlankFinishActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.BindDeviceCourseActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.ScanQrCodeActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbind.devicebind.ui.SelectionQuestionActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="com.ai.addxbase.contentprovider.MyApp$ContextProvider"
+            android:authorities="com.addx.ai.demo.provider.CONTEXT_PROVIDER"
+            android:exported="false" />
+
+        <activity
+            android:name="com.ai.addxbase.zendesk.FeedbackActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ai.addxbase.mvvm.WebViewActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <uses-library
+            android:name="android.test.runner"
+            android:required="true" />
+
+        <activity
+            android:name="zendesk.support.request.RequestActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="zendesk.support.requestlist.RequestListActivity"
+            android:label="@string/request_list_activity_title" />
+
+        <receiver
+            android:name="zendesk.support.DeepLinkingBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="zendesk.support" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="zendesk.support.SupportSdkStartupProvider"
+            android:authorities="com.addx.ai.demo.zendesk.support.SupportSdkStartupProvider"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="zendesk.support.guide.ViewArticleActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/zs_view_article_loading_title" />
+        <activity
+            android:name="zendesk.support.guide.HelpCenterActivity"
+            android:label="@string/support_activity_title"
+            android:windowSoftInputMode="adjustResize" />
+
+        <provider
+            android:name="zendesk.support.guide.GuideSdkStartupProvider"
+            android:authorities="com.addx.ai.demo.zendesk.support.GuideSdkStartupProvider"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="zendesk.messaging.MessagingActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name="zendesk.answerbot.AnswerBotArticleActivity" />
+
+        <provider
+            android:name="zendesk.belvedere.BelvedereFileProvider"
+            android:authorities="com.addx.ai.demo.belvedere2.attachments"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            android:readPermission="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/belvedere_attachment_storage_v2" />
+        </provider>
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.addx.ai.demo.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.addx.ai.demo.com.squareup.picasso"
+            android:exported="false" />
+
+        <activity
+            android:name="com.yanzhenjie.permission.PermissionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="standard"
+            android:theme="@style/permission_PermissionActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+
+        <meta-data
+            android:name="com.google.android.play.billingclient.version"
+            android:value="4.0.0" />
+
+        <activity
+            android:name="com.android.billingclient.api.ProxyBillingActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>

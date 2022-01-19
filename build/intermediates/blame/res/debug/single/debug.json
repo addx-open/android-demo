@@ -1,0 +1,154 @@
+[
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/font_bebas_neue_font.otf.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/font/bebas_neue_font.otf"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_lib.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_lib.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_item_device_demo.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/item_device_demo.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_demo_main.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_demo_main.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_layout_player_full.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/layout_player_full.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_alexa.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_alexa.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_playback_player_full.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/playback_player_full.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_logintest.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_logintest.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xhdpi_error_record_list_empty.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xhdpi/error_record_list_empty.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_other.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_other.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xxhdpi_devicesetting.jpg.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xxhdpi/devicesetting.jpg"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_base.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_base.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_item_video_record.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/item_video_record.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_layout_player_normal.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/layout_player_normal.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xxhdpi_usersetting.jpg.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xxhdpi/usersetting.jpg"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_pir_list.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_pir_list.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_mine.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_mine.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_playback_player_normal.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/playback_player_normal.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_web_view.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_web_view.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/font_bebas_neue.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/font/bebas_neue.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/drawable_demo_bg_white_corner.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/drawable/demo_bg_white_corner.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_device_list.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_device_list.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/layout_activity_playback.xml.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/layout/activity_playback.xml"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xxhdpi_lib.jpg.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xxhdpi/lib.jpg"
+    },
+    {
+        "merged": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/yuanshiyue/addx/g0-android/android-demo/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    }
+]

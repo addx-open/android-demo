@@ -1,0 +1,1217 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+MERGED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:2:1-116:12
+MERGED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:2:1-15:12
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:2:1-95:12
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:2:1-61:12
+MERGED from [com.addx.ai:addxtrack:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8db207ecb63aaa14ff81db2fa1ae6b98/jetified-addxtrack-1.0.68/AndroidManifest.xml:2:1-13:12
+MERGED from [com.addx.ai:addxnet:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/869df6d3bf17935f7010c7f48b05edeb/jetified-addxnet-1.0.68/AndroidManifest.xml:2:1-11:12
+MERGED from [com.addx.ai:addxmodel:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f8a9fa4cd26c02fd683520ea0ab7a077/jetified-addxmodel-1.0.68/AndroidManifest.xml:2:1-11:12
+MERGED from [com.addx.ai:addxscancode:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6f289bc6864df374af4f43c3b0825ab6/jetified-addxscancode-1.0.68/AndroidManifest.xml:2:1-11:12
+MERGED from [com.addx.ai:ResModule:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fc6d7de053c0f4d330c4ff5a163545bf/jetified-ResModule-1.0.68/AndroidManifest.xml:2:1-11:12
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:2:1-18:12
+MERGED from [com.addx.ai:addxwebrtc:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d5faf71a3e92200a72515dd314f7b9b9/jetified-addxwebrtc-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.addx.ai:lib_ptr:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/082a828e46b297647e854506b57c7642/jetified-lib_ptr-1.0.0/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/06d0a7127b6b0539ab49e5c127d2f9e1/constraintlayout-2.0.0-alpha3/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.multidex:multidex:2.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d2367fb747fb8aff8e77c4ece8b2fedc/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/a7863a3725f84332b3a29eb1704b6418/jetified-BaseRecyclerViewAdapterHelper-2.9.30/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.core:core-ktx:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2e2cdaaa79db0af9a0bb9da4c9dcab0c/jetified-core-ktx-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [com.bugsnag:bugsnag-android-ndk:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8b6415c7e86553f90fde44f55f0babcc/jetified-bugsnag-android-ndk-4.22.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.bugsnag:bugsnag-plugin-android-anr:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6cc6e666d9102d275722e4a125c09e1e/jetified-bugsnag-plugin-android-anr-4.22.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.bugsnag:bugsnag-plugin-android-ndk:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0aed131778799682c806d6ec39a4cebf/jetified-bugsnag-plugin-android-ndk-4.22.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:2:1-17:12
+MERGED from [com.addx.ai:lib_ijk-java:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/219fc033618ad3ff8a99d04fc6b201b3/jetified-lib_ijk-java-1.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.addx.ai:lib_calendarview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/80aa64a5f8b78e12d83a374bd793b4c2/jetified-lib_calendarview-1.0.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:2:1-35:12
+MERGED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:2:1-29:12
+MERGED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:2:1-17:12
+MERGED from [com.zendesk:answerbot:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b17c7e3e083755e7215f69d8fb22eb31/jetified-answerbot-3.0.1/AndroidManifest.xml:2:1-15:12
+MERGED from [com.zendesk:common-ui:4.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/bd783d2f2f09ceb70a76125496fecbe9/jetified-common-ui-4.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zendesk.belvedere2:belvedere:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aeb3bc970fce3cfec378225ba5452009/jetified-belvedere-3.0.0-RC/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.material:material:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/65d3a8ed131e039857e084a1ddec7b54/material-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b292f7a45c888fa01c30729e7177ef01/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2b53fdb4f93e6b05bfca5652ef97e8d8/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.jakewharton.rxbinding:rxbinding:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/67d0de3e8f8c75319d71238b437305d1/jetified-rxbinding-1.0.1/AndroidManifest.xml:2:1-8:12
+MERGED from [io.reactivex:rxandroid:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/73d2fc9cdf77a19a81d55186bced00c0/jetified-rxandroid-1.2.1/AndroidManifest.xml:15:1-21:12
+MERGED from [com.airbnb.android:lottie:3.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b90bf87980cfee4623a823ec58806e4e/jetified-lottie-3.3.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zendesk:chat:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/83299af496c73e1af71db2f6eb183412/jetified-chat-3.2.0/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9d907d9f8617612dd5415b8e735b1507/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.zendesk:answerbot-providers:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/39d37bfda9d87710611880aff76292bc/jetified-answerbot-providers-3.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zendesk:support-providers:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/49f3821d95aa6daa3c5fb7bd58b17e78/jetified-support-providers-5.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zendesk:chat-providers:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/111b02c27f70b23436291fdc1385cd1a/jetified-chat-providers-3.2.0/AndroidManifest.xml:2:1-15:12
+MERGED from [com.zendesk:guide-providers:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/baf9a8b0ee5bf9184731f82eadd74042/jetified-guide-providers-1.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zendesk:core:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/cb4749bb9679cd96505d9d7b670fe559/jetified-core-4.0.0/AndroidManifest.xml:2:1-15:12
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:2:1-17:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0bab3938ead897dfa3549b4f9c44f993/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b950e1d58952f452dd518204fc1bc61a/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0355b0f568dcdc5665371f06de1218c5/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/4e9290ac420ad624b7094a7784466020/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ea55a90a9140635028a073e498f17411/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5d63b2020f388877077f235805940f7f/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ea4f7c1d4dca2efbbe63058ce70a4227/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7154eae374687c34692b394fd63c4b1a/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/188aff603e73c084cb2d948fda7f6a3b/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9517f045710fab659150a7cf22652f9f/lifecycle-extensions-2.2.0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:2:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.5] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7e4799a49072b502b7133a7605aec987/fragment-1.2.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6070aaf9e96f6660d440c04de5deec1a/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aa991c4b681f8af31d20bb12f232719a/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1165e070fa827c69a406ec6dd618a8b7/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/38482b484823929e32b7d778777ab7c5/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/92256638bfee1f878743621e9298020e/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/96eea19ff32cd13109b0fd3a60d4633e/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/00549c58798abeaf032cadca5d90254d/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fccaab731cfa9920983f896f9c7670d7/jetified-activity-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/98778f948b80b3fec4953b8fc645c19f/core-1.3.1/AndroidManifest.xml:17:1-26:12
+MERGED from [jp.wasabeef:glide-transformations:2.0.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ef6bc5cf5ba9d39231480f46b9064bf0/jetified-glide-transformations-2.0.2/AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/91fb29610ca2e5fd2c2fd40542d5958f/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.orhanobut:logger:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8997532a89c7b86333fe52a6934973c2/jetified-logger-2.2.0/AndroidManifest.xml:2:1-8:12
+MERGED from [androidx.databinding:viewbinding:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6b48c4b8568a7d982be0d16f475dcc45/jetified-viewbinding-4.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9608c2fc43e93ba0e4c7f6ba7c80f795/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:17:1-32:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b000cfcb4f50e7b2b2a808e60116fc2f/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ba6e1711eb85074033daef5f1f4649e1/lifecycle-runtime-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ac2ca17394d040a12619a33fb3bc0659/lifecycle-livedata-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8741d7dc66f500dde9df05123d948f10/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/4e5cf6ffa21b18bfb4302b73860371e6/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/94ddf0335d09b8731d4062564a7fec25/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2128199729ead9fafff24bf2535881a2/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/16b08886d4b4583adc8ff04681b2dc03/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.zendesk:messaging-api:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d449cf315c9b208852583d4d93496283/jetified-messaging-api-5.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zendesk:sdk-configurations:2.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f8e2d43a0e48b2b59289e244fa984f92/jetified-sdk-configurations-2.0.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.dagger:dagger-android:2.23.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8cdf931374aced8522cb62320551ecdc/jetified-dagger-android-2.23.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:2:1-14:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e067808d07a79ad7510bf7684b9066b5/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e2edd7f4f17b95aa896c117571e5e60c/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/a4f17ed4517a2dee80d7865e4062495b/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f420a23902a774babd5494438ea9b47d/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/879a57372a8525e1d5626fd45176ce70/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5597149e179181e9b46a5e9f00e99541/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:2:1-22:12
+MERGED from [com.blankj:rxbus:1.5] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b2b48c6ae3d6c7b11d227c3e978df183/jetified-rxbus-1.5/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fresco:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3656ca7c7d06709e991b5711b0e3fa48/jetified-fresco-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-gif:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/be69f2560ac604aea1cbab911a3eaea1/jetified-animated-gif-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:17:1-33:12
+MERGED from [com.hjq:toast:6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e2289f4ea78b861f8e9529aef5f292cc/jetified-toast-6.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5a90b80c75e640d229433b478531abc8/jetified-EasySwipeMenuLayout-1.1.4/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5e4390e5ddd2cc6314d412dff1ff6f47/jetified-annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/67c7b2836a79737a176344d188324f4d/jetified-rxandroid-2.0.2/AndroidManifest.xml:15:1-21:12
+MERGED from [com.facebook.fresco:animated-base:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/16a9d53fa532ab4bca54afd06f28b81b/jetified-animated-base-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-drawable:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3695fbf6168591f6fbefc3c684f92af2/jetified-animated-drawable-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0d9cc840348296e84c0f68a0a85f4707/jetified-drawee-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fb4563120461e580a8bee81c6a9117f1/jetified-nativeimagefilters-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e885e75c5fc611b71c037ac023eb7c0a/jetified-imagepipeline-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5548813b00f8bd5b588f694a2082ff7d/jetified-nativeimagetranscoder-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ed3716447f2bbe847fc66395023cdf47/jetified-imagepipeline-base-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/53042640382b2331bb3525e58e750c1c/jetified-fbcore-1.12.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6ecd3a23b00c7d7fee30aa3be70bd719/jetified-soloader-0.6.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android:flexbox:2.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d77bbf8384b793df3e7db26981d35e28/jetified-flexbox-2.0.1/AndroidManifest.xml:17:1-26:12
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+	package
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:4:5-31
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:1-76:12
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:35:5-74:19
+MERGED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:11:5-114:19
+MERGED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:11:5-114:19
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:24:5-93:19
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:24:5-93:19
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:43:5-59:19
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:43:5-59:19
+MERGED from [com.addx.ai:lib_ptr:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/082a828e46b297647e854506b57c7642/jetified-lib_ptr-1.0.0/AndroidManifest.xml:11:5-20
+MERGED from [com.addx.ai:lib_ptr:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/082a828e46b297647e854506b57c7642/jetified-lib_ptr-1.0.0/AndroidManifest.xml:11:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/06d0a7127b6b0539ab49e5c127d2f9e1/constraintlayout-2.0.0-alpha3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/06d0a7127b6b0539ab49e5c127d2f9e1/constraintlayout-2.0.0-alpha3/AndroidManifest.xml:9:5-20
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:11:5-15:19
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:11:5-15:19
+MERGED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:12:5-33:19
+MERGED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:12:5-33:19
+MERGED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:12:5-27:19
+MERGED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:12:5-27:19
+MERGED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:11:5-15:19
+MERGED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:11:5-15:19
+MERGED from [com.zendesk:answerbot:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b17c7e3e083755e7215f69d8fb22eb31/jetified-answerbot-3.0.1/AndroidManifest.xml:11:5-13:19
+MERGED from [com.zendesk:answerbot:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b17c7e3e083755e7215f69d8fb22eb31/jetified-answerbot-3.0.1/AndroidManifest.xml:11:5-13:19
+MERGED from [com.google.android.material:material:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/65d3a8ed131e039857e084a1ddec7b54/material-1.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/65d3a8ed131e039857e084a1ddec7b54/material-1.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.airbnb.android:lottie:3.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b90bf87980cfee4623a823ec58806e4e/jetified-lottie-3.3.1/AndroidManifest.xml:9:5-20
+MERGED from [com.airbnb.android:lottie:3.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b90bf87980cfee4623a823ec58806e4e/jetified-lottie-3.3.1/AndroidManifest.xml:9:5-20
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:13:5-15:19
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:13:5-15:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9517f045710fab659150a7cf22652f9f/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9517f045710fab659150a7cf22652f9f/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:11:5-22:19
+MERGED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:11:5-22:19
+MERGED from [androidx.core:core:1.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/98778f948b80b3fec4953b8fc645c19f/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/98778f948b80b3fec4953b8fc645c19f/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:7:5-12:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e067808d07a79ad7510bf7684b9066b5/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e067808d07a79ad7510bf7684b9066b5/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:24:5-31:19
+MERGED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:24:5-31:19
+MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5a90b80c75e640d229433b478531abc8/jetified-EasySwipeMenuLayout-1.1.4/AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5a90b80c75e640d229433b478531abc8/jetified-EasySwipeMenuLayout-1.1.4/AndroidManifest.xml:11:5-12:19
+MERGED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:12:5-22:19
+MERGED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:12:5-22:19
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6ecd3a23b00c7d7fee30aa3be70bd719/jetified-soloader-0.6.0/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6ecd3a23b00c7d7fee30aa3be70bd719/jetified-soloader-0.6.0/AndroidManifest.xml:11:5-20
+	android:requestLegacyExternalStorage
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:45:9-52
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/98778f948b80b3fec4953b8fc645c19f/core-1.3.1/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:41:9-35
+	android:label
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:39:9-33
+	tools:ignore
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:12:18-48
+	android:roundIcon
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:40:9-54
+	android:icon
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:38:9-43
+	android:allowBackup
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:37:9-35
+	android:networkSecurityConfig
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:44:9-69
+	android:theme
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:42:9-40
+	tools:replace
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:43:9-84
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:36:9-48
+activity#com.addx.ai.demo.DeviceList
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:44:9-46:51
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:46:13-49
+	android:configChanges
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:45:13-74
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:44:19-45
+activity#com.addx.ai.demo.PlayerDeviceList
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:47:9-49:51
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:49:13-49
+	android:configChanges
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:48:13-74
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:47:19-51
+activity#com.addx.ai.demo.MineActivity
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:50:9-51:51
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:51:13-49
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:50:19-47
+activity#com.addx.ai.demo.LibActivity
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:52:9-53:52
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:53:13-49
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:52:19-46
+activity#com.addx.ai.demo.MainActivity
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:54:9-62:20
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:57:13-49
+	android:launchMode
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:56:13-44
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:55:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:58:13-61:29
+action#android.intent.action.MAIN
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:59:17-69
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:59:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:60:17-77
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:60:27-74
+activity#com.addx.ai.demo.OtherActivity
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:63:9-64:52
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:64:13-49
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:63:19-48
+activity#com.addx.ai.demo.BaseActivity
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:65:9-66:52
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:66:13-49
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:65:19-47
+activity#com.addx.ai.demo.Logintest
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:67:9-68:52
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:68:13-49
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:67:19-44
+activity#com.addx.ai.demo.PirListActivity
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:69:9-70:52
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:70:13-49
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:69:19-50
+activity#com.addx.ai.demo.AlexaActivity
+ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:71:9-73:20
+	android:screenOrientation
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:72:13-49
+	android:name
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:71:19-48
+uses-sdk
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+MERGED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:8:5-10:41
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:8:5-10:41
+MERGED from [com.addx.ai:addxtrack:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8db207ecb63aaa14ff81db2fa1ae6b98/jetified-addxtrack-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxtrack:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8db207ecb63aaa14ff81db2fa1ae6b98/jetified-addxtrack-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxnet:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/869df6d3bf17935f7010c7f48b05edeb/jetified-addxnet-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxnet:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/869df6d3bf17935f7010c7f48b05edeb/jetified-addxnet-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxmodel:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f8a9fa4cd26c02fd683520ea0ab7a077/jetified-addxmodel-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxmodel:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f8a9fa4cd26c02fd683520ea0ab7a077/jetified-addxmodel-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxscancode:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6f289bc6864df374af4f43c3b0825ab6/jetified-addxscancode-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxscancode:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6f289bc6864df374af4f43c3b0825ab6/jetified-addxscancode-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:ResModule:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fc6d7de053c0f4d330c4ff5a163545bf/jetified-ResModule-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:ResModule:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fc6d7de053c0f4d330c4ff5a163545bf/jetified-ResModule-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:addxwebrtc:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d5faf71a3e92200a72515dd314f7b9b9/jetified-addxwebrtc-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.addx.ai:addxwebrtc:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d5faf71a3e92200a72515dd314f7b9b9/jetified-addxwebrtc-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.addx.ai:lib_ptr:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/082a828e46b297647e854506b57c7642/jetified-lib_ptr-1.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:lib_ptr:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/082a828e46b297647e854506b57c7642/jetified-lib_ptr-1.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/06d0a7127b6b0539ab49e5c127d2f9e1/constraintlayout-2.0.0-alpha3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/06d0a7127b6b0539ab49e5c127d2f9e1/constraintlayout-2.0.0-alpha3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.multidex:multidex:2.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d2367fb747fb8aff8e77c4ece8b2fedc/multidex-2.0.1/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d2367fb747fb8aff8e77c4ece8b2fedc/multidex-2.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/a7863a3725f84332b3a29eb1704b6418/jetified-BaseRecyclerViewAdapterHelper-2.9.30/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/a7863a3725f84332b3a29eb1704b6418/jetified-BaseRecyclerViewAdapterHelper-2.9.30/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.core:core-ktx:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2e2cdaaa79db0af9a0bb9da4c9dcab0c/jetified-core-ktx-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2e2cdaaa79db0af9a0bb9da4c9dcab0c/jetified-core-ktx-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-android-ndk:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8b6415c7e86553f90fde44f55f0babcc/jetified-bugsnag-android-ndk-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-android-ndk:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8b6415c7e86553f90fde44f55f0babcc/jetified-bugsnag-android-ndk-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-plugin-android-anr:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6cc6e666d9102d275722e4a125c09e1e/jetified-bugsnag-plugin-android-anr-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-plugin-android-anr:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6cc6e666d9102d275722e4a125c09e1e/jetified-bugsnag-plugin-android-anr-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-plugin-android-ndk:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0aed131778799682c806d6ec39a4cebf/jetified-bugsnag-plugin-android-ndk-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-plugin-android-ndk:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0aed131778799682c806d6ec39a4cebf/jetified-bugsnag-plugin-android-ndk-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:5:5-44
+MERGED from [com.addx.ai:lib_ijk-java:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/219fc033618ad3ff8a99d04fc6b201b3/jetified-lib_ijk-java-1.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.addx.ai:lib_ijk-java:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/219fc033618ad3ff8a99d04fc6b201b3/jetified-lib_ijk-java-1.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.addx.ai:lib_calendarview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/80aa64a5f8b78e12d83a374bd793b4c2/jetified-lib_calendarview-1.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:lib_calendarview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/80aa64a5f8b78e12d83a374bd793b4c2/jetified-lib_calendarview-1.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:answerbot:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b17c7e3e083755e7215f69d8fb22eb31/jetified-answerbot-3.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:answerbot:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b17c7e3e083755e7215f69d8fb22eb31/jetified-answerbot-3.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:common-ui:4.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/bd783d2f2f09ceb70a76125496fecbe9/jetified-common-ui-4.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:common-ui:4.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/bd783d2f2f09ceb70a76125496fecbe9/jetified-common-ui-4.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk.belvedere2:belvedere:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aeb3bc970fce3cfec378225ba5452009/jetified-belvedere-3.0.0-RC/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk.belvedere2:belvedere:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aeb3bc970fce3cfec378225ba5452009/jetified-belvedere-3.0.0-RC/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/65d3a8ed131e039857e084a1ddec7b54/material-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/65d3a8ed131e039857e084a1ddec7b54/material-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b292f7a45c888fa01c30729e7177ef01/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b292f7a45c888fa01c30729e7177ef01/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2b53fdb4f93e6b05bfca5652ef97e8d8/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2b53fdb4f93e6b05bfca5652ef97e8d8/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.jakewharton.rxbinding:rxbinding:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/67d0de3e8f8c75319d71238b437305d1/jetified-rxbinding-1.0.1/AndroidManifest.xml:6:5-44
+MERGED from [com.jakewharton.rxbinding:rxbinding:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/67d0de3e8f8c75319d71238b437305d1/jetified-rxbinding-1.0.1/AndroidManifest.xml:6:5-44
+MERGED from [io.reactivex:rxandroid:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/73d2fc9cdf77a19a81d55186bced00c0/jetified-rxandroid-1.2.1/AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex:rxandroid:1.2.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/73d2fc9cdf77a19a81d55186bced00c0/jetified-rxandroid-1.2.1/AndroidManifest.xml:19:5-43
+MERGED from [com.airbnb.android:lottie:3.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b90bf87980cfee4623a823ec58806e4e/jetified-lottie-3.3.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.airbnb.android:lottie:3.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b90bf87980cfee4623a823ec58806e4e/jetified-lottie-3.3.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.zendesk:chat:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/83299af496c73e1af71db2f6eb183412/jetified-chat-3.2.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:chat:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/83299af496c73e1af71db2f6eb183412/jetified-chat-3.2.0/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9d907d9f8617612dd5415b8e735b1507/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9d907d9f8617612dd5415b8e735b1507/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.zendesk:answerbot-providers:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/39d37bfda9d87710611880aff76292bc/jetified-answerbot-providers-3.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:answerbot-providers:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/39d37bfda9d87710611880aff76292bc/jetified-answerbot-providers-3.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:support-providers:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/49f3821d95aa6daa3c5fb7bd58b17e78/jetified-support-providers-5.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:support-providers:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/49f3821d95aa6daa3c5fb7bd58b17e78/jetified-support-providers-5.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:chat-providers:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/111b02c27f70b23436291fdc1385cd1a/jetified-chat-providers-3.2.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:chat-providers:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/111b02c27f70b23436291fdc1385cd1a/jetified-chat-providers-3.2.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:guide-providers:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/baf9a8b0ee5bf9184731f82eadd74042/jetified-guide-providers-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:guide-providers:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/baf9a8b0ee5bf9184731f82eadd74042/jetified-guide-providers-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:core:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/cb4749bb9679cd96505d9d7b670fe559/jetified-core-4.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:core:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/cb4749bb9679cd96505d9d7b670fe559/jetified-core-4.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:7:5-9:41
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0bab3938ead897dfa3549b4f9c44f993/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0bab3938ead897dfa3549b4f9c44f993/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b950e1d58952f452dd518204fc1bc61a/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b950e1d58952f452dd518204fc1bc61a/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0355b0f568dcdc5665371f06de1218c5/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0355b0f568dcdc5665371f06de1218c5/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/4e9290ac420ad624b7094a7784466020/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/4e9290ac420ad624b7094a7784466020/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ea55a90a9140635028a073e498f17411/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ea55a90a9140635028a073e498f17411/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5d63b2020f388877077f235805940f7f/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5d63b2020f388877077f235805940f7f/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ea4f7c1d4dca2efbbe63058ce70a4227/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ea4f7c1d4dca2efbbe63058ce70a4227/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7154eae374687c34692b394fd63c4b1a/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7154eae374687c34692b394fd63c4b1a/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/188aff603e73c084cb2d948fda7f6a3b/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/188aff603e73c084cb2d948fda7f6a3b/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9517f045710fab659150a7cf22652f9f/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9517f045710fab659150a7cf22652f9f/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.fragment:fragment:1.2.5] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7e4799a49072b502b7133a7605aec987/fragment-1.2.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.5] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7e4799a49072b502b7133a7605aec987/fragment-1.2.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6070aaf9e96f6660d440c04de5deec1a/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6070aaf9e96f6660d440c04de5deec1a/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aa991c4b681f8af31d20bb12f232719a/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aa991c4b681f8af31d20bb12f232719a/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1165e070fa827c69a406ec6dd618a8b7/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1165e070fa827c69a406ec6dd618a8b7/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/38482b484823929e32b7d778777ab7c5/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/38482b484823929e32b7d778777ab7c5/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/92256638bfee1f878743621e9298020e/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/92256638bfee1f878743621e9298020e/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/96eea19ff32cd13109b0fd3a60d4633e/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/96eea19ff32cd13109b0fd3a60d4633e/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/00549c58798abeaf032cadca5d90254d/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/00549c58798abeaf032cadca5d90254d/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fccaab731cfa9920983f896f9c7670d7/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fccaab731cfa9920983f896f9c7670d7/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/98778f948b80b3fec4953b8fc645c19f/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/98778f948b80b3fec4953b8fc645c19f/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [jp.wasabeef:glide-transformations:2.0.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ef6bc5cf5ba9d39231480f46b9064bf0/jetified-glide-transformations-2.0.2/AndroidManifest.xml:8:5-10:41
+MERGED from [jp.wasabeef:glide-transformations:2.0.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ef6bc5cf5ba9d39231480f46b9064bf0/jetified-glide-transformations-2.0.2/AndroidManifest.xml:8:5-10:41
+MERGED from [androidx.cardview:cardview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/91fb29610ca2e5fd2c2fd40542d5958f/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/91fb29610ca2e5fd2c2fd40542d5958f/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.orhanobut:logger:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8997532a89c7b86333fe52a6934973c2/jetified-logger-2.2.0/AndroidManifest.xml:6:5-43
+MERGED from [com.orhanobut:logger:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8997532a89c7b86333fe52a6934973c2/jetified-logger-2.2.0/AndroidManifest.xml:6:5-43
+MERGED from [androidx.databinding:viewbinding:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6b48c4b8568a7d982be0d16f475dcc45/jetified-viewbinding-4.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6b48c4b8568a7d982be0d16f475dcc45/jetified-viewbinding-4.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9608c2fc43e93ba0e4c7f6ba7c80f795/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9608c2fc43e93ba0e4c7f6ba7c80f795/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b000cfcb4f50e7b2b2a808e60116fc2f/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b000cfcb4f50e7b2b2a808e60116fc2f/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ba6e1711eb85074033daef5f1f4649e1/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ba6e1711eb85074033daef5f1f4649e1/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ac2ca17394d040a12619a33fb3bc0659/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ac2ca17394d040a12619a33fb3bc0659/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8741d7dc66f500dde9df05123d948f10/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8741d7dc66f500dde9df05123d948f10/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/4e5cf6ffa21b18bfb4302b73860371e6/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/4e5cf6ffa21b18bfb4302b73860371e6/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/94ddf0335d09b8731d4062564a7fec25/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/94ddf0335d09b8731d4062564a7fec25/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2128199729ead9fafff24bf2535881a2/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/2128199729ead9fafff24bf2535881a2/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/16b08886d4b4583adc8ff04681b2dc03/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/16b08886d4b4583adc8ff04681b2dc03/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.zendesk:messaging-api:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d449cf315c9b208852583d4d93496283/jetified-messaging-api-5.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:messaging-api:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d449cf315c9b208852583d4d93496283/jetified-messaging-api-5.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:sdk-configurations:2.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f8e2d43a0e48b2b59289e244fa984f92/jetified-sdk-configurations-2.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zendesk:sdk-configurations:2.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f8e2d43a0e48b2b59289e244fa984f92/jetified-sdk-configurations-2.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.dagger:dagger-android:2.23.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8cdf931374aced8522cb62320551ecdc/jetified-dagger-android-2.23.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android:2.23.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8cdf931374aced8522cb62320551ecdc/jetified-dagger-android-2.23.2/AndroidManifest.xml:20:5-44
+MERGED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e067808d07a79ad7510bf7684b9066b5/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e067808d07a79ad7510bf7684b9066b5/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e2edd7f4f17b95aa896c117571e5e60c/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e2edd7f4f17b95aa896c117571e5e60c/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/a4f17ed4517a2dee80d7865e4062495b/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/a4f17ed4517a2dee80d7865e4062495b/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f420a23902a774babd5494438ea9b47d/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f420a23902a774babd5494438ea9b47d/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/879a57372a8525e1d5626fd45176ce70/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/879a57372a8525e1d5626fd45176ce70/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5597149e179181e9b46a5e9f00e99541/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5597149e179181e9b46a5e9f00e99541/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.blankj:rxbus:1.5] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b2b48c6ae3d6c7b11d227c3e978df183/jetified-rxbus-1.5/AndroidManifest.xml:7:5-44
+MERGED from [com.blankj:rxbus:1.5] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b2b48c6ae3d6c7b11d227c3e978df183/jetified-rxbus-1.5/AndroidManifest.xml:7:5-44
+MERGED from [com.facebook.fresco:fresco:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3656ca7c7d06709e991b5711b0e3fa48/jetified-fresco-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3656ca7c7d06709e991b5711b0e3fa48/jetified-fresco-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/be69f2560ac604aea1cbab911a3eaea1/jetified-animated-gif-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/be69f2560ac604aea1cbab911a3eaea1/jetified-animated-gif-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.hjq:toast:6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e2289f4ea78b861f8e9529aef5f292cc/jetified-toast-6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.hjq:toast:6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e2289f4ea78b861f8e9529aef5f292cc/jetified-toast-6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5a90b80c75e640d229433b478531abc8/jetified-EasySwipeMenuLayout-1.1.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5a90b80c75e640d229433b478531abc8/jetified-EasySwipeMenuLayout-1.1.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:6:5-8:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5e4390e5ddd2cc6314d412dff1ff6f47/jetified-annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5e4390e5ddd2cc6314d412dff1ff6f47/jetified-annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/67c7b2836a79737a176344d188324f4d/jetified-rxandroid-2.0.2/AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/67c7b2836a79737a176344d188324f4d/jetified-rxandroid-2.0.2/AndroidManifest.xml:19:5-43
+MERGED from [com.facebook.fresco:animated-base:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/16a9d53fa532ab4bca54afd06f28b81b/jetified-animated-base-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/16a9d53fa532ab4bca54afd06f28b81b/jetified-animated-base-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3695fbf6168591f6fbefc3c684f92af2/jetified-animated-drawable-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3695fbf6168591f6fbefc3c684f92af2/jetified-animated-drawable-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0d9cc840348296e84c0f68a0a85f4707/jetified-drawee-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/0d9cc840348296e84c0f68a0a85f4707/jetified-drawee-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fb4563120461e580a8bee81c6a9117f1/jetified-nativeimagefilters-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/fb4563120461e580a8bee81c6a9117f1/jetified-nativeimagefilters-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e885e75c5fc611b71c037ac023eb7c0a/jetified-imagepipeline-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e885e75c5fc611b71c037ac023eb7c0a/jetified-imagepipeline-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5548813b00f8bd5b588f694a2082ff7d/jetified-nativeimagetranscoder-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/5548813b00f8bd5b588f694a2082ff7d/jetified-nativeimagetranscoder-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ed3716447f2bbe847fc66395023cdf47/jetified-imagepipeline-base-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/ed3716447f2bbe847fc66395023cdf47/jetified-imagepipeline-base-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/53042640382b2331bb3525e58e750c1c/jetified-fbcore-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.12.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/53042640382b2331bb3525e58e750c1c/jetified-fbcore-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6ecd3a23b00c7d7fee30aa3be70bd719/jetified-soloader-0.6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/6ecd3a23b00c7d7fee30aa3be70bd719/jetified-soloader-0.6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android:flexbox:2.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d77bbf8384b793df3e7db26981d35e28/jetified-flexbox-2.0.1/AndroidManifest.xml:22:5-24:41
+MERGED from [com.google.android:flexbox:2.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/d77bbf8384b793df3e7db26981d35e28/jetified-flexbox-2.0.1/AndroidManifest.xml:22:5-24:41
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+		ADDED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+		INJECTED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml
+activity#com.ai.addxsettings.ui.DeviceSettingActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:12:9-15:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:15:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:14:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:13:13-72
+activity#com.ai.addxsettings.ui.DeviceSeniorSettingActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:16:9-19:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:19:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:18:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:17:13-78
+activity#com.ai.addxsettings.ui.DeviceBaseMoreInfoActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:20:9-23:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:23:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:22:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:21:13-77
+activity#com.ai.addxsettings.ui.DeviceBaseInfoActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:24:9-27:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:27:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:26:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:25:13-73
+activity#com.ai.addxsettings.ui.RenameDeviceActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:28:9-31:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:31:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:30:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:29:13-71
+activity#com.ai.addxsettings.ui.MotionDetectionActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:32:9-35:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:35:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:34:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:33:13-74
+activity#com.ai.addxsettings.ui.SelectTimeZoneActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:36:9-39:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:39:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:38:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:37:13-73
+activity#com.ai.addxsettings.ui.RebindLocationActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:40:9-43:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:43:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:42:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:41:13-73
+activity#com.ai.addxsettings.ui.share.DeviceSharedAdminActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:44:9-47:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:47:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:46:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:45:13-82
+activity#com.ai.addxsettings.ui.share.InviteActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:48:9-51:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:51:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:50:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:49:13-71
+activity#com.ai.addxsettings.ui.share.ShareResultActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:52:9-55:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:55:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:54:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:53:13-76
+activity#com.ai.addxsettings.ui.share.DeviceSharedGuestActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:56:9-59:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:59:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:58:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:57:13-82
+activity#com.ai.addxsettings.ui.share.AlbumActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:60:9-63:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:63:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:62:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:61:13-70
+activity#com.ai.addxsettings.ui.ChooseFirmwareActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:64:9-67:59
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:66:13-59
+	android:theme
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:67:13-56
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:65:13-73
+activity#com.ai.addxsettings.ui.ZoneActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:68:9-71:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:71:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:70:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:69:13-63
+activity#com.ai.addxsettings.ui.NotificationSettingActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:72:9-75:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:75:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:74:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:73:13-78
+activity#com.ai.addxsettings.ui.DeviceLanguageSettingActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:76:9-79:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:79:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:78:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:77:13-80
+activity#com.ai.addxsettings.ui.playback.PlaybackActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:80:9-83:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:83:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:82:13-59
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:81:13-76
+activity#com.ai.addxsettings.ui.AntiFlickerActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:84:9-86:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:86:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:85:13-70
+activity#com.ai.addxsettings.ui.SetupActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:87:9-90:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:90:13-49
+	android:launchMode
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:89:13-43
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:88:13-64
+activity#com.ai.addxsettings.ui.SetupNextActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:91:9-93:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:93:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:92:13-68
+activity#com.ai.addxsettings.ui.SetupLastActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:94:9-96:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:96:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:95:13-68
+activity#com.ai.addxsettings.ui.DeviceVoiceSettingActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:97:9-99:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:99:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:98:13-77
+activity#com.ai.addxsettings.ui.DeviceVersionInfoActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:100:9-102:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:102:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:101:13-76
+activity#com.ai.addxsettings.ui.SdcardManageActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:103:9-105:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:105:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:104:13-71
+activity#com.ai.addxsettings.ui.LightManageActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:106:9-108:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:108:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:107:13-70
+activity#com.ai.addxsettings.ui.RebindLocationForMultiDeviceActivity
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:109:9-111:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:111:13-49
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:110:13-87
+service#com.ai.addxsettings.service.SDFormatService
+ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:113:9-79
+	android:name
+		ADDED from [com.addx.ai:addxsettings:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b797458e42ce2e970d3cf9eddfb906c7/jetified-addxsettings-1.0.68/AndroidManifest.xml:113:18-76
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:11:5-79
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:19:5-79
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:19:5-79
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:19:5-79
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:19:5-79
+MERGED from [com.addx.ai:addxtrack:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8db207ecb63aaa14ff81db2fa1ae6b98/jetified-addxtrack-1.0.68/AndroidManifest.xml:11:5-79
+MERGED from [com.addx.ai:addxtrack:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/8db207ecb63aaa14ff81db2fa1ae6b98/jetified-addxtrack-1.0.68/AndroidManifest.xml:11:5-79
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:11:5-79
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:11:5-79
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:13:5-79
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:13:5-79
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:9:5-79
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:9:5-79
+MERGED from [com.zendesk:chat-providers:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/111b02c27f70b23436291fdc1385cd1a/jetified-chat-providers-3.2.0/AndroidManifest.xml:13:5-79
+MERGED from [com.zendesk:chat-providers:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/111b02c27f70b23436291fdc1385cd1a/jetified-chat-providers-3.2.0/AndroidManifest.xml:13:5-79
+MERGED from [com.zendesk:core:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/cb4749bb9679cd96505d9d7b670fe559/jetified-core-4.0.0/AndroidManifest.xml:13:5-79
+MERGED from [com.zendesk:core:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/cb4749bb9679cd96505d9d7b670fe559/jetified-core-4.0.0/AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:11:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:12:5-76
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:20:5-76
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:20:5-76
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:20:5-76
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:20:5-76
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:14:5-76
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:12:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:13:5-76
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:21:5-76
+MERGED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:21:5-76
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:21:5-76
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:21:5-76
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:15:5-76
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:15:5-76
+	android:name
+		ADDED from [com.addx.ai:addxvideo:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/32931c584211bb5512c1f83308f25cec/jetified-addxvideo-1.0.68/AndroidManifest.xml:13:22-73
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:11:5-81
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:12:5-81
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:11:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:12:5-79
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:13:5-79
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.BLUETOOTH
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:13:5-68
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:14:5-68
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:14:5-68
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:28:5-68
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:28:5-68
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:13:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:14:5-74
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:15:5-74
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:15:5-74
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:14:22-71
+uses-permission#android.permission.VIBRATE
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:15:5-66
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:12:5-66
+MERGED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:12:5-66
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:17:5-66
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:17:5-66
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:15:22-63
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:16:5-81
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:16:5-81
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:16:5-81
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:20:5-81
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:20:5-81
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:16:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:17:5-80
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:17:5-80
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:17:5-80
+MERGED from [com.zendesk.belvedere2:belvedere:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aeb3bc970fce3cfec378225ba5452009/jetified-belvedere-3.0.0-RC/AndroidManifest.xml:11:5-80
+MERGED from [com.zendesk.belvedere2:belvedere:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/aeb3bc970fce3cfec378225ba5452009/jetified-belvedere-3.0.0-RC/AndroidManifest.xml:11:5-80
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:19:5-80
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:19:5-80
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:17:22-77
+uses-permission#android.permission.INTERNET
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:18:5-67
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:18:5-67
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:18:5-67
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:8:5-67
+MERGED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:8:5-67
+MERGED from [com.zendesk:chat-providers:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/111b02c27f70b23436291fdc1385cd1a/jetified-chat-providers-3.2.0/AndroidManifest.xml:12:5-67
+MERGED from [com.zendesk:chat-providers:3.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/111b02c27f70b23436291fdc1385cd1a/jetified-chat-providers-3.2.0/AndroidManifest.xml:12:5-67
+MERGED from [com.zendesk:core:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/cb4749bb9679cd96505d9d7b670fe559/jetified-core-4.0.0/AndroidManifest.xml:12:5-67
+MERGED from [com.zendesk:core:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/cb4749bb9679cd96505d9d7b670fe559/jetified-core-4.0.0/AndroidManifest.xml:12:5-67
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:11:5-67
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:18:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:22:5-68
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:29:5-68
+MERGED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:29:5-68
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:18:5-68
+MERGED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:18:5-68
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:22:22-65
+activity#com.ai.addxbind.devicebind.ui.AddDevice1Activity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:25:9-28:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:28:13-49
+	android:exported
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:27:13-36
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:26:13-76
+activity#com.ai.addxbind.devicebind.ui.OtherErrorActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:29:9-32:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:32:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:31:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:30:13-76
+activity#com.ai.addxbind.devicebind.ui.ScanQrCodeOtherActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:33:9-36:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:36:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:35:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:34:13-81
+activity#com.ai.addxbind.devicebind.ui.SetDeviceNameActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:37:9-40:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:40:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:39:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:38:13-79
+activity#com.ai.addxbind.devicebind.ui.ConnResultActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:41:9-44:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:44:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:43:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:42:13-76
+activity#com.ai.addxbind.devicebind.ui.ChooseWifiActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:45:9-55:20
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:49:13-49
+	android:exported
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:48:13-37
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:47:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:46:13-76
+intent-filter#action:name:action.CHOOSE_WIFI_ACTIVITY+category:name:android.intent.category.DEFAULT
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:50:13-54:29
+action#action.CHOOSE_WIFI_ACTIVITY
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:51:17-70
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:51:25-67
+category#android.intent.category.DEFAULT
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:53:17-76
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:53:27-73
+activity#com.ai.addxbind.devicebind.ui.BindNetworkActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:56:9-59:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:59:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:58:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:57:13-77
+activity#com.ai.addxbind.devicebind.ui.BindCameraNextActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:60:9-63:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:63:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:62:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:61:13-80
+activity#com.ai.addxbind.devicebind.ui.BindCameraActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:64:9-67:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:67:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:66:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:65:13-76
+activity#com.ai.addxbase.mvvm.LocationActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:68:9-71:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:71:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:70:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:69:13-65
+activity#com.ai.addxbind.devicebind.ui.AddDeviceQRCodeActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:72:9-75:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:75:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:74:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:73:13-81
+activity#com.ai.addxbind.devicebind.ui.BlankFinishActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:76:9-80:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:80:13-49
+	android:launchMode
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:79:13-44
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:78:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:77:13-77
+activity#com.ai.addxbind.devicebind.ui.BindDeviceCourseActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:81:9-84:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:84:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:83:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:82:13-82
+activity#com.ai.addxbind.devicebind.ui.ScanQrCodeActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:85:9-88:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:88:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:87:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:86:13-76
+activity#com.ai.addxbind.devicebind.ui.SelectionQuestionActivity
+ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:89:9-92:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:92:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:91:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbind:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e0ab21ef1662530dfda0d540ae58124b/jetified-addxbind-1.0.68/AndroidManifest.xml:90:13-83
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:22:5-80
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:22:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:23:5-71
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:23:22-68
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:24:5-83
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:24:22-80
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:25:5-75
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:25:22-72
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:26:22-75
+uses-permission#android.permission.SYSTEM_OVERLAY_WINDOW
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:27:5-80
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:27:22-77
+uses-permission#android.permission.BROADCAST_PACKAGE_ADDED
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:30:5-82
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:30:22-79
+uses-permission#android.permission.BROADCAST_PACKAGE_CHANGED
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:31:5-84
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:31:22-81
+uses-permission#android.permission.BROADCAST_PACKAGE_INSTALL
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:32:5-84
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:32:22-81
+uses-permission#android.permission.BROADCAST_PACKAGE_REPLACED
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:33:5-85
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:33:22-82
+uses-permission#android.permission.GET_TASKS
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:34:5-68
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:34:22-65
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:35:5-81
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:35:22-78
+uses-permission#com.huawei.android.launcher.permission.CHANGE_BADGE
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:36:5-91
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:36:22-88
+uses-permission#com.sonyericsson.home.permission.BROADCAST_BADGE
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:37:5-88
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:37:22-85
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:38:5-79
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:38:22-76
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:39:5-41:47
+	tools:ignore
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:41:9-44
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:40:9-57
+provider#com.ai.addxbase.contentprovider.MyApp$ContextProvider
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:46:9-49:40
+	android:authorities
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:48:13-77
+	android:exported
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:49:13-37
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:47:13-81
+activity#com.ai.addxbase.zendesk.FeedbackActivity
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:51:9-54:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:54:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:53:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:52:13-68
+activity#com.ai.addxbase.mvvm.WebViewActivity
+ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:55:9-58:52
+	android:screenOrientation
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:58:13-49
+	android:configChanges
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:57:13-59
+	android:name
+		ADDED from [com.addx.ai:addxbase:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/9c75af4084534ac748e252d2189e7b64/jetified-addxbase-1.0.68/AndroidManifest.xml:56:13-64
+uses-permission#android.permission.READ_PHONE_STATE 
+ADDED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:16:5-76
+	android:name
+		ADDED from [com.addx.ai:Common:1.0.68] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/54502e7528db9dbe136e16838c16b22f/jetified-Common-1.0.68/AndroidManifest.xml:16:22-73
+uses-library#android.test.runner
+ADDED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:12:9-14:40
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:14:9-60
+MERGED from [ly.count.android:sdk:20.04.2] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3362354e75d6c9e3f133269b159db2a0/jetified-sdk-20.04.2/AndroidManifest.xml:14:9-60
+	android:required
+		ADDED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:14:13-37
+		MERGED from /home/yuanshiyue/addx/g0-android/android-demo/src/main/AndroidManifest.xml:12:9-14:40
+	android:name
+		ADDED from [com.bugsnag:bugsnag-android-core:4.22.3] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/7cb27e4e950c712803c6af0d8a3c022a/jetified-bugsnag-android-core-4.22.3/AndroidManifest.xml:13:13-47
+activity#zendesk.support.request.RequestActivity
+ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:13:9-15:58
+	android:windowSoftInputMode
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:15:13-55
+	android:name
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:14:13-67
+activity#zendesk.support.requestlist.RequestListActivity
+ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:16:9-18:67
+	android:label
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:18:13-64
+	android:name
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:17:13-75
+receiver#zendesk.support.DeepLinkingBroadcastReceiver
+ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:20:9-26:20
+	android:exported
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:21:13-72
+intent-filter#action:name:zendesk.support
+ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:23:13-25:29
+action#zendesk.support
+ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:24:17-58
+	android:name
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:24:25-55
+provider#zendesk.support.SupportSdkStartupProvider
+ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:28:9-32:40
+	android:enabled
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:31:13-35
+	android:authorities
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:30:13-93
+	android:exported
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.zendesk:support:5.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/AndroidManifest.xml:29:13-69
+activity#zendesk.support.guide.ViewArticleActivity
+ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:13:9-16:69
+	android:label
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:16:13-66
+	android:configChanges
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:15:13-59
+	android:name
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:14:13-69
+activity#zendesk.support.guide.HelpCenterActivity
+ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:17:9-20:58
+	android:label
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:19:13-59
+	android:windowSoftInputMode
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:20:13-55
+	android:name
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:18:13-68
+provider#zendesk.support.guide.GuideSdkStartupProvider
+ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:22:9-26:40
+	android:enabled
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:25:13-35
+	android:authorities
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:24:13-91
+	android:exported
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [com.zendesk:guide:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/85c5969c381c178aeffaa8462b5040b6/jetified-guide-1.0.1/AndroidManifest.xml:23:13-73
+activity#zendesk.messaging.MessagingActivity
+ADDED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:12:9-14:58
+	android:windowSoftInputMode
+		ADDED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:14:13-55
+	android:name
+		ADDED from [com.zendesk:messaging:5.1.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/766a54b984c3f7f17ccdf3c8480139b1/jetified-messaging-5.1.0/AndroidManifest.xml:13:13-63
+activity#zendesk.answerbot.AnswerBotArticleActivity
+ADDED from [com.zendesk:answerbot:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b17c7e3e083755e7215f69d8fb22eb31/jetified-answerbot-3.0.1/AndroidManifest.xml:12:9-79
+	android:name
+		ADDED from [com.zendesk:answerbot:3.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/b17c7e3e083755e7215f69d8fb22eb31/jetified-answerbot-3.0.1/AndroidManifest.xml:12:19-76
+provider#zendesk.belvedere.BelvedereFileProvider
+ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:12:9-21:20
+	android:readPermission
+		ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:17:13-42
+	android:grantUriPermissions
+		ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:14:13-74
+	android:exported
+		ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:13:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:18:13-20:75
+	android:resource
+		ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:20:17-72
+	android:name
+		ADDED from [com.zendesk.belvedere2:belvedere-core:3.0.0-RC] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/21a0556990b6122e15d149880e13ee5e/jetified-belvedere-core-3.0.0-RC/AndroidManifest.xml:19:17-67
+provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+	android:multiprocess
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/f067c20fc0e13f348b8ae0188041959c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.8] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e1e37e0378180eb48649e4309075ae92/jetified-picasso-2.8/AndroidManifest.xml:9:13-64
+uses-permission#android.permission.CAMERA
+ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:11:5-65
+	android:name
+		ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:11:22-62
+uses-permission#android.permission.FLASHLIGHT
+ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:12:5-69
+	android:name
+		ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:12:22-66
+uses-feature#android.hardware.camera
+ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:14:5-60
+	android:name
+		ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:14:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:15:5-70
+	android:name
+		ADDED from [com.addx.ai:zxing:1.0.1] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/e96ca682ef94704da45bd125f40a8ee3/jetified-zxing-1.0.1/AndroidManifest.xml:15:19-67
+activity#com.yanzhenjie.permission.PermissionActivity
+ADDED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:25:9-30:75
+	android:launchMode
+		ADDED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:28:13-42
+	android:windowSoftInputMode
+		ADDED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:30:13-72
+	android:configChanges
+		ADDED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:27:13-74
+	android:theme
+		ADDED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:29:13-65
+	android:name
+		ADDED from [com.yanzhenjie:permission:2.0.0-rc4] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/356bde262ec5a164957b1f56182e7cab/jetified-permission-2.0.0-rc4/AndroidManifest.xml:26:13-72
+uses-permission#com.android.vending.BILLING
+ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:10:22-64
+meta-data#com.google.android.play.billingclient.version
+ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:13:9-15:37
+	android:value
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:15:13-34
+	android:name
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:14:13-73
+activity#com.android.billingclient.api.ProxyBillingActivity
+ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:17:9-21:75
+	android:exported
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:20:13-37
+	android:configChanges
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:19:13-96
+	android:theme
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:21:13-72
+	android:name
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/3a6c1489f32290dfcdc94b5e0699c462/jetified-billing-4.0.0/AndroidManifest.xml:18:13-78

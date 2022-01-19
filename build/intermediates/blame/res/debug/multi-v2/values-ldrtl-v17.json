@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/yuanshiyue/addx/g0-android/android-demo/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "map": [
+                {
+                    "source": "/home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/bd783d2f2f09ceb70a76125496fecbe9/jetified-common-ui-4.0.1/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "56",
+                        "endOffsets": "107"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "119",
+                        "endColumns": "56",
+                        "endOffsets": "171"
+                    }
+                },
+                {
+                    "source": "/home/yuanshiyue/.gradle/caches/transforms-2/files-2.1/1eaa72ed2e1a359dfa63f8d10cf58a6c/jetified-support-5.0.1/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "63",
+                        "endOffsets": "114"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -24,10 +24,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("../jks/vicoo.jks")
-            storePassword "oociv_addx"
-            keyAlias "addx"
-            keyPassword "oociv_addx"
+            storeFile file("addxdemo.jks")
+            storePassword "addxdemo"
+            keyAlias "addxdemo"
+            keyPassword "addxdemo"
         }
     }
 
@@ -83,8 +83,8 @@ dependencies {
         implementation project(path: ':addxnet')
         implementation project(path: ':addxavlinkage')
     }else{
-        implementation "com.addx.ai:addxvideo:1.0.37"
-        implementation "com.addx.ai:addxbind:1.0.37"
-        implementation "com.addx.ai:addxsettings:1.0.37"
+        implementation "com.addx.ai:addxvideo:1.0.88"
+        implementation "com.addx.ai:addxbind:1.0.88"
+        implementation "com.addx.ai:addxsettings:1.0.88"
     }
 }
