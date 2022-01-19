@@ -1,25 +1,16 @@
 package com.addx.ai.demo;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
 
+import com.addx.ai.demo.videoview.KotlinDemoVideoView;
 import com.addx.common.utils.LogUtils;
+import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.DeviceClicent;
 import com.ai.addxbase.IDeviceClient;
-import com.ai.addxbase.util.ToastUtils;
-import com.ai.addx.model.DeviceBean;
-import com.ai.addx.model.request.BaseEntry;
-import com.ai.addx.model.response.AllDeviceResponse;
 import com.ai.addxbase.mvvm.BaseActivity;
-import com.ai.addxbase.ADDXBind;
-import com.ai.addxnet.ApiClient;
-import com.ai.addxnet.HttpSubscriber;
-import com.ai.addxsettings.ADDXSettings;
-import com.ai.addxvideo.addxvideoplay.LiveAddxVideoView;
+import com.ai.addxbase.util.ToastUtils;
 import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 
 import org.jetbrains.annotations.NotNull;
@@ -27,11 +18,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
-
-public class DeviceList extends BaseActivity {
+public class PlayerDeviceList extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
@@ -48,11 +36,9 @@ public class DeviceList extends BaseActivity {
     }
 
     void listDeviceInfo() {
-        showLoadingDialog();
         DeviceClicent.getInstance().queryDeviceListAsync(new IDeviceClient.ResultListener<List<DeviceBean>>() {
             @Override
             public void onResult(@NotNull IDeviceClient.ResponseMessage responseMessage, @Nullable List<DeviceBean> result) {
-                dismissLoadingDialog();
                 if (responseMessage.getResponseCode()<0) {
                     ToastUtils.showShort("response error code = " + responseMessage.getResponseCode());
                     return;
@@ -73,10 +59,10 @@ public class DeviceList extends BaseActivity {
 //                                    ADDXSettings.Companion.startSetting(DeviceList.this, bean);
 //                                }
 //                            });
-
+//                    LogUtils.d("bean","bean---deviceupdatestatu:"+ ADDXSettings.getDeviceUpdateStatus(bean));
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
-                    LiveAddxVideoView liveAddxVideoView = new LiveAddxVideoView(DeviceList.this);
-                    liveAddxVideoView.init(DeviceList.this, bean, new SimpleAddxViewCallBack(){
+                    KotlinDemoVideoView demoVideoView = new KotlinDemoVideoView(PlayerDeviceList.this);
+                    demoVideoView.init(PlayerDeviceList.this, bean, new SimpleAddxViewCallBack(){
                         @Override
                         public void onStartPlay() {
                             super.onStartPlay();
@@ -87,28 +73,28 @@ public class DeviceList extends BaseActivity {
                             super.onError(errorCode);
                         }
                     });
-                    container.addView(liveAddxVideoView);
+                    container.addView(demoVideoView);
                 }
             }
         });
     }
     
     public void clickAddDevice(View v){
-        ADDXBind.lanchBind(this,new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
-            @Override
-            public void onBindCancel() {
-
-            }
-
-            @Override
-            public void onBindSccess(@NotNull String sn) {
-                listDeviceInfo();
-            }
-
-            @Override
-            public void onBindStart(@NotNull String callBackUrl) {
-
-            }
-        }));
+//        ADDXBind.lanchBind(this,new ADDXBind.Builder().withBindCallback(new ADDXBind.BindInterface() {
+//            @Override
+//            public void onBindCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onBindSccess(@NotNull String sn) {
+//                listDeviceInfo();
+//            }
+//
+//            @Override
+//            public void onBindStart(@NotNull String callBackUrl) {
+//
+//            }
+//        }));
     }
 }

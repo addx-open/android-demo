@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:onClick="onClickLogin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login">
@@ -37,6 +39,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/devicelist" />
 
+            <Button
+                android:id="@+id/playerlist"
+                android:layout_width="match_parent"
+                android:onClick="clickCustomerPlayerDeviceList"
+                android:layout_height="wrap_content"
+                android:text="@string/customplayerlist" />
             <Button
                 android:id="@+id/bind"
                 android:layout_width="match_parent"
@@ -57,6 +65,13 @@
                 android:onClick="clickShowVideoList"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_video_list" />
+
+            <Button
+                android:id="@+id/alexa"
+                android:layout_width="match_parent"
+                android:onClick="clickBindAlexa"
+                android:layout_height="wrap_content"
+                android:text="@string/amazon_alexa" />
 
         </LinearLayout>
 

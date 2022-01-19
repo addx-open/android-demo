@@ -6,13 +6,17 @@ import android.text.TextUtils
 import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.addx.common.Const
 import com.addx.common.ui.FlowLayout
 import com.addx.common.utils.LogUtils
 import com.addx.common.utils.SizeUtils
 import com.ai.addx.model.RecordBean
 import com.ai.addxbase.DeviceClicent
+import com.ai.addxbase.IDeviceClient
+import com.ai.addxbase.VideoConfig
 import com.ai.addxbase.tagInfos
 import com.ai.addxbase.util.TimeUtils
+import com.ai.addxbase.util.ToastUtils
 import com.ai.addxbase.view.GridSpacingItemDecoration
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -20,9 +24,14 @@ import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.interfaces.DraweeController
 import com.facebook.drawee.view.SimpleDraweeView
 import java.util.*
+import java.util.concurrent.TimeUnit
 
+/**
+ * show pir list of today
+ * 显示今日的pir列表
+ */
 class PirListActivity : BaseActivity() {
-    private var list: ArrayList<RecordBean>? = null
+    private lateinit var videoList: RecyclerView
 
     override fun getResid(): Int {
         return R.layout.activity_pir_list
@@ -30,24 +39,42 @@ class PirListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        list = ArrayList()
-
-        loadData()
-
-        findViewById<RecyclerView>(R.id.pir_list).apply {
+        videoList = findViewById<RecyclerView>(R.id.pir_list).apply {
             layoutManager = GridLayoutManager(this@PirListActivity, 2)
             setBackgroundColor(Color.TRANSPARENT)
             addItemDecoration(GridSpacingItemDecoration(2, SizeUtils.dp2px(8f), true))
         }
-
-
+        loadData()
     }
 
     private fun loadData() {
-//        DeviceClicent.getInstance().queryDeviceInfo()
+        showLoadingDialog()
+        DeviceClicent.getInstance().queryVideoList(VideoConfig.Builder(
+            currentDayStartSecond,
+            currentDayStartSecond + TimeUnit.DAYS.toSeconds(
+                1
+            )
+        ).withVideoIndex(0, 100)// up to 100
+            .build(), object : IDeviceClient.ResultListener<List<RecordBean>> {
+            override fun onResult(
+                responseMessage: IDeviceClient.ResponseMessage,
+                result: List<RecordBean>?
+            ) {
+                dismissLoadingDialog()
+                if (responseMessage.responseCode == Const.ResponseCode.CODE_OK) {
+                    if (result.isNullOrEmpty()) {
+                        ToastUtils.showShort(R.string.no_data)
+                    } else {
+                        result?.let { videoList.adapter = RvRecordAdapter(it) }
+                    }
+                } else {
+                    ToastUtils.showShort(R.string.error_unknown)
+                }
+            }
+        })
     }
 
-    val currentDayStartSecond: Long
+    private val currentDayStartSecond: Long
         get() {
             val cal = Calendar.getInstance()
             val firstDay = cal[Calendar.DAY_OF_MONTH]

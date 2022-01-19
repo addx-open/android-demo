@@ -33,17 +33,18 @@
     <!--    <uses-permission android:name="android.permission.WRITE_SETTINGS"-->
     <!--        tools:ignore="ProtectedPermissions" />-->
     <application
-        android:name=".demoApp"
+        android:name="com.addx.ai.demo.demoApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="addxdemo"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:label,android:allowBackup,android:icon">
-        <meta-data android:name="XG_V2_ACCESS_ID" android:value="11" tools:replace="android:value"></meta-data>
-        <meta-data android:name="XG_V2_ACCESS_KEY" android:value="11" tools:replace="android:value"></meta-data>
-        <activity android:name=".DeviceListActivity"
+        tools:replace="android:label,android:allowBackup,android:name,android:icon">
+        <activity android:name=".DeviceList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PlayerDeviceList"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"/>
         <activity android:name=".MineActivity"
@@ -56,15 +57,9 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceList"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".WebViewActivity"
-            android:screenOrientation="portrait" />
         <activity android:name=".OtherActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".BaseActivity"
@@ -73,13 +68,9 @@
             android:screenOrientation="portrait" />
         <activity android:name=".PirListActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CustomerDeviceListActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SdcardPlayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"/>
-
+        <activity android:name=".AlexaActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
