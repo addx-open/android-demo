@@ -1719,11 +1719,13 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         }
     }
     open fun preApplyConnectWhenB(errorCode: Int){
-        if(dataSourceBean!!.isDeviceOffline || dataSourceBean!!.isDeviceSleep || dataSourceBean!!.isFirmwareUpdateing ||dataSourceBean!!.needForceOta()){
-            return
+        if(iAddxPlayer is AddxVideoWebRtcPlayer){
+            if(dataSourceBean!!.isDeviceOffline || dataSourceBean!!.isDeviceSleep || dataSourceBean!!.isFirmwareUpdateing ||dataSourceBean!!.needForceOta()){
+                return
+            }
+            iAddxPlayer?.setListener(this)
+            (iAddxPlayer as AddxVideoWebRtcPlayer)?.preApplyConnectWhenB(errorCode)
         }
-        iAddxPlayer?.setListener(this)
-        iAddxPlayer?.preApplyConnectWhenB(errorCode)
     }
 
     //原來viewcallback方法抽离
