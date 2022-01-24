@@ -71,6 +71,8 @@
         <activity android:name=".AlexaActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".SdcardPlayActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
