@@ -24,7 +24,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("addxdemo.jks")
+            storeFile file("adk-demo.jks")
             storePassword "addxdemo"
             keyAlias "addxdemo"
             keyPassword "addxdemo"
