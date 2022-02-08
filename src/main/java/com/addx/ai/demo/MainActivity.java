@@ -72,6 +72,11 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    public void clickSdcardPlayActivity(View v) {
+        Intent devicelistintent = new Intent(this, SdcardPlayActivity.class);
+        startActivity(devicelistintent);
+    }
+
     /**
      * Query the list of requests to bind my device by scanning the shared QR code of my device
      * 查询通过扫描我的设备二维码，绑定我设备的请求列表
