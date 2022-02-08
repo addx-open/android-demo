@@ -71,10 +71,12 @@ dependencies {
         implementation project(path: ':addxbind')
         implementation project(path: ':addxsettings')
         implementation project(path: ':addxavlinkage')
+        implementation project(path: ':themeMain')
     }else{
         implementation "com.addx.ai:addxvideo:1.0.92"
         implementation "com.addx.ai:addxbind:1.0.92"
         implementation "com.addx.ai:addxsettings:1.0.92"
         implementation "com.addx.ai:addxavlinkage:1.0.92"
+        implementation "com.addx.ai:thememain:1.0.92"
     }
 }
