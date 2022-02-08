@@ -3,6 +3,7 @@ package com.addx.ai.demo
 import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +12,7 @@ import com.addx.common.ui.FlowLayout
 import com.addx.common.utils.LogUtils
 import com.addx.common.utils.SizeUtils
 import com.ai.addx.model.RecordBean
+import com.ai.addx.model.request.DeleteRecordResponse
 import com.ai.addxbase.DeviceClicent
 import com.ai.addxbase.IDeviceClient
 import com.ai.addxbase.VideoConfig
@@ -25,6 +27,7 @@ import com.facebook.drawee.interfaces.DraweeController
 import com.facebook.drawee.view.SimpleDraweeView
 import java.util.*
 import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
 
 /**
  * show pir list of today
@@ -47,6 +50,7 @@ class PirListActivity : BaseActivity() {
         loadData()
     }
 
+    var data: List<RecordBean>? = null
     private fun loadData() {
         showLoadingDialog()
         DeviceClicent.getInstance().queryVideoList(VideoConfig.Builder(
@@ -56,6 +60,7 @@ class PirListActivity : BaseActivity() {
             )
         ).withVideoIndex(0, 100)// up to 100
             .build(), object : IDeviceClient.ResultListener<List<RecordBean>> {
+
             override fun onResult(
                 responseMessage: IDeviceClient.ResponseMessage,
                 result: List<RecordBean>?
@@ -65,7 +70,10 @@ class PirListActivity : BaseActivity() {
                     if (result.isNullOrEmpty()) {
                         ToastUtils.showShort(R.string.no_data)
                     } else {
-                        result?.let { videoList.adapter = RvRecordAdapter(it) }
+                        result?.let {
+                            data = it
+                            videoList.adapter = RvRecordAdapter(it)
+                        }
                     }
                 } else {
                     ToastUtils.showShort(R.string.error_unknown)
@@ -118,6 +126,7 @@ class PirListActivity : BaseActivity() {
                 }
             }
 
+
             val tags = item.tags
             val view = helper.getView<FlowLayout>(R.id.tag_root)
             view.removeAllViews()
@@ -139,11 +148,82 @@ class PirListActivity : BaseActivity() {
             }
 
             helper.setChecked(R.id.cb_library_record, item.isSelect)
-            helper.addOnClickListener(R.id.cb_library_record)
+
+
+            // Change the selected of RecordBean when selected is changed
+            helper.setOnCheckedChangeListener(R.id.cb_library_record
+            ) { buttonView, isChecked -> item.isSelect = isChecked }
+
+            helper.itemView.setOnClickListener(View.OnClickListener {
+                showLoadingDialog()
+                DeviceClicent.getInstance().setVideoViewedInfo(item.id,
+                    object : IDeviceClient.ResultListener<Any> {
+                        override fun onResult(
+                            responseMessage: IDeviceClient.ResponseMessage,
+                            result: Any?
+                        ) {
+                            dismissLoadingDialog()
+                            if (responseMessage.responseCode == Const.ResponseCode.CODE_OK) {
+                                item.isViewed = true
+                                notifyItemChanged(mData.indexOf(item))
+                            } else {
+                                ToastUtils.showShort(R.string.network_error)
+                            }
+                        }
+                    })
+            })
+            helper.itemView.setOnLongClickListener {
+                showLoadingDialog()
+                DeviceClicent.getInstance().setVideoMarkInfo(
+                    item.id,
+                    !item.isMarked,
+                    object : IDeviceClient.ResultListener<Any> {
+                        override fun onResult(
+                            responseMessage: IDeviceClient.ResponseMessage,
+                            result: Any?
+                        ) {
+                            dismissLoadingDialog()
+                            if (responseMessage.responseCode == Const.ResponseCode.CODE_OK) {
+                                item.isMarked = !item.isMarked
+                                notifyItemChanged(mData.indexOf(item))
+                            } else {
+                                ToastUtils.showShort(R.string.network_error)
+                            }
+                        }
+                    })
+                true
+            }
         }
     }
 
     companion object {
         private const val TAG = "PirListActivity"
+    }
+
+    fun clickToDelete(view: View) {
+        val selected = ArrayList<Int>()
+        data?.forEach {
+            if (it.isSelect) {
+                selected.add(it.id)
+            }
+        }
+        if (selected.isEmpty()) {
+            ToastUtils.showShort(R.string.please_select)
+        } else {
+            DeviceClicent.getInstance().deleteVideoRecord(selected,
+                object : IDeviceClient.ResultListener<DeleteRecordResponse.DataBean> {
+                    override fun onResult(
+                        responseMessage: IDeviceClient.ResponseMessage,
+                        result: DeleteRecordResponse.DataBean?
+                    ) {
+                        if (responseMessage.responseCode == Const.ResponseCode.CODE_OK) {
+                            ToastUtils.showShort(R.string.delete_success)
+                            loadData()
+                        } else {
+                            ToastUtils.showShort(R.string.network_error)
+                        }
+                    }
+                })
+        }
     }
 }

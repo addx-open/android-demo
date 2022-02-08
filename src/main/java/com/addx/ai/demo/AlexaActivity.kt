@@ -8,13 +8,18 @@ import androidx.lifecycle.MutableLiveData
 import com.addx.common.utils.ViewModelHelper
 import com.ai.addxavlinkage.ADDXAvlinkage
 import com.ai.addxavlinkage.viewmodel.AccountViewModel
+import com.ai.addxbase.util.ToastUtils
 import com.alibaba.fastjson.JSON
 
 class AlexaActivity : BaseActivity() {
 
+
+    private var code: String? = null
+    private var clientId: String? = null
+    private var responseType: String? = null
     private var state: String? = null
     private var scope: String? = null
-    private var code: String? = null
+    private var redirectUri: String? = null
     private var mAccountViewModel: AccountViewModel? = null
 
     override fun getResid(): Int {
@@ -26,6 +31,9 @@ class AlexaActivity : BaseActivity() {
         state = appLinkData?.getQueryParameter("state")
         scope = appLinkData?.getQueryParameter("scope")
         code = appLinkData?.getQueryParameter("code")
+        clientId = appLinkData?.getQueryParameter("client_id")
+        responseType = appLinkData?.getQueryParameter("response_type")
+        redirectUri = appLinkData?.getQueryParameter("redirect_uri")
         mAccountViewModel = ViewModelHelper[AccountViewModel::class.java, this]
     }
     fun clicktoAuthorization(v: View?){
@@ -35,10 +43,15 @@ class AlexaActivity : BaseActivity() {
         ADDXAvlinkage.get().startAlexa(this)
     }
     fun clickAuthorization(v: View?) {
-
-
-
-
+        showLoadingDialog()
+        if(code==null){
+            ToastUtils.showShort("需要先去 alexa 跳转过来")
+        }
+        val data= ADDXAvlinkage.get().authorization(code,clientId,scope,redirectUri,state,null,mAccountViewModel)
+        data?.observe(this,{
+            ToastUtils.showShort(it.second)
+            dismissLoadingDialog()
+        })
     }
     fun clickBind(v: View?) {
         showLoadingDialog()

@@ -32,6 +32,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login">
 
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:onClick="clickToLogout"
+                android:layout_height="wrap_content"
+                android:text="@string/logout" />
+
+            <Button
+                android:id="@+id/change_language"
+                android:layout_width="match_parent"
+                android:onClick="clickToChangeLanguage"
+                android:layout_height="wrap_content"
+                android:text="@string/language" />
+
             <Button
                 android:id="@+id/devicelist"
                 android:layout_width="match_parent"
@@ -45,12 +60,12 @@
                 android:onClick="clickCustomerPlayerDeviceList"
                 android:layout_height="wrap_content"
                 android:text="@string/customplayerlist" />
-            <Button
-                android:id="@+id/sdcardvideo"
-                android:layout_width="match_parent"
-                android:onClick="clickSdcardPlayActivity"
-                android:layout_height="wrap_content"
-                android:text="@string/sdcardvideo" />
+<!--            <Button-->
+<!--                android:id="@+id/sdcardvideo"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:onClick="clickSdcardPlayActivity"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/sdcardvideo" />-->
             <Button
                 android:id="@+id/bind"
                 android:layout_width="match_parent"
@@ -77,7 +92,14 @@
                 android:layout_width="match_parent"
                 android:onClick="clickBindAlexa"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:text="@string/amazon_alexa" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:onClick="clickToCheckShareInfo"
+                android:layout_height="wrap_content"
+                android:text="check share request info" />
 
         </LinearLayout>
 

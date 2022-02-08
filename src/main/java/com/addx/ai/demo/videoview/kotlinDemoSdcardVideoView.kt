@@ -23,6 +23,14 @@ import rx.Observable
 import java.text.SimpleDateFormat
 import java.util.*
 import com.addx.ai.demo.R
+import com.ai.addx.model.request.ReporLiveCommonEntry
+import com.ai.addx.model.request.ReporLiveInterruptEntry
+import com.ai.addxvideo.addxvideoplay.AddxBaseVideoView
+import com.ai.addxvideo.track.AddxTrack
+import com.ai.addxvideo.track.other.TrackManager
+import com.ai.addxvideo.track.setting.SettingTrackManager
+import rx.Subscriber
+import java.util.concurrent.ConcurrentHashMap
 
 open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
     private var syncPostionTime: Long = 0L
@@ -30,6 +38,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
     var mLivingEndTime: Long? = System.currentTimeMillis()
     var mCurrentPosition: Long = 0
     var syncStartTime = false
+    override var eventPlayerName = TrackManager.PlayerName.SDCARD_PLAYBACK_PLAYER
 
     override var thumbSaveKeySuffix: String? = "Sdcard"
 
@@ -38,6 +47,8 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
     public var mListener: Listener? = null
     public interface Listener{
         fun toEnd()
+        fun toError()
+        fun toNoHasSdcard()
     }
 
     constructor(context: Context) : super(context)
@@ -104,8 +115,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         iAddxPlayer?.setDisplay(renderView)
         iAddxPlayer?.setListener(this)
         iAddxPlayer?.startSdcard(mLivingStartTime / 1000)
-        //todo
-//        AddxTrack.getInstance<Any>().getTrackInstance(SettingTrackManager::class.java)!!.trace("sdcardPlaybackClick")
+        AddxTrack.getInstance<Any>().getTrackInstance(SettingTrackManager::class.java)!!.trace("sdcardPlaybackClick")
     }
 
     /**
@@ -113,48 +123,66 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
      */
     override fun getPlayPosition(): Long {
         val currentPosition = mCurrentPosition + SystemClock.elapsedRealtime() - syncPostionTime
-        LogUtils.d(TAG, "current position=$currentPosition")
+        LogUtils.d(TAG, "sdcardPlayListener-current position=$currentPosition---mLivingStartTime:$mLivingStartTime")
         return currentPosition
     }
 
+    var getSdVideoListCallBackMap: ConcurrentHashMap<Long, PlayerCallBack> = ConcurrentHashMap<Long, PlayerCallBack>()
+    var getSdVideoListEmitterMap: ConcurrentHashMap<Long, Subscriber<SdcardPlaybackResponse>?> = ConcurrentHashMap<Long, Subscriber<SdcardPlaybackResponse>?>()
+
     override fun retrieveLocalVideo(entry: SdcardPlaybackEntry): Observable<SdcardPlaybackResponse> {
-        LogUtils.d("retrieveLocalVideo", "startTime=" + entry.startTime + "  " + TimeUtils.formatLogDay(entry.startTime * 1000) + ",endTime" + +entry.endTime + "  " + TimeUtils.formatLogDay(entry.endTime * 1000))
+        iAddxPlayer?.setListener(this)
+        LogUtils.d(TAG, "retrieveLocalVideo---startTime=" + entry.startTime + "  " + TimeUtils.formatLogDay(entry.startTime * 1000) + ",endTime" + +entry.endTime + "  " + TimeUtils.formatLogDay(entry.endTime * 1000))
         val observable = Observable.create(Observable.OnSubscribe<SdcardPlaybackResponse> { emitter ->
-            iAddxPlayer?.getSdVideoList(entry, object : PlayerCallBack {
+            getSdVideoListEmitterMap.put(entry.startTime, emitter as Subscriber<SdcardPlaybackResponse>)
+            getSdVideoListCallBackMap.put(entry.startTime, object : PlayerCallBack {
                 override fun completed(obj: Any?) {
+                    LogUtils.d(TAG, "retrieveLocalVideo---SdcardAddxVideoView--completed")
                     if (obj is SdcardPlaybackResponse) {
-                        emitter?.onNext(obj)
+                        getSdVideoListEmitterMap.remove(entry.startTime)?.onNext(obj)
+                        getSdVideoListCallBackMap.remove(entry.startTime)
                     } else {
-                        emitter?.onNext(null)
+                        getSdVideoListEmitterMap.remove(entry.startTime)?.onNext(null)
+                        getSdVideoListCallBackMap.remove(entry.startTime)
                     }
                 }
 
                 override fun error(errorCode: Int?, errorMsg: String?, throwable: Throwable?) {
-                    emitter?.onNext(null)
+                    LogUtils.d(TAG, "retrieveLocalVideo---SdcardAddxVideoView--error")
+                    getSdVideoListEmitterMap.remove(entry.startTime)?.onNext(null)
+                    getSdVideoListCallBackMap.remove(entry.startTime)
                 }
             })
-
+            iAddxPlayer?.getSdVideoList(entry, getSdVideoListCallBackMap.get(entry.startTime))
         })
         return observable
     }
 
+
+    var getSdHasVideoDaysCallBackMap: ConcurrentHashMap<Long, PlayerCallBack> = ConcurrentHashMap<Long, PlayerCallBack>()
+    var getSdHasVideoDaysEmitterMap: ConcurrentHashMap<Long, Subscriber<GetSdHasVideoDayResponse>?> = ConcurrentHashMap<Long, Subscriber<GetSdHasVideoDayResponse>?>()
+
     override fun getSdHasVideoDays(entry: SdcardPlaybackEntry): Observable<GetSdHasVideoDayResponse> {
         iAddxPlayer?.setListener(this)
         return Observable.create(Observable.OnSubscribe<GetSdHasVideoDayResponse> { emitter ->
-            iAddxPlayer?.getSdHasVideoDays(entry, object : PlayerCallBack {
+            getSdHasVideoDaysEmitterMap.put(entry.startTime, emitter as Subscriber<GetSdHasVideoDayResponse>)
+            getSdHasVideoDaysCallBackMap.put(entry.startTime, object : PlayerCallBack {
                 override fun completed(obj: Any?) {
                     if (obj is GetSdHasVideoDayResponse) {
-                        emitter?.onNext(obj)
+                        getSdHasVideoDaysCallBackMap.remove(entry.startTime)
+                        getSdHasVideoDaysEmitterMap.remove(entry.startTime)?.onNext(obj)
                     } else {
-                        emitter?.onNext(null)
+                        getSdHasVideoDaysCallBackMap.remove(entry.startTime)
+                        getSdHasVideoDaysEmitterMap.remove(entry.startTime)?.onNext(null)
                     }
                 }
 
                 override fun error(errorCode: Int?, errorMsg: String?, throwable: Throwable?) {
-                    emitter?.onNext(null)
+                    getSdHasVideoDaysCallBackMap.remove(entry.startTime)
+                    getSdHasVideoDaysEmitterMap.remove(entry.startTime)?.onNext(null)
                 }
             })
-
+            iAddxPlayer?.getSdHasVideoDays(entry, getSdHasVideoDaysCallBackMap.get(entry.startTime))
         })
     }
 
@@ -168,7 +196,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
             } else {
                 soundBtn?.visibility = View.VISIBLE
                 sdcardLayout.visibility = View.VISIBLE
-                fullScreenBtn?.visibility = View.VISIBLE
+                //fullScreenBtn?.visibility = View.VISIBLE
             }
         }
         updatePausePlayIcon()
@@ -186,7 +214,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
             } else {
                 soundBtn?.visibility = View.INVISIBLE
                 sdcardLayout.visibility = View.INVISIBLE
-                fullScreenBtn?.visibility = View.VISIBLE
+                //fullScreenBtn?.visibility = View.VISIBLE
             }
         }
         removeCallbacks(mFadeOut)
@@ -205,13 +233,13 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         if (mIsFullScreen) {
 
         } else {
-            fullScreenBtn?.visibility = View.VISIBLE
+            //fullScreenBtn?.visibility = View.VISIBLE
             soundBtn?.visibility = View.INVISIBLE
             sdcardLayout.visibility = View.INVISIBLE
         }
         loadingLayout?.visibility = View.INVISIBLE
         startBtn?.visibility = View.INVISIBLE
-        mListener?.toEnd()
+        mListener?.toError()
     }
 
     override fun setDefaultErrorInfo(){
@@ -224,7 +252,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         if (mIsFullScreen) {
             leftLayout?.visibility = View.INVISIBLE
         } else {
-            fullScreenBtn?.visibility = View.VISIBLE
+            //fullScreenBtn?.visibility = View.VISIBLE
             soundBtn?.visibility = View.INVISIBLE
             sdcardLayout.visibility = View.INVISIBLE
         }
@@ -241,7 +269,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         if (mIsFullScreen) {
             leftLayout?.visibility = View.INVISIBLE
         } else {
-            fullScreenBtn?.visibility = View.INVISIBLE
+            //fullScreenBtn?.visibility = View.INVISIBLE
             soundBtn?.visibility = View.INVISIBLE
             sdcardLayout.visibility = View.INVISIBLE
         }
@@ -250,13 +278,6 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
     }
 
     override fun onClickUnderlineErrorButton(tip: TextView?) {
-        if(resources.getString(R.string.reconnect).equals(tvUnderLineErrorBtn?.text)){
-            //todo
-//            reportLiveReconnectClickEvent()
-        }else{
-            //todo
-//            reportLiveClickEvent(PlayerErrorState.getErrorMsg(currentOpt))
-        }
         startBtn?.callOnClick()
     }
 
@@ -268,7 +289,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
             leftLayout?.visibility = View.INVISIBLE
         } else {
             soundBtn?.visibility = View.INVISIBLE
-            fullScreenBtn?.visibility = View.VISIBLE
+            //fullScreenBtn?.visibility = View.VISIBLE
             sdcardLayout.visibility = View.INVISIBLE
         }
         loadingLayout?.visibility = View.INVISIBLE
@@ -281,7 +302,7 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
 
 
     private fun updatePausePlayIcon() {
-        if (currentState != CURRENT_STATE_PLAYING) {
+        if (currentState != AddxBaseVideoView.CURRENT_STATE_PLAYING) {
             startBtn?.setImageResource(R.mipmap.live_no_full_play_default)
         } else {
             startBtn?.setImageResource(R.mipmap.live_no_full_pause_default)
@@ -292,8 +313,8 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         post{
             val playingTimeMs = playingTime * 1000L
             if (playingTime == 0L) {
-                stopPlay()
                 mListener?.toEnd()
+                stopPlay()
                 return@post
             }
             syncStartTime = true
@@ -306,17 +327,9 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
 
     override fun onDevInitiativeSendMsg(player: IVideoPlayer?, type: Int) {
         if(type == 1){
-            mListener?.toEnd()
+            mListener?.toNoHasSdcard()
         }
     }
-
-    override fun onRotateAction(player: IVideoPlayer?, limit: Int) {
-
-    }
-
-//    override fun onRotateAction(p0: IVideoPlayer?, p1: Int) {
-//
-//    }
 
     private fun printTime(tag: String, playingTimeMs: Long) {
         val simpleDateFormat = SimpleDateFormat("yyyy:MM:dd,HH:mm:ss", Locale.getDefault())
@@ -324,9 +337,9 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
         LogUtils.d(tag, time)
     }
 
-    override fun startFullScreen() {
+    override fun startFullScreen(isReverse: Boolean) {
         stopRecordVideo("fullscreen")
-        super.startFullScreen()
+        super.startFullScreen(isReverse)
     }
     override fun backToNormal() {
         super.backToNormal()
@@ -335,19 +348,30 @@ open class kotlinDemoSdcardVideoView : DemoBaseVideoView, IAddxSdcardView {
     }
     override fun onError(player: IVideoPlayer, what: Int, extra: Int) {
         super.onError(player, what, extra)
-        if(what == PlayerErrorState.WHOLE_P2P_CONNECT_TIMTOUT || what == PlayerErrorState.ERROR_CONNECT_EXCEPTION || what == PlayerErrorState.ERROR_DEVICE_MAX_CONNECT_LIMIT || what == PlayerErrorState.ERROR_DEVICE_NO_ACCESS){
+        LogUtils.e(TAG,"AddxWebRtc--player---callBackOnErrorToViewIfActive---error--sd-----sn:${dataSourceBean!!.serialNumber}---what:$what")
+        if(what == PlayerErrorState.WHOLE_P2P_CONNECT_TIMTOUT || what == PlayerErrorState.ERROR_PHONE_NO_INTERNET || what == PlayerErrorState.ERROR_CONNECT_EXCEPTION || what == PlayerErrorState.ERROR_DEVICE_MAX_CONNECT_LIMIT || what == PlayerErrorState.ERROR_DEVICE_NO_ACCESS){
             post {
                 mVideoCallBack?.onError(what)
             }
         }
     }
-    fun setListener(){
-        iAddxPlayer?.setListener(this)
-    }
+//    fun setListener(){
+//        iAddxPlayer?.setListener(this)
+//    }
 
     fun delayReleaseDevice(){
         if(iAddxPlayer is AddxVideoWebRtcPlayer){
             (iAddxPlayer as AddxVideoWebRtcPlayer).delayReleaseDevice(true)
         }
+    }
+    override fun getNewLiveInterruptWhenLoaddingReportData(): ReporLiveInterruptEntry? {
+        return ReporLiveInterruptEntry()
+    }
+
+    override fun getNewLiveReportData(
+        isSeccess: Boolean,
+        entry: ReporLiveCommonEntry?
+    ): ReporLiveCommonEntry? {
+        return ReporLiveCommonEntry()
     }
 }

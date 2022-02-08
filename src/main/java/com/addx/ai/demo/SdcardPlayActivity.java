@@ -3,11 +3,12 @@ package com.addx.ai.demo;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.addx.ai.demo.videoview.kotlinDemoSdcardVideoView;
 import com.addx.common.Const;
 import com.addx.common.utils.LogUtils;
@@ -21,13 +22,14 @@ import com.ai.addxbase.mvvm.BaseActivity;
 import com.ai.addxbase.util.TimeUtils;
 import com.ai.addxbase.util.ToastUtils;
 import com.ai.addxnet.HttpSubscriber;
-import com.ai.addxvideo.addxvideoplay.IAddxView;
 import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
@@ -56,43 +58,63 @@ public class SdcardPlayActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        listDeviceInfo();
-    }
-
-    void listDeviceInfo() {
-        DeviceClicent.getInstance().queryDeviceListAsync(new IDeviceClient.ResultListener<List<DeviceBean>>() {
+        LogUtils.d("dd","SdcardPlayActivity---initView");
+        deviceBean = (DeviceBean) getIntent().getSerializableExtra("sn");
+        initPlayer();
+        updateData();
+        findViewById(R.id.updateBtn).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResult(@NotNull IDeviceClient.ResponseMessage responseMessage, @Nullable List<DeviceBean> result) {
-                if (responseMessage.getResponseCode()<0) {
-                    ToastUtils.showShort("response error code = " + responseMessage.getResponseCode());
-                    return;
-                }
-                if (result==null||result.isEmpty()){
-                    ToastUtils.showShort("no device");
-                    return;
-                }else {
-                }
-
-                for (DeviceBean bean :result) {
-                    deviceBean = bean;
-                    runOnUiThread(new Runnable(){
-                        @Override
-                        public void run() {
-                            initPlayer();
-                            updateData();
-                        }
-                    });
-                    break;
-                }
+            public void onClick(View v) {
+                updateData();
             }
         });
     }
+
+//    void getDeviceInfo(){
+//        DeviceClicent.getInstance().queryDeviceInfo(getIntent().getStringExtra("sn"), new IDeviceClient.ResultListener<DeviceBean>() {
+//            @Override
+//            public void onResult(@NotNull IDeviceClient.ResponseMessage responseMessage, @Nullable DeviceBean result) {
+//                deviceBean = result;
+//                if(deviceBean != null){
+//                    initPlayer();
+//                    updateData();
+//                }
+//            }
+//        });
+//    }
+//    void listDeviceInfo() {
+//        DeviceClicent.getInstance().queryDeviceListAsync(new IDeviceClient.ResultListener<List<DeviceBean>>() {
+//            @Override
+//            public void onResult(@NotNull IDeviceClient.ResponseMessage responseMessage, @Nullable List<DeviceBean> result) {
+//                if (responseMessage.getResponseCode()<0) {
+//                    ToastUtils.showShort("response error code = " + responseMessage.getResponseCode());
+//                    return;
+//                }
+//                if (result==null||result.isEmpty()){
+//                    ToastUtils.showShort("no device");
+//                    return;
+//                }else {
+//                }
+//
+//                for (DeviceBean bean :result) {
+//                    deviceBean = bean;
+//                    runOnUiThread(new Runnable(){
+//                        @Override
+//                        public void run() {
+//                            initPlayer();
+//                            updateData();
+//                        }
+//                    });
+//                    break;
+//                }
+//            }
+//        });
+//    }
 
     private void initPlayer() {
         mIAddxSdcardView = findViewById(R.id.playback_live_player);
 
         LogUtils.w("initPlayer", "initPlayer-------deviceBean---" + (deviceBean == null));
-        mIAddxSdcardView.setListener();
         mIAddxSdcardView.init(this, deviceBean, new SimpleAddxViewCallBack() {
 
             @Override
@@ -135,7 +157,12 @@ public class SdcardPlayActivity extends BaseActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                LogUtils.d("dd","videoitem---listview-");
+                LogUtils.d("dd","showList---------dataMap.size:"+dataMap.size());
+                if(dataMap.isEmpty()){
+                    mIAddxSdcardView.setVisibility(View.INVISIBLE);
+                }else{
+                    mIAddxSdcardView.setVisibility(View.VISIBLE);
+                }
                 findViewById(R.id.ll_normal_page).setVisibility(View.VISIBLE);
                 findViewById(R.id.sdloadding).setVisibility(View.GONE);
                 listview = findViewById(R.id.list);
@@ -185,7 +212,7 @@ public class SdcardPlayActivity extends BaseActivity {
         public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
             Long begin= dataMap.get(keys[i]).getStartTime();
             Long end= dataMap.get(keys[i]).getEndTime();
-            viewHolder.videoitem.setText(TimeUtils.millis2String(begin * 1000));
+            viewHolder.videoitem.setText(TimeUtils.millis2String(begin));
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -203,31 +230,37 @@ public class SdcardPlayActivity extends BaseActivity {
 
     public void updateData() {
         LogUtils.w("initPlayer", "initPlayer-------deviceBean---");
-
+        String dateSpan = ((TextView)findViewById(R.id.datespan)).getText().toString();
         SdcardPlaybackEntry entry = new SdcardPlaybackEntry(deviceBean.getSerialNumber());
+        long timeMilli = TimeUtils.string2Millis(dateSpan, new SimpleDateFormat("yyyyMMdd"));
+        LogUtils.w("initPlayer", "initPlayer-------dateSpan:%s--timeMilli:%s",dateSpan,timeMilli);
         Calendar instance = Calendar.getInstance();
-        long startTime = (instance.getTimeInMillis() - TimeUnit.DAYS.toMillis(2)) / 1000;
+        instance.setTimeInMillis(timeMilli);
+        long startTime = instance.getTimeInMillis();
         entry.setStartTime(startTime);
 
-        long endTime = Calendar.getInstance().getTimeInMillis() / 1000;
+        long endTime = (instance.getTimeInMillis() + TimeUnit.DAYS.toMillis(1));
         entry.setEndTime(endTime);
         LogUtils.e(TAG, "to---retrieveLocalVideo------");
         retrieveLocalVideo(entry).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new HttpSubscriber<SdcardPlaybackResponse>() {
                     @Override
                     public void doOnNext(SdcardPlaybackResponse sdcardPlaybackResponse) {
-                        LogUtils.d("t","retrieveLocalVideo-----doOnNext");
 
+                        dataMap.clear();
+                        earliestVideoSlice = null;
                         int result = sdcardPlaybackResponse.getResult();
+                        LogUtils.d("t","retrieveLocalVideo-----doOnNext---result:"+result);
                         if (result < Const.ResponseCode.CODE_OK) {
                             if (result == -30000) {
                                 ToastUtils.showShort(R.string.SDcard_video_viewers_limit);
                                 finish();
                                 return;
+                            }else if(result == -20000){
+                                ToastUtils.showShort("nodata");
                             }
                             LogUtils.d("getSdHasVideoDayResponseError", "code=" + result + ",message=" + sdcardPlaybackResponse.getMsg());
                         } else {
-                            dataMap.clear();
                             List<VideoSliceBean> list = sdcardPlaybackResponse.getData().getVideoSlices();
                             //   list.clear();
                             earliestVideoSlice = sdcardPlaybackResponse.getData().getEarliestVideoSlice();
@@ -243,8 +276,12 @@ public class SdcardPlayActivity extends BaseActivity {
                                     dataMap.put(bean.getStartTime(), bean);
                                 }
                             }
-                            showList();
+                            if(dataMap != null && dataMap.isEmpty()){
+                                ToastUtils.showShort("nodata");
+                            }
                         }
+                        LogUtils.d("t","retrieveLocalVideo-----doOnNext---dataMap.size:"+dataMap.size());
+                        showList();
                     }
 
                     @Override
@@ -255,6 +292,8 @@ public class SdcardPlayActivity extends BaseActivity {
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
+                        dataMap.clear();
+                        earliestVideoSlice = null;
                         LogUtils.d("t","retrieveLocalVideo-----onError");
 
                     }
@@ -275,6 +314,11 @@ public class SdcardPlayActivity extends BaseActivity {
                 });
 
 
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mIAddxSdcardView.stopPlay();
     }
 
 }

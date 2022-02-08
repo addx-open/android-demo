@@ -20,4 +20,9 @@
     <string name="login_sccessful_sdk">login successful</string>
     <string name="no_data">No data</string>
     <string name="demo_query_shared_list">query camera sharing requests</string>
+    <string name="sdcardvideo">sdcard playback</string>
+    <string name="already_login">Already Login</string>
+    <string name="change_theme">Change Theme</string>
+    <string name="no_sdcard_or_not_support">SD not exist or not support SD Card</string>
+    <string name="only_support_one">Only support select one item</string>
 </resources>

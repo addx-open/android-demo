@@ -1,5 +1,6 @@
 package com.addx.ai.demo.videoview
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
@@ -49,13 +50,17 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 import com.addx.ai.demo.R
+import com.addx.common.steps.PageStep
+import com.ai.addxbase.permission.PermissionPageStep
+import com.ai.addxbase.util.AppUtils
+import com.ai.addxvideo.track.other.TrackManager
 
-open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerStateListener, View.OnClickListener, View.OnTouchListener  {
+open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerStateListener, OnClickListener, View.OnTouchListener  {
 
     private var mOldOpt: Int = 0
     private var mOldState: Int = 0
     public var currentOpt: Int = 0
-    val TAG = "AddxBaseVideoView" + hashCode()
+    val TAG = "DemoBaseVideoView" + hashCode()
     open var iAddxPlayer: IVideoPlayer? = null
     var dataSourceBean: DeviceBean? = null
     var mNetWorkDialog: CommonCornerDialog? = null
@@ -69,10 +74,12 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     var mVideoCallBack: IAddxViewCallback? = null
     open val DEFAULT_SHOW_TIME = 3500L
     open var mVideoRatio: Ratio = Ratio.P720
+    open var mDeviceRatioList: ArrayList<String> = ArrayList()
     val mFadeOut = Runnable {
         hide()
     }
     var liveStartTime = 0L
+    open var eventPlayerName = TrackManager.PlayerName.HOME_PLAYER
     protected var videoSavePath: String? = null
 
     @Volatile
@@ -84,7 +91,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     var isChanggingRatio: Boolean = false
 
     //most common views
-    var defaultThumbRid: Int? = R.mipmap.live_default_cover
+    var defaultThumbRid: Int? = com.ai.addxvideo.R.mipmap.live_default_cover
     var soundBtn: ImageView? = null
     var fullScreenBtn: View? = null
     open var startBtn: ImageView? = null
@@ -109,6 +116,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     var animShotView: LinearLayout? = null
     var recordIcon: ImageView? = null
     var recordTimeText: TextView? = null
+    var normalSoundBtn: ImageView? = null
 
     @Volatile
     var isSavingRecording: Boolean = false
@@ -126,7 +134,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     var downloadStringBuilder:StringBuilder=StringBuilder()
     var START_SHOW_SPAN: Long = 3000
     var mBitmap: Bitmap? = null
-    var mStopType: String = "endButton"
+    var mStopType: String = ""
     var mShowRecordShotToast: Boolean = false
     //    var mUploadlog: ImageView? = null
     var mIsNeedUploadFailLog: Boolean = false
@@ -148,12 +156,8 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             if(sn == null){
                 return null
             }
-            var localThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastLocalFreshTime(
-                sn
-            )/1000
-            var serverThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastServerFreshTime(
-                sn
-            )
+            var localThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastLocalFreshTime(sn)/1000
+            var serverThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastServerFreshTime(sn)
             var imgPath:String? = null
             if(serverThumbTime > localThumbTime){
                 imgPath = DownloadUtil.getThumbImgDir(context) + MD5Util.md5(sn)+".jpg"
@@ -169,7 +173,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             return null
         }
         @JvmStatic
-        var mIsGetNewThumbTime: Long = 0
+        var mIsClickedNoNeedOtaUpdateMap: HashMap<String, Boolean> = HashMap()
     }
 
     constructor(context: Context) : super(context) {
@@ -180,17 +184,16 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         getDeclaredAttrs(context, attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         getDeclaredAttrs(context, attrs)
     }
 
     protected open fun getDeclaredAttrs(context: Context, attrs: AttributeSet?) {
         // do some init things
     }
+
+    open fun parseRatio(){}
+
 
     open fun init(context: Context?, bean: DeviceBean, iAddxViewCallback: IAddxViewCallback) {
         if (bean == null) {
@@ -203,6 +206,8 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 //        setBackgroundColor(Color.BLACK)
         setOnClickListener(this)
         mute = AddxAudioSet.getMuteState(dataSourceBean?.serialNumber)
+        parseRatio()
+        updateThumbImageSource()
         reloadLayout(context)
         setDeviceState(false, false)
         mVideoCallBack = iAddxViewCallback
@@ -210,19 +215,13 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 
     //状态处理
     override fun onPrepared(player: IVideoPlayer) {
-        LogUtils.w(
-            TAG,
-            "---------AddxBaseVideoView-------onPrepared-------sn:${dataSourceBean!!.serialNumber}"
-        )
-        playTimeRecordSpan= SystemClock.elapsedRealtime()-liveStartTime
+        LogUtils.w(TAG, "---------DemoBaseVideoView-------onPrepared-------sn:${dataSourceBean!!.serialNumber}")
+        playTimeRecordSpan=SystemClock.elapsedRealtime()-liveStartTime
         mShowStartTimeSpan = System.currentTimeMillis()
         //暂时通过延时1s，解决串屏问题
         postDelayed({
-            if (iAddxPlayer != null && iAddxPlayer?.isPlaying()!!) {
-                updateStateAndUI(
-                    CURRENT_STATE_PLAYING,
-                    if (currentOpt == PlayerErrorState.ERROR_DEVICE_NEED_OTA) PlayerErrorState.ERROR_DEVICE_NEED_OTA else 0
-                )
+            if(iAddxPlayer != null && iAddxPlayer?.isPlaying()!!){
+                updateStateAndUI(CURRENT_STATE_PLAYING, 0)
                 iAddxPlayer?.muteVoice(mute, true)
                 if (mVideoCallBack != null) {
                     mVideoCallBack!!.onStartPlay()
@@ -232,10 +231,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     override fun onPreparing(player: IVideoPlayer) {
-        LogUtils.w(
-            TAG,
-            "AddxBaseVideoView---------------AddxBaseVideoView-------onPreparing----sn:${dataSourceBean?.serialNumber}"
-        )
+        LogUtils.w(TAG, "DemoBaseVideoView---------------DemoBaseVideoView-------onPreparing----sn:${dataSourceBean?.serialNumber}")
         post {
             updateStateAndUI(CURRENT_STATE_PREPAREING, currentOpt)
         }
@@ -247,10 +243,8 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     override fun onError(player: IVideoPlayer, what: Int, extra: Int) {
-        LogUtils.w(
-            TAG,
-            "AddxBaseVideoView--------------AddxBaseVideoView--------onError-------sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.e(TAG,"AddxWebRtc--player---callBackOnErrorToViewIfActive---error--baseview----")
+        LogUtils.w(TAG, "DemoBaseVideoView--------------DemoBaseVideoView--------onError-------sn:${dataSourceBean!!.serialNumber}")
         playTimeRecordSpan = 0
         post {
             stopRecordVideo("error")
@@ -263,10 +257,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     override fun onVideoPause(player: IVideoPlayer) {
-        LogUtils.w(
-            TAG,
-            dataSourceBean?.serialNumber + "---------AddxBaseVideoView-------onVideoPause-------sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.w(TAG, dataSourceBean?.serialNumber + "---------DemoBaseVideoView-------onVideoPause-------sn:${dataSourceBean!!.serialNumber}")
         post {
             activityContext.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             updateStateAndUI(CURRENT_STATE_PAUSE, currentOpt)
@@ -282,7 +273,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             if (downloadStringBuilder.isNotEmpty()) {
                 downloadStringBuilder.append(",")
             }
-            downloadStringBuilder.append(bytes / 1024)
+            downloadStringBuilder.append(bytes/1024)
             downloadStringBuilder.append("K/s")
         }
 
@@ -321,15 +312,23 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     override fun startPlay() {
-        LogUtils.w(
-            TAG,
-            "AddxBaseVideoView---------------startPlay--------------sn:${dataSourceBean!!.serialNumber}"
-        )
-        if (dataSourceBean == null) {
-            throw NullPointerException("$TAG---startPlay----sn is null")
+        LogUtils.w(TAG, "DemoBaseVideoView---------------startPlay--------------sn:${dataSourceBean!!.serialNumber}")
+        if (dataSourceBean?.needForceOta()!!) {
+            onError(iAddxPlayer!!, PlayerErrorState.ERROR_DEVICE_NEED_OTA, 0)
+            LogUtils.df(TAG, "DemoBaseVideoView---------------startPlay-----fail-----needForceOta")
+            return
         }
+        mIsNeedUploadFailLog = true
 
-        startPlayInternal()
+        checkPermissionsDialog(object: PageStep.StepResultCallback{
+            override fun onStepResult(step: PageStep, result: PageStep.PageStepResult) {
+                if (result != PageStep.PageStepResult.Failed) {
+                    startPlayInternal()
+                } else{
+                    LogUtils.df(TAG, "DemoBaseVideoView---------------startPlay-----fail-----noPermissions")
+                }
+            }
+        })
     }
 
     internal open fun resetRatioInfoForG0() {
@@ -353,42 +352,20 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         if(iAddxPlayer == null){
             iAddxPlayer = AddxPlayerManager.getInstance().getPlayer(dataSourceBean)
         }
-        LogUtils.w(
-            TAG,
-            "AddxBaseVideoView---------------startPlayInternal------iAddxPlayer is null:${iAddxPlayer == null}-----sn:${dataSourceBean?.serialNumber}"
-        )
+        LogUtils.w(TAG, "DemoBaseVideoView---------------startPlayInternal------iAddxPlayer is null:${iAddxPlayer == null}-----sn:${dataSourceBean?.serialNumber}")
         iAddxPlayer?.setDataSource(dataSourceBean)
         iAddxPlayer?.setDisplay(renderView)
-        if(renderView is CustomSurfaceViewRenderer){
-            (renderView as CustomSurfaceViewRenderer).setDisableCropFrame(mIsFullScreen)
-        }
+        iAddxPlayer?.setFullScreen(mIsFullScreen)
         iAddxPlayer?.setListener(this)
         iAddxPlayer?.startLive()
     }
 
     override fun stopPlay() {
-        LogUtils.d(TAG, "AddxBaseVideoView------stopPlay------sn:${dataSourceBean!!.serialNumber}")
+        LogUtils.d(TAG, "DemoBaseVideoView------stopPlay------sn:${dataSourceBean!!.serialNumber}")
         AddxAudioSet.restoreMisic()
 //        iAddxPlayer?.playerStatInfo?.misretryconnect = false
         removeCallbacks(mFadeOut)
         mShowing = false
-        // 由于截图需要时间，我们需要先操作UI暂停，然后再截图完成后再操作player暂停
-        if(currentState == CURRENT_STATE_PLAYING){
-            iAddxPlayer?.saveShot { frame ->
-                if (frame != null) {
-                    mLocalThumbTime = TimeUtils.getUTCTime()
-                    VideoSharePreManager.getInstance(A4xContext.getInstance().getmContext()).setThumbImgLocalLastFresh(
-                        dataSourceBean!!.serialNumber,
-                        TimeUtils.getUTCTime()
-                    )
-                    LocalDrawableUtills.instance.putLocalCoverBitmap(
-                        dataSourceBean!!.serialNumber.plus(
-                            thumbSaveKeySuffix
-                        ), frame
-                    )
-                }
-            }
-        }
         iAddxPlayer?.stop()
         startBtn?.visibility = View.VISIBLE
         removeCallbacks(startBtnAction)
@@ -399,53 +376,29 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 //        if (deviceBean == null) {
 //            throw NullPointerException("$TAG---setDeviceBean----sn is null")
 //        }
-//        LogUtils.w(TAG, "setDeviceBean-------" + deviceBean.serialNumber)
+//        LogUtils.w(TAG, "DemoBaseVideoView------setDeviceBean----------sn:${deviceBean!!.serialNumber}")
 //        this.dataSourceBean = deviceBean
-//        iAddxPlayer = AddxPlayerManager.getInstance().getPlayer(AddxContext.getInstance().getmContext(), deviceBean)
+//        iAddxPlayer = AddxPlayerManager.getInstance().getPlayer(deviceBean)
 //        iAddxPlayer?.setDataSource(deviceBean)
 //    }
 
     fun setDeviceState(isAutoPlay: Boolean, isTimeout: Boolean) {
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------setDeviceState init server device state---:${dataSourceBean!!.needForceOta()}---needOta:${dataSourceBean!!.needOta()}-----sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.d(TAG, "DemoBaseVideoView------setDeviceState init server device state---:${dataSourceBean!!.needForceOta()}---needOta:${dataSourceBean!!.needOta()}-----sn:${dataSourceBean!!.serialNumber}")
         //检查设备
         when {
-            dataSourceBean!!.isFirmwareUpdateing -> updateStateAndUI(
-                CURRENT_STATE_ERROR,
-                PlayerErrorState.ERROR_DEVICE_IS_OTA_ING
-            )
-            dataSourceBean!!.needOta() -> {//需要OTA
-                if(isTimeout){
-                    updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_PLAYER_TIMEOUT)
-                }else{
-                    updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_NEED_OTA)
-                }
+            dataSourceBean!!.isShutDownLowPower -> updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_SHUTDOWN_LOW_POWER)
+            dataSourceBean!!.isShutDownPressKey -> updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_SHUTDOWN_PRESS_KEY)
+            dataSourceBean!!.isDeviceOffline -> updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_OFFLINE)
+            dataSourceBean!!.isDeviceSleep -> updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_SLEEP)
+            dataSourceBean!!.isFirmwareUpdateing -> updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_IS_OTA_ING)
+            dataSourceBean!!.needOta() && isTimeout -> updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_PLAYER_TIMEOUT)
+            dataSourceBean!!.needOta() && (mIsClickedNoNeedOtaUpdateMap.get(dataSourceBean?.serialNumber) == null || !mIsClickedNoNeedOtaUpdateMap.get(dataSourceBean?.serialNumber)!!)-> {//需要OTA
+                updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_NEED_OTA)
             }
             dataSourceBean!!.needForceOta() -> {//需要强制OTA
                 updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_DEVICE_NEED_OTA)
             }
-            dataSourceBean!!.isShutDownLowPower -> updateStateAndUI(
-                CURRENT_STATE_ERROR,
-                PlayerErrorState.ERROR_DEVICE_SHUTDOWN_LOW_POWER
-            )
-            dataSourceBean!!.isShutDownPressKey -> updateStateAndUI(
-                CURRENT_STATE_ERROR,
-                PlayerErrorState.ERROR_DEVICE_SHUTDOWN_PRESS_KEY
-            )
-            dataSourceBean!!.isDeviceOffline -> updateStateAndUI(
-                CURRENT_STATE_ERROR,
-                PlayerErrorState.ERROR_DEVICE_OFFLINE
-            )
-            dataSourceBean!!.isDeviceSleep -> updateStateAndUI(
-                CURRENT_STATE_ERROR,
-                PlayerErrorState.ERROR_DEVICE_SLEEP
-            )
-            isTimeout -> updateStateAndUI(
-                CURRENT_STATE_ERROR,
-                PlayerErrorState.ERROR_PLAYER_TIMEOUT
-            )
+            isTimeout -> updateStateAndUI(CURRENT_STATE_ERROR, PlayerErrorState.ERROR_PLAYER_TIMEOUT)
             else -> {
                 updateStateAndUI(CURRENT_STATE_NORMAL, currentOpt)
                 if(isAutoPlay){
@@ -455,6 +408,15 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         }
     }
 
+//    override fun copyStatus(player: IAddxView) {
+////        player.sn = sn
+////        //   newplayer.isMicOpen = isMicOpen
+////        if (currentState == CURRENT_STATE_PLAYING) {
+////            player.startPlay()
+////        }
+//        //其它状态恢复
+//    }
+//
 //    override fun setUiSplit(split: Boolean) {
 //
 //    }
@@ -478,101 +440,104 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     fun setMuteState(mute: Boolean) {
         this.mute = mute
         iAddxPlayer?.muteVoice(mute, true)
-        //todo
-//        reportEnableMicEvent(mute)
         saveMuteState(mute)
         updateSoundIcon(mute)
     }
 
-    fun setMuteState() {
-        setMuteState(!mute)
-    }
     //
     protected abstract fun fullLayoutId(): Int
 
     protected abstract fun normalLayoutId(): Int
+
+    private fun checkPermissionsDialog(callback: PageStep.StepResultCallback)
+    {
+        PermissionPageStep(activityContext)
+            .setRequestedPermissions(
+                arrayOf(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                )
+            )
+            .setRationaleMessage(com.ai.addxvideo.R.string.if_storage_not_access, AppUtils.getAppName())
+            .setSettingsMessage(com.ai.addxvideo.R.string.if_storage_not_access, AppUtils.getAppName())
+            .setTitleMessage("")
+            .setGuideDescVisible(false)
+            .setShowGuideImageBg(false)
+            .setSharePrefsUtils(SharePrefsUtils(activityContext, PermissionPageStep.SHAREPRE_NAME))
+            .setmNxp()
+            .execute(callback)
+    }
+
     override fun onClick(v: View?) {
         LogUtils.d(TAG, "onClick-------" + dataSourceBean!!.serialNumber)
-        if (mVideoCallBack != null) {
-            if (onViewClick(v)) return
-        }
-
-        LogUtils.w(TAG, "onClick----mVideoCallBack == null---")
 
         when (v?.id) {
-            R.id.start -> {
-                LogUtils.d(
-                    TAG,
-                    "AddxBaseVideoView------onClick------start------sn:${dataSourceBean!!.serialNumber}"
-                )
+            com.ai.addxvideo.R.id.start -> {
+                LogUtils.d(TAG, "DemoBaseVideoView------onClick------start------sn:${dataSourceBean!!.serialNumber}")
+                var isToPlay = mVideoCallBack?.onClickStart(v, dataSourceBean!!)
                 if (isPlaying()) {
                     mStopType = "endButton"
+                    // 由于截图需要时间，我们需要先操作UI暂停，然后再截图完成后再操作player暂停
+                    if(currentState == CURRENT_STATE_PLAYING){
+                        LogUtils.d(TAG, "DemoBaseVideoView------LocalDrawableUtills----stopPlay------saveShot----sn:${dataSourceBean!!.serialNumber}")
+                        iAddxPlayer?.saveShot { frame ->
+                            if (frame != null) {
+                                mLocalThumbTime = TimeUtils.getUTCTime()
+                                SharePreManager.getInstance(context).setThumbImgLocalLastFresh(dataSourceBean!!.serialNumber, TimeUtils.getUTCTime())
+                                LocalDrawableUtills.instance.putLocalCoverBitmap(dataSourceBean!!.serialNumber.plus(thumbSaveKeySuffix), frame)
+                                mBitmap = frame
+                                post{
+                                    setThumbImageByPlayState()
+                                }
+                            }
+                        }
+                    }
                     stopPlay()
                 } else {
-                    createRecordClick("start_btn_clickid_")
-                    showNetWorkToast()
-                    startPlay()
-                    //todo
-//                    reportLiveClickEvent("normal")
+                    if(isToPlay == true){
+//                      LogUtils.df(TAG, "permission state result != PageStep.PageStepResult.Failed)----skip:"+(result == PageStep.PageStepResult.Skipped))
+                        createRecordClick("start_btn_clickid_")
+                        showNetWorkToast()
+                        startPlay()
+                    }
                 }
             }
-            R.id.back -> {
-                LogUtils.d(
-                    TAG,
-                    "AddxBaseVideoView------onClick------back---sn:" + dataSourceBean!!.serialNumber
-                )
-                backToNormal()
+            com.ai.addxvideo.R.id.back -> {
+                LogUtils.d(TAG, "DemoBaseVideoView------onClick------back---sn:" + dataSourceBean!!.serialNumber)
+                mVideoCallBack?.onBackPressed()
+//                backToNormal()
             }
-            R.id.fullscreen -> {
+            com.ai.addxvideo.R.id.fullscreen -> {
+                mVideoCallBack?.onClickFullScreen(v, dataSourceBean!!)
                 createRecordClick("fullscreen_btn_clickid_")
-                LogUtils.d(
-                    TAG,
-                    "AddxBaseVideoView------onClick------fullscreen---sn:" + dataSourceBean!!.serialNumber
-                )
-                if (currentState != CURRENT_STATE_ERROR) {
-                    startFullScreen()
+                LogUtils.d(TAG, "DemoBaseVideoView------onClick------fullscreen---sn:" + dataSourceBean!!.serialNumber)
+                if(currentState != CURRENT_STATE_ERROR){
+                    startFullScreen(false)
                 }
             }
-            R.id.iv_sound -> {
-                LogUtils.d(
-                    TAG,
-                    "AddxBaseVideoView------onClick------iv_sound---sn:" + dataSourceBean!!.serialNumber
-                )
+            com.ai.addxvideo.R.id.iv_sound -> {
+                LogUtils.d(TAG, "DemoBaseVideoView------onClick------iv_sound---sn:" + dataSourceBean!!.serialNumber)
                 setMuteState(!mute)
             }
-            R.id.iv_record -> {
-                LogUtils.d(
-                    TAG,
-                    "AddxBaseVideoView------onClick------currentState $currentState isRecording $isRecording----iv_record---sn:" + dataSourceBean!!.serialNumber
-                )
+            com.ai.addxvideo.R.id.iv_record -> {
+                LogUtils.e(TAG, "DemoBaseVideoView------currentState $currentState isRecording $isRecording---sn:${dataSourceBean!!.serialNumber}")
                 if (currentState == CURRENT_STATE_PLAYING) {
                     if (!isRecording) {
                         availableSdcardSize = SDCardUtils.getAvailableSdcardSize(SizeUnit.MB)
                         val sdfVideo = SimpleDateFormat("yyyyMMddhhmmss", Locale.getDefault())
-                        videoSavePath =
-                            DirManager.getInstance().getRecordVideoPath() + sdfVideo.format(
-                                Date()
-                            ) + ".mp4"
+                        videoSavePath = DirManager.getInstance().getRecordVideoPath() + sdfVideo.format(Date()) + ".mp4"
                         //startRecord(videoSavePath)
-                        iAddxPlayer!!.startRecording(
-                            videoSavePath!!,
-                            object : MP4VideoFileRenderer.VideoRecordCallback {
-                                override fun completed() {
-                                    LogUtils.e(
-                                        TAG,
-                                        "AddxBaseVideoView------startRecording-------------- completed---sn:${dataSourceBean!!.serialNumber}"
-                                    )
-                                }
+                        iAddxPlayer!!.startRecording(videoSavePath!!, object : MP4VideoFileRenderer.VideoRecordCallback {
+                            override fun completed() {
+                                LogUtils.e(TAG, "DemoBaseVideoView------startRecording-------------- completed---sn:${dataSourceBean!!.serialNumber}")
+                            }
 
-                                override fun error() {
-                                    LogUtils.e(
-                                        TAG,
-                                        "AddxBaseVideoView------startRecording-------------- error---sn:${dataSourceBean!!.serialNumber}"
-                                    )
-                                }
-                            })
+                            override fun error() {
+                                LogUtils.e(TAG, "DemoBaseVideoView------startRecording-------------- error---sn:${dataSourceBean!!.serialNumber}")
+                            }
+                        })
                         startRecordCountTask()
-                        recordIcon?.setImageResource(R.mipmap.video_recording)
+                        recordIcon?.setImageResource(com.ai.addxvideo.R.mipmap.video_recording)
                         recordTimeText?.visibility = View.VISIBLE
                         isRecording = true
                         hide()
@@ -583,61 +548,42 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                         iAddxPlayer?.saveShot { frame ->
                             if (frame != null) {
                                 renderView?.post {
-                                    startBitmapAnim(
-                                        frame,
-                                        resources.getDimension(R.dimen.dp_180).toInt()
-                                    )
+                                    startBitmapAnim(frame, resources.getDimension(com.ai.addxvideo.R.dimen.dp_180).toInt())
                                 }
                             }
                         }
                     }
 
                 } else {
-                    ToastUtils.showShort(R.string.live_not_start)
+                    ToastUtils.showShort(com.ai.addxvideo.R.string.live_not_start)
                 }
             }
-            R.id.iv_screen_shot -> {
-                LogUtils.d(
-                    TAG,
-                    "AddxBaseVideoView------onClick------iv_screen_shot---sn:" + dataSourceBean!!.serialNumber
-                )
+            com.ai.addxvideo.R.id.iv_screen_shot -> {
+                LogUtils.d(TAG, "DemoBaseVideoView------onClick------iv_screen_shot---sn:" + dataSourceBean!!.serialNumber)
                 if (!isRecording && recordIcon?.isEnabled!!) {
                     iAddxPlayer?.saveShot { frame ->
                         if (frame != null) {
                             try {
                                 renderView?.post {
-                                    startBitmapAnim(
-                                        frame,
-                                        resources.getDimension(R.dimen.dp_100).toInt()
-                                    )
+                                    startBitmapAnim(frame, resources.getDimension(com.ai.addxvideo.R.dimen.dp_100).toInt())
                                 }
                                 val sdf = SimpleDateFormat("yyyyMMddhhmmss", Locale.getDefault())
-                                val savePath =
-                                    PathUtils.getExternalDcimPath() + File.separator + A4xContext.getInstance()
-                                        .getmTenantId() + sdf.format(
-                                        Date()
-                                    ) + ".png"
+                                val savePath = PathUtils.getExternalDcimPath() + File.separator + A4xContext.getInstance().getmTenantId() + sdf.format(Date()) + ".png"
                                 BitmapUtils.saveBitmap(frame, savePath)
                                 FileUtils.syncImageToAlbum(context, savePath, Date().time)
-                                if (mShowRecordShotToast) {
-                                    ToastUtils.showShort(R.string.image_save_to_ablum)
+                                if(mShowRecordShotToast){
+                                    ToastUtils.showShort(com.ai.addxvideo.R.string.image_save_to_ablum)
                                 }
-                                //todo
-//                                reportScreenShotEvent(true, null)
                             } catch (e: FileNotFoundException) {
                                 e.printStackTrace();
-                                ToastUtils.showShort(R.string.shot_fail)
-                                //todo
-//                                reportScreenShotEvent(false, "shot frame=null")
+                                ToastUtils.showShort(com.ai.addxvideo.R.string.shot_fail)
                             }
                         } else {
-                            ToastUtils.showShort(R.string.shot_fail)
+                            ToastUtils.showShort(com.ai.addxvideo.R.string.shot_fail)
                         }
                     }
                 } else {
-                    ToastUtils.showShort(R.string.cannot_take_screenshot)
-                    //todo
-//                    reportScreenShotEvent(false, "recording can not shot")
+                    ToastUtils.showShort(com.ai.addxvideo.R.string.cannot_take_screenshot)
                 }
             }
         }
@@ -649,11 +595,9 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     fun showNetWorkToast(){
-        if (NetworkUtil.isMobileData(A4xContext.getInstance().getmContext()) && !NetworkUtils.isWifiConnected(
-                A4xContext.getInstance().getmContext()
-            ) && SharePreManager.getInstance(context).showNetworkDialog()) {
+        if (NetworkUtil.isMobileData(A4xContext.getInstance().getmContext()) && !NetworkUtils.isWifiConnected(A4xContext.getInstance().getmContext()) && SharePreManager.getInstance(context).showNetworkDialog()) {
             //showNetWorkDialog()
-            ToastUtils.showShort(R.string.pay_attention_data)
+            ToastUtils.showShort(com.ai.addxvideo.R.string.pay_attention_data)
             SharePreManager.getInstance(context).setShowNetworkDialog(false)
         }
     }
@@ -663,11 +607,11 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     open fun reloadErrorLayout() {
-        errorLayout = mAddxVideoContentView.findViewById(R.id.layout_error)
+        errorLayout = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.layout_error)
         errorLayout?.removeAllViews()
         errorLayout?.addView(getErrorView())
 //        errorLayout?.setOnClickListener {
-//            LogUtils.d(TAG, "AddxBaseVideoView------errorLayout?.setOnClickListener-------" + dataSourceBean!!.serialNumber)
+//            LogUtils.d(TAG, "DemoBaseVideoView------errorLayout?.setOnClickListener-------" + dataSourceBean!!.serialNumber)
 //            if(PlayerErrorState.ERROR_DEVICE_IS_OTA_ING != currentOpt){
 //                onClickUnderlineErrorButton(null)
 //            }
@@ -678,9 +622,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         if (!mIsFullScreen) {
             return
         }
-        val screenHeight = CommonUtil.getScreenHeight(context) + CommonUtil.getStatusBarHeight(
-            context
-        )
+        val screenHeight = CommonUtil.getScreenHeight(context) + CommonUtil.getStatusBarHeight(context)
         val screenWidth = CommonUtil.getScreenWidth(context)
         val height = screenWidth.coerceAtMost(screenHeight)
         val width = screenWidth.coerceAtLeast(screenHeight)
@@ -693,10 +635,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                 layoutParams.height = height
             }
         }
-        LogUtils.w(
-            TAG,
-            "AddxBaseVideoView------setFullscreenRatio ,${renderView?.layoutParams?.width} : ${renderView?.layoutParams?.height} ---sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.w(TAG, "DemoBaseVideoView------setFullscreenRatio ,${renderView?.layoutParams?.width} : ${renderView?.layoutParams?.height} ---sn:${dataSourceBean!!.serialNumber}")
     }
 
     val fullLayoutViewGroup by lazy { View.inflate(context, fullLayoutId(), null) }
@@ -709,20 +648,24 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         mAddxVideoContentView = if (mIsFullScreen) fullLayoutViewGroup else normalLayoutViewGroup
         addView(mAddxVideoContentView)
         reloadErrorLayout()
-        thumbImage = findViewById(R.id.thumbImage)
-        normalLayout = findViewById(R.id.normal_layout)
-        loadingLayout = mAddxVideoContentView.findViewById(R.id.loading)
-        fullScreenBtn = mAddxVideoContentView.findViewById(R.id.fullscreen)
+        thumbImage = findViewById(com.ai.addxvideo.R.id.thumbImage)
+        normalLayout = findViewById(com.ai.addxvideo.R.id.normal_layout)
+        loadingLayout = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.loading)
+        fullScreenBtn = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.fullscreen)
         fullScreenBtn?.setOnClickListener(this)
-        soundBtn = mAddxVideoContentView.findViewById(R.id.iv_sound)
-        soundBtn?.setOnClickListener(this)
-        startBtn = mAddxVideoContentView.findViewById(R.id.start)
+        if(mIsFullScreen){
+            soundBtn = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.iv_sound)
+            soundBtn?.setOnClickListener(this)
+        }else{
+            soundBtn = normalSoundBtn
+        }
+        startBtn = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.start)
         startBtn?.setOnClickListener(this)
-        tvDownloadSpeed = findViewById(R.id.tv_download_speed)
-        renderContainer = mAddxVideoContentView.findViewById(R.id.surface_container)
-        animShotView = mAddxVideoContentView.findViewById(R.id.screen_shot_anim)
-        recordIcon = mAddxVideoContentView.findViewById(R.id.iv_record)
-        recordTimeText = mAddxVideoContentView.findViewById(R.id.tv_record_time)
+        tvDownloadSpeed = findViewById(com.ai.addxvideo.R.id.tv_download_speed)
+        renderContainer = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.surface_container)
+        animShotView = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.screen_shot_anim)
+        recordIcon = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.iv_record)
+        recordTimeText = mAddxVideoContentView.findViewById(com.ai.addxvideo.R.id.tv_record_time)
 //        savingRecordLoading = contentView.findViewById(R.id.is_saving_record)
         if (mIsFullScreen) {
             renderView?.setZOrderOnTop(true)
@@ -738,28 +681,12 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                 CustomSurfaceViewRenderer(A4xContext.getInstance().getmContext())
             }
             renderView?.id = View.generateViewId()
-            LogUtils.w(
-                TAG,
-                "AddxBaseVideoView------onAddRenderView,${Integer.toHexString(renderView.hashCode())}---sn:${dataSourceBean!!.serialNumber}"
-            )
-            renderContainer?.addView(
-                renderView, LayoutParams(
-                    LayoutParams.MATCH_PARENT,
-                    LayoutParams.MATCH_PARENT
-                )
-            )
+            LogUtils.w(TAG, "DemoBaseVideoView------onAddRenderView,${Integer.toHexString(renderView.hashCode())}---sn:${dataSourceBean!!.serialNumber}")
+            renderContainer?.addView(renderView, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
             renderView?.setOnTouchListener(this)
         } else {
-            LogUtils.w(
-                TAG,
-                "AddxBaseVideoView------onAddRenderView,${Integer.toHexString(renderView.hashCode())}---sn:${dataSourceBean!!.serialNumber}"
-            )
-            renderContainer?.addView(
-                renderView, 0, LayoutParams(
-                    LayoutParams.MATCH_PARENT,
-                    LayoutParams.MATCH_PARENT
-                )
-            )
+            LogUtils.w(TAG, "DemoBaseVideoView------onAddRenderView,${Integer.toHexString(renderView.hashCode())}---sn:${dataSourceBean!!.serialNumber}")
+            renderContainer?.addView(renderView, 0, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
             setFullScreenRatio(renderView?.layoutParams!!)
         }
 
@@ -767,17 +694,14 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         updateStateAndUI(currentState, currentOpt)
         updateSoundIcon(mute)
         setThumbImageByPlayState(true)
-        if(mIsGetNewThumbTime <= System.currentTimeMillis() - 5 * 60 * 1000){
-            mIsGetNewThumbTime = System.currentTimeMillis()
-            refreshThumbImg()
-        }
+        refreshThumbImg()
     }
 
     internal open fun onInitOrReloadUi(context: Context?) {}
 
 
     open fun backToNormal() {
-        LogUtils.w(TAG, "AddxBaseVideoView------backToNormal---sn:${dataSourceBean!!.serialNumber}")
+        LogUtils.w(TAG, "DemoBaseVideoView------backToNormal---sn:${dataSourceBean!!.serialNumber}")
         isChanggingRatio = false
         CommonUtil.showNavKey(activityContext, mSystemUiVisibility)
         CommonUtil.showSupportActionBar(activityContext, true, true)
@@ -807,24 +731,23 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             show(DEFAULT_SHOW_TIME)
         }
         stopRecordVideo("back to normal ")
-        if(renderView is CustomSurfaceViewRenderer){
-            (renderView as CustomSurfaceViewRenderer).setDisableCropFrame(mIsFullScreen)
-        }
+        iAddxPlayer?.setFullScreen(mIsFullScreen)
         onFullScreenStateChange(false)
     }
 
-    open fun startFullScreen() {
-        LogUtils.w(
-            TAG,
-            "AddxBaseVideoView------startFullScreen---sn:${dataSourceBean!!.serialNumber}"
-        )
+    open fun startFullScreen(isReverse: Boolean) {
+        LogUtils.w(TAG, "DemoBaseVideoView------startFullScreen---sn:${dataSourceBean!!.serialNumber}")
         mIsFullScreen = true
         mSystemUiVisibility = activityContext.window.decorView.systemUiVisibility
         oldLayoutParams = layoutParams
         mAddxVideoViewParent = parent as ViewGroup
         CommonUtil.hideSupportActionBar(activityContext, true, true)
         hideNavKey()
-        CommonUtil.scanForActivity(activityContext).requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        if(isReverse){
+            CommonUtil.scanForActivity(activityContext).requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+        }else{
+            CommonUtil.scanForActivity(activityContext).requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        }
         //remove self(Player) from parent
         mAddxVideoViewParent.removeView(this)
         // remove renderView from it's current parent  and  prepare add it to full screen layout 's surface container
@@ -832,10 +755,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         // init full layout and add it to surfaceContainer
         reloadLayout(context)
         //设置reload 后的UI状态
-        val params = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        )
+        val params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         val contentView = activityContext.findViewById(android.R.id.content) as ViewGroup
         for (index in 0 until contentView.childCount) {
             contentView.getChildAt(index).visibility = View.INVISIBLE
@@ -852,33 +772,25 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             savingRecordLoading?.visibility = View.VISIBLE
         }
         onFullScreenStateChange(true)
-        if(renderView is CustomSurfaceViewRenderer){
-            (renderView as CustomSurfaceViewRenderer).setDisableCropFrame(mIsFullScreen)
-        }
+        iAddxPlayer?.setFullScreen(mIsFullScreen)
         onResetRecordUi()
     }
 
     private fun autoPlayIfNeed() {
         if (!(isPlaying() || isPrepareing())) {
             startBtn?.callOnClick()
-            LogUtils.e(
-                TAG,
-                "AddxBaseVideoView------auto play ,before state=$currentState---sn:${dataSourceBean!!.serialNumber}"
-            )
+            LogUtils.e(TAG, "DemoBaseVideoView------auto play ,before state=$currentState---sn:${dataSourceBean!!.serialNumber}")
         }
     }
 
     protected open fun errorLayoutId(): Int {
         return if (mIsFullScreen) {
-            R.layout.live_plager_full_error_page
-        } else R.layout.live_plager_no_full_error_default_page
+            com.ai.addxvideo.R.layout.live_plager_full_error_page
+        } else com.ai.addxvideo.R.layout.live_plager_no_full_error_default_page
     }
 
     fun onClickErrorRetry() {
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------errorLayout?.setOnClickListener----------sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.d(TAG, "DemoBaseVideoView------errorLayout?.setOnClickListener----------sn:${dataSourceBean!!.serialNumber}")
         if (!AccountManager.getInstance().isLogin) return
         when (currentOpt) {
             PlayerErrorState.ERROR_DEVICE_NEED_OTA -> {
@@ -892,18 +804,11 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             }
 
             PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> {
-                onViewClick(tvUnderLineErrorBtn)
+                ToastUtils.showShort(com.ai.addxvideo.R.string.device_no_access)
             }
             else -> {
                 createRecordClick("retry_btn_clickid_")
                 showNetWorkToast()
-                if (resources.getString(R.string.reconnect) == tvUnderLineErrorBtn?.text) {
-                    //todo
-//                    reportLiveReconnectClickEvent()
-                } else {
-                    //todo
-//                    reportLiveClickEvent(PlayerErrorState.getErrorMsg(currentOpt))
-                }
                 startPlay()
             }
         }
@@ -916,16 +821,16 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             if (it.result == Const.ResponseCode.CODE_OK) {
                 return@flatMap ApiClient.getInstance().getSingleDevice(SerialNoEntry(sn))
             } else {
-                return@flatMap rx.Observable.error<GetSingleDeviceResponse>(Throwable("sleepSwitchSetting wakeup device failed code=" + it.result))
+                return@flatMap rx.Observable.error<GetSingleDeviceResponse>(Throwable("sleepSwitchSetting wakeup camera failed code=" + it.result))
             }
         }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : HttpSubscriber<GetSingleDeviceResponse>() {
                 override fun doOnNext(baseResponse: GetSingleDeviceResponse) {
                     loadingDialog.dismiss()
                     if (baseResponse.result < Const.ResponseCode.CODE_OK) {
-                        ToastUtils.showShort(R.string.open_fail_retry)
+                        ToastUtils.showShort(com.ai.addxvideo.R.string.open_fail_retry)
                     } else {
-                        ToastUtils.showShort(R.string.setup_success)
+                        ToastUtils.showShort(com.ai.addxvideo.R.string.setup_success)
                         dataSourceBean?.copy(baseResponse.data)
                         setDeviceState(false, false)
                     }
@@ -933,7 +838,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 
                 override fun onError(e: Throwable) {
                     e.printStackTrace()
-                    ToastUtils.showShort(R.string.open_fail_retry)
+                    ToastUtils.showShort(com.ai.addxvideo.R.string.open_fail_retry)
                     loadingDialog.dismiss()
                 }
             })
@@ -943,14 +848,14 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         val inflate = View.inflate(context, errorLayoutId(), null)
 //        mUploadlog = inflate.findViewById(R.id.uploadlog)
 //        mUploadlog?.visibility = if (mIsNeedUploadFailLog) View.VISIBLE else View.GONE
-        tvErrorTips = inflate.findViewById(R.id.tv_error_tips)
-        ivErrorExit = inflate.findViewById(R.id.iv_error_exit)
-        ivErrorSetting = inflate.findViewById(R.id.iv_error_setting)
-        ivErrorFlag = inflate.findViewById(R.id.iv_error_flag)
-        tvErrorButton = inflate.findViewById(R.id.tv_error_btn)
-        tvUnderLineErrorBtn = inflate.findViewById(R.id.tv_underline_error_btn)
-        ivErrorHelp = inflate.findViewById(R.id.iv_error_help)
-        ivErrorThumb = inflate.findViewById(R.id.iv_error_thumb)
+        tvErrorTips = inflate.findViewById(com.ai.addxvideo.R.id.tv_error_tips)
+        ivErrorExit = inflate.findViewById(com.ai.addxvideo.R.id.iv_error_exit)
+        ivErrorSetting = inflate.findViewById(com.ai.addxvideo.R.id.iv_error_setting)
+        ivErrorFlag = inflate.findViewById(com.ai.addxvideo.R.id.iv_error_flag)
+        tvErrorButton = inflate.findViewById(com.ai.addxvideo.R.id.tv_error_btn)
+        tvUnderLineErrorBtn = inflate.findViewById(com.ai.addxvideo.R.id.tv_underline_error_btn)
+        ivErrorHelp = inflate.findViewById(com.ai.addxvideo.R.id.iv_error_help)
+        ivErrorThumb = inflate.findViewById(com.ai.addxvideo.R.id.iv_error_thumb)
         ivErrorExit?.setOnClickListener { backToNormal() }
         tvErrorButton?.setOnClickListener { onClickErrorRetry() }
         tvErrorTips?.setOnClickListener { onClickErrorTips(tvErrorTips) }
@@ -961,54 +866,44 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 
     fun uploadErrorLog() {
         CommonCornerDialog(activityContext)
-            .setTitleText(R.string.send_log)
-            .setMessage(R.string.send_log_tips)
-            .setLeftText(R.string.cancel)
-            .setRightText(R.string.ok)
+            .setTitleText(com.ai.addxvideo.R.string.send_log)
+            .setMessage(com.ai.addxvideo.R.string.send_log_tips)
+            .setLeftText(com.ai.addxvideo.R.string.cancel)
+            .setRightText(com.ai.addxvideo.R.string.ok)
             .setLeftClickListener(OnClickListener {
             })
             .setRightClickListener(OnClickListener {
-                AddxMonitor.getInstance(A4xContext.getInstance().getmContext()).uploadLastDayLog(
-                    object : FileLogUpload.Callback {
-                        override fun invoke(fileName: String?, ret: Boolean) {
-                            if (ret) {
-                                ToastUtils.showShort(R.string.uploaded_success)
-                            } else {
-                                ToastUtils.showShort(R.string.uploaded_fail)
-                            }
+                AddxMonitor.getInstance(A4xContext.getInstance().getmContext()).uploadLastDayLog(object: FileLogUpload.Callback{
+                    override fun invoke(fileName: String?, ret: Boolean) {
+                        if (ret) {
+                            ToastUtils.showShort(com.ai.addxvideo.R.string.uploaded_success)
+                        } else {
+                            ToastUtils.showShort(com.ai.addxvideo.R.string.uploaded_fail)
                         }
-                    })
+                    }
+                })
             }).show()
     }
 
     open fun updateSoundIcon(mute: Boolean) {
-        LogUtils.w(
-            TAG,
-            "AddxBaseVideoView------updateSoundIcon----" + (soundBtn == null).toString() + "--" + mute.toString() + "---sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.w(TAG, "DemoBaseVideoView------updateSoundIcon----" + (soundBtn == null).toString() + "--" + mute.toString()+"---sn:${dataSourceBean!!.serialNumber}")
         if(mIsFullScreen) {
-            soundBtn?.setImageResource(if (mute) R.mipmap.live_last_sound_disable else R.mipmap.live_last_sound_enable)
+            soundBtn?.setImageResource(if (mute) com.ai.addxvideo.R.mipmap.live_last_sound_disable else com.ai.addxvideo.R.mipmap.live_last_sound_enable)
         }else{
-            soundBtn?.setImageResource(if (mute) R.mipmap.voice_black_notalk else R.mipmap.voice_black_talk)
+            soundBtn?.setImageResource(if (mute) com.ai.addxvideo.R.mipmap.voice_black_notalk else com.ai.addxvideo.R.mipmap.voice_black_talk)
         }
     }
 
     open fun updateStateAndUI(state: Int, opt: Int) {
         if (!checkPassState(state, opt)) {
-            LogUtils.d(
-                TAG,
-                "AddxBaseVideoView------checkPassState false , state = $state  opt = $opt---sn:${dataSourceBean!!.serialNumber}"
-            )
+            LogUtils.d(TAG, "DemoBaseVideoView------checkPassState false , state = $state  opt = $opt---sn:${dataSourceBean!!.serialNumber}")
             return
         }
         mOldState = currentState
         mOldOpt = currentOpt
         currentOpt = opt
         currentState = state
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------oldState=$mOldState  currentState=$state oldOpt===$mOldOpt currentOpt===$opt---sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.d(TAG, "DemoBaseVideoView------oldState=$mOldState  currentState=$state oldOpt===$mOldOpt currentOpt===$opt---sn:${dataSourceBean!!.serialNumber}")
         if (Looper.myLooper() != Looper.getMainLooper()) {
             post {
                 updateStateAndUI(mOldState, mOldOpt, state, opt)
@@ -1019,28 +914,22 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     private fun checkPassState(state: Int, opt: Int): Boolean {
-        if (state == CURRENT_STATE_ERROR && opt != PlayerErrorState.ERROR_PHONE_NO_INTERNET && !NetworkUtils.isConnected(
-                A4xContext.getInstance().getmContext()
-            )) {//check
+        if (state == CURRENT_STATE_ERROR && opt != PlayerErrorState.ERROR_PHONE_NO_INTERNET && !NetworkUtils.isConnected(A4xContext.getInstance().getmContext())) {//check
             updateStateAndUI(state, PlayerErrorState.ERROR_PHONE_NO_INTERNET)
             return false
         }
         return true
     }
 
-    private fun updateStateAndUI(tempState: Int, tempOpt: Int, state: Int, opt: Int){
+    private fun updateStateAndUI(tempState: Int, tempOpt: Int,state: Int, opt: Int){
         callBackViewState(state, tempState)
         updatePropertyBeforeUiStateChanged(tempState, state, tempOpt, opt)
         hideNavKey()
         updateUiState(tempState, state, tempOpt, opt)
 
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------onStateAndUiUpdated oldState $tempState  newState : $state---sn:${dataSourceBean!!.serialNumber}"
-        )
-        //todo
-//        reportLiveState(tempState, state)
-        if (currentState != CURRENT_STATE_PLAYING && tempState != currentState) {
+        LogUtils.d(TAG, "DemoBaseVideoView------onStateAndUiUpdated oldState $tempState  newState : $state---sn:${dataSourceBean!!.serialNumber}")
+
+        if (currentState != CURRENT_STATE_PLAYING && currentState != CURRENT_STATE_PREPAREING && tempState != currentState) {
             setThumbImageByPlayState()
         }
     }
@@ -1069,12 +958,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         }
     }
 
-    private fun updatePropertyBeforeUiStateChanged(
-        oldUiState: Int,
-        newUiState: Int,
-        oldOption: Int,
-        newOption: Int
-    ) {
+    private fun updatePropertyBeforeUiStateChanged(oldUiState: Int, newUiState: Int, oldOption: Int, newOption: Int) {
         //do noting
     }
 
@@ -1122,10 +1006,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     protected open fun changeUIToPlaying() {
-        LogUtils.w(
-            TAG,
-            dataSourceBean?.serialNumber + "-----changeUIToPlaying, mIsFullScreen= $mIsFullScreen"
-        )
+        LogUtils.w(TAG, "changeUIToPlaying, mIsFullScreen= $mIsFullScreen-----sn:${dataSourceBean?.serialNumber}")
         thumbImage?.visibility = View.INVISIBLE
         loadingLayout?.visibility = View.INVISIBLE
         errorLayout?.visibility = View.INVISIBLE
@@ -1135,14 +1016,11 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
             startBtn?.visibility = View.INVISIBLE
         }
         removeCallbacks(startBtnAction)
-        postDelayed(startBtnAction, START_SHOW_SPAN)
+        postDelayed(startBtnAction,START_SHOW_SPAN)
     }
 
     protected open fun changeUIToConnecting() {
-        LogUtils.w(
-            TAG,
-            dataSourceBean?.serialNumber + "-----changeUIToConnecting, mIsFullScreen= $mIsFullScreen"
-        )
+        LogUtils.w(TAG, "-----changeUIToConnecting, mIsFullScreen= $mIsFullScreen---sn:${dataSourceBean?.serialNumber}")
         startBtn?.visibility = View.INVISIBLE
         errorLayout?.visibility = View.INVISIBLE
         loadingLayout?.visibility = View.VISIBLE
@@ -1150,10 +1028,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     protected open fun changeUIToIdle() {
-        LogUtils.w(
-            TAG,
-            dataSourceBean?.serialNumber + "-----changeUIToIdle, mIsFullScreen= $mIsFullScreen"
-        )
+        LogUtils.w(TAG, "-----changeUIToIdle, mIsFullScreen= $mIsFullScreen--sn:${dataSourceBean?.serialNumber}")
         thumbImage?.visibility = View.VISIBLE
         errorLayout?.visibility = View.INVISIBLE
         loadingLayout?.visibility = View.INVISIBLE
@@ -1163,46 +1038,41 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         }
     }
 
+    fun getSleepMsg(): String {
+        return if (dataSourceBean?.deviceDormancyWakeTime != null && dataSourceBean!!.deviceDormancyWakeTime > 1000) {
+            val pairTime =
+                TimeUtils.formatWeekDayAndTime(dataSourceBean?.deviceDormancyWakeTime!! * 1000)
+            context.getString(com.ai.addxvideo.R.string.sleep_end_time_atsteam, pairTime.first, pairTime.second)
+        } else {
+            context.getString(com.ai.addxvideo.R.string.sleeping)
+        }
+    }
+
     protected open fun changeUIToError(opt: Int?) {
         when (opt) {
-            PlayerErrorState.ERROR_DEVICE_UNACTIVATED -> setErrorInfo(
-                R.string.camera_not_activated,
-                R.mipmap.live_error_unactivated
-            )
+            PlayerErrorState.ERROR_DEVICE_UNACTIVATED -> setErrorInfo(com.ai.addxvideo.R.string.camera_not_activated, com.ai.addxvideo.R.mipmap.live_error_unactivated)
             PlayerErrorState.ERROR_DEVICE_SLEEP -> {
                 setErrorInfo(
-                    R.string.camera_sleep,
-                    R.mipmap.ic_sleep_main_live,
-                    true,
-                    R.string.camera_wake_up,
-                    dataSourceBean?.isAdmin
-                        ?: false,
-                    null,
-                    false
-                )
+                    com.ai.addxvideo.R.string.camera_sleep, com.ai.addxvideo.R.mipmap.ic_sleep_main_live, true, com.ai.addxvideo.R.string.camera_wake_up, dataSourceBean?.isAdmin
+                    ?: false, null, false)
 
-                dataSourceBean?.sleepMsg?.let {
+                getSleepMsg().let {
                     if (it.isNotEmpty() && dataSourceBean?.isAdmin!!) {
                         tvErrorTips?.text = it
                     } else {
-                        tvErrorTips?.text =
-                            it.plus("\n\n" + context.resources.getString(R.string.admin_wakeup_camera))
+                        tvErrorTips?.text = it.plus("\n\n" + context.resources.getString(com.ai.addxvideo.R.string.admin_wakeup_camera))
                     }
                 }
             }
-            PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> setErrorInfo(
-                R.string.error_2002,
-                R.mipmap.live_error__no_access,
-                underlineErrorBtnText = R.string.refresh
-            )
+            PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> setErrorInfo(com.ai.addxvideo.R.string.error_2002, com.ai.addxvideo.R.mipmap.live_error__no_access, underlineErrorBtnText = com.ai.addxvideo.R.string.refresh)
             PlayerErrorState.ERROR_DEVICE_SHUTDOWN_LOW_POWER -> {
-                setErrorInfo(R.string.low_power, R.mipmap.lowpowershutdown)
+                setErrorInfo(com.ai.addxvideo.R.string.low_power, com.ai.addxvideo.R.mipmap.lowpowershutdown)
             }
             PlayerErrorState.ERROR_DEVICE_SHUTDOWN_PRESS_KEY -> {
-                setErrorInfo(R.string.turned_off, R.mipmap.shutdown)
+                setErrorInfo(com.ai.addxvideo.R.string.turned_off, com.ai.addxvideo.R.mipmap.shutdown)
             }
             PlayerErrorState.ERROR_DEVICE_OFFLINE -> {
-                setErrorInfo(R.string.camera_poor_network, R.mipmap.live_offline)
+                setErrorInfo(com.ai.addxvideo.R.string.camera_poor_network, com.ai.addxvideo.R.mipmap.live_offline)
             }
             PlayerErrorState.ERROR_DEVICE_NEED_OTA -> {
                 if (!AccountManager.getInstance().isLogin) {
@@ -1211,73 +1081,52 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                 val needForceOta = dataSourceBean?.needForceOta()
                 if (dataSourceBean?.adminId == AccountManager.getInstance().userId) {
                     if (!needForceOta!!) {
-                        setErrorInfo(
-                            R.string.fireware_need_update_tips,
-                            R.mipmap.ic_video_device_upgrade,
-                            errorBtnText = R.string.update,
-                            errorBtnVisible = true,
-                            underlineErrorBtnText = R.string.do_not_update,
-                            underLineErrorBtnColor = R.color.theme_color
-                        )
+                        if(mIsClickedNoNeedOtaUpdateMap.get(dataSourceBean?.serialNumber) == null || !mIsClickedNoNeedOtaUpdateMap.get(dataSourceBean?.serialNumber)!!){
+                            setErrorInfo(
+                                com.ai.addxvideo.R.string.fireware_need_update_tips, com.ai.addxvideo.R.mipmap.ic_video_device_upgrade,
+                                errorBtnText = com.ai.addxvideo.R.string.update, errorBtnVisible = true,
+                                underlineErrorBtnText = com.ai.addxvideo.R.string.do_not_update, underLineErrorBtnColor = com.ai.addxvideo.R.color.theme_color)
+                        }
                     } else {
-                        setErrorInfo(
-                            R.string.fireware_need_update_tips,
-                            R.mipmap.ic_video_device_upgrade,
-                            errorBtnText = R.string.update,
-                            errorBtnVisible = true,
-                            underlineErrorBtnVisible = false
-                        )
+                        setErrorInfo(com.ai.addxvideo.R.string.fireware_need_update_tips, com.ai.addxvideo.R.mipmap.ic_video_device_upgrade, errorBtnText = com.ai.addxvideo.R.string.update, errorBtnVisible = true, underlineErrorBtnVisible = false)
                     }
                 } else {
                     if (!needForceOta!!) {
-                        setErrorInfo(
-                            R.string.forck_update_share,
-                            R.mipmap.ic_video_device_upgrade,
-                            errorBtnText = R.string.update,
-                            errorBtnVisible = false,
-                            underlineErrorBtnText = R.string.do_not_update,
-                            underLineErrorBtnColor = R.color.theme_color
-                        )
+                        if(mIsClickedNoNeedOtaUpdateMap.get(dataSourceBean?.serialNumber) == null || !mIsClickedNoNeedOtaUpdateMap.get(dataSourceBean?.serialNumber)!!){
+                            setErrorInfo(
+                                com.ai.addxvideo.R.string.forck_update_share, com.ai.addxvideo.R.mipmap.ic_video_device_upgrade,
+                                errorBtnText = com.ai.addxvideo.R.string.update, errorBtnVisible = false,
+                                underlineErrorBtnText = com.ai.addxvideo.R.string.do_not_update, underLineErrorBtnColor = com.ai.addxvideo.R.color.theme_color)
+                        }
                     } else {
-                        setErrorInfo(
-                            R.string.forck_update_share,
-                            R.mipmap.ic_video_device_upgrade,
-                            underlineErrorBtnVisible = false
-                        )
+                        setErrorInfo(com.ai.addxvideo.R.string.forck_update_share, com.ai.addxvideo.R.mipmap.ic_video_device_upgrade, underlineErrorBtnVisible = false)
                     }
 
                 }
             }
-            PlayerErrorState.ERROR_DEVICE_IS_OTA_ING -> setErrorInfo(
-                R.string.device_is_updating,
-                flagRes = R.mipmap.ic_video_device_upgrade,
-                underlineErrorBtnVisible = false
-            )
+            PlayerErrorState.ERROR_DEVICE_IS_OTA_ING -> setErrorInfo(com.ai.addxvideo.R.string.device_is_updating, flagRes = com.ai.addxvideo.R.mipmap.ic_video_device_upgrade, underlineErrorBtnVisible = false)
 
 
             PlayerErrorState.ERROR_PHONE_NO_INTERNET -> {
-                setErrorInfo(R.string.failed_to_get_information_and_try)
+                setErrorInfo(com.ai.addxvideo.R.string.failed_to_get_information_and_try)
             }
 
             PlayerErrorState.ERROR_PLAYER_TIMEOUT -> {
-                setErrorInfo(R.string.live_stream_timeout, R.mipmap.live_timeout)
+                setErrorInfo(com.ai.addxvideo.R.string.live_stream_timeout, com.ai.addxvideo.R.mipmap.live_timeout)
             }
             PlayerErrorState.ERROR_CONNECT_TIMEOUT -> {
-                setErrorInfo(R.string.network_error_our_server, R.mipmap.live_timeout)
+                setErrorInfo(com.ai.addxvideo.R.string.network_error_our_server, com.ai.addxvideo.R.mipmap.live_timeout)
             }
             PlayerErrorState.ERROR_UNKNOWN,
             PlayerErrorState.ERROR_CONNECT_EXCEPTION -> {
-                setErrorInfo(R.string.server_error, R.mipmap.live_exception)
+                setErrorInfo(com.ai.addxvideo.R.string.server_error, com.ai.addxvideo.R.mipmap.live_exception)
             }
 
             PlayerErrorState.ERROR_DEVICE_MAX_CONNECT_LIMIT -> {
-                LogUtils.w(
-                    TAG,
-                    "AddxBaseVideoView------AddxWebRtc------setErrorInfo-----------ERROR_DEVICE_MAX_CONNECT_LIMIT-------sn:${dataSourceBean!!.serialNumber}"
-                )
-                setErrorInfo(R.string.server_error, R.mipmap.live_exception)
+                LogUtils.w(TAG, "DemoBaseVideoView------AddxWebRtc------setErrorInfo-----------ERROR_DEVICE_MAX_CONNECT_LIMIT-------sn:${dataSourceBean!!.serialNumber}")
+                setErrorInfo(com.ai.addxvideo.R.string.server_error, com.ai.addxvideo.R.mipmap.live_exception)
 //                changeUIToIdle()
-                ToastUtils.showShort(R.string.live_viewers_limit)
+                ToastUtils.showShort(com.ai.addxvideo.R.string.live_viewers_limit)
             }
 
             else -> {
@@ -1289,55 +1138,31 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     open fun setDefaultErrorInfo(){
-        setErrorInfo(R.string.live_stream_error, R.mipmap.live_exception)
+        setErrorInfo(com.ai.addxvideo.R.string.live_stream_error, com.ai.addxvideo.R.mipmap.live_exception)
     }
 
-    fun setErrorInfo(
-        errorMsg: Int,
-        flagRes: Int? = R.mipmap.ic_video_network_device_disconnect,
-        flagVisible: Boolean? = true,
-        errorBtnText: Int? = R.string.reconnect,
-        errorBtnVisible: Boolean? = false,
-        underlineErrorBtnText: Int? = R.string.reconnect,
-        underlineErrorBtnVisible: Boolean? = true,
-        underLineErrorBtnColor: Int? = R.color.theme_color
-    ) {
+    fun setErrorInfo(errorMsg: Int,
+                     flagRes: Int? = com.ai.addxvideo.R.mipmap.ic_video_network_device_disconnect,
+                     flagVisible: Boolean? = true,
+                     errorBtnText: Int? = com.ai.addxvideo.R.string.reconnect,
+                     errorBtnVisible: Boolean? = false,
+                     underlineErrorBtnText: Int? = com.ai.addxvideo.R.string.reconnect,
+                     underlineErrorBtnVisible: Boolean? = true,
+                     underLineErrorBtnColor: Int? = com.ai.addxvideo.R.color.theme_color) {
         flagRes?.let { ivErrorFlag?.setImageResource(it) }
         flagVisible?.let { ivErrorFlag?.visibility = if (it) View.VISIBLE else View.GONE }
-        if(errorMsg == R.string.fireware_need_update_tips){
-            tvErrorTips?.text = activityContext.getString(
-                errorMsg,
-                dataSourceBean?.newestFirmwareId
-            )
-        }else if(errorMsg == R.string.forck_update_share){
+        if(errorMsg == com.ai.addxvideo.R.string.fireware_need_update_tips){
+            tvErrorTips?.text = activityContext.getString(errorMsg, dataSourceBean?.newestFirmwareId)
+        }else if(errorMsg == com.ai.addxvideo.R.string.forck_update_share){
             if(dataSourceBean?.needForceOta()!!){
-                tvErrorTips?.text = activityContext.getString(
-                    errorMsg,
-                    dataSourceBean?.newestFirmwareId
-                ).plus(
-                    activityContext.getString(
-                        R.string.unavailable_before_upgrade
-                    )
-                )
+                tvErrorTips?.text = activityContext.getString(errorMsg, dataSourceBean?.newestFirmwareId).plus(activityContext.getString(
+                    com.ai.addxvideo.R.string.unavailable_before_upgrade))
             }else{
-                tvErrorTips?.text = activityContext.getString(
-                    errorMsg,
-                    dataSourceBean?.newestFirmwareId
-                )
+                tvErrorTips?.text = activityContext.getString(errorMsg, dataSourceBean?.newestFirmwareId)
             }
-        }else if(errorMsg == R.string.low_power || errorMsg == R.string.turned_off){
-            LogUtils.d(
-                TAG,
-                "dataSourceBean?.getOfflineTime()-----errorMsg == R.string.low_power:${errorMsg == R.string.low_power}----getOfflineTime：${dataSourceBean?.getOfflineTime()}"
-            )
-            tvErrorTips?.setText(
-                resources.getString(errorMsg) + "\n" + resources.getString(
-                    R.string.off_time,
-                    if (dataSourceBean?.getOfflineTime() == null) "" else TimeUtils.formatYearSecondFriendly(
-                        dataSourceBean?.getOfflineTime()!!.toLong() * 1000
-                    )
-                )
-            )
+        }else if(errorMsg == com.ai.addxvideo.R.string.low_power || errorMsg == com.ai.addxvideo.R.string.turned_off){
+            LogUtils.d(TAG, "dataSourceBean?.getOfflineTime()-----errorMsg == R.string.low_power:${errorMsg == com.ai.addxvideo.R.string.low_power}----getOfflineTime：${dataSourceBean?.getOfflineTime()}")
+            tvErrorTips?.setText(resources.getString(errorMsg) + "\n" +resources.getString(com.ai.addxvideo.R.string.off_time, if (dataSourceBean?.getOfflineTime() == null) "" else TimeUtils.formatYearSecondFriendly(dataSourceBean?.getOfflineTime()!!.toLong() * 1000)))
         }else{
             tvErrorTips?.setText(errorMsg)
         }
@@ -1346,11 +1171,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 
         underlineErrorBtnText?.let { tvUnderLineErrorBtn?.setText(it) }
         underlineErrorBtnVisible?.let { tvUnderLineErrorBtn?.visibility = if (it) View.VISIBLE else View.GONE }
-        underLineErrorBtnColor?.let { tvUnderLineErrorBtn?.setTextColor(
-            activityContext.resources.getColor(
-                underLineErrorBtnColor
-            )
-        ) }
+        underLineErrorBtnColor?.let { tvUnderLineErrorBtn?.setTextColor(activityContext.resources.getColor(underLineErrorBtnColor)) }
     }
 
     fun hideNavKey() {
@@ -1404,41 +1225,33 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     open fun onClickUnderlineErrorButton(tip: TextView?) {
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------onClickUnderlineErrorButton----------sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.d(TAG, "DemoBaseVideoView------onClickUnderlineErrorButton----------sn:${dataSourceBean!!.serialNumber}")
         when (currentOpt) {
             PlayerErrorState.ERROR_DEVICE_AUTH_LIMITATION,
-            PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> {
-            }//checkDeviceExit(1)
-            PlayerErrorState.ERROR_DEVICE_SLEEP -> {
-                return
+            PlayerErrorState.ERROR_DEVICE_NO_ACCESS -> {}//checkDeviceExit(1)
+            PlayerErrorState.ERROR_DEVICE_SLEEP -> {return
             }//sleep click do noting
+            PlayerErrorState.ERROR_DEVICE_NEED_OTA ->{
+                updateStateAndUI(CURRENT_STATE_NORMAL, currentOpt)
+                mIsClickedNoNeedOtaUpdateMap.put(dataSourceBean?.serialNumber!!, true)
+                return
+            }
             else -> {
-                onViewClick(tip)
-                createRecordClick("underline_retry_btn_clickid_")
-//                mVideoCallBack?.onViewClick(tip)
-                showNetWorkToast()
-                startPlay()
+                var isToPlay = mVideoCallBack?.onClickUnderline(tip, dataSourceBean!!)
+                if(isToPlay == true){
+                    createRecordClick("underline_retry_btn_clickid_")
+                    showNetWorkToast()
+                    startPlay()
+                }
             }
         }
-        if(resources.getString(R.string.reconnect) == tvUnderLineErrorBtn?.text){
-            //todo
-//            reportLiveReconnectClickEvent()
-        }else if(resources.getString(R.string.refresh) == tvUnderLineErrorBtn?.text){
-            onViewClick(tip)
-        }else{
-            //todo
-//            reportLiveClickEvent(PlayerErrorState.getErrorMsg(currentOpt))
+        if(resources.getString(com.ai.addxvideo.R.string.refresh) == tvUnderLineErrorBtn?.text){
+            mVideoCallBack!!.onClickRefresh(tip)
         }
     }
 
     open fun onClickErrorTips(tip: TextView?) {
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------onClickErrorTips base----------sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.d(TAG, "DemoBaseVideoView------onClickErrorTips base----------sn:${dataSourceBean!!.serialNumber}")
         createRecordClick("clicktip_btn_clickid_")
     }
 
@@ -1453,63 +1266,27 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                         updateStateAndUI(CURRENT_STATE_ERROR, currentOpt)
                     } else if (t.result >= Const.ResponseCode.CODE_OK) {
                         dataSourceBean?.copy(t.data)
-                        LogUtils.d(
-                            TAG,
-                            "AddxBaseVideoView------setDeviceState====doOnNext---sn:${dataSourceBean!!.serialNumber}"
-                        )
+                        LogUtils.d(TAG, "DemoBaseVideoView------setDeviceState====doOnNext---sn:${dataSourceBean!!.serialNumber}")
                         setDeviceState(false, true)
                     }
                 }
 
                 override fun onError(e: Throwable?) {
                     super.onError(e)
-                    LogUtils.d(
-                        TAG,
-                        "AddxBaseVideoView------setDeviceState====onError=---sn:${dataSourceBean!!.serialNumber}"
-                    )
-                    LogUtils.d(
-                        TAG,
-                        "AddxBaseVideoView------getSingleDevice====onError=---sn:${dataSourceBean!!.serialNumber}"
-                    )
+                    LogUtils.d(TAG, "DemoBaseVideoView------setDeviceState====onError=---sn:${dataSourceBean!!.serialNumber}")
+                    LogUtils.d(TAG, "DemoBaseVideoView------getSingleDevice====onError=---sn:${dataSourceBean!!.serialNumber}")
                     updateStateAndUI(CURRENT_STATE_ERROR, currentOpt)
                 }
             })
     }
 
-    override fun getNewLiveReportData(isSeccess: Boolean, en: ReporLiveCommonEntry?): ReporLiveCommonEntry? {
-        var entry = en
-        if(en == null){
-            entry = ReporLiveCommonEntry()
-        }
-        LiveHelper.getNewLiveReportData(iAddxPlayer, dataSourceBean, isSeccess, entry!!)
-
-        entry?.isClick = mIsUserClick
-        entry?.clickid = mClickId
-        entry?.live_player_type = if(mIsFullScreen) "full" else{ if(mIsSplit) "quad" else "half"}
-//        entry?.wait_time = playTimeRecordSpan
-        entry?.download_speeds = downloadStringBuilder.toString()
-//        entry?.error_code = errorCodeWhenUserClickForCountly
-        entry?.current_is_fullscreen = mIsFullScreen.toString()
-        return entry
-    }
-
-    override fun getNewLiveInterruptWhenLoaddingReportData(): ReporLiveInterruptEntry {
-        var data = ReporLiveInterruptEntry()
-        data.endWay = mStopType
-        getNewLiveReportData(false, data)
-        return data
-    }
+    // 具体操作记录 stopway ，等上报点以后清空stopway
+    var countlyLiveStopWay = ""
 
     fun setThumbImageByPlayState(shouldSkipVisible: Boolean = false) {
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------setThumbImageByPlayState ---sn:${dataSourceBean!!.serialNumber}"
-        )
+        LogUtils.d(TAG, "DemoBaseVideoView------setThumbImageByPlayState ---sn:${dataSourceBean!!.serialNumber}")
         if (dataSourceBean == null) {
-            LogUtils.e(
-                TAG,
-                "AddxBaseVideoView------sn is null , do not set bg---sn:${dataSourceBean!!.serialNumber}"
-            )
+            LogUtils.e(TAG, "DemoBaseVideoView------sn is null , do not set bg---sn:${dataSourceBean!!.serialNumber}")
             return
         }
 
@@ -1521,10 +1298,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         }
         thumbImage?.let {
             if (it.visibility == View.VISIBLE || shouldSkipVisible) {
-                LogUtils.e(
-                    TAG,
-                    "AddxBaseVideoView------thumbImage visible = ${it.visibility == View.VISIBLE}---sn:${dataSourceBean!!.serialNumber}"
-                )
+                LogUtils.e(TAG, "DemoBaseVideoView------thumbImage visible = ${it.visibility == View.VISIBLE}---sn:${dataSourceBean!!.serialNumber}")
                 setThumbImageInternal(it, needBlur)
             }
         }
@@ -1537,44 +1311,37 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         }
     }
 
-    private fun setThumbImageInternal(view: ImageView, needBlur: Boolean) {
+    private fun setThumbImageInternal(view: ImageView,needBlur: Boolean) {
         dataSourceBean?.let {
             if (it.isDeviceSleep){
-                view.setImageResource(R.drawable.live_sleep_bg)
+                view.setImageResource(com.ai.addxvideo.R.drawable.live_sleep_bg)
                 return
             }
         }
-        LogUtils.d(
-            TAG,
-            "AddxBaseVideoView------setThumbImageInternal---sn:${dataSourceBean!!.serialNumber}"
-        )
-//        mLocalThumbTime = SharePreManager.getInstance(context).getThumbImgLastLocalFreshTime(dataSourceBean!!.serialNumber) / 1000
-//        mServerThumbTime = SharePreManager.getInstance(context).getThumbImgLastServerFreshTime(dataSourceBean!!.serialNumber)
-        var localCoverBitmap:Bitmap? = null
-        if(mServerThumbTime > mLocalThumbTime){
-            val imgPath = DownloadUtil.getThumbImgDir(activityContext) + MD5Util.md5(dataSourceBean?.serialNumber)+".jpg"
-            localCoverBitmap = BitmapUtils.getBitmap(imgPath)
-            LogUtils.d(
-                TAG,
-                "AddxBaseVideoView------toRequestAndRefreshThumbImg=======setThumbImageInternal======code:${hashCode()}======:${(localCoverBitmap == null)}==$imgPath---sn:${dataSourceBean!!.serialNumber}"
-            )
+        LogUtils.d(TAG, "DemoBaseVideoView------setThumbImageInternal---mBitmap:${mBitmap == null}--sn:${dataSourceBean!!.serialNumber}")
+        if (needBlur) {
+            view.setImageBitmap(BitmapUtils.rsBlur(context, mBitmap, 15, 3))
+        } else {
+            view.setImageBitmap(mBitmap)
         }
-        if (localCoverBitmap == null) {
-            localCoverBitmap = LocalDrawableUtills.instance.getLocalCoverBitmap(
-                dataSourceBean!!.serialNumber.plus(
-                    thumbSaveKeySuffix
-                )
-            )
-            if (localCoverBitmap == null) {
-                localCoverBitmap = BitmapFactory.decodeResource(resources, defaultThumbRid!!)
+    }
+
+    fun updateThumbImageSource(){
+//        LogUtils.d(TAG, "DemoBaseVideoView------updateThumbImageSource-------mServerThumbTime:${mServerThumbTime}---mLocalThumbTime:${mLocalThumbTime}")
+        mLocalThumbTime = SharePreManager.getInstance(context).getThumbImgLastLocalFreshTime(dataSourceBean!!.serialNumber) / 1000
+        mServerThumbTime = SharePreManager.getInstance(context).getThumbImgLastServerFreshTime(dataSourceBean!!.serialNumber)
+        if(mServerThumbTime > mLocalThumbTime){
+//            LogUtils.d(TAG, "DemoBaseVideoView------updateThumbImageSource------toRequestAndRefreshThumbImg-------sn:${dataSourceBean!!.serialNumber}")
+            val imgPath = DownloadUtil.getThumbImgDir(activityContext) + MD5Util.md5(dataSourceBean?.serialNumber)+".jpg"
+            mBitmap = BitmapUtils.getBitmap(imgPath)
+            if(mBitmap != null){
+                return
             }
         }
-        mBitmap = if (needBlur) {
-            BitmapUtils.rsBlur(context, localCoverBitmap, 15, 3)
-        } else {
-            localCoverBitmap
+        mBitmap = LocalDrawableUtills.instance.getLocalCoverBitmap(dataSourceBean!!.serialNumber.plus(thumbSaveKeySuffix))
+        if (mBitmap == null) {
+            mBitmap = BitmapFactory.decodeResource(resources, defaultThumbRid!!)
         }
-        view.setImageBitmap(mBitmap)
     }
 
     override fun onWhiteLightResult(isOpen: Boolean) {}
@@ -1592,6 +1359,11 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     override fun onDevInitiativeSendMsg(player: IVideoPlayer?, type: Int) {
 
     }
+
+    override fun onRotateAction(player: IVideoPlayer, limit: Int){
+        ToastUtils.showShort(com.ai.addxvideo.R.string.limit_reached)
+    }
+
     /**
      * 开启录像任务
      */
@@ -1626,9 +1398,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
         iAddxPlayer?.stopRecording(object : MP4VideoFileRenderer.VideoRecordCallback {
             override fun error() {
                 LogUtils.d("stopRecordVideo------------error")
-                ToastUtils.showShort(R.string.record_failed)
-                //todo
-//                reportRecordEvent(false, "error", stopWay)
+                ToastUtils.showShort(com.ai.addxvideo.R.string.record_failed)
             }
 
             override fun completed() {
@@ -1636,20 +1406,12 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                 try {
                     isRecording = false
                     isSavingRecording = false
-                    if (mShowRecordShotToast) {
+                    if(mShowRecordShotToast){
                     }
-                    ToastUtils.showShort(R.string.video_saved_to_ablum)
-                    FileUtils.syncVideoToAlbum(
-                        A4xContext.getInstance().getmContext(),
-                        videoSavePath,
-                        Date().time
-                    )
-                    //todo
-//                    reportRecordEvent(true, null, stopWay)
+                    ToastUtils.showShort(com.ai.addxvideo.R.string.video_saved_to_ablum)
+                    FileUtils.syncVideoToAlbum(A4xContext.getInstance().getmContext(), videoSavePath, Date().time)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    //todo
-//                    reportRecordEvent(false, e.message, stopWay)
                 }
                 post {
                     recordIcon?.isEnabled = true
@@ -1663,7 +1425,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 
     @SuppressLint("SetTextI18n")
     protected fun onResetRecordUi() {
-        recordIcon?.setImageResource(R.mipmap.live_last_record)
+        recordIcon?.setImageResource(com.ai.addxvideo.R.mipmap.live_last_record)
         recordTimeText?.visibility = View.INVISIBLE
         if (recordCounterTask != null) {
             recordCounterTask!!.unsubscribe()
@@ -1691,25 +1453,45 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     override fun onReveivedVideoFrame(frame: Bitmap?) {
 //        post { setThumbImageByPlayState() }
         if (frame != null) {
-            LocalDrawableUtills.instance.putLocalCoverBitmap(
-                dataSourceBean!!.serialNumber + thumbSaveKeySuffix,
-                frame
-            )
+            LogUtils.d(TAG, "DemoBaseVideoView------LocalDrawableUtills----onReveivedVideoFrame------saveShot----sn:${dataSourceBean!!.serialNumber}")
+            LocalDrawableUtills.instance.putLocalCoverBitmap(dataSourceBean!!.serialNumber.plus(thumbSaveKeySuffix), frame)
+            mBitmap = frame
         }
     }
 
-//    fun releasePlayer() {
+    //    fun releasePlayer() {
 //        if (renderView is CustomSurfaceViewRenderer) {
-//            LogUtils.e(
-//                TAG,
-//                "AddxBaseVideoView------releasePlayer----------iAddxPlayer is null: true---sn:${dataSourceBean!!.serialNumber}"
-//            )
+//            LogUtils.e(TAG, "DemoBaseVideoView------releasePlayer----------iAddxPlayer is null: true---sn:${dataSourceBean!!.serialNumber}")
 //            AddxPlayerManager.getInstance().releasePlayer(dataSourceBean)
-//            iAddxPlayer = null
 //        }
 //    }
     internal open fun refreshThumbImg(){
     }
+
+//    open fun showAlarmDialog(ringListener: AddxLiveOptListener.RingListener?) {
+//
+//    }
+//    open fun setOptListener(addxLiveOptListener: AddxLiveOptListener?) {
+//    }
+
+//    override fun voice() {
+//    }
+//
+//    override fun ring(ringListener: AddxLiveOptListener.RingListener) {
+//    }
+//
+//    override fun sportAuto(isInit: Boolean, isSelected: Boolean, sportAutoTrackListener: AddxLiveOptListener.SportAutoTrackListener) {
+//    }
+//
+//    override fun light(listener: AddxLiveOptListener.Listener) {
+//    }
+//
+//    override fun setting() {
+//    }
+
+//    override fun toDeviceInfo() {
+//
+//    }
 
     open fun updateStateAndUIWhenNetChange(isConnected: Boolean) {
         if (isConnected) {
@@ -1738,9 +1520,6 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     internal open fun onFullScreenStateChange(fullScreen: Boolean) {
         mVideoCallBack?.onFullScreenStateChange(fullScreen)
     }
-    internal open fun onViewClick(v: View?): Boolean{
-        return false
-    }
 
     override fun isFullScreen(): Boolean{
         return mIsFullScreen
@@ -1758,6 +1537,14 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     }
 
     override  fun hideNav(){
+    }
+
+    fun refreshVideoView(bean: DeviceBean){
+        dataSourceBean?.copy(bean)
+        iAddxPlayer = AddxPlayerManager.getInstance().getPlayer(dataSourceBean)
+        setDeviceState(false, false)
+        thumbImage?.requestLayout()
+        onInitOrReloadUi(context)
     }
 }
 

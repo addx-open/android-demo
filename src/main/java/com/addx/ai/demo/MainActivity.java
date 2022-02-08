@@ -9,12 +9,14 @@ import androidx.annotation.Nullable;
 import com.addx.common.utils.LogUtils;
 import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.A4xContext;
+import com.ai.addxbase.ADDXBind;
 import com.ai.addxbase.AddxNode;
 import com.ai.addxbase.AddxVideoContextInitCallBack;
 import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.util.ToastUtils;
-import com.ai.addxbase.ADDXBind;
 import com.ai.addxsettings.ADDXSettings;
+import com.ai.addxsettings.dialog.CommonBottomDialog;
+import com.ai.addxsettings.utils.PushHandlerUtils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,6 +24,33 @@ public class MainActivity extends BaseActivity {
     public static final String TAG = "MainActivity";
     private View mDemoListView;
 
+    private static final int REQUEST_CODE_CHANGE_LANGUAGE = 10001;
+
+    /**
+     * 此设置仅对SDK中的UI有效
+     */
+    public void clickToChangeLanguage(View view) {
+        startActivityForResult(new Intent(this, LanguageSettingActivity.class), REQUEST_CODE_CHANGE_LANGUAGE);
+    }
+
+    public void clickToCheckShareInfo(View view) {
+        ADDXSettings.getAndShowAllRequestQrDialog(this, new ADDXSettings.QueryShareRequestCallback() {
+            @Override
+            public void onStart() {
+                ToastUtils.showShort("start check");
+            }
+
+            @Override
+            public void onSuccess() {
+                ToastUtils.showShort("success");
+            }
+
+            @Override
+            public void onFailed() {
+                ToastUtils.showShort("onfailed");
+            }
+        });
+    }
 
     public static class Event {
         int type;
@@ -44,6 +73,18 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mDemoListView = findViewById(R.id.demolist);
         initSettingParams();
+        ADDXBind.setLongClickQrListener(new ADDXBind.QrListener() {
+            @Override
+            public void getQrData(@org.jetbrains.annotations.Nullable String bitmapBase64Array) {
+                LogUtils.d(TAG, "getQrData------bitmapBase64Array:%s", bitmapBase64Array);
+            }
+        });
+    }
+
+
+    public void clickSdcardPlayActivity(View v) {
+        Intent devicelistintent = new Intent(this, SdcardPlayActivity.class);
+        startActivity(devicelistintent);
     }
 
     /**
@@ -52,10 +93,10 @@ public class MainActivity extends BaseActivity {
     private void initSettingParams() {
         ADDXSettings.Builder builder = new ADDXSettings.Builder().setActivityZoneClickCallback((v, deviceBean) -> {
             ToastUtils.showShort("click ActivityZone");
-            return true;
+            return false;
         }).setSDCardClickCallback((v, deviceBean) -> {
             ToastUtils.showShort("click SDCard");
-            return true;
+            return false;
         });
         if (Global.Settings.userMoreSettings) {
             builder.ennableMoreSettings(new ADDXSettings.SettingsMoreClickListener() {
@@ -72,11 +113,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    public void clickSdcardPlayActivity(View v) {
-        Intent devicelistintent = new Intent(this, SdcardPlayActivity.class);
-        startActivity(devicelistintent);
-    }
-
     /**
      * Query the list of requests to bind my device by scanning the shared QR code of my device
      * 查询通过扫描我的设备二维码，绑定我设备的请求列表
@@ -88,21 +124,44 @@ public class MainActivity extends BaseActivity {
 //        DeviceClicent.getInstance().queryAllSharedInfo(xxx);  仅查询请求列表
     }
 
-    public void onClickLogin(View v) {
+
+    public void clickToLogout(View view) {
         if (Global.isSDKInited) {
             Global.isSDKInited = false;
             ToastUtils.showShort(R.string.logout_success);
             mDemoListView.setVisibility(View.INVISIBLE);
             A4xContext.getInstance().releaseA4xSdk();
-        } else {
-            initSDK();
         }
     }
 
-    private void initSDK() {
+    /**
+     * 我们通过文档（https://docs.vicoo.tech/#/cloud/sign_compute?id=authentication）的描述，
+     * 生成了可登录的账户(Global.INSTANCE.getMTokenTests())
+     * 按照文档的描述，我们把生成的步骤写在了 ExampleUnitTest 中，
+     *
+     * 建议自测的时候不要使用demo中的的token，通过文档中的描述 或者 ExampleUnitTest 自己生成新的token，确保账户(userId)的唯一性。
+     * token是初始化SDK必须的参数。也是区分账户的参数。
+     *
+     */
+    public void onClickLogin(View v) {
+        if (!Global.isSDKInited) {
+            new CommonBottomDialog.Builder(this).title("Choose User Id to login")
+                    .displayedValues(Global.INSTANCE.getMTokenTests().keySet().toArray(new String[3]))
+                    .itemClick(new CommonBottomDialog.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position, @NotNull String value) {
+                            LogUtils.d(TAG,"value = "+value);
+                            initSDK(Global.INSTANCE.getMTokenTests().get(value));
+                        }
+                    }).show();
+        } else {
+            ToastUtils.showShort(R.string.already_login);
+        }
+    }
+
+    private void initSDK(String token) {
         showLoadingDialog();
-        String token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJ0aGlyZFVzZXJJZCI6Inp5al90ZXN0XzE2MzM3NTA5OTkiLCJhY2NvdW50SWQiOiJ0ZXN0QWNjb3VudF8xODYxMyIsInNlZWQiOiI0MzViMjVmMTA4YjM0YjNkOTFjNGQ3MmUyZjBlOTk4NSIsImV4cCI6MjYzMzc1MDk5OSwidXNlcklkIjo5ODd9.c3oqGbWlKnE5JvkQL92lnoeVKqgbEGyDo0ugrCG15W8n9-W-HJCVLZhKutuSCCir4oRvN1h8wFNA7lmyyH-qVA";//netvue  cn
-        A4xContext.getInstance().initA4xSdk(getApplicationContext(), "guard", "zh", "CN", A4xContext.BuildEnv.STAGING, AddxNode.STRAGE_NODE_CN, token, Global.Settings.enableZendesk, new AddxVideoContextInitCallBack() {
+        A4xContext.getInstance().initA4xSdk(getApplicationContext(), "paastest", "zh", "CN", A4xContext.BuildEnv.STAGING, AddxNode.STRAGE_NODE_US, token, new AddxVideoContextInitCallBack() {
             @Override
             public void success() {
                 Global.isSDKInited = true;
@@ -111,7 +170,7 @@ public class MainActivity extends BaseActivity {
             }
 
             @Override
-            public void fail(String message) {
+            public void fail(int code, String message) {
                 LogUtils.d(TAG, "sdk init failed : %s", message);
                 showFailedPage();
                 dismissLoadingDialog();
@@ -164,6 +223,10 @@ public class MainActivity extends BaseActivity {
                 ToastUtils.showShort(R.string.shared_request_success);
             } else {
                 ToastUtils.showShort(R.string.shared_request_failed);
+            }
+        }else if (requestCode == REQUEST_CODE_CHANGE_LANGUAGE){
+            if (resultCode == RESULT_OK) {
+                recreate();//让语言设置生效
             }
         }
     }
