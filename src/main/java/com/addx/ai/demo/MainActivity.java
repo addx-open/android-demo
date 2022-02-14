@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity {
             ToastUtils.showShort("click SDCard");
             return false;
         });
-        if (Global.Settings.userMoreSettings) {
+        if (Settings.userMoreSettings) {
             builder.ennableMoreSettings(new ADDXSettings.SettingsMoreClickListener() {
                 @Override
                 public void onSettingsMoreClick(@NotNull View v, @NotNull DeviceBean deviceBean) {
@@ -111,7 +111,7 @@ public class MainActivity extends BaseActivity {
                 }
             }, null);
         }
-        if (Global.Settings.disableMotionPageSettings) {
+        if (Settings.disableMotionPageSettings) {
             builder.disableDurationAndResolution();
         }
         ADDXSettings.setFunctionBuilder(builder);
