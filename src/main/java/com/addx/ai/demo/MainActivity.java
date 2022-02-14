@@ -19,12 +19,15 @@ import com.ai.addxsettings.dialog.CommonBottomDialog;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+
 public class MainActivity extends BaseActivity {
     public static final String TAG = "MainActivity";
     private View mDemoListView;
 
     private static final int REQUEST_CODE_CHANGE_LANGUAGE = 10001;
 
+    HashMap<String,String> mTokenTests = new HashMap<>();
     /**
      * 此设置仅对SDK中的UI有效
      */
@@ -70,6 +73,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mTokenTests.put("a4x-test1","Bearer eyJhbGciOiJIUzUxMiJ9.eyJ0aGlyZFVzZXJJZCI6ImE0eC10ZXN0MSIsImFjY291bnRJZCI6InBhYXN0ZXN0Iiwic2VlZCI6IjEyZDVhODNiMmIzNjRlYmM5ZjFmZGExZTI1ZGRhODYzIiwiZXhwIjoyNjQyNjcyNTc4LCJ1c2VySWQiOjEwMDA3NzF9.S_XjOkNrU7hlTFIsYfz3Idm4o9E08Vi_Isz1TDnneBa6IElvJ5iBM5Laj3W3GHNFX_lSk9J1SVWo54aWGMCy9w");
+        mTokenTests.put("a4x-test2","Bearer eyJhbGciOiJIUzUxMiJ9.eyJ0aGlyZFVzZXJJZCI6ImE0eC10ZXN0MiIsImFjY291bnRJZCI6InBhYXN0ZXN0Iiwic2VlZCI6IjlmMDJmOTBiN2JjMjQyNTA5YWZiOWQ3ODA4N2NiNzZjIiwiZXhwIjoyNjQyNjcyNjExLCJ1c2VySWQiOjEwMDA3NzJ9.SXcb0PKvuTSjcl2snQ0BJgRjZ2yO8lNKvmiyiIYVcPCiZp7DJ0cUCLsgl6QLnNU60KCYL7i170hb2hL_4xFUTA");
+        mTokenTests.put("a4x-test3","Bearer eyJhbGciOiJIUzUxMiJ9.eyJ0aGlyZFVzZXJJZCI6ImE0eC10ZXN0MyIsImFjY291bnRJZCI6InBhYXN0ZXN0Iiwic2VlZCI6ImIxYmVkNzlhNWNjNzQxMGFiNjUwZjYyN2QwNDQyNTJhIiwiZXhwIjoyNjQyNjcyNjI5LCJ1c2VySWQiOjEwMDA3NzN9.AEY7zjZQ4NlznhxrSafXTOH1ziI8v3ZjpVZtUctwfkXIycVlRxFCIS-BNI21AyGZOOGX3aCyWQLXDrwKM8KfcQ");
         mDemoListView = findViewById(R.id.demolist);
         initSettingParams();
         ADDXBind.setLongClickQrListener(new ADDXBind.QrListener() {
