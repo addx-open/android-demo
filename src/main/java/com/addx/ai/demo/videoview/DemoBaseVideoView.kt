@@ -334,7 +334,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
     internal open fun resetRatioInfoForG0() {
         dataSourceBean?.let {
             if (it.deviceModel.isG0) {
-                SharePreManager.getInstance(context).setLiveRatio(it, Ratio.P720)
+                VideoSharePreManager.getInstance(context).setLiveRatio(it, Ratio.P720)
             }
         }
     }

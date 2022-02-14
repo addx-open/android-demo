@@ -801,7 +801,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
         val wifiLevel = WifiManager.calculateSignalLevel(dataSourceBean!!.signalStrength, 4)
         mAddxVideoContentView.findViewById<ImageView>(com.ai.addxvideo.R.id.iv_wifi)?.setImageLevel(wifiLevel)
 //        contentView.findViewById<BatteryView>(R.id.iv_power)?.setCharging(dataSourceBean!!.getIsCharging(), dataSourceBean!!.batteryLevel)
-        mVideoRatio = SharePreManager.getInstance(context).getLiveRatio(dataSourceBean!!)
+        mVideoRatio = VideoSharePreManager.getInstance(context).getLiveRatio(dataSourceBean!!)
         updateRatioTextView(mVideoRatio)
         if((mIVLiveVideoView.isNeedFRocker() || mIVLiveVideoView.isNeedFSpeaker()) && !mIsSplit){
 //            layout_pre_location.layoutParams.height = 0
@@ -965,8 +965,8 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
     private fun changeRatio(ratio: Ratio) {
         mVideoRatio = ratio
         isChanggingRatio = true
-        SharePreManager.getInstance(context).setLiveRatio(dataSourceBean!!, mVideoRatio)
-        SharePreManager.getInstance(context).setLiveRatioHd(dataSourceBean, mVideoRatio == mHDRatio)
+        VideoSharePreManager.getInstance(context).setLiveRatio(dataSourceBean!!, mVideoRatio)
+        VideoSharePreManager.getInstance(context).setLiveRatioHd(dataSourceBean, mVideoRatio == mHDRatio)
         updateRatioTextView(ratio)
         iAddxPlayer?.changeVideoRatio(mVideoRatio)
     }
@@ -975,8 +975,8 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
         dataSourceBean?.let {
             if (it.deviceModel.isG0) {
                 mVideoRatio = Ratio.P720
-                SharePreManager.getInstance(context).setLiveRatio(it, Ratio.P720)
-                SharePreManager.getInstance(context).setLiveRatioHd(it, mVideoRatio == mHDRatio)
+                VideoSharePreManager.getInstance(context).setLiveRatio(it, Ratio.P720)
+                VideoSharePreManager.getInstance(context).setLiveRatioHd(it, mVideoRatio == mHDRatio)
                 updateRatioTextView(Ratio.P720)
             }
         }
