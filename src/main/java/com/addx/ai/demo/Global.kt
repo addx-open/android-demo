@@ -1,15 +1,12 @@
 package com.addx.ai.demo
 
-class Global {
-    companion object{
-        open var isLogin = false
-        @JvmField
-        open var isSDKInited = false
+object Global {
+    open var isLogin = false
+    @JvmField
+    open var isSDKInited = false
 
-        // 建议生成新的token
-        // 格式是 key(userId) : value(token)
-
-    }
+    // 建议生成新的token
+    // 格式是 key(userId) : value(token)
 
     internal interface Settings {
         companion object {
