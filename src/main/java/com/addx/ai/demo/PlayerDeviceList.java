@@ -45,7 +45,7 @@ public class PlayerDeviceList extends BaseActivity {
     protected void initView() {
         super.initView();
         container = findViewById(R.id.list_device);
-        if(Global.isSDKInited){
+        if(DemoGlobal.isSDKInited){
             listDeviceInfo();
         }else{
             Intent intent = new Intent(this, MainActivity.class);

@@ -131,8 +131,8 @@ public class MainActivity extends BaseActivity {
 
 
     public void clickToLogout(View view) {
-        if (Global.isSDKInited) {
-            Global.isSDKInited = false;
+        if (DemoGlobal.isSDKInited) {
+            DemoGlobal.isSDKInited = false;
             ToastUtils.showShort(R.string.logout_success);
             mDemoListView.setVisibility(View.INVISIBLE);
             A4xContext.getInstance().releaseA4xSdk();
@@ -149,7 +149,7 @@ public class MainActivity extends BaseActivity {
      *
      */
     public void onClickLogin(View v) {
-        if (!Global.isSDKInited) {
+        if (!DemoGlobal.isSDKInited) {
             new CommonBottomDialog.Builder(this).title("Choose User Id to login")
                     .displayedValues(mTokenTests.keySet().toArray(new String[3]))
                     .itemClick(new CommonBottomDialog.OnItemClickListener() {
@@ -169,7 +169,7 @@ public class MainActivity extends BaseActivity {
         A4xContext.getInstance().initA4xSdk(getApplicationContext(), "paastest", "zh", "CN", A4xContext.BuildEnv.STAGING, AddxNode.STRAGE_NODE_US, token, new AddxVideoContextInitCallBack() {
             @Override
             public void success() {
-                Global.isSDKInited = true;
+                DemoGlobal.isSDKInited = true;
                 showSuccessPage();
                 dismissLoadingDialog();
             }

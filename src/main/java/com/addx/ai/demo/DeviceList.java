@@ -51,7 +51,7 @@ public class DeviceList extends BaseActivity {
     protected void initView() {
         super.initView();
         container = findViewById(R.id.list_device);
-        if(Global.isSDKInited){
+        if(DemoGlobal.isSDKInited){
             reloadPage();
         }else{
             Intent intent = new Intent(this, MainActivity.class);
