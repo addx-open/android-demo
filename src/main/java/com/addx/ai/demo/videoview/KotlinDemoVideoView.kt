@@ -1076,7 +1076,7 @@ open class  KotlinDemoVideoView: DemoBaseVideoView, RockerView.OnPositionChangeL
             DownloadUtil.downloadImg(dataSourceBean?.getThumbImgUrl(), imgPath, object : DownloadUtil.DownloadListener {
                 override fun success(url: String?, path: String?) {
                     LogUtils.d(TAG, "toRequestAndRefreshThumbImg===success==code:${this@KotlinDemoVideoView.hashCode()}==sn:${dataSourceBean?.serialNumber}==path:$path==url:${dataSourceBean?.getThumbImgUrl()}")
-                    SharePreManager.getInstance(context).setThumbImgServerLastFresh(dataSourceBean?.serialNumber, dataSourceBean?.thumbImgTime, dataSourceBean?.thumbImgUrl)
+                    VideoSharePreManager.getInstance(context).setThumbImgServerLastFresh(dataSourceBean?.serialNumber, dataSourceBean?.thumbImgTime, dataSourceBean?.thumbImgUrl)
                     mServerThumbTime = dataSourceBean?.thumbImgTime!!
                     setThumbPath(imgPath)
                 }

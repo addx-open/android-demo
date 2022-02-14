@@ -483,7 +483,7 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
                         iAddxPlayer?.saveShot { frame ->
                             if (frame != null) {
                                 mLocalThumbTime = TimeUtils.getUTCTime()
-                                SharePreManager.getInstance(context).setThumbImgLocalLastFresh(dataSourceBean!!.serialNumber, TimeUtils.getUTCTime())
+                                VideoSharePreManager.getInstance(context).setThumbImgLocalLastFresh(dataSourceBean!!.serialNumber, TimeUtils.getUTCTime())
                                 LocalDrawableUtills.instance.putLocalCoverBitmap(dataSourceBean!!.serialNumber.plus(thumbSaveKeySuffix), frame)
                                 mBitmap = frame
                                 post{
@@ -1328,8 +1328,8 @@ open abstract class DemoBaseVideoView : FrameLayout, IAddxView, IAddxPlayerState
 
     fun updateThumbImageSource(){
 //        LogUtils.d(TAG, "DemoBaseVideoView------updateThumbImageSource-------mServerThumbTime:${mServerThumbTime}---mLocalThumbTime:${mLocalThumbTime}")
-        mLocalThumbTime = SharePreManager.getInstance(context).getThumbImgLastLocalFreshTime(dataSourceBean!!.serialNumber) / 1000
-        mServerThumbTime = SharePreManager.getInstance(context).getThumbImgLastServerFreshTime(dataSourceBean!!.serialNumber)
+        mLocalThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastLocalFreshTime(dataSourceBean!!.serialNumber) / 1000
+        mServerThumbTime = VideoSharePreManager.getInstance(context).getThumbImgLastServerFreshTime(dataSourceBean!!.serialNumber)
         if(mServerThumbTime > mLocalThumbTime){
 //            LogUtils.d(TAG, "DemoBaseVideoView------updateThumbImageSource------toRequestAndRefreshThumbImg-------sn:${dataSourceBean!!.serialNumber}")
             val imgPath = DownloadUtil.getThumbImgDir(activityContext) + MD5Util.md5(dataSourceBean?.serialNumber)+".jpg"
