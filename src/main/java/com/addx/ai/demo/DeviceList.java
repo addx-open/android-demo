@@ -62,12 +62,17 @@ public class DeviceList extends BaseActivity {
     protected void initView() {
         super.initView();
         container = findViewById(R.id.list_device);
+        if(Global.isSDKInited){
+            reloadPage();
+        }else{
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        reloadPage();
     }
 
     private void reloadPage(){
@@ -376,6 +381,13 @@ public class DeviceList extends BaseActivity {
                             } else {
                                 ToastUtils.showShort(R.string.device_update_scuess);
                             }
+                        }
+                    }));
+                    container.addView(addItem(bean, "get thumb image", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String thumbImgPath = liveAddxVideoView.getThumbImagePath(DeviceList.this, bean.getSerialNumber());
+                            LogUtils.d(TAG, "thumbImgPath====thumbImgPath："+(thumbImgPath != null? thumbImgPath: ""));
                         }
                     }));
                 }

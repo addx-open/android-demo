@@ -1,5 +1,6 @@
 package com.addx.ai.demo;
 
+import android.content.Intent;
 import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
@@ -46,7 +47,12 @@ public class PlayerDeviceList extends BaseActivity {
     protected void initView() {
         super.initView();
         container = findViewById(R.id.list_device);
-        listDeviceInfo();
+        if(Global.isSDKInited){
+            listDeviceInfo();
+        }else{
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     void listDeviceInfo() {
