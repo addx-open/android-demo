@@ -16,7 +16,6 @@ import com.ai.addxbase.permission.PermissionHelp;
 import com.ai.addxbase.util.ToastUtils;
 import com.ai.addxsettings.ADDXSettings;
 import com.ai.addxsettings.dialog.CommonBottomDialog;
-import com.ai.addxsettings.utils.PushHandlerUtils;
 
 import org.jetbrains.annotations.NotNull;
 

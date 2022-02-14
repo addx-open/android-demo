@@ -1,12 +1,9 @@
 package com.addx.ai.demo;
 
-import android.bluetooth.BluetoothClass;
 import android.content.Intent;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -21,18 +18,13 @@ import com.ai.addxbase.model.OtaStateResponse;
 import com.ai.addxbase.mvvm.RxViewModel;
 import com.ai.addxbase.util.ToastUtils;
 import com.ai.addx.model.DeviceBean;
-import com.ai.addx.model.request.BaseEntry;
-import com.ai.addx.model.response.AllDeviceResponse;
 import com.ai.addxbase.mvvm.BaseActivity;
 import com.ai.addxbase.ADDXBind;
-import com.ai.addxnet.ApiClient;
-import com.ai.addxnet.HttpSubscriber;
 import com.ai.addxsettings.ADDXSettings;
 import com.ai.addxvideo.addxvideoplay.AddxBaseVideoView;
 import com.ai.addxvideo.addxvideoplay.IAddxView;
 import com.ai.addxvideo.addxvideoplay.IAddxViewCallback;
 import com.ai.addxvideo.addxvideoplay.LiveAddxVideoView;
-import com.ai.addxvideo.addxvideoplay.SimpleAddxViewCallBack;
 import com.ai.addxvideo.addxvideoplay.addxplayer.webrtcplayer.DataChannelCommand;
 import com.alibaba.fastjson.JSON;
 
@@ -43,9 +35,6 @@ import java.lang.ref.WeakReference;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 public class DeviceList extends BaseActivity {
