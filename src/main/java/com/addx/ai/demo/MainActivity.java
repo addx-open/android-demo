@@ -151,12 +151,12 @@ public class MainActivity extends BaseActivity {
     public void onClickLogin(View v) {
         if (!Global.isSDKInited) {
             new CommonBottomDialog.Builder(this).title("Choose User Id to login")
-                    .displayedValues(Global.Companion.getMTokenTests().keySet().toArray(new String[3]))
+                    .displayedValues(mTokenTests.keySet().toArray(new String[3]))
                     .itemClick(new CommonBottomDialog.OnItemClickListener() {
                         @Override
                         public void onItemClick(int position, @NotNull String value) {
                             LogUtils.d(TAG,"value = "+value);
-                            initSDK(Global.Companion.getMTokenTests().get(value));
+                            initSDK(mTokenTests.get(value));
                         }
                     }).show();
         } else {
