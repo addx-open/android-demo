@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        javaCompileOptions{
+            annotationProcessorOptions{
+                includeCompileClasspath = true
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("sdk-demo.jks")
+            storePassword "addxdemo"
+            keyAlias "addxdemo"
+            keyPassword "addxdemo"
+        }
+    }
+
+    buildTypes {
+
+        debug {
+            debuggable true
+            println("debug info :" + debug)
+            signingConfig signingConfigs.release
+        }
+
+        release {
+            proguardFiles 'proguard-rules.pro'
+            println("release info :" + release)
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32"
+
+    if(needDepsLocalModule){
+        implementation project(path: ':addxvideo')
+        implementation project(path: ':addxbind')
+        implementation project(path: ':addxsettings')
+        implementation project(path: ':addxavlinkage')
+        implementation project(path: ':themeMain')
+    }else{
+        implementation "com.addx.ai:addxvideo:1.2.0_beta"
+        implementation "com.addx.ai:addxbind:1.2.0_beta"
+        implementation "com.addx.ai:addxsettings:1.2.0_beta"
+        implementation "com.addx.ai:addxavlinkage:1.2.0_beta"
+        implementation "com.addx.ai:thememain:1.2.0_beta"
+    }
+}
