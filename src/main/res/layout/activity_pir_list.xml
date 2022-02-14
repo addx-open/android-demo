@@ -10,6 +10,12 @@
         android:onClick="clickToDelete"
         android:text="delete selected" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickToQueryVideo"
+        android:text="query video" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pir_list"
         android:layout_width="match_parent"

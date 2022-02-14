@@ -13,6 +13,7 @@ import com.addx.common.utils.LogUtils
 import com.addx.common.utils.SizeUtils
 import com.ai.addx.model.RecordBean
 import com.ai.addx.model.request.DeleteRecordResponse
+import com.ai.addx.model.response.LibraryStatusResponse
 import com.ai.addxbase.DeviceClicent
 import com.ai.addxbase.IDeviceClient
 import com.ai.addxbase.VideoConfig
@@ -225,5 +226,32 @@ class PirListActivity : BaseActivity() {
                     }
                 })
         }
+    }
+
+    fun clickToQueryVideo(view: View) {
+        showLoadingDialog()
+        DeviceClicent.getInstance().queryVideoStateWithTime(VideoConfig.Builder(
+            (System.currentTimeMillis() - TimeUnit.DAYS.toMillis(31))/1000,
+            System.currentTimeMillis()/1000
+        ).build(),
+            object : IDeviceClient.ResultListener<LibraryStatusResponse.DataBean> {
+                override fun onResult(
+                    responseMessage: IDeviceClient.ResponseMessage,
+                    result: LibraryStatusResponse.DataBean?
+                ) {
+                    dismissLoadingDialog()
+                    if (responseMessage.responseCode != 0) {
+                        ToastUtils.showShort(R.string.network_error)
+                    } else {
+                        val msg = if (result?.list.isNullOrEmpty()) {
+                            "前31天 无视频"
+                        } else {
+                            "${result!!.list.size} 天有视频"
+                        }
+                        ToastUtils.showShort(msg)
+                    }
+                }
+            }
+        )
     }
 }
