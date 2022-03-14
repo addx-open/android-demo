@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.addx.ai.demo.videoview.kotlinDemoSdcardVideoView;
 import com.addx.common.Const;
 import com.addx.common.utils.LogUtils;
 import com.ai.addx.model.DeviceBean;
@@ -39,7 +38,7 @@ import rx.schedulers.Schedulers;
 
 public class SdcardPlayActivity extends BaseActivity {
 
-    private kotlinDemoSdcardVideoView mIAddxSdcardView;//PlaybackLivePlayer
+//    private kotlinDemoSdcardVideoView mIAddxSdcardView;//PlaybackLivePlayer
     private DeviceBean deviceBean;
 
     private TreeMap<Long, VideoSliceBean> dataMap = new TreeMap<>();
@@ -89,51 +88,51 @@ public class SdcardPlayActivity extends BaseActivity {
     }
 
     private void initPlayer() {
-        mIAddxSdcardView = findViewById(R.id.playback_live_player);
+//        mIAddxSdcardView = findViewById(R.id.playback_live_player);
 
         LogUtils.w("initPlayer", "initPlayer-------deviceBean---" + (deviceBean == null));
-        mIAddxSdcardView.setListener();
-        mIAddxSdcardView.init(this, deviceBean, new SimpleAddxViewCallBack() {
-            @Override
-            public void onPlayerNeedRemove(@NotNull IAddxView iAddxView) {
-
-            }
-
-            @Override
-            public void onStartPlay() {
-                //        LogUtils.d("onstartPlay","onstartPlay");
-            }
-
+//        mIAddxSdcardView.setListener();
+//        mIAddxSdcardView.init(this, deviceBean, new SimpleAddxViewCallBack() {
 //            @Override
-//            public boolean onViewClick(@androidx.annotation.Nullable View v) {
-//                if (v == null) {
-//                    return false;
-//                }
-//                if(v.getId() == R.id.start){
-////                    if (!mIAddxSdcardView.isPlaying()) {
-////                        mIAddxSdcardView.setPlayingStartTime(fragment.getPointTime());
-////                        mIAddxSdcardView.setPlayingEndTime(getSelectedFragment().getPlayEndTime());
-////                    }
-//                }
-//                return false;
+//            public void onPlayerNeedRemove(@NotNull IAddxView iAddxView) {
+//
 //            }
-
-            @Override
-            public void onStopPlay() {
-                //    LogUtils.d("onStopPlay","onStopPlay");
-            }
-
-            @Override
-            public void onError(int errorCode) {
-
-            }
-        });
+//
+//            @Override
+//            public void onStartPlay() {
+//                //        LogUtils.d("onstartPlay","onstartPlay");
+//            }
+//
+////            @Override
+////            public boolean onViewClick(@androidx.annotation.Nullable View v) {
+////                if (v == null) {
+////                    return false;
+////                }
+////                if(v.getId() == R.id.start){
+//////                    if (!mIAddxSdcardView.isPlaying()) {
+//////                        mIAddxSdcardView.setPlayingStartTime(fragment.getPointTime());
+//////                        mIAddxSdcardView.setPlayingEndTime(getSelectedFragment().getPlayEndTime());
+//////                    }
+////                }
+////                return false;
+////            }
+//
+//            @Override
+//            public void onStopPlay() {
+//                //    LogUtils.d("onStopPlay","onStopPlay");
+//            }
+//
+//            @Override
+//            public void onError(int errorCode) {
+//
+//            }
+//        });
 
     }
-
-    public Observable<SdcardPlaybackResponse> retrieveLocalVideo(SdcardPlaybackEntry entry) {
-        return mIAddxSdcardView.retrieveLocalVideo(entry);
-    }
+//
+//    public Observable<SdcardPlaybackResponse> retrieveLocalVideo(SdcardPlaybackEntry entry) {
+//        return mIAddxSdcardView.retrieveLocalVideo(entry);
+//    }
 
     public void showList(){
         runOnUiThread(new Runnable() {
@@ -193,9 +192,9 @@ public class SdcardPlayActivity extends BaseActivity {
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mIAddxSdcardView.setPlayingStartTime(begin);
-                    mIAddxSdcardView.setPlayingEndTime(end);
-                    mIAddxSdcardView.startPlay();
+//                    mIAddxSdcardView.setPlayingStartTime(begin);
+//                    mIAddxSdcardView.setPlayingEndTime(end);
+//                    mIAddxSdcardView.startPlay();
                 }
             });
         }
@@ -216,67 +215,67 @@ public class SdcardPlayActivity extends BaseActivity {
         long endTime = Calendar.getInstance().getTimeInMillis() / 1000;
         entry.setEndTime(endTime);
         LogUtils.e(TAG, "to---retrieveLocalVideo------");
-        retrieveLocalVideo(entry).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new HttpSubscriber<SdcardPlaybackResponse>() {
-                    @Override
-                    public void doOnNext(SdcardPlaybackResponse sdcardPlaybackResponse) {
-                        LogUtils.d("t","retrieveLocalVideo-----doOnNext");
-
-                        int result = sdcardPlaybackResponse.getResult();
-                        if (result < Const.ResponseCode.CODE_OK) {
-                            if (result == -30000) {
-                                ToastUtils.showShort(R.string.SDcard_video_viewers_limit);
-                                finish();
-                                return;
-                            }
-                            LogUtils.d("getSdHasVideoDayResponseError", "code=" + result + ",message=" + sdcardPlaybackResponse.getMsg());
-                        } else {
-                            dataMap.clear();
-                            List<VideoSliceBean> list = sdcardPlaybackResponse.getData().getVideoSlices();
-                            //   list.clear();
-                            earliestVideoSlice = sdcardPlaybackResponse.getData().getEarliestVideoSlice();
-                            if (earliestVideoSlice != null) {
-                                earliestVideoSlice.setStartTime(earliestVideoSlice.getStartTime() * 1000);
-                                earliestVideoSlice.setEndTime(earliestVideoSlice.getEndTime() * 1000);
-                            }
-
-                            if (list != null) {
-                                for (VideoSliceBean bean : list) {
-                                    bean.setStartTime(bean.getStartTime() * 1000);
-                                    bean.setEndTime(bean.getEndTime() * 1000);
-                                    dataMap.put(bean.getStartTime(), bean);
-                                }
-                            }
-                            showList();
-                        }
-                    }
-
-                    @Override
-                    public void onStart() {
-                        super.onStart();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        LogUtils.d("t","retrieveLocalVideo-----onError");
-
-                    }
-
-                    @Override
-                    public boolean onTimeOut() {
-                        LogUtils.d("t","retrieveLocalVideo-----onTimeOut");
-
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onNetworkException() {
-                        LogUtils.d("t","retrieveLocalVideo-----onNetworkException");
-
-                        return true;
-                    }
-                });
+//        retrieveLocalVideo(entry).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new HttpSubscriber<SdcardPlaybackResponse>() {
+//                    @Override
+//                    public void doOnNext(SdcardPlaybackResponse sdcardPlaybackResponse) {
+//                        LogUtils.d("t","retrieveLocalVideo-----doOnNext");
+//
+//                        int result = sdcardPlaybackResponse.getResult();
+//                        if (result < Const.ResponseCode.CODE_OK) {
+//                            if (result == -30000) {
+//                                ToastUtils.showShort(R.string.SDcard_video_viewers_limit);
+//                                finish();
+//                                return;
+//                            }
+//                            LogUtils.d("getSdHasVideoDayResponseError", "code=" + result + ",message=" + sdcardPlaybackResponse.getMsg());
+//                        } else {
+//                            dataMap.clear();
+//                            List<VideoSliceBean> list = sdcardPlaybackResponse.getData().getVideoSlices();
+//                            //   list.clear();
+//                            earliestVideoSlice = sdcardPlaybackResponse.getData().getEarliestVideoSlice();
+//                            if (earliestVideoSlice != null) {
+//                                earliestVideoSlice.setStartTime(earliestVideoSlice.getStartTime() * 1000);
+//                                earliestVideoSlice.setEndTime(earliestVideoSlice.getEndTime() * 1000);
+//                            }
+//
+//                            if (list != null) {
+//                                for (VideoSliceBean bean : list) {
+//                                    bean.setStartTime(bean.getStartTime() * 1000);
+//                                    bean.setEndTime(bean.getEndTime() * 1000);
+//                                    dataMap.put(bean.getStartTime(), bean);
+//                                }
+//                            }
+//                            showList();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onStart() {
+//                        super.onStart();
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        super.onError(e);
+//                        LogUtils.d("t","retrieveLocalVideo-----onError");
+//
+//                    }
+//
+//                    @Override
+//                    public boolean onTimeOut() {
+//                        LogUtils.d("t","retrieveLocalVideo-----onTimeOut");
+//
+//                        return true;
+//                    }
+//
+//                    @Override
+//                    public boolean onNetworkException() {
+//                        LogUtils.d("t","retrieveLocalVideo-----onNetworkException");
+//
+//                        return true;
+//                    }
+//                });
 
 
     }

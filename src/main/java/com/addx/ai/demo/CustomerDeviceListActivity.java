@@ -4,7 +4,7 @@ import android.view.View;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
 
-import com.addx.ai.demo.videoview.KotlinDemoVideoView;
+//import com.addx.ai.demo.videoview.KotlinDemoVideoView;
 import com.addx.common.utils.LogUtils;
 import com.ai.addx.model.DeviceBean;
 import com.ai.addxbase.DeviceClicent;
@@ -63,19 +63,19 @@ public class CustomerDeviceListActivity extends BaseActivity {
 //                            });
 //                    LogUtils.d("bean","bean---deviceupdatestatu:"+ ADDXSettings.getDeviceUpdateStatus(bean));
                     LogUtils.d(TAG, "name : " + bean.getDeviceName());
-                    KotlinDemoVideoView demoVideoView = new KotlinDemoVideoView(CustomerDeviceListActivity.this);
-                    demoVideoView.init(CustomerDeviceListActivity.this, bean, new SimpleAddxViewCallBack(){
-                        @Override
-                        public void onStartPlay() {
-                            super.onStartPlay();
-                        }
-
-                        @Override
-                        public void onError(int errorCode) {
-                            super.onError(errorCode);
-                        }
-                    });
-                    container.addView(demoVideoView);
+//                    KotlinDemoVideoView demoVideoView = new KotlinDemoVideoView(CustomerDeviceListActivity.this);
+//                    demoVideoView.init(CustomerDeviceListActivity.this, bean, new SimpleAddxViewCallBack(){
+//                        @Override
+//                        public void onStartPlay() {
+//                            super.onStartPlay();
+//                        }
+//
+//                        @Override
+//                        public void onError(int errorCode) {
+//                            super.onError(errorCode);
+//                        }
+//                    });
+//                    container.addView(demoVideoView);
                 }
             }
         });

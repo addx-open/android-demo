@@ -38,12 +38,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ADDXBind.setLongClickQrListener(new ADDXBind.QrListener() {
-            @Override
-            public void getQrData(@Nullable String s) {
-                LogUtils.d("ddd","ADDXBind----getQrData"+s);
-            }
-        });
+//        ADDXBind.setLongClickQrListener(new ADDXBind.QrListener() {
+//            @Override
+//            public void getQrData(@Nullable String s) {
+//                LogUtils.d("ddd","ADDXBind----getQrData"+s);
+//            }
+//        });
         ADDXSettings.setFunctionBuilder(new ADDXSettings.Builder().setSDCardClickCallback(new ADDXSettings.ViewClickListener() {
             @Override
             public void onViewClick(@NotNull View v, @NotNull DeviceBean deviceBean) {
