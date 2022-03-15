@@ -63,7 +63,7 @@
         <activity android:name=".DeviceList"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"/>
-        <activity android:name=".WebViewActivity"
+        <activity android:name=".WebViewDemoActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".OtherActivity"
             android:screenOrientation="portrait" />

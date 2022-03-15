@@ -1,7 +1,5 @@
 package com.addx.ai.demo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,7 +12,7 @@ import android.webkit.WebViewClient;
 import com.addx.common.Const;
 import com.addx.common.utils.LogUtils;
 
-public class WebViewActivity extends BaseActivity {
+public class WebViewDemoActivity extends BaseActivity {
 
     private WebView webView;
     private String title;
@@ -29,7 +27,7 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     protected int getResid() {
-        return R.layout.activity_web_view;
+        return R.layout.activity_demo_web_view;
     }
 
     protected void initView() {

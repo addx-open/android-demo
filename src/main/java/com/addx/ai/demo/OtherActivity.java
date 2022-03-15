@@ -31,7 +31,7 @@ public class OtherActivity extends BaseActivity {
                 Toast.makeText(getApplicationContext(),"接口文档不存在",Toast.LENGTH_LONG).show();
                 return;
             }
-            Intent intent = new Intent(this, WebViewActivity.class);
+            Intent intent = new Intent(this, WebViewDemoActivity.class);
             intent.putExtra(Const.Extra.WEB_VIEW_URL,interfaceUrl);
             startActivity(intent);
         });
