@@ -84,9 +84,9 @@ dependencies {
 //        implementation project(path: ':addxtrack')
 //        implementation project(path: ':addxnet')
     }else{
-        implementation "com.addx.ai:addxvideo:1.0.94"
-        implementation "com.addx.ai:addxbind:1.0.94"
-        implementation "com.addx.ai:addxsettings:1.0.94"
+        implementation "com.addx.ai:addxvideo:1.0.96"
+        implementation "com.addx.ai:addxbind:1.0.96"
+        implementation "com.addx.ai:addxsettings:1.0.96"
 //        implementation "com.addx.ai:theme2:1.0.93"
 //        implementation "com.addx.ai:addxapp:1.0.62"
     }

@@ -11,24 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RelativeLayout
-                android:id="@+id/surface_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center" />
-
-            <ImageView
-                android:id="@+id/thumbImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@mipmap/bind_page_3_bottom"
-                android:visibility="gone"/>
-        </FrameLayout>
+        <include layout="@layout/include_player_surface_and_thumb"></include>
     </com.ai.addxvideo.addxvideoplay.view.ZoomView>
 
     <View
